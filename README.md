@@ -51,7 +51,7 @@ The Vehicle Signal Specification (VSS) - aimed at standardizing the way vehicle 
 4. For operations that require control or command functionalities, what are the best practices for implementing interfaces on the vehicle server side using GraphQL?
 - 
 
-# Vehicle Data Model NameSpace Specification - Alternative
+## Vehicle Data Model NameSpace Specification - Alternative
 
 
 ## **Purpose**: 
