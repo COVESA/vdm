@@ -1,0 +1,59 @@
+
+# Define the Namespace type
+type Namespace {
+  name: String!
+  parent: Namespace
+}
+
+# Define the Element type
+type Element {
+  name: String!
+  description: String
+  basetype: String!
+  min: Float
+  max: Float
+}
+
+# Define the Vehicle type
+type Vehicle {
+  chassis: Chassis
+}
+
+# Define the Chassis type
+type Chassis {
+  wheel: Wheel
+}
+
+# Define the Wheel type
+type Wheel {
+  namespace: Wheel.
+  speed: Float
+  angularSpeed: Float
+  brake: Brake
+  tire: Tire
+}
+
+# Define the Brake type
+type Brake {
+  namespace: Wheel.brake.
+  fluidLevel: Int
+  padWear: Int
+  isFluidLevelLow: Boolean
+  isBrakesWorn: Boolean
+}
+
+# Define the Tire type
+type Tire {
+  pressure: Int
+  temperature: Float
+  isPressureLow: Boolean
+}
+
+# Define the Query type for fetching data
+type Query {
+  getVehicle: Vehicle
+}
+
+schema {
+  query: Query
+}
