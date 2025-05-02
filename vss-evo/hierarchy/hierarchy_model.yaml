@@ -1,0 +1,29 @@
+
+namespaces:
+  - name: vehicle
+    parent: null
+    branches:
+      - body
+      - chassis
+      - powertrain
+      - adas
+
+  - name: chassis
+    parent: vehicle
+    branches:
+      - wheel
+
+  - name: wheel
+    parent: chassis
+    branches:
+      - brake
+      - tire
+
+  - name: adas
+    parent: vehicle
+    branches:
+      - cruiseControl
+      - laneDepartureDetection
+      - obstacleDetection
+      - antiLockBraking
+      - tractionControl

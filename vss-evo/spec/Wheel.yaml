@@ -1,0 +1,55 @@
+elements:
+  - namespace: chassis.wheel
+    properties:
+      - name: speed
+        datatype: float
+        unit: km/h
+        description: "Linear speed of a vehicle's wheel."
+
+      - name: angularSpeed
+        datatype: float
+        unit: degrees/s
+        description: "Angular (Rotational) speed of a vehicle's wheel."
+
+
+# Brake
+  - namespace: chassis.wheel.brake
+    properties:
+      - name: fluidLevel
+        datatype: uint8
+        unit: percent
+        max: 100
+        description: "Brake fluid level as percent. 0 = Empty. 100 = Full."
+
+      - name: padWear
+        datatype: uint8
+        unit: percent
+        max: 100
+        description: "Brake pad wear as percent. 0 = No Wear. 100 = Worn."
+
+    status:
+      - name: isFluidLevelLow
+        datatype: boolean
+        description: "Brake fluid level status. True = Brake fluid level low. False = Brake fluid level OK."
+
+      - name: isBrakesWorn
+        datatype: boolean
+        description: "Brake pad wear status. True = Worn. False = Not Worn."
+
+# Tire
+  - namespace: chassis.wheel.tire
+    properties:
+      - name: pressure
+        datatype: uint16
+        unit: kPa
+        description: "Tire pressure in kilo-Pascal."
+
+      - name: temperature
+        datatype: float
+        unit: celsius
+        description: "Tire temperature in Celsius."
+
+    status:
+      - name: isPressureLow
+        datatype: boolean
+        description: "Tire pressure status. True = Low tire pressure. False = Good tire pressure."

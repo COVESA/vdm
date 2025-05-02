@@ -1,0 +1,5 @@
+units:
+ - name: mps
+   symbol: m/s
+ - name: kmph
+   symbol: km/h
