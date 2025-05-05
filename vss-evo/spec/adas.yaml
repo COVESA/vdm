@@ -1,0 +1,96 @@
+# Vehicle Data Model Specification with Organized Elements
+# ADAS elements
+elements:
+  - namespace: adas
+    properties:
+      - name: activeAutonomyLevel
+        datatype: string
+        allowed: ['SAE_0', 'SAE_1', 'SAE_2_DISENGAGING', 'SAE_2', 'SAE_3_DISENGAGING', 'SAE_3', 'SAE_4_DISENGAGING', 'SAE_4', 'SAE_5_DISENGAGING', 'SAE_5']
+        description: "Indicates the currently active level of driving automation according to SAE J3016."
+
+    attributes:
+      - name: supportedAutonomyLevel
+        datatype: string
+        allowed: ['SAE_0', 'SAE_1', 'SAE_2', 'SAE_3', 'SAE_4', 'SAE_5']
+        description: "Indicates the highest level of driving automation the vehicle is capable of."
+
+  - namespace: adas.cruiseControl
+    actions:
+      - name: speedSet
+        datatype: float
+        unit: km/h
+        description: "Set cruise control speed in kilometers per hour."
+
+      - name: adaptiveDistanceSet
+        datatype: float
+        unit: m
+        min: 0.0
+        description: "Distance in meters to keep from lead vehicle."
+
+      - name: adaptiveIntervalSet
+        datatype: uint8
+        description: "Follow distance setting, commonly 1-5 with 1 being closest."
+
+    status:
+      - name: isError
+        datatype: boolean
+        description: "Indicates if cruise control system incurred an error condition. True = Error. False = No Error."
+
+      - name: isEnabled
+        datatype: boolean
+        description: "Indicates if cruise control system is enabled. True = Enabled. False = Disabled."
+
+      - name: isActive
+        datatype: boolean
+        description: "Indicates if cruise control system is active. True = Active. False = Inactive."
+
+      - name: isAdaptive
+        datatype: boolean
+        description: "Indicates if cruise control system is adaptive."
+
+  - namespace: adas.laneDepartureDetection
+    status:
+      - name: isEnabled
+        datatype: boolean
+        description: "Indicates if lane departure detection system is enabled. True = Enabled. False = Disabled."
+
+      - name: isWarning
+        datatype: boolean
+        description: "Indicates if lane departure detection registered a lane departure."
+
+      - name: isError
+        datatype: boolean
+        description: "Indicates if lane departure system incurred an error condition. True = Error. False = No Error."
+
+  - namespace: adas.obstacleDetection
+    properties:
+      - name: distance
+        datatype: float
+        unit: m
+        min: 0.0
+        description: "Distance in meters to detected object."
+
+      - name: timeGap
+        datatype: uint32
+        unit: ms
+        description: "Time in milliseconds before potential impact object."
+
+    attributes:
+      - name: warningType
+        datatype: string
+        allowed: ['UNDEFINED', 'CROSS_TRAFFIC', 'BLIND_SPOT']
+        description: "Indicates the type of obstacle warning detected."
+
+    status:
+      - name: isEnabled
+        datatype: boolean
+        description: "Indicates if obstacle sensor system is enabled. True = Enabled. False = Disabled."
+
+      - name: isWarning
+        datatype: boolean
+        description: "Indicates if obstacle sensor system registered an obstacle."
+
+      - name: isError
+        datatype: boolean
+        description: "Indicates if obstacle sensor system incurred an error condition. True = Error. False = No Error."
+
