@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "vss-pyidl-demo"
+version = "0.1.0"
+description = ""
+authors = ["cpodalak <cpodalak@gmail.com>"]
+package-mode = false 
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pydantic = "~2.10.0"
+pydantic-core = "^2.27.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
