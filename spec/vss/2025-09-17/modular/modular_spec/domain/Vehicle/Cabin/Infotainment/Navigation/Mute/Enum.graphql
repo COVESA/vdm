@@ -1,0 +1,9 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Cabin.Infotainment.Navigation.Mute."""
+enum Vehicle_Cabin_Infotainment_Navigation_Mute_Enum {
+  MUTED
+  ALERT_ONLY
+  UNMUTED
+}

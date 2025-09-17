@@ -1,0 +1,34 @@
+# Domain-specific GraphQL types
+
+
+"""Signals from Cruise Control system."""
+type Vehicle_Adas_CruiseControl {
+  """Distance in meters to keep from lead vehicle"""
+  adaptiveDistanceSet(unit: LengthUnitEnum = METER): Float
+
+  """Follow distance setting, commonly 1-5 with 1 being closest."""
+  adaptiveIntervalSet: UInt8
+
+  """
+  Indicates if cruise control system is active (i.e. actively controls speed). True = Active. False = Inactive.
+  """
+  isActive: Boolean
+
+  """
+  Indicates if cruise control system is adaptive (i.e. actively controls speed).
+  """
+  isAdaptive: Boolean
+
+  """
+  Indicates if cruise control system is enabled (e.g. ready to receive configurations and settings) True = Enabled. False = Disabled.
+  """
+  isEnabled: Boolean
+
+  """
+  Indicates if cruise control system incurred an error condition. True = Error. False = No Error.
+  """
+  isError: Boolean
+
+  """Set cruise control speed in kilometers per hour."""
+  speedSet(unit: VelocityUnitEnum = KILOMETER_PER_HOUR): Float
+}

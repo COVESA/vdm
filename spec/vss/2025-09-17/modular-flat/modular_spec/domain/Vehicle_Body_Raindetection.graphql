@@ -1,0 +1,8 @@
+# Domain-specific GraphQL types
+
+
+"""Rain sensor signals."""
+type Vehicle_Body_Raindetection {
+  """Rain intensity. 0 = Dry, No Rain. 100 = Covered."""
+  intensity(unit: RelationUnitEnum = PERCENT): UInt8
+}

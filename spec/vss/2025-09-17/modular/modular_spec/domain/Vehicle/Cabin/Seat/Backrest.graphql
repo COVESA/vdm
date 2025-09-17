@@ -1,0 +1,86 @@
+# Domain-specific GraphQL types
+
+
+"""Describes signals related to the backrest of the seat."""
+type Vehicle_Cabin_Seat_Backrest {
+  """
+  Bottom lumbar bsupport (in/out position). 0 = Innermost position. 100 = Outermost position.
+  """
+  bottomLumbarSupport(unit: RelationUnitEnum = PERCENT): Float
+
+  """
+  Heating or Cooling requsted for the Item. -100 = Maximum cooling, 0 = Heating/cooling deactivated, 100 = Maximum heating.
+  """
+  heatingCooling(unit: RelationUnitEnum = PERCENT): Int8
+
+  """Is switch for less lumbar support engaged."""
+  isLessLumbarSupportSwitchEngaged: Boolean
+
+  """Is switch for less side bolster support engaged."""
+  isLessSideBolsterSupportSwitchEngaged: Boolean
+
+  """Lumbar down switch engaged."""
+  isLumbarDownSwitchEngaged: Boolean
+
+  """Lumbar up switch engaged."""
+  isLumbarUpSwitchEngaged: Boolean
+
+  """Is switch for more lumbar support engaged."""
+  isMoreLumbarSupportSwitchEngaged: Boolean
+
+  """Is switch for more side bolster support engaged."""
+  isMoreSideBolsterSupportSwitchEngaged: Boolean
+
+  """Backrest recline backward switch engaged."""
+  isReclineBackwardSwitchEngaged: Boolean
+
+  """Backrest recline forward switch engaged."""
+  isReclineForwardSwitchEngaged: Boolean
+
+  """
+  Height of lumbar support. Position is relative within available movable range of the lumbar support. 0 = Lowermost position supported.
+  """
+  lumbarHeight(unit: LengthUnitEnum = MILLIMETER): UInt8
+
+  """
+  Lumbar support (in/out position). 0 = Innermost position. 100 = Outermost position.
+  """
+  lumbarSupport(unit: RelationUnitEnum = PERCENT): Float
+
+  """
+  Mid lumbar support (in/out position). 0 = Innermost position. 100 = Outermost position.
+  """
+  midLumbarSupport(unit: RelationUnitEnum = PERCENT): Float
+
+  """
+  Backrest recline compared to seat z-axis (seat vertical axis). 0 degrees = Upright/Vertical backrest. Negative degrees for forward recline. Positive degrees for backward recline.
+  """
+  recline(unit: AngleUnitEnum = DEGREE): Float
+
+  """
+  Side bolster support. 0 = Minimum support (widest side bolster setting). 100 = Maximum support.
+  """
+  sideBolsterSupport(unit: RelationUnitEnum = PERCENT): Float
+
+  """
+  Side bolster support left. 0 = Minimum support (widest side bolster setting). 100 = Maximum support.
+  """
+  sideBolsterSupportLeft(unit: RelationUnitEnum = PERCENT): Float
+
+  """
+  Side bolster support right. 0 = Minimum support (widest side bolster setting). 100 = Maximum support.
+  """
+  sideBolsterSupportRight(unit: RelationUnitEnum = PERCENT): Float
+
+  """
+  Top lumbar support (in/out position). 0 = Innermost position. 100 = Outermost position.
+  """
+  topLumbarSupport(unit: RelationUnitEnum = PERCENT): Float
+
+  """
+  Upper shoulder support. 0 = Minimum support (widest side bolster setting). 100 = Maximum support.
+  """
+  upperShoulderSupport(unit: RelationUnitEnum = PERCENT): Float
+  lumbar: Vehicle_Cabin_Seat_Backrest_Lumbar
+  sideBolster: Vehicle_Cabin_Seat_Backrest_SideBolster
+}

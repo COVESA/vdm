@@ -1,0 +1,12 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Powertrain.FuelSystem.HybridType."""
+enum Vehicle_Powertrain_FuelSystem_HybridType_Enum {
+  UNKNOWN
+  NOT_APPLICABLE
+  STOP_START
+  BELT_ISG
+  CIMG
+  PHEV
+}

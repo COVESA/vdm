@@ -1,0 +1,11 @@
+# Domain-specific GraphQL types
+
+
+"""All smartphone screen mirroring actions."""
+type Vehicle_Cabin_Infotainment_SmartphoneScreenMirroring {
+  """Mirroring activation info."""
+  active: Vehicle_Cabin_Infotainment_SmartphoneScreenMirroring_Active_Enum
+
+  """Connectivity source selected for mirroring."""
+  source: Vehicle_Cabin_Infotainment_SmartphoneScreenMirroring_Source_Enum
+}

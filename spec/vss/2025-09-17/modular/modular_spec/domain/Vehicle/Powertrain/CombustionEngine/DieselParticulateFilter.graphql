@@ -1,0 +1,14 @@
+# Domain-specific GraphQL types
+
+
+"""Diesel Particulate Filter signals."""
+type Vehicle_Powertrain_CombustionEngine_DieselParticulateFilter {
+  """Delta Pressure of Diesel Particulate Filter."""
+  deltaPressure(unit: PressureUnitEnum = PASCAL): Float
+
+  """Inlet temperature of Diesel Particulate Filter."""
+  inletTemperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+
+  """Outlet temperature of Diesel Particulate Filter."""
+  outletTemperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+}

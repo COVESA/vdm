@@ -1,0 +1,21 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Cabin.Infotainment.Media.Played.Source."""
+enum Vehicle_Cabin_Infotainment_Media_Played_Source_Enum {
+  UNKNOWN
+  SIRIUS_XM
+  AM
+  FM
+  DAB
+  TV
+  CD
+  DVD
+  AUX
+  USB
+  DISK
+  BLUETOOTH
+  INTERNET
+  VOICE
+  BEEP
+}

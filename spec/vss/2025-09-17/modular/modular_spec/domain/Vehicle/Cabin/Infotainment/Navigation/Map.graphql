@@ -1,0 +1,10 @@
+# Domain-specific GraphQL types
+
+
+"""All map actions"""
+type Vehicle_Cabin_Infotainment_Navigation_Map {
+  """
+  Used to select auto-scaling mode. This feature dynamically adjusts the zoom level of the map to provide an optimal view based on the current speed of the vehicle
+  """
+  isAutoScaleModeUsed: Boolean
+}

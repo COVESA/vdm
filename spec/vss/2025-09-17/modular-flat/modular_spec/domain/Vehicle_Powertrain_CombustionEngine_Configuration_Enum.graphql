@@ -1,0 +1,18 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Powertrain.CombustionEngine.Configuration."""
+enum Vehicle_Powertrain_CombustionEngine_Configuration_Enum {
+  UNKNOWN
+  STRAIGHT
+  V
+  BOXER
+  W
+  ROTARY
+  RADIAL
+  SQUARE
+  H
+  U
+  OPPOSED
+  X
+}

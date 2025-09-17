@@ -1,0 +1,11 @@
+# Domain-specific GraphQL types
+
+
+"""
+Information on the GNSS receiver used for determining current location.
+"""
+type Vehicle_CurrentLocation_GnSSReceiver {
+  """Fix status of GNSS receiver."""
+  fixType: Vehicle_CurrentLocation_GnSSReceiver_FixType_Enum
+  mountingPosition: Vehicle_CurrentLocation_GnSSReceiver_MountingPosition
+}

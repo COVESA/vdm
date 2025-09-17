@@ -1,0 +1,10 @@
+# Domain-specific GraphQL types
+
+
+"""Connectivity data."""
+type Vehicle_Connectivity {
+  """
+  Indicates if connectivity between vehicle and cloud is available. True = Connectivity is available. False = Connectivity is not available.
+  """
+  isConnectivityAvailable: Boolean
+}

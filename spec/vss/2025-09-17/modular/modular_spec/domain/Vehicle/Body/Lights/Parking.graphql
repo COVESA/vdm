@@ -1,0 +1,13 @@
+# Domain-specific GraphQL types
+
+
+"""Parking lights."""
+type Vehicle_Body_Lights_Parking {
+  """
+  Indicates if light is defect. True = Light is defect. False = Light has no defect.
+  """
+  isDefect: Boolean
+
+  """Indicates if light is on or off. True = On. False = Off."""
+  isOn: Boolean
+}

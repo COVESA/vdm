@@ -1,0 +1,26 @@
+# Domain-specific GraphQL types
+
+
+"""Collection of signals updated in concert when a new media is played"""
+type Vehicle_Cabin_Infotainment_Media_Played {
+  """Name of album being played"""
+  album: String
+
+  """Name of artist being played"""
+  artist: String
+
+  """Name of genre being played"""
+  genre: String
+
+  """Current playback rate of media being played."""
+  playbackRate: Float
+
+  """Media selected for playback"""
+  source: Vehicle_Cabin_Infotainment_Media_Played_Source_Enum
+
+  """Name of track being played"""
+  track: String
+
+  """User Resource associated with the media"""
+  uri: String
+}

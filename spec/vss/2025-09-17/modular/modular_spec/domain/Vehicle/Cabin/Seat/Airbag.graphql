@@ -1,0 +1,15 @@
+# Domain-specific GraphQL types
+
+
+"""Airbag signals."""
+type Vehicle_Cabin_Seat_Airbag {
+  """
+  Airbag deployment status. True = Airbag deployed. False = Airbag not deployed.
+  """
+  isDeployed: Boolean
+
+  """
+  Airbag enabled status. True = Airbag enabled. False = Airbag not enabled.
+  """
+  isEnabled: Boolean
+}

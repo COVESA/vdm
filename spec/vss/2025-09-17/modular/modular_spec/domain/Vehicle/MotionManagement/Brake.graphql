@@ -1,0 +1,33 @@
+# Domain-specific GraphQL types
+
+
+"""
+MotionManagement related to braking (both frictions brakes and contribution from electric axles).
+"""
+type Vehicle_MotionManagement_Brake {
+  """
+  Maximum distribution range request of FxWhlSum to front axle. 0% = Complete longitudinal brake force shall be shifted to rear axle. 50% = At most 50% shall be shifted to front axle. 100%  = Complete longitudinal brake force may be shifted to front axle.
+  """
+  vehicleForceDistributionFrontMaximum(unit: RelationUnitEnum = PERCENT): UInt16
+
+  """
+  Minimum distribution range request of FxWhlSum to front axle. 0% = Complete longitudinal brake force may be shifted to rear axle. 50% = At least 50% shall be shifted to front axle. 100% = Complete longitudinal brake force shall be shifted to front axle.
+  """
+  vehicleForceDistributionFrontMinimum(unit: RelationUnitEnum = PERCENT): UInt16
+
+  """
+  Regenerative brake force request (FxWhlSum). Sum of all tyre longitudinal forces. Brake Force < 0N.
+  """
+  vehicleForceElectric(unit: ForceUnitEnum = NEWTON): Int16
+
+  """
+  Brake system internally calculated regenerative force limit at vehicle level for eAxle actuation. Brake Force < 0N.
+  """
+  vehicleForceElectricMinimumArbitrated(unit: ForceUnitEnum = NEWTON): Int16
+
+  """
+  Maximum longitudinal brake force request (FxWhlSum). Sum of all tyre longitudinal forces. Brake Force < 0N.
+  """
+  vehicleForceMaximum(unit: ForceUnitEnum = NEWTON): Int16
+  axle_s: [Vehicle_MotionManagement_Brake_Axle]
+}

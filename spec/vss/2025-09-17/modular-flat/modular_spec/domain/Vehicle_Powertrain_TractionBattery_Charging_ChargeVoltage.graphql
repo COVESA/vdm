@@ -1,0 +1,17 @@
+# Domain-specific GraphQL types
+
+
+"""Current charging voltage, as measured at the charging inlet."""
+type Vehicle_Powertrain_TractionBattery_Charging_ChargeVoltage {
+  """Current DC charging voltage at charging inlet."""
+  dc(unit: VoltageUnitEnum = VOLT): Float
+
+  """Current AC charging voltage (rms) at inlet for Phase 1."""
+  phase1(unit: VoltageUnitEnum = VOLT): Float
+
+  """Current AC charging voltage (rms) at inlet for Phase 2."""
+  phase2(unit: VoltageUnitEnum = VOLT): Float
+
+  """Current AC charging voltage (rms) at inlet for Phase 3."""
+  phase3(unit: VoltageUnitEnum = VOLT): Float
+}

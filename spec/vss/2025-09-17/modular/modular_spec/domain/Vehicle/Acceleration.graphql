@@ -1,0 +1,14 @@
+# Domain-specific GraphQL types
+
+
+"""Spatial acceleration. Axis definitions according to ISO 8855."""
+type Vehicle_Acceleration {
+  """Vehicle acceleration in Y (lateral acceleration)."""
+  lateral(unit: AccelerationUnitEnum = METERS_PER_SECOND_SQUARED): Float
+
+  """Vehicle acceleration in X (longitudinal acceleration)."""
+  longitudinal(unit: AccelerationUnitEnum = METERS_PER_SECOND_SQUARED): Float
+
+  """Vehicle acceleration in Z (vertical acceleration)."""
+  vertical(unit: AccelerationUnitEnum = METERS_PER_SECOND_SQUARED): Float
+}

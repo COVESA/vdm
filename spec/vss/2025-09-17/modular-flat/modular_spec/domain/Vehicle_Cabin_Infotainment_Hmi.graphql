@@ -1,0 +1,62 @@
+# Domain-specific GraphQL types
+
+
+"""HMI related signals"""
+type Vehicle_Cabin_Infotainment_Hmi {
+  """
+  Brightness of the HMI, relative to supported range. 0 = Lowest brightness possible. 100 = Maximum Brightness possible.
+  """
+  brightness(unit: RelationUnitEnum = PERCENT): Float
+
+  """ISO 639-1 standard language code for the current HMI"""
+  currentLanguage: String
+
+  """Date format used in the current HMI"""
+  dateFormat: Vehicle_Cabin_Infotainment_Hmi_DateFormat_Enum
+
+  """Current display theme"""
+  dayNightMode: Vehicle_Cabin_Infotainment_Hmi_DayNightMode_Enum
+
+  """
+  Duration in seconds before the display is turned off. Value shall be 0 if screen never shall turn off.
+  """
+  displayOffDuration(unit: DurationUnitEnum = SECOND): UInt16
+
+  """Distance unit used in the current HMI"""
+  distanceUnit: Vehicle_Cabin_Infotainment_Hmi_DistanceUnit_Enum
+
+  """EV fuel economy unit used in the current HMI"""
+  eveconomyUnits: Vehicle_Cabin_Infotainment_Hmi_EvEconomyUnits_Enum
+
+  """EV energy unit used in the current HMI"""
+  evenergyUnits: Vehicle_Cabin_Infotainment_Hmi_EvEnergyUnits_Enum
+
+  """Font size used in the current HMI"""
+  fontSize: Vehicle_Cabin_Infotainment_Hmi_FontSize_Enum
+
+  """Fuel economy unit used in the current HMI"""
+  fuelEconomyUnits: Vehicle_Cabin_Infotainment_Hmi_FuelEconomyUnits_Enum
+
+  """Fuel volume unit used in the current HMI"""
+  fuelVolumeUnit: Vehicle_Cabin_Infotainment_Hmi_FuelVolumeUnit_Enum
+
+  """Used to prevent the screen going black if no action placed."""
+  isScreenAlwaysOn: Boolean
+
+  """
+  Time for last hmi action, formatted according to ISO 8601 with UTC time zone.
+  """
+  lastActionTime(unit: DatetimeUnitEnum = ISO_8601): String
+
+  """Speed unit used in the current HMI"""
+  speedUnit: Vehicle_Cabin_Infotainment_Hmi_SpeedUnit_Enum
+
+  """Temperature unit used in the current HMI"""
+  temperatureUnit: Vehicle_Cabin_Infotainment_Hmi_TemperatureUnit_Enum
+
+  """Time format used in the current HMI"""
+  timeFormat: Vehicle_Cabin_Infotainment_Hmi_TimeFormat_Enum
+
+  """Tire pressure unit used in the current HMI"""
+  tirePressureUnit: Vehicle_Cabin_Infotainment_Hmi_TirePressureUnit_Enum
+}

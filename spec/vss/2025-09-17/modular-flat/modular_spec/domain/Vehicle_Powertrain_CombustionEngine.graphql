@@ -1,0 +1,98 @@
+# Domain-specific GraphQL types
+
+
+"""Engine-specific data, stopping at the bell housing."""
+type Vehicle_Powertrain_CombustionEngine {
+  """Type of aspiration (natural, turbocharger, supercharger etc)."""
+  aspirationType: Vehicle_Powertrain_CombustionEngine_AspirationType_Enum
+
+  """Bore in millimetres."""
+  bore(unit: LengthUnitEnum = MILLIMETER): Float
+
+  """Engine compression ratio, specified in the format 'X:1', e.g. '9.2:1'."""
+  compressionRatio: String
+
+  """Engine configuration."""
+  configuration: Vehicle_Powertrain_CombustionEngine_Configuration_Enum
+
+  """Displacement in cubic centimetres."""
+  displacement(unit: VolumeUnitEnum = CUBIC_CENTIMETERS): UInt16
+
+  """Engine coolant temperature."""
+  ect(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+
+  """Engine oil pressure."""
+  eop(unit: PressureUnitEnum = KILOPASCAL): UInt16
+
+  """Engine oil temperature."""
+  eot(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+
+  """Engine code designation, as specified by vehicle manufacturer."""
+  engineCode: String
+
+  """Engine coolant capacity in liters."""
+  engineCoolantCapacity(unit: VolumeUnitEnum = LITER): Float
+
+  """Accumulated time during engine lifetime with 'engine speed (rpm) > 0'."""
+  engineHours(unit: DurationUnitEnum = HOUR): Float
+
+  """Engine oil capacity in liters."""
+  engineOilCapacity(unit: VolumeUnitEnum = LITER): Float
+
+  """Engine oil level."""
+  engineOilLevel: Vehicle_Powertrain_CombustionEngine_EngineOilLevel_Enum
+
+  """
+  Accumulated idling time during engine lifetime. Definition of idling is not standardized.
+  """
+  idleHours(unit: DurationUnitEnum = HOUR): Float
+
+  """Engine Running. True if engine is rotating (Speed > 0)."""
+  isRunning: Boolean
+
+  """Grams of air drawn into engine per second."""
+  maf(unit: MassPerTimeUnitEnum = GRAMS_PER_SECOND): UInt16
+
+  """Manifold absolute pressure possibly boosted using forced induction."""
+  map(unit: PressureUnitEnum = KILOPASCAL): UInt16
+
+  """Peak power, in kilowatts, that engine can generate."""
+  maxPower(unit: PowerUnitEnum = KILOWATT): UInt16
+
+  """Peak torque, in newton meter, that the engine can generate."""
+  maxTorque(unit: TorqueUnitEnum = NEWTON_METER): UInt16
+
+  """Number of cylinders."""
+  numberOfCylinders: UInt16
+
+  """Number of valves per cylinder."""
+  numberOfValvesPerCylinder: UInt16
+
+  """
+  Remaining engine oil life in seconds. Negative values can be used to indicate that lifetime has been exceeded.
+  """
+  oilLifeRemaining(unit: DurationUnitEnum = SECOND): Int
+
+  """
+  Current engine power output. Shall be reported as 0 during engine breaking.
+  """
+  power(unit: PowerUnitEnum = KILOWATT): UInt16
+
+  """Engine speed measured as rotations per minute."""
+  speed(unit: RotationalSpeedUnitEnum = REVOLUTIONS_PER_MINUTE): UInt16
+
+  """Stroke length in millimetres."""
+  strokeLength(unit: LengthUnitEnum = MILLIMETER): Float
+
+  """Current throttle position."""
+  tps(unit: RelationUnitEnum = PERCENT): UInt8
+
+  """
+  Current engine torque. Shall be reported as a negative number during engine breaking.
+  """
+  torque(unit: TorqueUnitEnum = NEWTON_METER): Int16
+  dieselExhaustFluid: Vehicle_Powertrain_CombustionEngine_DieselExhaustFluid
+  dieselParticulateFilter: Vehicle_Powertrain_CombustionEngine_DieselParticulateFilter
+  engineCoolant: Vehicle_Powertrain_CombustionEngine_EngineCoolant
+  engineOil: Vehicle_Powertrain_CombustionEngine_EngineOil
+}

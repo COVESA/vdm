@@ -1,0 +1,11 @@
+# Domain-specific GraphQL types
+
+
+"""
+Allowed values for Vehicle.Powertrain.CombustionEngine.EngineCoolant.Level.
+"""
+enum Vehicle_Powertrain_CombustionEngine_EngineCoolant_Level_Enum {
+  CRITICALLY_LOW
+  LOW
+  NORMAL
+}

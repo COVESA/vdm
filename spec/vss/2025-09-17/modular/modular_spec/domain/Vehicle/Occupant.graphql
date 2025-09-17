@@ -1,0 +1,11 @@
+# Domain-specific GraphQL types
+
+
+"""Occupant (Driver or Passenger) data."""
+type Vehicle_Occupant {
+  id: ID!
+  instanceTag: Vehicle_Occupant_InstanceTag
+  headPosition: Vehicle_Occupant_HeadPosition
+  identifier: Vehicle_Occupant_Identifier
+  midEyeGaze: Vehicle_Occupant_MidEyeGaze
+}

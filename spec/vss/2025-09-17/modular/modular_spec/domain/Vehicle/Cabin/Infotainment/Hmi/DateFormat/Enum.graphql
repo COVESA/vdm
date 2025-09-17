@@ -1,0 +1,12 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Cabin.Infotainment.HMI.DateFormat."""
+enum Vehicle_Cabin_Infotainment_Hmi_DateFormat_Enum {
+  YYYY_MM_DD
+  DD_MM_YYYY
+  MM_DD_YYYY
+  YY_MM_DD
+  DD_MM_YY
+  MM_DD_YY
+}

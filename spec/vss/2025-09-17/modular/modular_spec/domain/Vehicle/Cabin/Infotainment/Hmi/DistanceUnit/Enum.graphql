@@ -1,0 +1,8 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Cabin.Infotainment.HMI.DistanceUnit."""
+enum Vehicle_Cabin_Infotainment_Hmi_DistanceUnit_Enum {
+  MILES
+  KILOMETERS
+}

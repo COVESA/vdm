@@ -1,0 +1,13 @@
+# Domain-specific GraphQL types
+
+
+"""Windshield washer fluid signals"""
+type Vehicle_Body_Windshield_WasherFluid {
+  """
+  Low level indication for washer fluid. True = Level Low. False = Level OK.
+  """
+  isLevelLow: Boolean
+
+  """Washer fluid level as a percent. 0 = Empty. 100 = Full."""
+  level(unit: RelationUnitEnum = PERCENT): UInt8
+}

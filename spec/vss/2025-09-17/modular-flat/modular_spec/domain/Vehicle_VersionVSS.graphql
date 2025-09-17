@@ -1,0 +1,17 @@
+# Domain-specific GraphQL types
+
+
+"""Supported Version of VSS."""
+type Vehicle_VersionVSS {
+  """Label to further describe the version."""
+  label: String
+
+  """Supported Version of VSS - Major version."""
+  major: UInt32
+
+  """Supported Version of VSS - Minor version."""
+  minor: UInt32
+
+  """Supported Version of VSS - Patch version."""
+  patch: UInt32
+}

@@ -1,0 +1,14 @@
+# Domain-specific GraphQL types
+
+
+"""Oxygen sensors (PID 14 - PID 1B)"""
+type Vehicle_Obd_O2 {
+  id: ID!
+  instanceTag: Vehicle_Obd_O2_InstanceTag
+
+  """PID 1x (byte B) - Short term fuel trim"""
+  shortTermFuelTrim(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 1x (byte A) - Sensor voltage"""
+  voltage(unit: VoltageUnitEnum = VOLT): Float
+}

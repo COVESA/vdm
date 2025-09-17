@@ -1,0 +1,19 @@
+# Domain-specific GraphQL types
+
+
+"""Signals related to the engine coolant"""
+type Vehicle_Powertrain_CombustionEngine_EngineCoolant {
+  """Engine coolant capacity in liters."""
+  capacity(unit: VolumeUnitEnum = LITER): Float
+
+  """Engine coolant level."""
+  level: Vehicle_Powertrain_CombustionEngine_EngineCoolant_Level_Enum
+
+  """
+  Remaining engine coolant life in seconds. Negative values can be used to indicate that lifetime has been exceeded.
+  """
+  lifeRemaining(unit: DurationUnitEnum = SECOND): Int
+
+  """Engine coolant temperature."""
+  temperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+}

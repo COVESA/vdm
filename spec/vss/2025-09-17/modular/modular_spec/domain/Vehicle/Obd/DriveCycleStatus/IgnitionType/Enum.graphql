@@ -1,0 +1,8 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.OBD.DriveCycleStatus.IgnitionType."""
+enum Vehicle_Obd_DriveCycleStatus_IgnitionType_Enum {
+  SPARK
+  COMPRESSION
+}

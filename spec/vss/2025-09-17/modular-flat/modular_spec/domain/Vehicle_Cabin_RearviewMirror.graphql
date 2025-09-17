@@ -1,0 +1,8 @@
+# Domain-specific GraphQL types
+
+
+"""Rear-view mirror."""
+type Vehicle_Cabin_RearviewMirror {
+  """Dimming level of rear-view mirror. 0 = Undimmed. 100 = Fully dimmed."""
+  dimmingLevel(unit: RelationUnitEnum = PERCENT): UInt8
+}

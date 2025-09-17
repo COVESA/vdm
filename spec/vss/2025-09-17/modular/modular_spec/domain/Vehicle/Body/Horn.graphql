@@ -1,0 +1,8 @@
+# Domain-specific GraphQL types
+
+
+"""Horn signals."""
+type Vehicle_Body_Horn {
+  """Horn active or inactive. True = Active. False = Inactive."""
+  isActive: Boolean
+}

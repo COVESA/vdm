@@ -1,0 +1,20 @@
+# Domain-specific GraphQL types
+
+
+"""Service data."""
+type Vehicle_Service {
+  """
+  Remaining distance to service (of any kind). Negative values indicate service overdue.
+  """
+  distanceToService(unit: LengthUnitEnum = KILOMETER): Float
+
+  """
+  Indicates if vehicle needs service (of any kind). True = Service needed now or in the near future. False = No known need for service.
+  """
+  isServiceDue: Boolean
+
+  """
+  Remaining time to service (of any kind). Negative values indicate service overdue.
+  """
+  timeToService(unit: DurationUnitEnum = SECOND): Int
+}

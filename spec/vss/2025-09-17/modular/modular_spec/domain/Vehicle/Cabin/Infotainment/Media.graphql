@@ -1,0 +1,18 @@
+# Domain-specific GraphQL types
+
+
+"""All Media actions"""
+type Vehicle_Cabin_Infotainment_Media {
+  """Tells if the media was"""
+  action: Vehicle_Cabin_Infotainment_Media_Action_Enum
+
+  """URI of suggested media that was declined"""
+  declinedUri: String
+
+  """URI of suggested media that was selected"""
+  selectedUri: String
+
+  """Current Media Volume"""
+  volume(unit: RelationUnitEnum = PERCENT): UInt8
+  played: Vehicle_Cabin_Infotainment_Media_Played
+}

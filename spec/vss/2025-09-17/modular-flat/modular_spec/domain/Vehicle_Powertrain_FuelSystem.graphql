@@ -1,0 +1,57 @@
+# Domain-specific GraphQL types
+
+
+"""Fuel system data."""
+type Vehicle_Powertrain_FuelSystem {
+  """Current available fuel in the fuel tank expressed in liters."""
+  absoluteLevel(unit: VolumeUnitEnum = LITER): Float
+
+  """Average consumption in liters per 100 km."""
+  averageConsumption(unit: VolumePerDistanceUnitEnum = LITER_PER_100_KILOMETERS): Float
+
+  """Fuel consumption since last refueling."""
+  consumptionSinceLastRefuel(unit: VolumeUnitEnum = LITER): Float
+
+  """Fuel amount in liters consumed since start of current trip."""
+  consumptionSinceStart(unit: VolumeUnitEnum = LITER): Float
+
+  """Defines the hybrid type of the vehicle."""
+  hybridType: Vehicle_Powertrain_FuelSystem_HybridType_Enum
+
+  """Current consumption in liters per 100 km."""
+  instantConsumption(unit: VolumePerDistanceUnitEnum = LITER_PER_100_KILOMETERS): Float
+
+  """Indicates whether eco start stop is currently enabled."""
+  isEngineStopStartEnabled: Boolean
+
+  """Indicates that the fuel level is low (e.g. <50km range)."""
+  isFuelLevelLow: Boolean
+
+  """Status of the fuel port flap(s). True if at least one is open."""
+  isFuelPortFlapOpen: Boolean
+
+  """Remaining range in meters using only liquid fuel."""
+  range(unit: LengthUnitEnum = METER): UInt32
+
+  """
+  Position of refuel port(s). First part indicates side of vehicle, second part relative position on that side.
+  """
+  refuelPortPosition: Vehicle_Powertrain_FuelSystem_RefuelPortPosition_Enum
+
+  """Level in fuel tank as percent of capacity. 0 = empty. 100 = full."""
+  relativeLevel(unit: RelationUnitEnum = PERCENT): UInt8
+
+  """
+  Detailed information on fuels supported by the vehicle. Identifiers originating from DIN EN 16942:2021-08, appendix B, with additional suffix for octane (RON) where relevant.
+  """
+  supportedFuel: Vehicle_Powertrain_FuelSystem_SupportedFuel_Enum
+
+  """High level information of fuel types supported"""
+  supportedFuelTypes: Vehicle_Powertrain_FuelSystem_SupportedFuelTypes_Enum
+
+  """Capacity of the fuel tank in liters."""
+  tankCapacity(unit: VolumeUnitEnum = LITER): Float
+
+  """Time remaining in seconds before the fuel tank is empty."""
+  timeRemaining(unit: DurationUnitEnum = SECOND): UInt32
+}

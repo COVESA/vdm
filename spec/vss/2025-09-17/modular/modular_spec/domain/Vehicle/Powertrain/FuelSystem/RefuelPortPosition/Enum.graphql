@@ -1,0 +1,18 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Powertrain.FuelSystem.RefuelPortPosition."""
+enum Vehicle_Powertrain_FuelSystem_RefuelPortPosition_Enum {
+  FRONT_LEFT
+  FRONT_MIDDLE
+  FRONT_RIGHT
+  REAR_LEFT
+  REAR_MIDDLE
+  REAR_RIGHT
+  LEFT_FRONT
+  LEFT_MIDDLE
+  LEFT_REAR
+  RIGHT_FRONT
+  RIGHT_MIDDLE
+  RIGHT_REAR
+}

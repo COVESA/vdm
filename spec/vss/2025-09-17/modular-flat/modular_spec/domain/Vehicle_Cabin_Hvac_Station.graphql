@@ -1,0 +1,17 @@
+# Domain-specific GraphQL types
+
+
+"""HVAC for single station in the vehicle"""
+type Vehicle_Cabin_Hvac_Station {
+  id: ID!
+  instanceTag: Vehicle_Cabin_Hvac_Station_InstanceTag
+
+  """Direction of airstream"""
+  airDistribution: Vehicle_Cabin_Hvac_Station_AirDistribution_Enum
+
+  """Fan Speed, 0 = off. 100 = max"""
+  fanSpeed(unit: RelationUnitEnum = PERCENT): UInt8
+
+  """Temperature"""
+  temperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+}

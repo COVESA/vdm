@@ -1,0 +1,16 @@
+# Domain-specific GraphQL types
+
+
+"""Hood status. Start position for Hood is Closed."""
+type Vehicle_Body_Hood {
+  """
+  Is item open or closed? True = Fully or partially open. False = Fully closed.
+  """
+  isOpen: Boolean
+
+  """Item position. 0 = Start position 100 = End position."""
+  position(unit: RelationUnitEnum = PERCENT): UInt8
+
+  """Switch controlling sliding action such as window, sunroof, or blind."""
+  switch: Vehicle_Body_Hood_Switch_Enum
+}

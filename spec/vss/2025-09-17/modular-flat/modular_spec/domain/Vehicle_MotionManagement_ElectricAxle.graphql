@@ -1,0 +1,58 @@
+# Domain-specific GraphQL types
+
+
+"""MotionManagement for a specific electric axle."""
+type Vehicle_MotionManagement_ElectricAxle {
+  id: ID!
+  instanceTag: Vehicle_MotionManagement_ElectricAxle_InstanceTag
+
+  """
+  Rotational speed for the specified axle, positive sign for rotation in forward direction, negative sign for rotation in backward direction.
+  """
+  rotationalSpeed(unit: RotationalSpeedUnitEnum = REVOLUTIONS_PER_MINUTE): Int16
+
+  """
+  Maximum allowed axle rotational speed in torque control mode, positive sign for rotation in forward direction, negative sign for rotation in backward direction.
+  """
+  rotationalSpeedMaximumLimit(unit: RotationalSpeedUnitEnum = REVOLUTIONS_PER_MINUTE): Int16
+
+  """
+  Minimum allowed axle rotational speed in torque control mode, positive sign for rotation in forward direction, negative sign for rotation in backward direction.
+  """
+  rotationalSpeedMinimumLimit(unit: RotationalSpeedUnitEnum = REVOLUTIONS_PER_MINUTE): Int16
+
+  """
+  Target axle rotational speed in rotation speed control mode, positive sign for rotation in forward direction, negative sign for rotation in backward direction.
+  """
+  rotationalSpeedTarget(unit: RotationalSpeedUnitEnum = REVOLUTIONS_PER_MINUTE): Int16
+
+  """
+  Axle torque, positive sign for torque in forward direction, negative sign for torque in backward direction.
+  """
+  torque(unit: TorqueUnitEnum = NEWTON_METER): Int16
+
+  """
+  Maximum momentarily available eAxle torque, positive sign for torque in forward direction, negative sign for torque in backward direction.
+  """
+  torqueMaximum(unit: TorqueUnitEnum = NEWTON_METER): Int16
+
+  """
+  Maximum allowed eAxle torque in rotation speed control mode, positive sign for torque in forward direction, negative sign unused.
+  """
+  torqueMaximumLimit(unit: TorqueUnitEnum = NEWTON_METER): Int16
+
+  """
+  Minimum momentarily available eAxle torque, positive sign for torque in forward direction, negative sign for torque in backward direction.
+  """
+  torqueMinimum(unit: TorqueUnitEnum = NEWTON_METER): Int16
+
+  """
+  Minimum allowed axle torque in rotation speed control mode, positive sign unused, negative sign for torque in backward direction (ISO8855).
+  """
+  torqueMinimumLimit(unit: TorqueUnitEnum = NEWTON_METER): Int16
+
+  """
+  Target axle torque in torque control mode, positive sign for torque in forward direction, negative sign for torque in backward direction (ISO8855).
+  """
+  torqueTarget(unit: TorqueUnitEnum = NEWTON_METER): Int16
+}

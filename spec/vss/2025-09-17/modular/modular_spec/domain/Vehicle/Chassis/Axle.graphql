@@ -1,0 +1,53 @@
+# Domain-specific GraphQL types
+
+
+"""Axle signals"""
+type Vehicle_Chassis_Axle {
+  id: ID!
+  instanceTag: Vehicle_Chassis_Axle_InstanceTag
+
+  """
+  The lateral distance between the wheel mounting faces, measured along the spindle axis.
+  """
+  axleWidth(unit: LengthUnitEnum = MILLIMETER): UInt16
+
+  """
+  Single track two-axle model steering angle. Angle according to ISO 8855. Positive = degrees to the left. Negative = degrees to the right.
+  """
+  steeringAngle(unit: AngleUnitEnum = DEGREE): Float
+
+  """
+  Aspect ratio between tire section height and tire section width, as per ETRTO / TRA standard.
+  """
+  tireAspectRatio(unit: RelationUnitEnum = PERCENT): UInt8
+
+  """Outer diameter of tires, in inches, as per ETRTO / TRA standard."""
+  tireDiameter(unit: LengthUnitEnum = INCH): Float
+
+  """Nominal section width of tires, in mm, as per ETRTO / TRA standard."""
+  tireWidth(unit: LengthUnitEnum = MILLIMETER): UInt16
+
+  """
+  The lateral distance between the centers of the wheels, measured along the spindle, or axle axis. If there are dual rear wheels, measure from the midway points between the inner and outer tires.
+  """
+  trackWidth(unit: LengthUnitEnum = MILLIMETER): UInt16
+
+  """
+  The lateral distance between the centerlines of the base tires at ground, including camber angle. If there are dual rear wheels, measure from the midway points between the inner and outer tires.
+  """
+  treadWidth(unit: LengthUnitEnum = MILLIMETER): UInt16
+
+  """Number of wheels on the axle"""
+  wheelCount: UInt8
+
+  """
+  Diameter of wheels (rims without tires), in inches, as per ETRTO / TRA standard.
+  """
+  wheelDiameter(unit: LengthUnitEnum = INCH): Float
+
+  """
+  Width of wheels (rims without tires), in inches, as per ETRTO / TRA standard.
+  """
+  wheelWidth(unit: LengthUnitEnum = INCH): Float
+  wheel_s: [Vehicle_Chassis_Axle_Wheel]
+}

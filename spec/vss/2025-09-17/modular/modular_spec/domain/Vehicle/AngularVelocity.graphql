@@ -1,0 +1,14 @@
+# Domain-specific GraphQL types
+
+
+"""Spatial rotation. Axis definitions according to ISO 8855."""
+type Vehicle_AngularVelocity {
+  """Vehicle rotation rate along Y (lateral)."""
+  pitch(unit: AngularSpeedUnitEnum = DEGREE_PER_SECOND): Float
+
+  """Vehicle rotation rate along X (longitudinal)."""
+  roll(unit: AngularSpeedUnitEnum = DEGREE_PER_SECOND): Float
+
+  """Vehicle rotation rate along Z (vertical)."""
+  yaw(unit: AngularSpeedUnitEnum = DEGREE_PER_SECOND): Float
+}

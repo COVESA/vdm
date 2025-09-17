@@ -1,0 +1,8 @@
+# Domain-specific GraphQL types
+
+
+"""MotionManagement related to steering."""
+type Vehicle_MotionManagement_Steering {
+  axle_s: [Vehicle_MotionManagement_Steering_Axle]
+  steeringWheel: Vehicle_MotionManagement_Steering_SteeringWheel
+}

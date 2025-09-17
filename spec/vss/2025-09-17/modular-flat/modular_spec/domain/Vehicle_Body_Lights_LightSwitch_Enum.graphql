@@ -1,0 +1,11 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Body.Lights.LightSwitch."""
+enum Vehicle_Body_Lights_LightSwitch_Enum {
+  OFF
+  POSITION
+  DAYTIME_RUNNING_LIGHTS
+  AUTO
+  BEAM
+}

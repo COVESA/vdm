@@ -1,0 +1,32 @@
+# Domain-specific GraphQL types
+
+
+"""Signals form Obstacle Sensor System."""
+type Vehicle_Adas_ObstacleDetection {
+  id: ID!
+  instanceTag: Vehicle_Adas_ObstacleDetection_InstanceTag
+
+  """Distance in meters to detected object"""
+  distance(unit: LengthUnitEnum = METER): Float
+
+  """
+  Indicates if obstacle sensor system is enabled (i.e. monitoring for obstacles). True = Enabled. False = Disabled.
+  """
+  isEnabled: Boolean
+
+  """
+  Indicates if obstacle sensor system incurred an error condition. True = Error. False = No Error.
+  """
+  isError: Boolean
+
+  """Indicates if obstacle sensor system registered an obstacle."""
+  isWarning: Boolean
+
+  """Time in milliseconds before potential impact object"""
+  timeGap(unit: DurationUnitEnum = MILLISECOND): UInt32
+
+  """
+  Indicates the type of obstacle warning detected as some track not only the presence of an obstacle but potential intercepting trajectory or other characteristics.
+  """
+  warningType: Vehicle_Adas_ObstacleDetection_WarningType_Enum
+}

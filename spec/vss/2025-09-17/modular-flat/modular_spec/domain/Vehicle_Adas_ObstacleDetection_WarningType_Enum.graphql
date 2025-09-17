@@ -1,0 +1,9 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.ADAS.ObstacleDetection.WarningType."""
+enum Vehicle_Adas_ObstacleDetection_WarningType_Enum {
+  UNDEFINED
+  CROSS_TRAFFIC
+  BLIND_SPOT
+}

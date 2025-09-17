@@ -1,0 +1,19 @@
+# Domain-specific GraphQL types
+
+
+"""Wide range/band oxygen sensors (PID 24 - 2B and PID 34 - 3B)"""
+type Vehicle_Obd_O2wr {
+  id: ID!
+  instanceTag: Vehicle_Obd_O2wr_InstanceTag
+
+  """PID 3x (byte CD) - Current for wide range/band oxygen sensor"""
+  current(unit: ElectricCurrentUnitEnum = AMPERE): Float
+
+  """
+  PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor
+  """
+  lambda_: Float
+
+  """PID 2x (byte CD) - Voltage for wide range/band oxygen sensor"""
+  voltage(unit: VoltageUnitEnum = VOLT): Float
+}

@@ -1,0 +1,17 @@
+# Instance tag type and dimensional enums
+
+
+type Vehicle_Powertrain_TractionBattery_Charging_ChargingPort_InstanceTag @instanceTag {
+  dimension1: Vehicle_Powertrain_TractionBattery_Charging_ChargingPort_InstanceTag_Dimension1
+}
+
+"""Dimensional enum for VSS instance dimension 1."""
+enum Vehicle_Powertrain_TractionBattery_Charging_ChargingPort_InstanceTag_Dimension1 {
+  FrontLeft
+  FrontMiddle
+  FrontRight
+  RearLeft
+  RearMiddle
+  RearRight
+  AnyPosition
+}

@@ -1,0 +1,11 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Cabin.Infotainment.HMI.FuelEconomyUnits."""
+enum Vehicle_Cabin_Infotainment_Hmi_FuelEconomyUnits_Enum {
+  MPG_UK
+  MPG_US
+  MILES_PER_LITER
+  KILOMETERS_PER_LITER
+  LITERS_PER_100_KILOMETERS
+}

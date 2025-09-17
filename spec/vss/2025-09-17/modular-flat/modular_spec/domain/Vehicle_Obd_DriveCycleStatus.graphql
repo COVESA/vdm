@@ -1,0 +1,16 @@
+# Domain-specific GraphQL types
+
+
+"""PID 41 - OBD status for the current drive cycle"""
+type Vehicle_Obd_DriveCycleStatus {
+  """Number of sensor Trouble Codes (DTC)"""
+  dtccount: UInt8
+
+  """
+  Type of the ignition for ICE - spark = spark plug ignition, compression = self-igniting (Diesel engines)
+  """
+  ignitionType: Vehicle_Obd_DriveCycleStatus_IgnitionType_Enum
+
+  """Malfunction Indicator Light (MIL) - False = Off, True = On"""
+  isMilon: Boolean
+}

@@ -1,0 +1,26 @@
+# Domain-specific GraphQL types
+
+
+"""Windshield wiper signals."""
+type Vehicle_Body_Windshield_Wiping {
+  """
+  Relative intensity/sensitivity for interval and rain sensor mode as requested by user/driver. Has no significance if Windshield.Wiping.Mode is OFF/SLOW/MEDIUM/FAST 0 - wipers inactive. 1 - minimum intensity (lowest frequency/sensitivity, longest interval). 2/3/4/... - higher intensity (higher frequency/sensitivity, shorter interval). Maximum value supported is vehicle specific.
+  """
+  intensity: UInt8
+
+  """
+  Wiper wear status. True = Worn, Replacement recommended or required. False = Not Worn.
+  """
+  isWipersWorn: Boolean
+
+  """
+  Wiper mode requested by user/driver. INTERVAL indicates intermittent wiping, with fixed time interval between each wipe. RAIN_SENSOR indicates intermittent wiping based on rain intensity.
+  """
+  mode: Vehicle_Body_Windshield_Wiping_Mode_Enum
+
+  """
+  Wiper wear as percent. 0 = No Wear. 100 = Worn. Replacement required. Method for calculating or estimating wiper wear is vehicle specific. For windshields with multiple wipers the wear reported shall correspond to the most worn wiper.
+  """
+  wiperWear(unit: RelationUnitEnum = PERCENT): UInt8
+  system: Vehicle_Body_Windshield_Wiping_System
+}

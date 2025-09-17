@@ -1,0 +1,19 @@
+# Domain-specific GraphQL types
+
+
+"""Light that is part of the Cabin."""
+type Vehicle_Cabin_Light {
+  """Is central dome light on"""
+  isDomeOn: Boolean
+
+  """Is glove box light on"""
+  isGloveBoxOn: Boolean
+
+  """
+  The percentage of ambient light that is measured (e.g., by a sensor) inside the cabin. 0 = No ambient light. 100 = Full brightness.
+  """
+  perceivedAmbientLight(unit: RelationUnitEnum = PERCENT): UInt8
+  ambientLight_s: [Vehicle_Cabin_Light_AmbientLight]
+  interactiveLightBar: Vehicle_Cabin_Light_InteractiveLightBar
+  spotlight_s: [Vehicle_Cabin_Light_Spotlight]
+}

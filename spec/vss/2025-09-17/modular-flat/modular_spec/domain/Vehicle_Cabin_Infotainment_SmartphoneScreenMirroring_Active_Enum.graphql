@@ -1,0 +1,11 @@
+# Domain-specific GraphQL types
+
+
+"""
+Allowed values for Vehicle.Cabin.Infotainment.SmartphoneScreenMirroring.Active.
+"""
+enum Vehicle_Cabin_Infotainment_SmartphoneScreenMirroring_Active_Enum {
+  NONE
+  ACTIVE
+  INACTIVE
+}

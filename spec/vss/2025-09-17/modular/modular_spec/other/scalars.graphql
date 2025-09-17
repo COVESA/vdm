@@ -1,0 +1,15 @@
+# GraphQL scalar type definitions
+
+scalar Int8
+
+scalar UInt8
+
+scalar Int16
+
+scalar UInt16
+
+scalar UInt32
+
+scalar Int64
+
+scalar UInt64

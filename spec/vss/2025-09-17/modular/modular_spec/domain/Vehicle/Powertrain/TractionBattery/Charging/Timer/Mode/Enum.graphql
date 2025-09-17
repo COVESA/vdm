@@ -1,0 +1,11 @@
+# Domain-specific GraphQL types
+
+
+"""
+Allowed values for Vehicle.Powertrain.TractionBattery.Charging.Timer.Mode.
+"""
+enum Vehicle_Powertrain_TractionBattery_Charging_Timer_Mode_Enum {
+  INACTIVE
+  START_TIME
+  END_TIME
+}

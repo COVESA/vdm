@@ -1,0 +1,29 @@
+# Domain-specific GraphQL types
+
+
+"""All doors, including windows and switches."""
+type Vehicle_Cabin_Door {
+  id: ID!
+  instanceTag: Vehicle_Cabin_Door_InstanceTag
+
+  """
+  Is door child lock active. True = Door cannot be opened from inside. False = Door can be opened from inside.
+  """
+  isChildLockActive: Boolean
+
+  """Is item locked or unlocked. True = Locked. False = Unlocked."""
+  isLocked: Boolean
+
+  """
+  Is item open or closed? True = Fully or partially open. False = Fully closed.
+  """
+  isOpen: Boolean
+
+  """Item position. 0 = Start position 100 = End position."""
+  position(unit: RelationUnitEnum = PERCENT): UInt8
+
+  """Switch controlling sliding action such as window, sunroof, or blind."""
+  switch: Vehicle_Cabin_Door_Switch_Enum
+  shade: Vehicle_Cabin_Door_Shade
+  window: Vehicle_Cabin_Door_Window
+}

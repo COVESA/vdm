@@ -1,0 +1,15 @@
+# Domain-specific GraphQL types
+
+
+"""Brake lights."""
+type Vehicle_Body_Lights_Brake {
+  """
+  Indicates if break-light is active. INACTIVE means lights are off. ACTIVE means lights are on. ADAPTIVE means that break-light is indicating emergency-breaking.
+  """
+  isActive: Vehicle_Body_Lights_Brake_IsActive_Enum
+
+  """
+  Indicates if light is defect. True = Light is defect. False = Light has no defect.
+  """
+  isDefect: Boolean
+}

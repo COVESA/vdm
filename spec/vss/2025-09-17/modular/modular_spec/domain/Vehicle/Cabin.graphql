@@ -1,0 +1,39 @@
+# Domain-specific GraphQL types
+
+
+"""All in-cabin components, including doors."""
+type Vehicle_Cabin {
+  """Number of doors in vehicle."""
+  doorCount: UInt8
+
+  """The position of the driver seat in row 1."""
+  driverPosition: Vehicle_Cabin_DriverPosition_Enum
+
+  """
+  Auto Power Optimization Flag When set to 'true', the system enables automatic power optimization, dynamically adjusting the power optimization level based on runtime conditions or features managed by the OEM. When set to 'false', manual control of the power optimization level is allowed.
+  """
+  isAutoPowerOptimize: Boolean
+
+  """Is window child lock engaged. True = Engaged. False = Disengaged."""
+  isWindowChildLockEngaged: Boolean
+
+  """
+  Power optimization level for this branch/subsystem. A higher number indicates more aggressive power optimization. Level 0 indicates that all functionality is enabled, no power optimization enabled. Level 10 indicates most aggressive power optimization mode, only essential functionality enabled.
+  """
+  powerOptimizeLevel: UInt8
+
+  """Number of seats across each row from the front to the rear."""
+  seatPosCount: String
+
+  """Number of seat rows in vehicle."""
+  seatRowCount: UInt8
+  convertible: Vehicle_Cabin_Convertible
+  door_s: [Vehicle_Cabin_Door]
+  hvac: Vehicle_Cabin_Hvac
+  infotainment: Vehicle_Cabin_Infotainment
+  light: Vehicle_Cabin_Light
+  rearShade: Vehicle_Cabin_RearShade
+  rearviewMirror: Vehicle_Cabin_RearviewMirror
+  seat_s: [Vehicle_Cabin_Seat]
+  sunroof: Vehicle_Cabin_Sunroof
+}

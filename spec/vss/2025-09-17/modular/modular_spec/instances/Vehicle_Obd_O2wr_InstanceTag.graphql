@@ -1,0 +1,18 @@
+# Instance tag type and dimensional enums
+
+
+type Vehicle_Obd_O2wr_InstanceTag @instanceTag {
+  dimension1: Vehicle_Obd_O2wr_InstanceTag_Dimension1
+}
+
+"""Dimensional enum for VSS instance dimension 1."""
+enum Vehicle_Obd_O2wr_InstanceTag_Dimension1 {
+  Sensor1
+  Sensor2
+  Sensor3
+  Sensor4
+  Sensor5
+  Sensor6
+  Sensor7
+  Sensor8
+}

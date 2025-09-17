@@ -1,0 +1,15 @@
+# Domain-specific GraphQL types
+
+
+"""Parking brake signals"""
+type Vehicle_Chassis_ParkingBrake {
+  """
+  Indicates if parking brake will be automatically engaged when the vehicle engine is turned off.
+  """
+  isAutoApplyEnabled: Boolean
+
+  """
+  Parking brake status. True = Parking Brake is Engaged. False = Parking Brake is not Engaged.
+  """
+  isEngaged: Boolean
+}

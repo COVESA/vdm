@@ -1,0 +1,45 @@
+# Domain-specific GraphQL types
+
+
+"""Electric Motor specific data."""
+type Vehicle_Powertrain_ElectricMotor {
+  """Motor coolant temperature (if applicable)."""
+  coolantTemperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+
+  """Engine code designation, as specified by vehicle manufacturer."""
+  engineCode: String
+
+  """Peak power, in kilowatts, that motor(s) can generate."""
+  maxPower(unit: PowerUnitEnum = KILOWATT): UInt16
+
+  """Peak regen/brake power, in kilowatts, that motor(s) can generate."""
+  maxRegenPower(unit: PowerUnitEnum = KILOWATT): UInt16
+
+  """
+  Peak regen/brake torque, in newton meter, that the motor(s) can generate.
+  """
+  maxRegenTorque(unit: TorqueUnitEnum = NEWTON_METER): UInt16
+
+  """Peak power, in newton meter, that the motor(s) can generate."""
+  maxTorque(unit: TorqueUnitEnum = NEWTON_METER): UInt16
+
+  """Current motor power output. Negative values indicate regen mode."""
+  power(unit: PowerUnitEnum = KILOWATT): Int16
+
+  """
+  Motor rotational speed measured as rotations per minute. Negative values indicate reverse driving mode.
+  """
+  speed(unit: RotationalSpeedUnitEnum = REVOLUTIONS_PER_MINUTE): Int
+
+  """Motor temperature."""
+  temperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+
+  """
+  Accumulated time during engine lifetime when the vehicule state's is 'READY'.
+  """
+  timeInUse(unit: DurationUnitEnum = HOUR): Float
+
+  """Current motor torque. Negative values indicate regen mode."""
+  torque(unit: TorqueUnitEnum = NEWTON_METER): Int16
+  engineCoolant: Vehicle_Powertrain_ElectricMotor_EngineCoolant
+}

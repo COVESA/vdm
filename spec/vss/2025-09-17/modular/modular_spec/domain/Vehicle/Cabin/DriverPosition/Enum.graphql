@@ -1,0 +1,9 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Cabin.DriverPosition."""
+enum Vehicle_Cabin_DriverPosition_Enum {
+  LEFT
+  MIDDLE
+  RIGHT
+}
