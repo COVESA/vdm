@@ -1,0 +1,5 @@
+
+directive @range(
+  min: Float = Undefined
+  max: Float = Undefined
+) on FIELD_DEFINITION
