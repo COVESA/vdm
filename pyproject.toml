@@ -1,0 +1,24 @@
+[project]
+name = "vdm"
+version = "0.1.0" # TODO: dynamic versioning
+description = "Vehicle Data Model (VDM) specification based on Simple-Semantic Data Model (S2DM)"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+    {name = "COVESA", email = "help@covesa.global"},
+]
+dependencies = [
+    # Add your project dependencies here
+]
+
+
+[project.urls]
+Homepage = "https://github.com/COVESA/vdm"
+Repository = "https://github.com/COVESA/vdm"
+# Documentation = "TODO: add URL"
+IssueTracker = "https://github.com/COVESA/vdm/issues"
+
+[tool.uv]
+dev-dependencies = [
+    "pre-commit>=3.0",
+]
