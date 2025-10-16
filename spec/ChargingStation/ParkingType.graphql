@@ -1,0 +1,6 @@
+enum ParkingType {
+  ON_STREET
+  PARKING_GARAGE
+  PARKING_LOT
+  OTHER
+}

@@ -1,0 +1,15 @@
+"""EVSE (Electric Vehicle Supply Equipment) with one or more connectors"""
+type ChargePoint {
+  id: ID!
+  connectors: [Connector!]!  # Multiple connectors per charge point
+  status: ChargePointStatus!
+  maxPowerKw: Float!
+}
+
+enum ChargePointStatus {
+  AVAILABLE
+  BUSY
+  OUT_OF_ORDER
+  MAINTENANCE
+  UNKNOWN
+}

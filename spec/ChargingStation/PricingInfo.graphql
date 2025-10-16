@@ -1,0 +1,14 @@
+type PricingInfo {
+  currency: String!
+  pricePerKWh: Float!
+  pricePerMinute: Float
+  paymentMethods: [PaymentMethod!]!
+}
+
+enum PaymentMethod {
+  CREDIT_CARD
+  MOBILE_APP
+  RFID_CARD
+  CONTACTLESS
+  FREE
+}

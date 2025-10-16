@@ -1,0 +1,12 @@
+"""Facility for charging electric vehicles with one or more charge points"""
+type ChargingStation {
+  id: ID!
+  name: String!
+  operator: String!
+  location: Location!
+  parkingType: ParkingType!
+  chargePoints: [ChargePoint!]!
+  pricing: PricingInfo
+  lastUpdated: DateTime!
+}
+

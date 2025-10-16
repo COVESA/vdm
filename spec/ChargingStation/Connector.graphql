@@ -1,0 +1,21 @@
+type Connector {
+  id: ID!
+  type: ConnectorKind!
+  status: ConnectorStatus!
+}
+
+enum ConnectorKind {
+  CHADEMO
+  CCS_COMBO_1
+  CCS_COMBO_2
+  TESLA_SUPERCHARGER
+  TYPE_1_J1772
+  TYPE_2_MENNEKES
+  OTHER
+}
+
+enum ConnectorStatus {
+  FUNCTIONAL
+  OUT_OF_SERVICE
+  FAULTED
+}
