@@ -1,0 +1,8 @@
+enum ChargingSessionStatus {
+  SCHEDULED
+  ACTIVE
+  COMPLETED
+  CANCELLED
+  FAILED
+  PAUSED
+}

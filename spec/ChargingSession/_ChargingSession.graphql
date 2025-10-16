@@ -1,0 +1,12 @@
+type ChargingSession {
+  id: ID!
+  status: ChargingSessionStatus!
+  chargingStation: ChargingStation
+  chargePoint: ChargePoint!
+  startedAt: DateTime
+  endedAt: DateTime
+  energyDelivered: Float
+  cost: Float
+  customer: Person
+  vehicle: Vehicle
+}
