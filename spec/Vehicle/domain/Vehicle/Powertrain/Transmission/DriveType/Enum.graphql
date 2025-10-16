@@ -1,0 +1,10 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Powertrain.Transmission.DriveType."""
+enum Vehicle_Powertrain_Transmission_DriveType_Enum {
+  UNKNOWN
+  FORWARD_WHEEL_DRIVE
+  REAR_WHEEL_DRIVE
+  ALL_WHEEL_DRIVE
+}

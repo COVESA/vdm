@@ -1,0 +1,18 @@
+# Domain-specific GraphQL types
+
+
+"""Antilock Braking System signals."""
+type Vehicle_Adas_Abs {
+  """Indicates if ABS is enabled. True = Enabled. False = Disabled."""
+  isEnabled: Boolean
+
+  """
+  Indicates if ABS is currently regulating brake pressure. True = Engaged. False = Not Engaged.
+  """
+  isEngaged: Boolean
+
+  """
+  Indicates if ABS incurred an error condition. True = Error. False = No Error.
+  """
+  isError: Boolean
+}

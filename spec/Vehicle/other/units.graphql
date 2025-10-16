@@ -1,0 +1,246 @@
+# Domain-specific GraphQL types
+
+
+"""
+Units for "length"
+"""
+enum LengthUnitEnum {
+  MILLIMETER
+  CENTIMETER
+  METER
+  KILOMETER
+  INCH
+}
+
+"""
+Units for "velocity"
+"""
+enum VelocityUnitEnum {
+  KILOMETER_PER_HOUR
+  METERS_PER_SECOND
+}
+
+"""
+Units for "acceleration"
+"""
+enum AccelerationUnitEnum {
+  METERS_PER_SECOND_SQUARED
+  CENTIMETERS_PER_SECOND_SQUARED
+}
+
+"""
+Units for "volume"
+"""
+enum VolumeUnitEnum {
+  MILLILITER
+  LITER
+  CUBIC_CENTIMETERS
+}
+
+"""
+Units for "temperature"
+"""
+enum TemperatureUnitEnum {
+  DEGREE_CELSIUS
+}
+
+"""
+Units for "angle"
+"""
+enum AngleUnitEnum {
+  DEGREE
+}
+
+"""
+Units for "angular-speed"
+"""
+enum AngularSpeedUnitEnum {
+  DEGREE_PER_SECOND
+  RADIANS_PER_SECOND
+}
+
+"""
+Units for "power"
+"""
+enum PowerUnitEnum {
+  WATT
+  KILOWATT
+  HORSEPOWER
+}
+
+"""
+Units for "work"
+"""
+enum WorkUnitEnum {
+  KILOWATT_HOURS
+}
+
+"""
+Units for "mass"
+"""
+enum MassUnitEnum {
+  GRAM
+  KILOGRAM
+  POUND
+}
+
+"""
+Units for "voltage"
+"""
+enum VoltageUnitEnum {
+  VOLT
+}
+
+"""
+Units for "electric-current"
+"""
+enum ElectricCurrentUnitEnum {
+  AMPERE
+}
+
+"""
+Units for "electric-charge"
+"""
+enum ElectricChargeUnitEnum {
+  AMPERE_HOURS
+}
+
+"""
+Units for "duration"
+"""
+enum DurationUnitEnum {
+  MILLISECOND
+  SECOND
+  MINUTE
+  HOUR
+  DAYS
+  WEEKS
+  MONTHS
+  YEARS
+}
+
+"""
+Units for "datetime"
+"""
+enum DatetimeUnitEnum {
+  U_N_I_X_TIMESTAMP
+  ISO_8601
+}
+
+"""
+Units for "pressure"
+"""
+enum PressureUnitEnum {
+  MILLIBAR
+  PASCAL
+  KILOPASCAL
+  POUNDS_PER_SQUARE_INCH
+}
+
+"""
+Units for "rating"
+"""
+enum RatingUnitEnum {
+  STARS
+}
+
+"""
+Units for "mass-per-time"
+"""
+enum MassPerTimeUnitEnum {
+  GRAMS_PER_SECOND
+}
+
+"""
+Units for "mass-per-distance"
+"""
+enum MassPerDistanceUnitEnum {
+  GRAMS_PER_KILOMETER
+}
+
+"""
+Units for "energy-consumption-per-distance"
+"""
+enum EnergyConsumptionPerDistanceUnitEnum {
+  KILOWATT_HOURS_PER_100_KILOMETERS
+  WATT_HOUR_PER_KM
+}
+
+"""
+Units for "volume-per-distance"
+"""
+enum VolumePerDistanceUnitEnum {
+  MILLILITER_PER_100_KILOMETERS
+  LITER_PER_100_KILOMETERS
+}
+
+"""
+Units for "volume-flow-rate"
+"""
+enum VolumeFlowRateUnitEnum {
+  LITER_PER_HOUR
+}
+
+"""
+Units for "distance-per-volume"
+"""
+enum DistancePerVolumeUnitEnum {
+  MILES_PER_GALLON
+  KILOMETERS_PER_LITER
+}
+
+"""
+Units for "force"
+"""
+enum ForceUnitEnum {
+  NEWTON
+  KILO_NEWTON
+}
+
+"""
+Units for "torque"
+"""
+enum TorqueUnitEnum {
+  NEWTON_METER
+}
+
+"""
+Units for "rotational-speed"
+"""
+enum RotationalSpeedUnitEnum {
+  REVOLUTIONS_PER_MINUTE
+}
+
+"""
+Units for "frequency"
+"""
+enum FrequencyUnitEnum {
+  HERTZ
+  CYCLES_PER_MINUTE
+  BEATS_PER_MINUTE
+}
+
+"""
+Units for "relation"
+"""
+enum RelationUnitEnum {
+  RATIO
+  PERCENT
+  NANO_METER_PER_KILOMETER
+  DECIBEL_MILLIWATT
+  DECIBEL
+}
+
+"""
+Units for "resistance"
+"""
+enum ResistanceUnitEnum {
+  OHM
+}
+
+"""
+Units for "illuminance"
+"""
+enum IlluminanceUnitEnum {
+  LUX
+}

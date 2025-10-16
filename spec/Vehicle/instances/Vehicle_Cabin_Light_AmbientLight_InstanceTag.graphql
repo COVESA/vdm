@@ -1,0 +1,19 @@
+# Instance tag type and dimensional enums
+
+
+type Vehicle_Cabin_Light_AmbientLight_InstanceTag @instanceTag {
+  dimension1: Vehicle_Cabin_Light_AmbientLight_InstanceTag_Dimension1
+  dimension2: Vehicle_Cabin_Light_AmbientLight_InstanceTag_Dimension2
+}
+
+"""Dimensional enum for VSS instance dimension 1."""
+enum Vehicle_Cabin_Light_AmbientLight_InstanceTag_Dimension1 {
+  Row1
+  Row2
+}
+
+"""Dimensional enum for VSS instance dimension 2."""
+enum Vehicle_Cabin_Light_AmbientLight_InstanceTag_Dimension2 {
+  DriverSide
+  PassengerSide
+}

@@ -1,0 +1,12 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Powertrain.Transmission.Type."""
+enum Vehicle_Powertrain_Transmission_Type_Enum {
+  UNKNOWN
+  SEQUENTIAL
+  H
+  AUTOMATIC
+  DSG
+  CVT
+}

@@ -1,0 +1,22 @@
+# Domain-specific GraphQL types
+
+
+"""Voltage information for cells in the battery pack."""
+type Vehicle_Powertrain_TractionBattery_CellVoltage {
+  """
+  Array of cell voltages. Length or array shall correspond to number of cells in vehicle.
+  """
+  cellVoltages: String
+
+  """Identifier of the battery cell with highest voltage."""
+  idMax: UInt16
+
+  """Identifier of the battery cell with lowest voltage."""
+  idMin: UInt16
+
+  """Current voltage of the battery cell with highest voltage."""
+  max(unit: VoltageUnitEnum = VOLT): Float
+
+  """Current voltage of the battery cell with lowest voltage."""
+  min(unit: VoltageUnitEnum = VOLT): Float
+}

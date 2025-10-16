@@ -1,0 +1,56 @@
+# Domain-specific GraphQL types
+
+
+"""Properties related to battery charging."""
+type Vehicle_Powertrain_TractionBattery_Charging {
+  """Average charging power of last or current charging event."""
+  averagePower(unit: PowerUnitEnum = KILOWATT): Float
+
+  """Target charge limit (state of charge) for battery."""
+  chargeLimit(unit: RelationUnitEnum = PERCENT): UInt8
+
+  """Current charging rate, as in kilometers of range added per hour."""
+  chargeRate(unit: VelocityUnitEnum = KILOMETER_PER_HOUR): Float
+
+  """
+  EVSE charging point ID (without separators) of last or current charging event according to ISO 15118-2 Annex H.
+  """
+  evseId: String
+
+  """
+  True if charging is ongoing. Charging is considered to be ongoing if energy is flowing from charger to vehicle.
+  """
+  isCharging: Boolean
+
+  """
+  True if discharging (vehicle to grid) is ongoing. Discharging is considered to be ongoing if energy is flowing from vehicle to charger/grid.
+  """
+  isDischarging: Boolean
+
+  """Maximum charging power of last or current charging event."""
+  maxPower(unit: PowerUnitEnum = KILOWATT): Float
+
+  """
+  Electrical energy lost by power dissipation to heat inside the AC/DC converter.
+  """
+  powerLoss(unit: PowerUnitEnum = WATT): Float
+
+  """Start or stop the charging process."""
+  startStopCharging: Vehicle_Powertrain_TractionBattery_Charging_StartStopCharging_Enum
+
+  """
+  Current temperature of AC/DC converter converting grid voltage to battery voltage.
+  """
+  temperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+
+  """
+  The time needed for the current charging process to reach Charging.ChargeLimit. 0 if charging is complete or no charging process is active or planned.
+  """
+  timeToComplete(unit: DurationUnitEnum = SECOND): UInt32
+  chargeCurrent: Vehicle_Powertrain_TractionBattery_Charging_ChargeCurrent
+  chargeVoltage: Vehicle_Powertrain_TractionBattery_Charging_ChargeVoltage
+  chargingPort_s: [Vehicle_Powertrain_TractionBattery_Charging_ChargingPort]
+  location: Vehicle_Powertrain_TractionBattery_Charging_Location
+  maximumChargingCurrent: Vehicle_Powertrain_TractionBattery_Charging_MaximumChargingCurrent
+  timer: Vehicle_Powertrain_TractionBattery_Charging_Timer
+}

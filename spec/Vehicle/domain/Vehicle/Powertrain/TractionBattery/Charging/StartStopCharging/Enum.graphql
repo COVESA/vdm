@@ -1,0 +1,10 @@
+# Domain-specific GraphQL types
+
+
+"""
+Allowed values for Vehicle.Powertrain.TractionBattery.Charging.StartStopCharging.
+"""
+enum Vehicle_Powertrain_TractionBattery_Charging_StartStopCharging_Enum {
+  START
+  STOP
+}

@@ -1,0 +1,8 @@
+# Domain-specific GraphQL types
+
+
+"""Catalyst signals"""
+type Vehicle_Obd_Catalyst {
+  bank1: Vehicle_Obd_Catalyst_Bank1
+  bank2: Vehicle_Obd_Catalyst_Bank2
+}

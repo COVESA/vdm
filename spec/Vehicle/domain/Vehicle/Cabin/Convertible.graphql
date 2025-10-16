@@ -1,0 +1,8 @@
+# Domain-specific GraphQL types
+
+
+"""Convertible roof."""
+type Vehicle_Cabin_Convertible {
+  """Roof status on convertible vehicles."""
+  status: Vehicle_Cabin_Convertible_Status_Enum
+}

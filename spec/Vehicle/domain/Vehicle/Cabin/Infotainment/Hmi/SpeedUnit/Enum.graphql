@@ -1,0 +1,9 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Cabin.Infotainment.HMI.SpeedUnit."""
+enum Vehicle_Cabin_Infotainment_Hmi_SpeedUnit_Enum {
+  METERS_PER_SECOND
+  MILES_PER_HOUR
+  KILOMETERS_PER_HOUR
+}

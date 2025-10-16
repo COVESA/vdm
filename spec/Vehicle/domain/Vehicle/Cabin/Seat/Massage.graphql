@@ -1,0 +1,20 @@
+# Domain-specific GraphQL types
+
+
+"""Massage related information for the seat."""
+type Vehicle_Cabin_Seat_Massage {
+  """True if the seat have the massage capability"""
+  isAvailable: Boolean
+
+  """Seat massage level. 0 = off. 100 = max massage."""
+  level(unit: RelationUnitEnum = PERCENT): UInt8
+
+  """Massage status."""
+  status: Vehicle_Cabin_Seat_Massage_Status_Enum
+
+  """Type of massage."""
+  supportedTypes: String
+
+  """Type of massage active."""
+  typeActive: String
+}

@@ -1,0 +1,33 @@
+# Domain-specific GraphQL types
+
+
+"""Seat switch signals"""
+type Vehicle_Cabin_Seat_Switch {
+  """Seat backward switch engaged (SingleSeat.Position)."""
+  isBackwardEngaged: Boolean
+
+  """Cooler switch for Seat heater (SingleSeat.Heating)."""
+  isCoolerEngaged: Boolean
+
+  """Seat down switch engaged (SingleSeat.Height)."""
+  isDownEngaged: Boolean
+
+  """Seat forward switch engaged (SingleSeat.Position)."""
+  isForwardEngaged: Boolean
+
+  """Tilt backward switch engaged (SingleSeat.Tilt)."""
+  isTiltBackwardEngaged: Boolean
+
+  """Tilt forward switch engaged (SingleSeat.Tilt)."""
+  isTiltForwardEngaged: Boolean
+
+  """Seat up switch engaged (SingleSeat.Height)."""
+  isUpEngaged: Boolean
+
+  """Warmer switch for Seat heater (SingleSeat.Heating)."""
+  isWarmerEngaged: Boolean
+  backrest: Vehicle_Cabin_Seat_Switch_Backrest
+  headrest: Vehicle_Cabin_Seat_Switch_Headrest
+  massage: Vehicle_Cabin_Seat_Switch_Massage
+  seating: Vehicle_Cabin_Seat_Switch_Seating
+}

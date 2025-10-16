@@ -1,0 +1,11 @@
+# Domain-specific GraphQL types
+
+
+"""Catalyst bank 2 signals"""
+type Vehicle_Obd_Catalyst_Bank2 {
+  """PID 3D - Catalyst temperature from bank 2, sensor 1"""
+  temperature1(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+
+  """PID 3F - Catalyst temperature from bank 2, sensor 2"""
+  temperature2(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+}

@@ -1,0 +1,25 @@
+# Domain-specific GraphQL types
+
+
+"""Current charging current."""
+type Vehicle_Powertrain_TractionBattery_Charging_ChargeCurrent {
+  """
+  Current DC charging current at inlet. Negative if returning energy to grid.
+  """
+  dc(unit: ElectricCurrentUnitEnum = AMPERE): Float
+
+  """
+  Current AC charging current (rms) at inlet for Phase 1. Negative if returning energy to grid.
+  """
+  phase1(unit: ElectricCurrentUnitEnum = AMPERE): Float
+
+  """
+  Current AC charging current (rms) at inlet for Phase 2. Negative if returning energy to grid.
+  """
+  phase2(unit: ElectricCurrentUnitEnum = AMPERE): Float
+
+  """
+  Current AC charging current (rms) at inlet for Phase 3. Negative if returning energy to grid.
+  """
+  phase3(unit: ElectricCurrentUnitEnum = AMPERE): Float
+}

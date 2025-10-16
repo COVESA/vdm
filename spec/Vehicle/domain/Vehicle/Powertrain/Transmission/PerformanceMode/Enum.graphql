@@ -1,0 +1,11 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Powertrain.Transmission.PerformanceMode."""
+enum Vehicle_Powertrain_Transmission_PerformanceMode_Enum {
+  NORMAL
+  SPORT
+  ECONOMY
+  SNOW
+  RAIN
+}

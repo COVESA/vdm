@@ -1,0 +1,18 @@
+# Domain-specific GraphQL types
+
+
+"""
+Sun roof shade status. Open = Retracted, Closed = Deployed. Start position for Sunroof.Shade is Open/Retracted.
+"""
+type Vehicle_Cabin_Sunroof_Shade {
+  """
+  Is item open or closed? True = Fully or partially open. False = Fully closed.
+  """
+  isOpen: Boolean
+
+  """Item position. 0 = Start position 100 = End position."""
+  position(unit: RelationUnitEnum = PERCENT): UInt8
+
+  """Switch controlling sliding action such as window, sunroof, or blind."""
+  switch: Vehicle_Cabin_Sunroof_Shade_Switch_Enum
+}

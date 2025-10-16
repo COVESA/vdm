@@ -1,0 +1,9 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Powertrain.Type."""
+enum Vehicle_Powertrain_Type_Enum {
+  COMBUSTION
+  HYBRID
+  ELECTRIC
+}

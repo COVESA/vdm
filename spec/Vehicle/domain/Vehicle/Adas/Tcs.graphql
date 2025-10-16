@@ -1,0 +1,18 @@
+# Domain-specific GraphQL types
+
+
+"""Traction Control System signals."""
+type Vehicle_Adas_Tcs {
+  """Indicates if TCS is enabled. True = Enabled. False = Disabled."""
+  isEnabled: Boolean
+
+  """
+  Indicates if TCS is currently regulating traction. True = Engaged. False = Not Engaged.
+  """
+  isEngaged: Boolean
+
+  """
+  Indicates if TCS incurred an error condition. True = Error. False = No Error.
+  """
+  isError: Boolean
+}

@@ -1,0 +1,15 @@
+# Domain-specific GraphQL types
+
+
+"""Describes switches related to the seating of the seat."""
+type Vehicle_Cabin_Seat_Switch_Seating {
+  """
+  Is switch to decrease seating length engaged (SingleSeat.Seating.Length).
+  """
+  isBackwardEngaged: Boolean
+
+  """
+  Is switch to increase seating length engaged (SingleSeat.Seating.Length).
+  """
+  isForwardEngaged: Boolean
+}

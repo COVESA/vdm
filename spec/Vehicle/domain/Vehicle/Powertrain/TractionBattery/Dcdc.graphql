@@ -1,0 +1,17 @@
+# Domain-specific GraphQL types
+
+
+"""
+Properties related to DC/DC converter converting high voltage (from high voltage battery) to vehicle low voltage (supply voltage, typically 12 Volts).
+"""
+type Vehicle_Powertrain_TractionBattery_Dcdc {
+  """
+  Electrical energy lost by power dissipation to heat inside DC/DC converter.
+  """
+  powerLoss(unit: PowerUnitEnum = WATT): Float
+
+  """
+  Current temperature of DC/DC converter converting battery high voltage to vehicle low voltage (typically 12 Volts).
+  """
+  temperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+}

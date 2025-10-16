@@ -1,0 +1,89 @@
+# Domain-specific GraphQL types
+
+
+"""Battery Management data."""
+type Vehicle_Powertrain_TractionBattery {
+  """
+  The accumulated energy delivered to the battery during charging over lifetime of the battery.
+  """
+  accumulatedChargedEnergy(unit: WorkUnitEnum = KILOWATT_HOURS): Float
+
+  """
+  The accumulated charge throughput delivered to the battery during charging over lifetime of the battery.
+  """
+  accumulatedChargedThroughput(unit: ElectricChargeUnitEnum = AMPERE_HOURS): Float
+
+  """
+  The accumulated energy leaving HV battery for propulsion and auxiliary loads over lifetime of the battery.
+  """
+  accumulatedConsumedEnergy(unit: WorkUnitEnum = KILOWATT_HOURS): Float
+
+  """
+  The accumulated charge throughput leaving HV battery for propulsion and auxiliary loads over lifetime of the battery.
+  """
+  accumulatedConsumedThroughput(unit: ElectricChargeUnitEnum = AMPERE_HOURS): Float
+
+  """
+  Current current flowing in/out of battery. Positive = Current flowing in to battery, e.g. during charging. Negative = Current flowing out of battery, e.g. during driving.
+  """
+  currentCurrent(unit: ElectricCurrentUnitEnum = AMPERE): Float
+
+  """
+  Current electrical energy flowing in/out of battery. Positive = Energy flowing in to battery, e.g. during charging. Negative = Energy flowing out of battery, e.g. during driving.
+  """
+  currentPower(unit: PowerUnitEnum = WATT): Float
+
+  """Current Voltage of the battery."""
+  currentVoltage(unit: VoltageUnitEnum = VOLT): Float
+
+  """Current error codes related to the battery, if any."""
+  errorCodes: String
+
+  """Gross capacity of the battery."""
+  grossCapacity(unit: WorkUnitEnum = KILOWATT_HOURS): UInt16
+
+  """Battery Identification Number as assigned by OEM."""
+  id: String
+
+  """
+  Indicating if the ground (negative terminator) of the traction battery is connected to the powertrain.
+  """
+  isGroundConnected: Boolean
+
+  """
+  Indicating if the power (positive terminator) of the traction battery is connected to the powertrain.
+  """
+  isPowerConnected: Boolean
+
+  """Max allowed voltage of the battery, e.g. during charging."""
+  maxVoltage(unit: VoltageUnitEnum = VOLT): UInt16
+
+  """Total net capacity of the battery considering aging."""
+  netCapacity(unit: WorkUnitEnum = KILOWATT_HOURS): UInt16
+
+  """Nominal Voltage of the battery."""
+  nominalVoltage(unit: VoltageUnitEnum = VOLT): UInt16
+
+  """
+  Electrical energy lost by power dissipation to heat inside the battery.
+  """
+  powerLoss(unit: PowerUnitEnum = WATT): Float
+
+  """Production date of battery in ISO8601 format, e.g. YYYY-MM-DD."""
+  productionDate(unit: DatetimeUnitEnum = ISO_8601): String
+
+  """Remaining range in meters using only battery."""
+  range(unit: LengthUnitEnum = METER): UInt32
+
+  """Calculated battery state of health at standard conditions."""
+  stateOfHealth(unit: RelationUnitEnum = PERCENT): Float
+
+  """Time remaining in seconds before the battery is empty."""
+  timeRemaining(unit: DurationUnitEnum = SECOND): UInt32
+  batteryConditioning: Vehicle_Powertrain_TractionBattery_BatteryConditioning
+  cellVoltage: Vehicle_Powertrain_TractionBattery_CellVoltage
+  charging: Vehicle_Powertrain_TractionBattery_Charging
+  dcdc: Vehicle_Powertrain_TractionBattery_Dcdc
+  stateOfCharge: Vehicle_Powertrain_TractionBattery_StateOfCharge
+  temperature: Vehicle_Powertrain_TractionBattery_Temperature
+}

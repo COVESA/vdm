@@ -1,0 +1,20 @@
+# Domain-specific GraphQL types
+
+
+"""
+Allowed values for Vehicle.Powertrain.TractionBattery.Charging.ChargingPort.SupportedInletTypes.
+"""
+enum Vehicle_Powertrain_TractionBattery_Charging_ChargingPort_SupportedInletTypes_Enum {
+  IEC_TYPE_1_AC
+  IEC_TYPE_2_AC
+  IEC_TYPE_3_AC
+  IEC_TYPE_4_DC
+  IEC_TYPE_1_CCS_DC
+  IEC_TYPE_2_CCS_DC
+  TESLA_ROADSTER
+  TESLA_HPWC
+  TESLA_SUPERCHARGER
+  GBT_AC
+  GBT_DC
+  OTHER
+}

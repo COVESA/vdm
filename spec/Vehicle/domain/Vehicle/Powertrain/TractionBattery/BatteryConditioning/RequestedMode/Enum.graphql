@@ -1,0 +1,11 @@
+# Domain-specific GraphQL types
+
+
+"""
+Allowed values for Vehicle.Powertrain.TractionBattery.BatteryConditioning.RequestedMode.
+"""
+enum Vehicle_Powertrain_TractionBattery_BatteryConditioning_RequestedMode_Enum {
+  INACTIVE
+  FAST_CHARGING_PREPARATION
+  DRIVING_PREPARATION
+}

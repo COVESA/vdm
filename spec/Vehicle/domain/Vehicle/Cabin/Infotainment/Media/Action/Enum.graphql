@@ -1,0 +1,13 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Cabin.Infotainment.Media.Action."""
+enum Vehicle_Cabin_Infotainment_Media_Action_Enum {
+  UNKNOWN
+  STOP
+  PLAY
+  FAST_FORWARD
+  FAST_BACKWARD
+  SKIP_FORWARD
+  SKIP_BACKWARD
+}

@@ -1,0 +1,11 @@
+# Domain-specific GraphQL types
+
+
+"""A navigation has been selected."""
+type Vehicle_Cabin_Infotainment_Navigation_DestinationSet {
+  """Latitude of destination in WGS 84 geodetic coordinates."""
+  latitude(unit: AngleUnitEnum = DEGREE): Float
+
+  """Longitude of destination in WGS 84 geodetic coordinates."""
+  longitude(unit: AngleUnitEnum = DEGREE): Float
+}

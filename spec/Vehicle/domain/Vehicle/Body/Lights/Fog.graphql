@@ -1,0 +1,16 @@
+# Domain-specific GraphQL types
+
+
+"""Fog lights."""
+type Vehicle_Body_Lights_Fog {
+  id: ID!
+  instanceTag: Vehicle_Body_Lights_Fog_InstanceTag
+
+  """
+  Indicates if light is defect. True = Light is defect. False = Light has no defect.
+  """
+  isDefect: Boolean
+
+  """Indicates if light is on or off. True = On. False = Off."""
+  isOn: Boolean
+}

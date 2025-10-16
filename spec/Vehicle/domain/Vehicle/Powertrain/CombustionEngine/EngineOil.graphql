@@ -1,0 +1,19 @@
+# Domain-specific GraphQL types
+
+
+"""Signals related to the engine oil"""
+type Vehicle_Powertrain_CombustionEngine_EngineOil {
+  """Engine oil capacity in liters."""
+  capacity(unit: VolumeUnitEnum = LITER): Float
+
+  """Engine oil level."""
+  level: Vehicle_Powertrain_CombustionEngine_EngineOil_Level_Enum
+
+  """
+  Remaining engine oil life in seconds. Negative values can be used to indicate that lifetime has been exceeded.
+  """
+  lifeRemaining(unit: DurationUnitEnum = SECOND): Int
+
+  """EOT, Engine oil temperature."""
+  temperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+}
