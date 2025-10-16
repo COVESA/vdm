@@ -1,0 +1,5 @@
+type PersonName {
+  firstName: String
+  middleName: String
+  lastName: String
+}

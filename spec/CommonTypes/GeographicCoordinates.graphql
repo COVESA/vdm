@@ -1,0 +1,4 @@
+type GeographicCoordinates {
+    latitude: Latitude
+    longitude: Longitude
+}

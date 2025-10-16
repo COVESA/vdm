@@ -1,0 +1,7 @@
+# Specified by The Guild (https://the-guild.dev/graphql/scalars)
+scalar Date
+scalar EmailAddress
+scalar Latitude
+scalar Longitude
+scalar DateTime
+scalar URL
