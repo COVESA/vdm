@@ -1,0 +1,27 @@
+# Domain-specific GraphQL types
+
+
+"""Headrest settings."""
+type Vehicle_Cabin_Seat_Headrest {
+  """
+  Headrest angle, relative to backrest, 0 degrees if parallel to backrest, Positive degrees = tilted forward.
+  """
+  angle(unit: AngleUnitEnum = DEGREE): Float
+
+  """
+  Position of headrest relative to movable range of the head rest. 0 = Bottommost position supported.
+  """
+  height(unit: LengthUnitEnum = MILLIMETER): UInt8
+
+  """Head rest backward switch engaged."""
+  isBackwardSwitchEngaged: Boolean
+
+  """Head rest down switch engaged."""
+  isDownSwitchEngaged: Boolean
+
+  """Head rest forward switch engaged."""
+  isForwardSwitchEngaged: Boolean
+
+  """Head rest up switch engaged."""
+  isUpSwitchEngaged: Boolean
+}

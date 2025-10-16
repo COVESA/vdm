@@ -1,0 +1,20 @@
+# Instance tag type and dimensional enums
+
+
+type Vehicle_Adas_ObstacleDetection_InstanceTag @instanceTag {
+  dimension1: Vehicle_Adas_ObstacleDetection_InstanceTag_Dimension1
+  dimension2: Vehicle_Adas_ObstacleDetection_InstanceTag_Dimension2
+}
+
+"""Dimensional enum for VSS instance dimension 1."""
+enum Vehicle_Adas_ObstacleDetection_InstanceTag_Dimension1 {
+  Front
+  Rear
+}
+
+"""Dimensional enum for VSS instance dimension 2."""
+enum Vehicle_Adas_ObstacleDetection_InstanceTag_Dimension2 {
+  Left
+  Center
+  Right
+}

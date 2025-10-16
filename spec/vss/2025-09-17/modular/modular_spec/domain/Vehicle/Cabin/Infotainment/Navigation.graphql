@@ -1,0 +1,16 @@
+# Domain-specific GraphQL types
+
+
+"""All navigation actions"""
+type Vehicle_Cabin_Infotainment_Navigation {
+  """Navigation guidance state that was selected."""
+  guidanceVoice: Vehicle_Cabin_Infotainment_Navigation_GuidanceVoice_Enum
+
+  """Navigation mute state that was selected."""
+  mute: Vehicle_Cabin_Infotainment_Navigation_Mute_Enum
+
+  """Current navigation volume"""
+  volume(unit: RelationUnitEnum = PERCENT): UInt8
+  destinationSet: Vehicle_Cabin_Infotainment_Navigation_DestinationSet
+  map: Vehicle_Cabin_Infotainment_Navigation_Map
+}

@@ -1,0 +1,13 @@
+# Domain-specific GraphQL types
+
+
+"""Identifier attributes based on OAuth 2.0."""
+type Vehicle_Driver_Identifier {
+  """
+  Unique Issuer for the authentication of the occupant e.g. https://accounts.funcorp.com.
+  """
+  issuer: String
+
+  """Subject for the authentication of the occupant e.g. UserID 7331677."""
+  subject: String
+}

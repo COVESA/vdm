@@ -1,0 +1,16 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.ADAS.ActiveAutonomyLevel."""
+enum Vehicle_Adas_ActiveAutonomyLevel_Enum {
+  SAE_0
+  SAE_1
+  SAE_2_DISENGAGING
+  SAE_2
+  SAE_3_DISENGAGING
+  SAE_3
+  SAE_4_DISENGAGING
+  SAE_4
+  SAE_5_DISENGAGING
+  SAE_5
+}

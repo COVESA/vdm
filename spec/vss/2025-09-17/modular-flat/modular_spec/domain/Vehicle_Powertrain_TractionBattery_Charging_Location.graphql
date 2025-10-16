@@ -1,0 +1,20 @@
+# Domain-specific GraphQL types
+
+
+"""Location of last or current charging event."""
+type Vehicle_Powertrain_TractionBattery_Charging_Location {
+  """
+  Altitude relative to WGS 84 reference ellipsoid of last or current charging event.
+  """
+  altitude(unit: LengthUnitEnum = METER): Float
+
+  """
+  Latitude of last or current charging event in WGS 84 geodetic coordinates.
+  """
+  latitude(unit: AngleUnitEnum = DEGREE): Float
+
+  """
+  Longitude of last or current charging event in WGS 84 geodetic coordinates.
+  """
+  longitude(unit: AngleUnitEnum = DEGREE): Float
+}

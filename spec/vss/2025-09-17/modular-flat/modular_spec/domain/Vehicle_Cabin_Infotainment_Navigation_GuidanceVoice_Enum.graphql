@@ -1,0 +1,11 @@
+# Domain-specific GraphQL types
+
+
+"""
+Allowed values for Vehicle.Cabin.Infotainment.Navigation.GuidanceVoice.
+"""
+enum Vehicle_Cabin_Infotainment_Navigation_GuidanceVoice_Enum {
+  STANDARD_MALE
+  STANDARD_FEMALE
+  ETC
+}

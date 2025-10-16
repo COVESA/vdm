@@ -1,0 +1,16 @@
+# Domain-specific GraphQL types
+
+
+"""Driver Monitoring System signals."""
+type Vehicle_Adas_Dms {
+  """Indicates if DMS is enabled. True = Enabled. False = Disabled."""
+  isEnabled: Boolean
+
+  """
+  Indicates if DMS incurred an error condition. True = Error. False = No Error.
+  """
+  isError: Boolean
+
+  """Indicates if DMS has registered a driver alert condition."""
+  isWarning: Boolean
+}

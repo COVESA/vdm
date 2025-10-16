@@ -1,0 +1,31 @@
+# Domain-specific GraphQL types
+
+
+"""Describes signals related to the seat bottom of the seat."""
+type Vehicle_Cabin_Seat_Seating {
+  """
+  Heating or Cooling requsted for the Item. -100 = Maximum cooling, 0 = Heating/cooling deactivated, 100 = Maximum heating.
+  """
+  heatingCooling(unit: RelationUnitEnum = PERCENT): Int8
+
+  """Is switch to decrease seating length engaged."""
+  isBackwardSwitchEngaged: Boolean
+
+  """Is switch to increase seating length engaged."""
+  isForwardSwitchEngaged: Boolean
+
+  """
+  Length adjustment of seating. 0 = Adjustable part of seating in rearmost position (Shortest length of seating).
+  """
+  length(unit: LengthUnitEnum = MILLIMETER): UInt16
+
+  """
+  Seat bottom side bolster support left. 0 = Minimum support (widest side bolster setting). 100 = Maximum support.
+  """
+  sideBolsterSupportLeft(unit: RelationUnitEnum = PERCENT): Float
+
+  """
+  Seat bottom side bolster support right. 0 = Minimum support (widest side bolster setting). 100 = Maximum support.
+  """
+  sideBolsterSupportRight(unit: RelationUnitEnum = PERCENT): Float
+}

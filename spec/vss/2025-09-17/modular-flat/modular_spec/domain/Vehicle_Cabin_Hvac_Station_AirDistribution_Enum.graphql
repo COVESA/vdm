@@ -1,0 +1,9 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Cabin.HVAC.Station.AirDistribution."""
+enum Vehicle_Cabin_Hvac_Station_AirDistribution_Enum {
+  UP
+  MIDDLE
+  DOWN
+}

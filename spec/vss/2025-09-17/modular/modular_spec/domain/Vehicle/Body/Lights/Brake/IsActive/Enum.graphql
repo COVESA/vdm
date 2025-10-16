@@ -1,0 +1,9 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Body.Lights.Brake.IsActive."""
+enum Vehicle_Body_Lights_Brake_IsActive_Enum {
+  INACTIVE
+  ACTIVE
+  ADAPTIVE
+}

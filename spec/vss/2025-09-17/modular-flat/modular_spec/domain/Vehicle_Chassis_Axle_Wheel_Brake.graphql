@@ -1,0 +1,19 @@
+# Domain-specific GraphQL types
+
+
+"""Brake signals for wheel"""
+type Vehicle_Chassis_Axle_Wheel_Brake {
+  """Brake fluid level as percent. 0 = Empty. 100 = Full."""
+  fluidLevel(unit: RelationUnitEnum = PERCENT): UInt8
+
+  """Brake pad wear status. True = Worn. False = Not Worn."""
+  isBrakesWorn: Boolean
+
+  """
+  Brake fluid level status. True = Brake fluid level low. False = Brake fluid level OK.
+  """
+  isFluidLevelLow: Boolean
+
+  """Brake pad wear as percent. 0 = No Wear. 100 = Worn."""
+  padWear(unit: RelationUnitEnum = PERCENT): UInt8
+}

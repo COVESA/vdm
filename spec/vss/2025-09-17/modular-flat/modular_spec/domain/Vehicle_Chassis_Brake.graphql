@@ -1,0 +1,15 @@
+# Domain-specific GraphQL types
+
+
+"""Brake system signals"""
+type Vehicle_Chassis_Brake {
+  """
+  Indicates if emergency braking initiated by driver is detected. True = Emergency braking detected. False = Emergency braking not detected.
+  """
+  isDriverEmergencyBrakingDetected: Boolean
+
+  """
+  Brake pedal position as percent. 0 = Not depressed. 100 = Fully depressed.
+  """
+  pedalPosition(unit: RelationUnitEnum = PERCENT): UInt8
+}

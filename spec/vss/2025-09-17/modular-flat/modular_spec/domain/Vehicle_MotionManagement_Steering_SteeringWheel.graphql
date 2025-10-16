@@ -1,0 +1,45 @@
+# Domain-specific GraphQL types
+
+
+"""MotionManagement related to steering wheel."""
+type Vehicle_MotionManagement_Steering_SteeringWheel {
+  """
+  Represents the current input angle of the steering system, typically corresponds to angle applied by driver on the steering-wheel. Positive for angle in counterclockwise direction (based on ISO8855).
+  """
+  angle(unit: AngleUnitEnum = DEGREE): Int16
+
+  """
+  Steering-wheel angle request to the steering actuator (external set-point for steer-by-wire). Positive sign for angle in counterclockwise direction (based on ISO8855).
+  """
+  angleTarget(unit: AngleUnitEnum = DEGREE): Int16
+
+  """
+  Mode used for controlling Steering-wheel angle interface. 0 indicates interface disabled. Other values activate vehicle specific modes.
+  """
+  angleTargetMode: UInt8
+
+  """
+  Represents the current input torque for steering system, typically corresponds to torque applied by driver on the steering wheel. Positive for torque in counterclockwise direction (based on ISO8855).
+  """
+  torque(unit: TorqueUnitEnum = NEWTON_METER): Int16
+
+  """
+  Steering-wheel torque offset request to the steering actuator, added to the actuator internal calculated target value. Positive sign for torque in counterclockwise direction (based on ISO8855).
+  """
+  torqueOffsetTarget(unit: TorqueUnitEnum = NEWTON_METER): Int16
+
+  """
+  Mode used for controlling steering-wheel torque offset interface. 0 indicates interface disabled. Other values activate vehicle specific modes.
+  """
+  torqueOffsetTargetMode: UInt8
+
+  """
+  Steering-wheel torque request to the steering actuator (external set-point for steer-by-wire). Positive sign for torque in counterclockwise direction (based on ISO8855).
+  """
+  torqueTarget(unit: TorqueUnitEnum = NEWTON_METER): Int16
+
+  """
+  Mode used for controlling Steering-wheel torque interface. 0 indicates interface disabled. Other values activate vehicle specific modes.
+  """
+  torqueTargetMode: UInt8
+}

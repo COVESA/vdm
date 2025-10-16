@@ -1,0 +1,16 @@
+# Domain-specific GraphQL types
+
+
+"""All data concerning steering, suspension, wheels, and brakes."""
+type Vehicle_Chassis {
+  """Number of axles on the vehicle"""
+  axleCount: UInt8
+
+  """Overall wheelbase, in mm."""
+  wheelbase(unit: LengthUnitEnum = MILLIMETER): UInt16
+  accelerator: Vehicle_Chassis_Accelerator
+  axle_s: [Vehicle_Chassis_Axle]
+  brake: Vehicle_Chassis_Brake
+  parkingBrake: Vehicle_Chassis_ParkingBrake
+  steeringWheel: Vehicle_Chassis_SteeringWheel
+}

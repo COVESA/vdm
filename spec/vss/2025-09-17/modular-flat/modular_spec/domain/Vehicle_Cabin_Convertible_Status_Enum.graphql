@@ -1,0 +1,12 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Cabin.Convertible.Status."""
+enum Vehicle_Cabin_Convertible_Status_Enum {
+  UNDEFINED
+  CLOSED
+  OPEN
+  CLOSING
+  OPENING
+  STALLED
+}

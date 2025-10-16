@@ -1,0 +1,33 @@
+# Domain-specific GraphQL types
+
+
+"""MotionManagement related to a specific axle."""
+type Vehicle_MotionManagement_Steering_Axle {
+  id: ID!
+  instanceTag: Vehicle_MotionManagement_Steering_Axle_InstanceTag
+
+  """
+  Represents the current position of the steering rack on axle steering actuator. Positive values leads to a left turn of the vehicle (based on ISO8855).
+  """
+  rackPosition(unit: LengthUnitEnum = MILLIMETER): Int16
+
+  """
+  Rack position offset request to the axle steering actuator (for steer-by-wire), added to the actuator internal calculated set-point. Positive values without internal calculated set point change lead to a left movement of the vehicle (based on ISO8855).
+  """
+  rackPositionOffsetTarget(unit: LengthUnitEnum = MILLIMETER): Int16
+
+  """
+  Mode used for controlling rack position offset interface of axle steering actuator. 0 indicates interface disabled. Other values activate vehicle specific modes.
+  """
+  rackPositionOffsetTargetMode: UInt8
+
+  """
+  Rack position request to the axle steering actuator (external set-point). Positive values lead to a left turn of the vehicle (based on ISO8855).
+  """
+  rackPositionTarget(unit: LengthUnitEnum = MILLIMETER): Int16
+
+  """
+  Mode used for controlling rack position interface of axle steering actuator. 0 indicates interface disabled. Other values activate vehicle specific modes.
+  """
+  rackPositionTargetMode: UInt8
+}

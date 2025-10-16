@@ -1,0 +1,27 @@
+# Domain-specific GraphQL types
+
+
+"""MotionManagement for brake actuation for a specific electric axle."""
+type Vehicle_MotionManagement_Brake_Axle {
+  id: ID!
+  instanceTag: Vehicle_MotionManagement_Brake_Axle_InstanceTag
+
+  """
+  Maximum distribution range of the friction brake request on the axle to the right wheel. 0% = Complete friction torque shall be shifted to the left wheel. 50% = At most 50% friction torque may be shifted to the right wheel. 100% = Complete friction torque may be shifted to the right wheel.
+  """
+  torqueDistributionFrictionRightMaximum(unit: RelationUnitEnum = PERCENT): UInt16
+
+  """
+  Minimum distribution range of the friction brake request on the axle to the right wheel. 0% = Complete friction torque may be shifted to the left wheel. 50% = At least 50% friction torque shall be shifted to the right wheel. 100% = Complete friction torque shall be shifted to the right wheel.
+  """
+  torqueDistributionFrictionRightMinimum(unit: RelationUnitEnum = PERCENT): UInt16
+
+  """Limit for regenerative brake torque at given axle. Brake Torque < 0Nm."""
+  torqueElectricMinimum(unit: TorqueUnitEnum = NEWTON_METER): Int16
+
+  """
+  Maximum absolute wheel torque difference between left and right wheel for friction brake.
+  """
+  torqueFrictionDifferenceMaximum(unit: TorqueUnitEnum = NEWTON_METER): UInt16
+  wheel_s: [Vehicle_MotionManagement_Brake_Axle_Wheel]
+}

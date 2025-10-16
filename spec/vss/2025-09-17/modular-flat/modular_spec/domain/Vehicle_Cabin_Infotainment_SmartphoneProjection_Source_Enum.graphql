@@ -1,0 +1,11 @@
+# Domain-specific GraphQL types
+
+
+"""
+Allowed values for Vehicle.Cabin.Infotainment.SmartphoneProjection.Source.
+"""
+enum Vehicle_Cabin_Infotainment_SmartphoneProjection_Source_Enum {
+  USB
+  BLUETOOTH
+  WIFI
+}

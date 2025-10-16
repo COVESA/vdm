@@ -1,0 +1,38 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.OBD.PidsB."""
+enum Vehicle_Obd_PidsB_Enum {
+  _21
+  _22
+  _23
+  _24
+  _25
+  _26
+  _27
+  _28
+  _29
+  _2A
+  _2B
+  _2C
+  _2D
+  _2E
+  _2F
+  _30
+  _31
+  _32
+  _33
+  _34
+  _35
+  _36
+  _37
+  _38
+  _39
+  _3A
+  _3B
+  _3C
+  _3D
+  _3E
+  _3F
+  _40
+}

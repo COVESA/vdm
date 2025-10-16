@@ -1,0 +1,27 @@
+# Domain-specific GraphQL types
+
+
+"""
+Maximum charging current that can be accepted by the system, as measured at the charging inlet.
+"""
+type Vehicle_Powertrain_TractionBattery_Charging_MaximumChargingCurrent {
+  """
+  Maximum DC charging current at inlet that can be accepted by the system.
+  """
+  dc(unit: ElectricCurrentUnitEnum = AMPERE): Float
+
+  """
+  Maximum AC charging current (rms) at inlet for Phase 1 that can be accepted by the system.
+  """
+  phase1(unit: ElectricCurrentUnitEnum = AMPERE): Float
+
+  """
+  Maximum AC charging current (rms) at inlet for Phase 2 that can be accepted by the system.
+  """
+  phase2(unit: ElectricCurrentUnitEnum = AMPERE): Float
+
+  """
+  Maximum AC charging current (rms) at inlet for Phase 3 that can be accepted by the system.
+  """
+  phase3(unit: ElectricCurrentUnitEnum = AMPERE): Float
+}

@@ -1,0 +1,12 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Cabin.Infotainment.HMI.EVEconomyUnits."""
+enum Vehicle_Cabin_Infotainment_Hmi_EvEconomyUnits_Enum {
+  MILES_PER_KILOWATT_HOUR
+  KILOMETERS_PER_KILOWATT_HOUR
+  KILOWATT_HOURS_PER_100_MILES
+  KILOWATT_HOURS_PER_100_KILOMETERS
+  WATT_HOURS_PER_MILE
+  WATT_HOURS_PER_KILOMETER
+}

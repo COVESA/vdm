@@ -1,0 +1,13 @@
+# Domain-specific GraphQL types
+
+
+"""Diagnostics data."""
+type Vehicle_Diagnostics {
+  """Number of Diagnostic Trouble Codes (DTC)"""
+  dtccount: UInt8
+
+  """
+  List of currently active DTCs formatted according OBD II (SAE-J2012DA_201812) standard ([P|C|B|U]XXXXX )
+  """
+  dtclist: String
+}

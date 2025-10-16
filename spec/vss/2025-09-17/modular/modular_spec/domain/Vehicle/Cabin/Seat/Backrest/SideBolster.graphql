@@ -1,0 +1,10 @@
+# Domain-specific GraphQL types
+
+
+"""Backrest side bolster (lumbar side support) settings."""
+type Vehicle_Cabin_Seat_Backrest_SideBolster {
+  """
+  Side bolster support. 0 = Minimum support (widest side bolster setting). 100 = Maximum support.
+  """
+  support(unit: RelationUnitEnum = PERCENT): Float
+}

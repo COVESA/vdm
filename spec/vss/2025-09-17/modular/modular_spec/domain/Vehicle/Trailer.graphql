@@ -1,0 +1,8 @@
+# Domain-specific GraphQL types
+
+
+"""Trailer signals."""
+type Vehicle_Trailer {
+  """Signal indicating if trailer is connected or not."""
+  isConnected: Boolean
+}

@@ -1,0 +1,15 @@
+# Domain-specific GraphQL types
+
+
+"""Properties related to timing of battery charging sessions."""
+type Vehicle_Powertrain_TractionBattery_Charging_Timer {
+  """
+  Defines timer mode for charging: INACTIVE - no timer set, charging may start as soon as battery is connected to a charger. START_TIME - charging shall start at Charging.Timer.Time. END_TIME - charging shall be finished (reach Charging.ChargeLimit) at Charging.Timer.Time. When charging is completed the vehicle shall change mode to 'inactive' or set a new Charging.Timer.Time. Charging shall start immediately if mode is 'starttime' or 'endtime' and Charging.Timer.Time is a time in the past.
+  """
+  mode: Vehicle_Powertrain_TractionBattery_Charging_Timer_Mode_Enum
+
+  """
+  Time for next charging-related action, formatted according to ISO 8601 with UTC time zone. Value has no significance if Charging.Timer.Mode is 'inactive'.
+  """
+  time(unit: DatetimeUnitEnum = ISO_8601): String
+}

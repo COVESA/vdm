@@ -1,0 +1,22 @@
+# Domain-specific GraphQL types
+
+
+"""Exterior lights."""
+type Vehicle_Body_Lights {
+  """
+  Status of the high beam switch. True = high beam enabled. False = high beam not enabled.
+  """
+  isHighBeamSwitchOn: Boolean
+
+  """Status of the vehicle main light switch."""
+  lightSwitch: Vehicle_Body_Lights_LightSwitch_Enum
+  backup: Vehicle_Body_Lights_Backup
+  beam_s: [Vehicle_Body_Lights_Beam]
+  brake: Vehicle_Body_Lights_Brake
+  directionIndicator_s: [Vehicle_Body_Lights_DirectionIndicator]
+  fog_s: [Vehicle_Body_Lights_Fog]
+  hazard: Vehicle_Body_Lights_Hazard
+  licensePlate: Vehicle_Body_Lights_LicensePlate
+  parking: Vehicle_Body_Lights_Parking
+  running: Vehicle_Body_Lights_Running
+}

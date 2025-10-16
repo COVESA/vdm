@@ -1,0 +1,31 @@
+# Domain-specific GraphQL types
+
+
+"""All mirrors."""
+type Vehicle_Body_Mirrors {
+  id: ID!
+  instanceTag: Vehicle_Body_Mirrors_InstanceTag
+
+  """
+  Is mirror folded? True = Fully or partially folded. False = Fully unfolded.
+  """
+  isFolded: Boolean
+
+  """Mirror Heater on or off. True = Heater On. False = Heater Off."""
+  isHeatingOn: Boolean
+
+  """
+  Is mirror movement locked? True = Locked, mirror will not react to Tilt/Pan change. False = Unlocked.
+  """
+  isLocked: Boolean
+
+  """
+  Mirror pan as a percent. 0 = Center Position. 100 = Fully Left Position. -100 = Fully Right Position.
+  """
+  pan(unit: RelationUnitEnum = PERCENT): Int8
+
+  """
+  Mirror tilt as a percent. 0 = Center Position. 100 = Fully Upward Position. -100 = Fully Downward Position.
+  """
+  tilt(unit: RelationUnitEnum = PERCENT): Int8
+}

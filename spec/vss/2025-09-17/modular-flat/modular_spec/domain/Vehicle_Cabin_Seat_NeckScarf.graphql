@@ -1,0 +1,13 @@
+# Domain-specific GraphQL types
+
+
+"""NeckScarf settings."""
+type Vehicle_Cabin_Seat_NeckScarf {
+  """Speed of the fan."""
+  fanSpeed(unit: RelationUnitEnum = PERCENT): UInt8
+
+  """
+  Heating or Cooling requsted for the Item. -100 = Maximum cooling, 0 = Heating/cooling deactivated, 100 = Maximum heating.
+  """
+  heatingCooling(unit: RelationUnitEnum = PERCENT): Int8
+}

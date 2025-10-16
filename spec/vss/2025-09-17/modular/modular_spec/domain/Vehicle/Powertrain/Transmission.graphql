@@ -1,0 +1,74 @@
+# Domain-specific GraphQL types
+
+
+"""Transmission-specific data, stopping at the drive shafts."""
+type Vehicle_Powertrain_Transmission {
+  """
+  Clutch engagement. 0% = Clutch fully disengaged. 100% = Clutch fully engaged.
+  """
+  clutchEngagement(unit: RelationUnitEnum = PERCENT): Float
+
+  """Clutch wear as a percent. 0 = no wear. 100 = worn."""
+  clutchWear(unit: RelationUnitEnum = PERCENT): UInt8
+
+  """The current gear. 0=Neutral, 1/2/..=Forward, -1/-2/..=Reverse."""
+  currentGear: Int8
+
+  """
+  Front Diff Lock engagement. 0% = Diff lock fully disengaged. 100% = Diff lock fully engaged.
+  """
+  diffLockFrontEngagement(unit: RelationUnitEnum = PERCENT): Float
+
+  """
+  Rear Diff Lock engagement. 0% = Diff lock fully disengaged. 100% = Diff lock fully engaged.
+  """
+  diffLockRearEngagement(unit: RelationUnitEnum = PERCENT): Float
+
+  """Drive type."""
+  driveType: Vehicle_Powertrain_Transmission_DriveType_Enum
+
+  """Is the gearbox in automatic or manual (paddle) mode."""
+  gearChangeMode: Vehicle_Powertrain_Transmission_GearChangeMode_Enum
+
+  """Number of forward gears in the transmission. -1 = CVT."""
+  gearCount: Int8
+
+  """
+  Is electrical powertrain mechanically connected/engaged to the drivetrain or not. False = Disconnected/Disengaged. True = Connected/Engaged.
+  """
+  isElectricalPowertrainEngaged: Boolean
+
+  """
+  Is gearbox in low range mode or not. False = Normal/High range engaged. True = Low range engaged.
+  """
+  isLowRangeEngaged: Boolean
+
+  """
+  Is the transmission park lock engaged or not. False = Disengaged. True = Engaged.
+  """
+  isParkLockEngaged: Boolean
+
+  """Current gearbox performance mode."""
+  performanceMode: Vehicle_Powertrain_Transmission_PerformanceMode_Enum
+
+  """
+  The selected gear. 0=Neutral, 1/2/..=Forward, -1/-2/..=Reverse, 126=Park, 127=Drive.
+  """
+  selectedGear: Int8
+
+  """The current gearbox temperature."""
+  temperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+
+  """
+  Torque distribution between front and rear axle in percent. -100% = Full torque to front axle, 0% = 50:50 Front/Rear, 100% = Full torque to rear axle.
+  """
+  torqueDistribution(unit: RelationUnitEnum = PERCENT): Float
+
+  """
+  Odometer reading, total distance travelled during the lifetime of the transmission.
+  """
+  travelledDistance(unit: LengthUnitEnum = KILOMETER): Float
+
+  """Transmission type."""
+  type: Vehicle_Powertrain_Transmission_Type_Enum
+}

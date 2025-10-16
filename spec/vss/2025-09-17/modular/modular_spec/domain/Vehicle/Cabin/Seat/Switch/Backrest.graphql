@@ -1,0 +1,15 @@
+# Domain-specific GraphQL types
+
+
+"""Describes switches related to the backrest of the seat."""
+type Vehicle_Cabin_Seat_Switch_Backrest {
+  """
+  Backrest recline backward switch engaged (SingleSeat.Backrest.Recline).
+  """
+  isReclineBackwardEngaged: Boolean
+
+  """Backrest recline forward switch engaged (SingleSeat.Backrest.Recline)."""
+  isReclineForwardEngaged: Boolean
+  lumbar: Vehicle_Cabin_Seat_Switch_Backrest_Lumbar
+  sideBolster: Vehicle_Cabin_Seat_Switch_Backrest_SideBolster
+}

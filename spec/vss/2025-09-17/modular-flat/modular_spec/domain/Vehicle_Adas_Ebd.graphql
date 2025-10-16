@@ -1,0 +1,18 @@
+# Domain-specific GraphQL types
+
+
+"""Electronic Brakeforce Distribution (EBD) System signals."""
+type Vehicle_Adas_Ebd {
+  """Indicates if EBD is enabled. True = Enabled. False = Disabled."""
+  isEnabled: Boolean
+
+  """
+  Indicates if EBD is currently regulating vehicle brakeforce distribution. True = Engaged. False = Not Engaged.
+  """
+  isEngaged: Boolean
+
+  """
+  Indicates if EBD incurred an error condition. True = Error. False = No Error.
+  """
+  isError: Boolean
+}

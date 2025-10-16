@@ -1,0 +1,9 @@
+# GraphQL query and schema definitions
+
+type Query {
+  vehicle: Vehicle
+}
+
+schema {
+  query: Query
+}

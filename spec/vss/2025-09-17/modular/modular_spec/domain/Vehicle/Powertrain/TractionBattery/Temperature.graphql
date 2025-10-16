@@ -1,0 +1,23 @@
+# Domain-specific GraphQL types
+
+
+"""Temperature Information for the battery pack."""
+type Vehicle_Powertrain_TractionBattery_Temperature {
+  """Current average temperature of the battery cells."""
+  average(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+
+  """
+  Array of cell temperatures. Length or array shall correspond to number of cells in vehicle.
+  """
+  cellTemperature: String
+
+  """
+  Current maximum temperature of the battery cells, i.e. temperature of the hottest cell.
+  """
+  max(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+
+  """
+  Current minimum temperature of the battery cells, i.e. temperature of the coldest cell.
+  """
+  min(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+}

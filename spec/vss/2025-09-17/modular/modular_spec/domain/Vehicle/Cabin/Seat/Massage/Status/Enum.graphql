@@ -1,0 +1,8 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Cabin.Seat.Massage.Status."""
+enum Vehicle_Cabin_Seat_Massage_Status_Enum {
+  ON
+  OFF
+}

@@ -1,0 +1,7 @@
+# Domain-specific GraphQL types
+
+
+"""Occupant data."""
+type Vehicle_Cabin_Seat_Occupant {
+  identifier: Vehicle_Cabin_Seat_Occupant_Identifier
+}

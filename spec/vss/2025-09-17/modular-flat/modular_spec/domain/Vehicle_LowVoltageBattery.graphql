@@ -1,0 +1,19 @@
+# Domain-specific GraphQL types
+
+
+"""Signals related to low voltage battery."""
+type Vehicle_LowVoltageBattery {
+  """
+  Current current flowing in/out of the low voltage battery. Positive = Current flowing in to battery, e.g. during charging or driving. Negative = Current flowing out of battery, e.g. when using the battery to start a combustion engine.
+  """
+  currentCurrent(unit: ElectricCurrentUnitEnum = AMPERE): Float
+
+  """Current Voltage of the low voltage battery."""
+  currentVoltage(unit: VoltageUnitEnum = VOLT): Float
+
+  """Nominal capacity of the low voltage battery."""
+  nominalCapacity(unit: ElectricChargeUnitEnum = AMPERE_HOURS): UInt16
+
+  """Nominal Voltage of the battery."""
+  nominalVoltage(unit: VoltageUnitEnum = VOLT): UInt16
+}

@@ -1,0 +1,11 @@
+# Domain-specific GraphQL types
+
+
+"""Switches for SingleSeat.Massage."""
+type Vehicle_Cabin_Seat_Switch_Massage {
+  """Decrease massage level switch engaged (SingleSeat.Massage)."""
+  isDecreaseEngaged: Boolean
+
+  """Increase massage level switch engaged (SingleSeat.Massage)."""
+  isIncreaseEngaged: Boolean
+}

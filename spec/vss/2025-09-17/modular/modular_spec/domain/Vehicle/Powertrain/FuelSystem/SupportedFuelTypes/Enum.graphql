@@ -1,0 +1,14 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Powertrain.FuelSystem.SupportedFuelTypes."""
+enum Vehicle_Powertrain_FuelSystem_SupportedFuelTypes_Enum {
+  GASOLINE
+  DIESEL
+  E85
+  LPG
+  CNG
+  LNG
+  H2
+  OTHER
+}

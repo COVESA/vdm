@@ -1,0 +1,16 @@
+# Domain-specific GraphQL types
+
+
+"""Wheel signals for axle"""
+type Vehicle_Chassis_Axle_Wheel {
+  id: ID!
+  instanceTag: Vehicle_Chassis_Axle_Wheel_InstanceTag
+
+  """Angular (Rotational) speed of a vehicle's wheel."""
+  angularSpeed(unit: AngularSpeedUnitEnum = DEGREE_PER_SECOND): Float
+
+  """Linear speed of a vehicle's wheel."""
+  speed(unit: VelocityUnitEnum = KILOMETER_PER_HOUR): Float
+  brake: Vehicle_Chassis_Axle_Wheel_Brake
+  tire: Vehicle_Chassis_Axle_Wheel_Tire
+}

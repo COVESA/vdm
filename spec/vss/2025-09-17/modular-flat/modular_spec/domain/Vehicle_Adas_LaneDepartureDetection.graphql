@@ -1,0 +1,18 @@
+# Domain-specific GraphQL types
+
+
+"""Signals from Lane Departure Detection System."""
+type Vehicle_Adas_LaneDepartureDetection {
+  """
+  Indicates if lane departure detection system is enabled. True = Enabled. False = Disabled.
+  """
+  isEnabled: Boolean
+
+  """
+  Indicates if lane departure system incurred an error condition. True = Error. False = No Error.
+  """
+  isError: Boolean
+
+  """Indicates if lane departure detection registered a lane departure."""
+  isWarning: Boolean
+}

@@ -1,0 +1,13 @@
+# Domain-specific GraphQL types
+
+
+"""Windshield signals."""
+type Vehicle_Body_Windshield {
+  id: ID!
+  instanceTag: Vehicle_Body_Windshield_InstanceTag
+
+  """Windshield heater status. False - off, True - on."""
+  isHeatingOn: Boolean
+  washerFluid: Vehicle_Body_Windshield_WasherFluid
+  wiping: Vehicle_Body_Windshield_Wiping
+}

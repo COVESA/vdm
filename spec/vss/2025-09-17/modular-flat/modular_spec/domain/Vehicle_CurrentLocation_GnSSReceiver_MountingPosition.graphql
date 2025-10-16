@@ -1,0 +1,22 @@
+# Domain-specific GraphQL types
+
+
+"""
+Mounting position of GNSS receiver antenna relative to vehicle coordinate system. Axis definitions according to ISO 8855. Origin at center of (first) rear axle.
+"""
+type Vehicle_CurrentLocation_GnSSReceiver_MountingPosition {
+  """
+  Mounting position of GNSS receiver antenna relative to vehicle coordinate system. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = forward of rear axle. Negative values = backward of rear axle.
+  """
+  x(unit: LengthUnitEnum = MILLIMETER): Int16
+
+  """
+  Mounting position of GNSS receiver antenna relative to vehicle coordinate system. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = left of origin. Negative values = right of origin. Left/Right is as seen from driver perspective, i.e. by a person looking forward.
+  """
+  y(unit: LengthUnitEnum = MILLIMETER): Int16
+
+  """
+  Mounting position of GNSS receiver on Z-axis. Axis definitions according to ISO 8855. Origin at center of (first) rear axle. Positive values = above center of rear axle. Negative values = below center of rear axle.
+  """
+  z(unit: LengthUnitEnum = MILLIMETER): Int16
+}

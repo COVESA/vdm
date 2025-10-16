@@ -1,0 +1,20 @@
+# Domain-specific GraphQL types
+
+
+"""Infotainment system."""
+type Vehicle_Cabin_Infotainment {
+  """
+  Auto Power Optimization Flag When set to 'true', the system enables automatic power optimization, dynamically adjusting the power optimization level based on runtime conditions or features managed by the OEM. When set to 'false', manual control of the power optimization level is allowed.
+  """
+  isAutoPowerOptimize: Boolean
+
+  """
+  Power optimization level for this branch/subsystem. A higher number indicates more aggressive power optimization. Level 0 indicates that all functionality is enabled, no power optimization enabled. Level 10 indicates most aggressive power optimization mode, only essential functionality enabled.
+  """
+  powerOptimizeLevel: UInt8
+  hmi: Vehicle_Cabin_Infotainment_Hmi
+  media: Vehicle_Cabin_Infotainment_Media
+  navigation: Vehicle_Cabin_Infotainment_Navigation
+  smartphoneProjection: Vehicle_Cabin_Infotainment_SmartphoneProjection
+  smartphoneScreenMirroring: Vehicle_Cabin_Infotainment_SmartphoneScreenMirroring
+}

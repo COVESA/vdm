@@ -1,0 +1,20 @@
+# Domain-specific GraphQL types
+
+
+"""Road friction values reported by the ESC system."""
+type Vehicle_Adas_Esc_RoadFriction {
+  """
+  Lower bound road friction, as calculated by the ESC system. 5% possibility that road friction is below this value. 0 = no friction, 100 = maximum friction.
+  """
+  lowerBound(unit: RelationUnitEnum = PERCENT): Float
+
+  """
+  Most probable road friction, as calculated by the ESC system. Exact meaning of most probable is implementation specific. 0 = no friction, 100 = maximum friction.
+  """
+  mostProbable(unit: RelationUnitEnum = PERCENT): Float
+
+  """
+  Upper bound road friction, as calculated by the ESC system. 95% possibility that road friction is below this value. 0 = no friction, 100 = maximum friction.
+  """
+  upperBound(unit: RelationUnitEnum = PERCENT): Float
+}

@@ -1,0 +1,16 @@
+# Domain-specific GraphQL types
+
+
+"""Tire signals for wheel."""
+type Vehicle_Chassis_Axle_Wheel_Tire {
+  """
+  Tire Pressure Status. True = Low tire pressure. False = Good tire pressure.
+  """
+  isPressureLow: Boolean
+
+  """Tire pressure in kilo-Pascal."""
+  pressure(unit: PressureUnitEnum = KILOPASCAL): UInt16
+
+  """Tire temperature in Celsius."""
+  temperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+}

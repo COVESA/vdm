@@ -1,0 +1,21 @@
+# Domain-specific GraphQL types
+
+
+"""Switches for SingleSeat.Backrest.Lumbar."""
+type Vehicle_Cabin_Seat_Switch_Backrest_Lumbar {
+  """Lumbar down switch engaged (SingleSeat.Backrest.Lumbar.Support)."""
+  isDownEngaged: Boolean
+
+  """
+  Is switch for less lumbar support engaged (SingleSeat.Backrest.Lumbar.Support).
+  """
+  isLessSupportEngaged: Boolean
+
+  """
+  Is switch for more lumbar support engaged (SingleSeat.Backrest.Lumbar.Support).
+  """
+  isMoreSupportEngaged: Boolean
+
+  """Lumbar up switch engaged (SingleSeat.Backrest.Lumbar.Support)."""
+  isUpEngaged: Boolean
+}

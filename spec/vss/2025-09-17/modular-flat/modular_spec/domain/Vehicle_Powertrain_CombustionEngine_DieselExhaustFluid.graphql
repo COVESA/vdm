@@ -1,0 +1,25 @@
+# Domain-specific GraphQL types
+
+
+"""
+Signals related to Diesel Exhaust Fluid (DEF). DEF is called AUS32 in ISO 22241.
+"""
+type Vehicle_Powertrain_CombustionEngine_DieselExhaustFluid {
+  """Capacity in liters of the Diesel Exhaust Fluid Tank."""
+  capacity(unit: VolumeUnitEnum = LITER): Float
+
+  """
+  Indicates if the Diesel Exhaust Fluid level is low. True if level is low. Definition of low is vehicle dependent.
+  """
+  isLevelLow: Boolean
+
+  """
+  Level of the Diesel Exhaust Fluid tank as percent of capacity. 0 = empty. 100 = full.
+  """
+  level(unit: RelationUnitEnum = PERCENT): UInt8
+
+  """
+  Remaining range in meters of the Diesel Exhaust Fluid present in the vehicle.
+  """
+  range(unit: LengthUnitEnum = METER): UInt32
+}

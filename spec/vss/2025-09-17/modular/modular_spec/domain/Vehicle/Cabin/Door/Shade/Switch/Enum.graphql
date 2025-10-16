@@ -1,0 +1,11 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Cabin.Door.Shade.Switch."""
+enum Vehicle_Cabin_Door_Shade_Switch_Enum {
+  INACTIVE
+  CLOSE
+  OPEN
+  ONE_SHOT_CLOSE
+  ONE_SHOT_OPEN
+}

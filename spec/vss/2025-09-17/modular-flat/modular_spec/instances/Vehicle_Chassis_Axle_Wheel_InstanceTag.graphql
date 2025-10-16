@@ -1,0 +1,12 @@
+# Instance tag type and dimensional enums
+
+
+type Vehicle_Chassis_Axle_Wheel_InstanceTag @instanceTag {
+  dimension1: Vehicle_Chassis_Axle_Wheel_InstanceTag_Dimension1
+}
+
+"""Dimensional enum for VSS instance dimension 1."""
+enum Vehicle_Chassis_Axle_Wheel_InstanceTag_Dimension1 {
+  Left
+  Right
+}

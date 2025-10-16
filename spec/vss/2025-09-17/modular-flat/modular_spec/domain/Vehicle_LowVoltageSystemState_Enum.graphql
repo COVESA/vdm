@@ -1,0 +1,12 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.LowVoltageSystemState."""
+enum Vehicle_LowVoltageSystemState_Enum {
+  UNDEFINED
+  LOCK
+  OFF
+  ACC
+  ON
+  START
+}

@@ -1,0 +1,14 @@
+# Domain-specific GraphQL types
+
+
+"""All smartphone projection actions."""
+type Vehicle_Cabin_Infotainment_SmartphoneProjection {
+  """Projection activation info."""
+  active: Vehicle_Cabin_Infotainment_SmartphoneProjection_Active_Enum
+
+  """Connectivity source selected for projection."""
+  source: Vehicle_Cabin_Infotainment_SmartphoneProjection_Source_Enum
+
+  """Supportable list for projection."""
+  supportedMode: Vehicle_Cabin_Infotainment_SmartphoneProjection_SupportedMode_Enum
+}

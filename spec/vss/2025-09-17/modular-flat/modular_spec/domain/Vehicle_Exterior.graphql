@@ -1,0 +1,18 @@
+# Domain-specific GraphQL types
+
+
+"""Information about exterior measured by vehicle."""
+type Vehicle_Exterior {
+  """Air temperature outside the vehicle."""
+  airTemperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+
+  """
+  Relative humidity outside the vehicle. 0 = Dry, 100 = Air fully saturated.
+  """
+  humidity(unit: RelationUnitEnum = PERCENT): Float
+
+  """
+  Light intensity outside the vehicle. 0 = No light detected, 100 = Fully lit.
+  """
+  lightIntensity(unit: RelationUnitEnum = PERCENT): Float
+}

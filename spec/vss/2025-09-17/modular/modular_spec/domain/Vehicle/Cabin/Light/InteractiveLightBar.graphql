@@ -1,0 +1,23 @@
+# Domain-specific GraphQL types
+
+
+"""
+Decorative coloured light bar that supports effects, usually mounted on the dashboard (e.g. BMW i7 Interactive bar).
+"""
+type Vehicle_Cabin_Light_InteractiveLightBar {
+  """
+  Hexadecimal color code represented as a 3-byte RGB (i.e. Red, Green, and Blue) value preceded by a hash symbol "#". Allowed range "#000000" to "#FFFFFF".
+  """
+  color: String
+
+  """Light effect selection from a predefined set of allowed values."""
+  effect: String
+
+  """
+  How much of the maximum possible brightness of the light is used. 1 = Maximum attenuation, 100 = No attenuation (i.e. full brightness).
+  """
+  intensity(unit: RelationUnitEnum = PERCENT): UInt8
+
+  """Indicates whether the light is turned on. True = On, False = Off."""
+  isLightOn: Boolean
+}

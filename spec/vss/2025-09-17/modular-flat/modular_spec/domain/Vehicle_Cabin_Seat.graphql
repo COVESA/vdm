@@ -1,0 +1,77 @@
+# Domain-specific GraphQL types
+
+
+"""All seats."""
+type Vehicle_Cabin_Seat {
+  id: ID!
+  instanceTag: Vehicle_Cabin_Seat_InstanceTag
+
+  """
+  Heating or Cooling requsted for the Item. -100 = Maximum cooling, 0 = Heating/cooling deactivated, 100 = Maximum heating.
+  """
+  heatingCooling(unit: RelationUnitEnum = PERCENT): Int8
+
+  """
+  Seat position on vehicle z-axis. Position is relative within available movable range of the seating. 0 = Lowermost position supported.
+  """
+  height(unit: LengthUnitEnum = MILLIMETER): UInt16
+
+  """Seat backward switch engaged."""
+  isBackwardSwitchEngaged: Boolean
+
+  """Is the belt engaged."""
+  isBelted: Boolean
+
+  """Cooler switch for Seat heater."""
+  isCoolerSwitchEngaged: Boolean
+
+  """Decrease massage level switch engaged."""
+  isDecreaseMassageLevelSwitchEngaged: Boolean
+
+  """Seat down switch engaged."""
+  isDownSwitchEngaged: Boolean
+
+  """Seat forward switch engaged."""
+  isForwardSwitchEngaged: Boolean
+
+  """Increase massage level switch engaged."""
+  isIncreaseMassageLevelSwitchEngaged: Boolean
+
+  """Tilt backward switch engaged."""
+  isTiltBackwardSwitchEngaged: Boolean
+
+  """Tilt forward switch engaged."""
+  isTiltForwardSwitchEngaged: Boolean
+
+  """Seat up switch engaged."""
+  isUpSwitchEngaged: Boolean
+
+  """Warmer switch for Seat heater."""
+  isWarmerSwitchEngaged: Boolean
+
+  """Occupancy status of the seat."""
+  occupancyStatus: Vehicle_Cabin_Seat_OccupancyStatus_Enum
+
+  """
+  Seat position on vehicle x-axis. Position is relative to the frontmost position supported by the seat. 0 = Frontmost position supported.
+  """
+  position(unit: LengthUnitEnum = MILLIMETER): UInt16
+
+  """
+  Seat belt position on vehicle z-axis. Position is relative within available movable range of the seat belt. 0 = Lowermost position supported.
+  """
+  seatBeltHeight(unit: LengthUnitEnum = MILLIMETER): UInt16
+
+  """
+  Tilting of seat (seating and backrest) relative to vehicle x-axis. 0 = seat bottom is flat, seat bottom and vehicle x-axis are parallel. Positive degrees = seat tilted backwards, seat x-axis tilted upward, seat z-axis is tilted backward.
+  """
+  tilt(unit: AngleUnitEnum = DEGREE): Float
+  airbag: Vehicle_Cabin_Seat_Airbag
+  backrest: Vehicle_Cabin_Seat_Backrest
+  headrest: Vehicle_Cabin_Seat_Headrest
+  massage: Vehicle_Cabin_Seat_Massage
+  neckScarf: Vehicle_Cabin_Seat_NeckScarf
+  occupant: Vehicle_Cabin_Seat_Occupant
+  seating: Vehicle_Cabin_Seat_Seating
+  switch: Vehicle_Cabin_Seat_Switch
+}

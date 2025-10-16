@@ -1,0 +1,12 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Body.Windshield.Wiping.Mode."""
+enum Vehicle_Body_Windshield_Wiping_Mode_Enum {
+  OFF
+  SLOW
+  MEDIUM
+  FAST
+  INTERVAL
+  RAIN_SENSOR
+}

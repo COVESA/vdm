@@ -1,0 +1,15 @@
+# Domain-specific GraphQL types
+
+
+"""Switches for SingleSeat.Backrest.SideBolster."""
+type Vehicle_Cabin_Seat_Switch_Backrest_SideBolster {
+  """
+  Is switch for less side bolster support engaged (SingleSeat.Backrest.SideBolster.Support).
+  """
+  isLessSupportEngaged: Boolean
+
+  """
+  Is switch for more side bolster support engaged (SingleSeat.Backrest.SideBolster.Support).
+  """
+  isMoreSupportEngaged: Boolean
+}

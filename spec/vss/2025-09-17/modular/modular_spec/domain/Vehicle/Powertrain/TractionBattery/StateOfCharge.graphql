@@ -1,0 +1,18 @@
+# Domain-specific GraphQL types
+
+
+"""
+Information on the state of charge of the vehicle's high voltage battery.
+"""
+type Vehicle_Powertrain_TractionBattery_StateOfCharge {
+  """
+  Physical state of charge of the high voltage battery, relative to net capacity. This is not necessarily the state of charge being displayed to the customer.
+  """
+  current(unit: RelationUnitEnum = PERCENT): Float
+
+  """Physical state of charge of high voltage battery expressed in kWh."""
+  currentEnergy(unit: WorkUnitEnum = KILOWATT_HOURS): Float
+
+  """State of charge displayed to the customer."""
+  displayed(unit: RelationUnitEnum = PERCENT): Float
+}

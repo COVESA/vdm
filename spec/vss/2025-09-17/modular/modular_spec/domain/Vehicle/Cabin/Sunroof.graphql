@@ -1,0 +1,14 @@
+# Domain-specific GraphQL types
+
+
+"""Sun roof status."""
+type Vehicle_Cabin_Sunroof {
+  """
+  Sunroof position. 0 = Fully closed 100 = Fully opened. -100 = Fully tilted.
+  """
+  position(unit: RelationUnitEnum = PERCENT): Int8
+
+  """Switch controlling sliding action such as window, sunroof, or shade."""
+  switch: Vehicle_Cabin_Sunroof_Switch_Enum
+  shade: Vehicle_Cabin_Sunroof_Shade
+}

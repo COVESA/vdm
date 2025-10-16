@@ -1,0 +1,10 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Powertrain.CombustionEngine.AspirationType."""
+enum Vehicle_Powertrain_CombustionEngine_AspirationType_Enum {
+  UNKNOWN
+  NATURAL
+  SUPERCHARGER
+  TURBOCHARGER
+}

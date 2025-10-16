@@ -1,0 +1,17 @@
+# Domain-specific GraphQL types
+
+
+"""Switches for SingleSeat.Headrest."""
+type Vehicle_Cabin_Seat_Switch_Headrest {
+  """Head rest backward switch engaged (SingleSeat.Headrest.Angle)."""
+  isBackwardEngaged: Boolean
+
+  """Head rest down switch engaged (SingleSeat.Headrest.Height)."""
+  isDownEngaged: Boolean
+
+  """Head rest forward switch engaged (SingleSeat.Headrest.Angle)."""
+  isForwardEngaged: Boolean
+
+  """Head rest up switch engaged (SingleSeat.Headrest.Height)."""
+  isUpEngaged: Boolean
+}

@@ -1,0 +1,8 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Cabin.Infotainment.HMI.DayNightMode."""
+enum Vehicle_Cabin_Infotainment_Hmi_DayNightMode_Enum {
+  DAY
+  NIGHT
+}

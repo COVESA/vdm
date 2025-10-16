@@ -1,0 +1,9 @@
+# Domain-specific GraphQL types
+
+
+"""Allowed values for Vehicle.Cabin.Infotainment.HMI.EVEnergyUnits."""
+enum Vehicle_Cabin_Infotainment_Hmi_EvEnergyUnits_Enum {
+  WATT_HOURS
+  AMPERE_HOURS
+  KILOWATT_HOURS
+}

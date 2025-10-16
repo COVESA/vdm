@@ -1,0 +1,231 @@
+# Domain-specific GraphQL types
+
+
+"""OBD data."""
+type Vehicle_Obd {
+  """PID 43 - Absolute load value"""
+  absoluteLoad(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 49 - Accelerator pedal position D"""
+  acceleratorPositionD(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 4A - Accelerator pedal position E"""
+  acceleratorPositionE(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 4B - Accelerator pedal position F"""
+  acceleratorPositionF(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 12 - Secondary air status"""
+  airStatus: String
+
+  """PID 46 - Ambient air temperature"""
+  ambientAirTemperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+
+  """PID 33 - Barometric pressure"""
+  barometricPressure(unit: PressureUnitEnum = KILOPASCAL): Float
+
+  """PID 2C - Commanded exhaust gas recirculation (EGR)"""
+  commandedEgr(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 2E - Commanded evaporative purge (EVAP) valve"""
+  commandedEvap(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 44 - Commanded equivalence ratio"""
+  commandedEquivalenceRatio(unit: RelationUnitEnum = RATIO): Float
+
+  """PID 42 - Control module voltage"""
+  controlModuleVoltage(unit: VoltageUnitEnum = VOLT): Float
+
+  """PID 05 - Coolant temperature"""
+  coolantTemperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+
+  """
+  List of currently active DTCs formatted according OBD II (SAE-J2012DA_201812) standard ([P|C|B|U]XXXXX )
+  """
+  dtclist: String
+
+  """PID 31 - Distance traveled since codes cleared"""
+  distanceSinceDtcclear(unit: LengthUnitEnum = KILOMETER): Float
+
+  """PID 21 - Distance traveled with MIL on"""
+  distanceWithMil(unit: LengthUnitEnum = KILOMETER): Float
+
+  """PID 2D - Exhaust gas recirculation (EGR) error"""
+  egrerror(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 32 - Evaporative purge (EVAP) system pressure"""
+  evapvaporPressure(unit: PressureUnitEnum = PASCAL): Float
+
+  """PID 53 - Absolute evaporative purge (EVAP) system pressure"""
+  evapvaporPressureAbsolute(unit: PressureUnitEnum = KILOPASCAL): Float
+
+  """PID 54 - Alternate evaporative purge (EVAP) system pressure"""
+  evapvaporPressureAlternate(unit: PressureUnitEnum = PASCAL): Float
+
+  """PID 04 - Engine load in percent - 0 = no load, 100 = full load"""
+  engineLoad(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 0C - Engine speed measured as rotations per minute"""
+  engineSpeed(unit: RotationalSpeedUnitEnum = REVOLUTIONS_PER_MINUTE): Float
+
+  """PID 52 - Percentage of ethanol in the fuel"""
+  ethanolPercent(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 02 - DTC that triggered the freeze frame"""
+  freezeDtc: String
+
+  """PID 5D - Fuel injection timing"""
+  fuelInjectionTiming(unit: AngleUnitEnum = DEGREE): Float
+
+  """PID 2F - Fuel level in the fuel tank"""
+  fuelLevel(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 0A - Fuel pressure"""
+  fuelPressure(unit: PressureUnitEnum = KILOPASCAL): Float
+
+  """PID 59 - Absolute fuel rail pressure"""
+  fuelRailPressureAbsolute(unit: PressureUnitEnum = KILOPASCAL): Float
+
+  """PID 23 - Fuel rail pressure direct inject"""
+  fuelRailPressureDirect(unit: PressureUnitEnum = KILOPASCAL): Float
+
+  """PID 22 - Fuel rail pressure relative to vacuum"""
+  fuelRailPressureVac(unit: PressureUnitEnum = KILOPASCAL): Float
+
+  """PID 5E - Engine fuel rate"""
+  fuelRate(unit: VolumeFlowRateUnitEnum = LITER_PER_HOUR): Float
+
+  """PID 03 - Fuel status"""
+  fuelStatus: String
+
+  """PID 51 - Fuel type"""
+  fuelType: UInt8
+
+  """PID 5B - Remaining life of hybrid battery"""
+  hybridBatteryRemaining(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 0F - Intake temperature"""
+  intakeTemp(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+
+  """PID 1E - Auxiliary input status (power take off)"""
+  isPtoactive: Boolean
+
+  """
+  PID 07 - Long Term (learned) Fuel Trim - Bank 1 - negative percent leaner, positive percent richer
+  """
+  longTermFuelTrim1(unit: RelationUnitEnum = PERCENT): Float
+
+  """
+  PID 09 - Long Term (learned) Fuel Trim - Bank 2 - negative percent leaner, positive percent richer
+  """
+  longTermFuelTrim2(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 56 (byte A) - Long term secondary O2 trim - Bank 1"""
+  longTermO2trim1(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 58 (byte A) - Long term secondary O2 trim - Bank 2"""
+  longTermO2trim2(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 56 (byte B) - Long term secondary O2 trim - Bank 3"""
+  longTermO2trim3(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 58 (byte B) - Long term secondary O2 trim - Bank 4"""
+  longTermO2trim4(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 10 - Grams of air drawn into engine per second"""
+  maf(unit: MassPerTimeUnitEnum = GRAMS_PER_SECOND): Float
+
+  """PID 0B - Intake manifold pressure"""
+  map(unit: PressureUnitEnum = KILOPASCAL): Float
+
+  """PID 50 - Maximum flow for mass air flow sensor"""
+  maxMaf(unit: MassPerTimeUnitEnum = GRAMS_PER_SECOND): Float
+
+  """PID 1C - OBD standards this vehicle conforms to"""
+  obdstandards: UInt8
+
+  """PID 5C - Engine oil temperature"""
+  oilTemperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+
+  """
+  PID 13 - Presence of oxygen sensors in 2 banks. [A0..A3] == Bank 1, Sensors 1-4. [A4..A7] == Bank 2, Sensors 1-4
+  """
+  oxygenSensorsIn2banks: UInt8
+
+  """
+  PID 1D - Presence of oxygen sensors in 4 banks. Similar to PID 13, but [A0..A7] == [B1S1, B1S2, B2S1, B2S2, B3S1, B3S2, B4S1, B4S2]
+  """
+  oxygenSensorsIn4banks: UInt8
+
+  """PID 00 - Array of the supported PIDs 01 to 20 in Hexadecimal."""
+  pidsA: Vehicle_Obd_PidsA_Enum
+
+  """PID 20 - Array of the supported PIDs 21 to 40 in Hexadecimal."""
+  pidsB: Vehicle_Obd_PidsB_Enum
+
+  """PID 40 - Array of the supported PIDs 41 to 60 in Hexadecimal."""
+  pidsC: Vehicle_Obd_PidsC_Enum
+
+  """PID 5A - Relative accelerator pedal position"""
+  relativeAcceleratorPosition(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 45 - Relative throttle position"""
+  relativeThrottlePosition(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 1F - Engine run time"""
+  runTime(unit: DurationUnitEnum = SECOND): Float
+
+  """PID 4D - Run time with MIL on"""
+  runTimeMil(unit: DurationUnitEnum = MINUTE): Float
+
+  """
+  PID 06 - Short Term (immediate) Fuel Trim - Bank 1 - negative percent leaner, positive percent richer
+  """
+  shortTermFuelTrim1(unit: RelationUnitEnum = PERCENT): Float
+
+  """
+  PID 08 - Short Term (immediate) Fuel Trim - Bank 2 - negative percent leaner, positive percent richer
+  """
+  shortTermFuelTrim2(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 55 (byte A) - Short term secondary O2 trim - Bank 1"""
+  shortTermO2trim1(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 57 (byte A) - Short term secondary O2 trim - Bank 2"""
+  shortTermO2trim2(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 55 (byte B) - Short term secondary O2 trim - Bank 3"""
+  shortTermO2trim3(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 57 (byte B) - Short term secondary O2 trim - Bank 4"""
+  shortTermO2trim4(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 0D - Vehicle speed"""
+  speed(unit: VelocityUnitEnum = KILOMETER_PER_HOUR): Float
+
+  """PID 4C - Commanded throttle actuator"""
+  throttleActuator(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 11 - Throttle position - 0 = closed throttle, 100 = open throttle"""
+  throttlePosition(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 47 - Absolute throttle position B"""
+  throttlePositionB(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 48 - Absolute throttle position C"""
+  throttlePositionC(unit: RelationUnitEnum = PERCENT): Float
+
+  """PID 4E - Time since trouble codes cleared"""
+  timeSinceDtccleared(unit: DurationUnitEnum = MINUTE): Float
+
+  """PID 0E - Time advance"""
+  timingAdvance(unit: AngleUnitEnum = DEGREE): Float
+
+  """PID 30 - Number of warm-ups since codes cleared"""
+  warmupsSinceDtcclear: UInt8
+  catalyst: Vehicle_Obd_Catalyst
+  driveCycleStatus: Vehicle_Obd_DriveCycleStatus
+  o2_s: [Vehicle_Obd_O2]
+  o2wr_s: [Vehicle_Obd_O2wr]
+  status: Vehicle_Obd_Status
+}
