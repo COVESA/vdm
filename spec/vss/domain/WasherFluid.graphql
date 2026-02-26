@@ -1,0 +1,14 @@
+# Domain-specific GraphQL types
+
+
+"""Windshield washer fluid signals"""
+type WasherFluid @vspec(element: BRANCH, fqn: "Vehicle.Body.Windshield.WasherFluid") {
+  """
+  Low level indication for washer fluid. True = Level Low. False = Level OK.
+  """
+  isLevelLow: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Body.Windshield.WasherFluid.IsLevelLow")
+
+  """Washer fluid level as a percent. 0 = Empty. 100 = Full."""
+  level(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: SENSOR, fqn: "Vehicle.Body.Windshield.WasherFluid.Level")
+    @range(max: 100)
+}

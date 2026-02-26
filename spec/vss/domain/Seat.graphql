@@ -1,0 +1,84 @@
+# Domain-specific GraphQL types
+
+
+"""All seats."""
+type Seat @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Seat") {
+  id: ID!
+
+  """
+  Heating or Cooling requsted for the Item. -100 = Maximum cooling, 0 = Heating/cooling deactivated, 100 = Maximum heating.
+  """
+  heatingCooling(unit: RelationUnitEnum = PERCENT): Int8 @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.HeatingCooling")
+    @range(min: -100, max: 100)
+
+  """
+  Seat position on vehicle z-axis. Position is relative within available movable range of the seating. 0 = Lowermost position supported.
+  """
+  height(unit: LengthUnitEnum = MILLIMETER): UInt16 @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Height")
+    @range(min: 0)
+
+  """Seat backward switch engaged."""
+  isBackwardSwitchEngaged: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.IsBackwardSwitchEngaged")
+
+  """Is the belt engaged."""
+  isBelted: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Cabin.Seat.IsBelted")
+
+  """Cooler switch for Seat heater."""
+  isCoolerSwitchEngaged: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.IsCoolerSwitchEngaged")
+
+  """Decrease massage level switch engaged."""
+  isDecreaseMassageLevelSwitchEngaged: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.IsDecreaseMassageLevelSwitchEngaged")
+
+  """Seat down switch engaged."""
+  isDownSwitchEngaged: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.IsDownSwitchEngaged")
+
+  """Seat forward switch engaged."""
+  isForwardSwitchEngaged: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.IsForwardSwitchEngaged")
+
+  """Increase massage level switch engaged."""
+  isIncreaseMassageLevelSwitchEngaged: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.IsIncreaseMassageLevelSwitchEngaged")
+
+  """Tilt backward switch engaged."""
+  isTiltBackwardSwitchEngaged: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.IsTiltBackwardSwitchEngaged")
+
+  """Tilt forward switch engaged."""
+  isTiltForwardSwitchEngaged: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.IsTiltForwardSwitchEngaged")
+
+  """Seat up switch engaged."""
+  isUpSwitchEngaged: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.IsUpSwitchEngaged")
+
+  """Warmer switch for Seat heater."""
+  isWarmerSwitchEngaged: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.IsWarmerSwitchEngaged")
+
+  """Occupancy status of the seat."""
+  occupancyStatus: Vehicle_Cabin_Seat_OccupancyStatus_Enum @vspec(element: SENSOR, fqn: "Vehicle.Cabin.Seat.OccupancyStatus")
+
+  """
+  Seat position on vehicle x-axis. Position is relative to the frontmost position supported by the seat. 0 = Frontmost position supported.
+  """
+  position(unit: LengthUnitEnum = MILLIMETER): UInt16 @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Position")
+    @range(min: 0)
+
+  """
+  Seat belt position on vehicle z-axis. Position is relative within available movable range of the seat belt. 0 = Lowermost position supported.
+  """
+  seatBeltHeight(unit: LengthUnitEnum = MILLIMETER): UInt16 @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.SeatBeltHeight")
+
+  """
+  Tilting of seat (seating and backrest) relative to vehicle x-axis. 0 = seat bottom is flat, seat bottom and vehicle x-axis are parallel. Positive degrees = seat tilted backwards, seat x-axis tilted upward, seat z-axis is tilted backward.
+  """
+  tilt(unit: AngleUnitEnum = DEGREE): Float @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Tilt")
+  airbag: Airbag
+  backrest: Backrest
+  headrest: Headrest
+  massage: Massage
+  neckScarf: NeckScarf
+  seating: Seating
+}
+
+"""Allowed values for Vehicle.Cabin.Seat.OccupancyStatus."""
+enum Vehicle_Cabin_Seat_OccupancyStatus_Enum @vspec(element: SENSOR, fqn: "Vehicle.Cabin.Seat.OccupancyStatus", metadata: [{key: "allowed", value: "['UNKNOWN', 'OCCUPIED', 'EMPTY']"}]) {
+  UNKNOWN
+  OCCUPIED
+  EMPTY
+}

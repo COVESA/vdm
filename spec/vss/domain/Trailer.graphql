@@ -1,0 +1,8 @@
+# Domain-specific GraphQL types
+
+
+"""Trailer signals."""
+type Trailer @vspec(element: BRANCH, fqn: "Vehicle.Trailer") {
+  """Signal indicating if trailer is connected or not."""
+  isConnected: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Trailer.IsConnected")
+}

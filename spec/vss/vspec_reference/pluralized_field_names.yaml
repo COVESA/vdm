@@ -1,0 +1,90 @@
+# Following names were changed to their plural form as they resolve to an output type with a List type modifier.
+
+Vehicle.ControlUnit:
+  plural_field_name: controlUnits
+  path_in_graphql_model: Vehicle.controlUnits
+
+Vehicle.Occupant:
+  plural_field_name: occupants
+  path_in_graphql_model: Vehicle.occupants
+
+Vehicle.ADAS.ObstacleDetection:
+  plural_field_name: obstacleDetections
+  path_in_graphql_model: ADAS.obstacleDetections
+
+Vehicle.Body.Mirrors:
+  plural_field_name: mirror
+  path_in_graphql_model: Body.mirror
+
+Vehicle.Body.Trunk:
+  plural_field_name: trunks
+  path_in_graphql_model: Body.trunks
+
+Vehicle.Body.Windshield:
+  plural_field_name: windshields
+  path_in_graphql_model: Body.windshields
+
+Vehicle.Body.Lights.Beam:
+  plural_field_name: beams
+  path_in_graphql_model: Lights.beams
+
+Vehicle.Body.Lights.DirectionIndicator:
+  plural_field_name: directionIndicators
+  path_in_graphql_model: Lights.directionIndicators
+
+Vehicle.Body.Lights.Fog:
+  plural_field_name: fogs
+  path_in_graphql_model: Lights.fogs
+
+Vehicle.Cabin.Door:
+  plural_field_name: doors
+  path_in_graphql_model: Cabin.doors
+
+Vehicle.Cabin.Seat:
+  plural_field_name: seats
+  path_in_graphql_model: Cabin.seats
+
+Vehicle.Cabin.HVAC.Station:
+  plural_field_name: stations
+  path_in_graphql_model: HVAC.stations
+
+Vehicle.Cabin.Light.AmbientLight:
+  plural_field_name: ambientLights
+  path_in_graphql_model: Light.ambientLights
+
+Vehicle.Cabin.Light.Spotlight:
+  plural_field_name: spotlights
+  path_in_graphql_model: Light.spotlights
+
+Vehicle.Chassis.Axle:
+  plural_field_name: axles
+  path_in_graphql_model: Chassis.axles
+
+Vehicle.Chassis.Axle.Wheel:
+  plural_field_name: wheels
+  path_in_graphql_model: Chassis_Axle.wheels
+
+Vehicle.MotionManagement.ElectricAxle:
+  plural_field_name: electricAxles
+  path_in_graphql_model: MotionManagement.electricAxles
+
+Vehicle.MotionManagement.Brake.Axle:
+  plural_field_name: axles
+  path_in_graphql_model: MotionManagement_Brake.axles
+
+Vehicle.MotionManagement.Brake.Axle.Wheel:
+  plural_field_name: wheels
+  path_in_graphql_model: Brake_Axle.wheels
+
+Vehicle.MotionManagement.Suspension.Axle:
+  plural_field_name: axles
+  path_in_graphql_model: Suspension.axles
+
+Vehicle.MotionManagement.Suspension.Axle.Wheel:
+  plural_field_name: wheels
+  path_in_graphql_model: Suspension_Axle.wheels
+
+Vehicle.Powertrain.TractionBattery.Charging.ChargingPort:
+  plural_field_name: chargingPorts
+  path_in_graphql_model: Charging.chargingPorts
+

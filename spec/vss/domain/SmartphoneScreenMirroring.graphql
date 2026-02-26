@@ -1,0 +1,29 @@
+# Domain-specific GraphQL types
+
+
+"""All smartphone screen mirroring actions."""
+type SmartphoneScreenMirroring @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Infotainment.SmartphoneScreenMirroring") {
+  """Mirroring activation info."""
+  active: Vehicle_Cabin_Infotainment_SmartphoneScreenMirroring_Active_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.SmartphoneScreenMirroring.Active")
+
+  """Connectivity source selected for mirroring."""
+  source: Vehicle_Cabin_Infotainment_SmartphoneScreenMirroring_Source_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.SmartphoneScreenMirroring.Source")
+}
+
+"""
+Allowed values for Vehicle.Cabin.Infotainment.SmartphoneScreenMirroring.Active.
+"""
+enum Vehicle_Cabin_Infotainment_SmartphoneScreenMirroring_Active_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.SmartphoneScreenMirroring.Active", metadata: [{key: "allowed", value: "['NONE', 'ACTIVE', 'INACTIVE']"}]) {
+  NONE
+  ACTIVE
+  INACTIVE
+}
+
+"""
+Allowed values for Vehicle.Cabin.Infotainment.SmartphoneScreenMirroring.Source.
+"""
+enum Vehicle_Cabin_Infotainment_SmartphoneScreenMirroring_Source_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.SmartphoneScreenMirroring.Source", metadata: [{key: "allowed", value: "['USB', 'BLUETOOTH', 'WIFI']"}]) {
+  USB
+  BLUETOOTH
+  WIFI
+}

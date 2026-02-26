@@ -1,0 +1,28 @@
+# Domain-specific GraphQL types
+
+
+"""
+Side window shade. Open = Retracted, Closed = Deployed. Start position for Shade is Open/Retracted.
+"""
+type Door_Shade @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Door.Shade") {
+  """
+  Is item open or closed? True = Fully or partially open. False = Fully closed.
+  """
+  isOpen: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.IsOpen")
+
+  """Item position. 0 = Start position 100 = End position."""
+  position(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Position")
+    @range(min: 0, max: 100)
+
+  """Switch controlling sliding action such as window, sunroof, or blind."""
+  switch: Vehicle_Cabin_Door_Shade_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Switch")
+}
+
+"""Allowed values for Vehicle.Cabin.Door.Shade.Switch."""
+enum Vehicle_Cabin_Door_Shade_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Shade.Switch", metadata: [{key: "allowed", value: "['INACTIVE', 'CLOSE', 'OPEN', 'ONE_SHOT_CLOSE', 'ONE_SHOT_OPEN']"}]) {
+  INACTIVE
+  CLOSE
+  OPEN
+  ONE_SHOT_CLOSE
+  ONE_SHOT_OPEN
+}

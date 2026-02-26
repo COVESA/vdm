@@ -1,0 +1,42 @@
+# Domain-specific GraphQL types
+
+
+"""All smartphone projection actions."""
+type SmartphoneProjection @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Infotainment.SmartphoneProjection") {
+  """Projection activation info."""
+  active: Vehicle_Cabin_Infotainment_SmartphoneProjection_Active_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.SmartphoneProjection.Active")
+
+  """Connectivity source selected for projection."""
+  source: Vehicle_Cabin_Infotainment_SmartphoneProjection_Source_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.SmartphoneProjection.Source")
+
+  """Supportable list for projection."""
+  supportedMode: Vehicle_Cabin_Infotainment_SmartphoneProjection_SupportedMode_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Cabin.Infotainment.SmartphoneProjection.SupportedMode")
+}
+
+"""
+Allowed values for Vehicle.Cabin.Infotainment.SmartphoneProjection.Active.
+"""
+enum Vehicle_Cabin_Infotainment_SmartphoneProjection_Active_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.SmartphoneProjection.Active", metadata: [{key: "allowed", value: "['NONE', 'ACTIVE', 'INACTIVE']"}]) {
+  NONE
+  ACTIVE
+  INACTIVE
+}
+
+"""
+Allowed values for Vehicle.Cabin.Infotainment.SmartphoneProjection.Source.
+"""
+enum Vehicle_Cabin_Infotainment_SmartphoneProjection_Source_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.SmartphoneProjection.Source", metadata: [{key: "allowed", value: "['USB', 'BLUETOOTH', 'WIFI']"}]) {
+  USB
+  BLUETOOTH
+  WIFI
+}
+
+"""
+Allowed values for Vehicle.Cabin.Infotainment.SmartphoneProjection.SupportedMode.
+"""
+enum Vehicle_Cabin_Infotainment_SmartphoneProjection_SupportedMode_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Cabin.Infotainment.SmartphoneProjection.SupportedMode", metadata: [{key: "allowed", value: "['ANDROID_AUTO', 'APPLE_CARPLAY', 'MIRROR_LINK', 'OTHER']"}]) {
+  ANDROID_AUTO
+  APPLE_CARPLAY
+  MIRROR_LINK
+  OTHER
+}

@@ -1,0 +1,40 @@
+# Domain-specific GraphQL types
+
+
+"""
+The current position of the driver head on vehicle axis according to ISO 23150:2023.
+"""
+type HeadPosition @vspec(element: BRANCH, fqn: "Vehicle.Occupant.HeadPosition") {
+  """
+  Head pitch angle, measured as angle from vehicle sprung mass XY-plane as defined by ISO 23150:2023 to the head X-axis. 0 = Head in normal position. Positive values = Head leaning up. Negative values = Head leaning down.
+    @range(min: -90, max: 90)
+  """
+  pitch(unit: AngleUnitEnum = DEGREE): Float @vspec(element: SENSOR, fqn: "Vehicle.Occupant.HeadPosition.Pitch")
+
+  """
+  Head roll angle about the head X-axis (right-hand rule). 0 = Head in normal position. Positive values = Head leaning to the right. Negative values = Head leaning to the left.
+  """
+  roll(unit: AngleUnitEnum = DEGREE): Float @vspec(element: SENSOR, fqn: "Vehicle.Occupant.HeadPosition.Roll")
+    @range(min: -180, max: 180)
+
+  """
+  Longitudinal position of head center measured as mid eye position on X-axis of the vehicle rear-axle coordinate system as defined by ISO 23150:2023 section 3.7.12 Mid eye position refers to the center of a line drawn between the center of the drivers eyes. Positive values = forward of (first) rear-axle. Negative values = backward of (first) rear-axle.
+  """
+  x(unit: LengthUnitEnum = MILLIMETER): Int16 @vspec(element: SENSOR, fqn: "Vehicle.Occupant.HeadPosition.X")
+
+  """
+  Lateral position of head center measured as mid eye position on X-axis of the vehicle rear-axle coordinate system as defined by ISO 23150:2023 section 3.7.12 Mid eye position refers to the center of a line drawn between the center of the drivers eyes. Positive values = left of rear-axle center. Negative values = right of rear-axle center.
+  """
+  y(unit: LengthUnitEnum = MILLIMETER): Int16 @vspec(element: SENSOR, fqn: "Vehicle.Occupant.HeadPosition.Y")
+
+  """
+  Head yaw angle, measured from the vehicle sprung mass X-axis as defined by ISO 23150:2023 to the head X-axis, around the vehicle Z-axis (right-hand rule). 0 = Head in normal position. Positive values = Head turned left. Negative values = Head turned right.
+    @range(min: -180, max: 180)
+  """
+  yaw(unit: AngleUnitEnum = DEGREE): Float @vspec(element: SENSOR, fqn: "Vehicle.Occupant.HeadPosition.Yaw")
+
+  """
+  Height position of head center measured as mid eye position on X-axis of the vehicle rear-axle coordinate system as defined by ISO 23150:2023 section 3.7.12 Mid eye position refers to the center of a line drawn between the center of the drivers eyes. Positive values = above center of rear-axle reference point. Negative values = below center of rear-axle reference point.
+  """
+  z(unit: LengthUnitEnum = MILLIMETER): Int16 @vspec(element: SENSOR, fqn: "Vehicle.Occupant.HeadPosition.Z")
+}

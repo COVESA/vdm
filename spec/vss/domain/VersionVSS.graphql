@@ -1,0 +1,17 @@
+# Domain-specific GraphQL types
+
+
+"""Supported Version of VSS."""
+type VersionVSS @vspec(element: BRANCH, fqn: "Vehicle.VersionVSS") {
+  """Label to further describe the version."""
+  label: String @vspec(element: ATTRIBUTE, fqn: "Vehicle.VersionVSS.Label")
+
+  """Supported Version of VSS - Major version."""
+  major: UInt32 @vspec(element: ATTRIBUTE, fqn: "Vehicle.VersionVSS.Major")
+
+  """Supported Version of VSS - Minor version."""
+  minor: UInt32 @vspec(element: ATTRIBUTE, fqn: "Vehicle.VersionVSS.Minor")
+
+  """Supported Version of VSS - Patch version."""
+  patch: UInt32 @vspec(element: ATTRIBUTE, fqn: "Vehicle.VersionVSS.Patch")
+}

@@ -1,0 +1,29 @@
+# Domain-specific GraphQL types
+
+
+"""MotionManagement for brake actuation for a specific electric axle."""
+type Brake_Axle @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.Brake.Axle") {
+  id: ID!
+
+  """
+  Maximum distribution range of the friction brake request on the axle to the right wheel. 0% = Complete friction torque shall be shifted to the left wheel. 50% = At most 50% friction torque may be shifted to the right wheel. 100% = Complete friction torque may be shifted to the right wheel.
+  """
+  torqueDistributionFrictionRightMaximum(unit: RelationUnitEnum = PERCENT): UInt16 @vspec(element: ACTUATOR, fqn: "Vehicle.MotionManagement.Brake.Axle.TorqueDistributionFrictionRightMaximum")
+    @range(min: 0, max: 100)
+
+  """
+  Minimum distribution range of the friction brake request on the axle to the right wheel. 0% = Complete friction torque may be shifted to the left wheel. 50% = At least 50% friction torque shall be shifted to the right wheel. 100% = Complete friction torque shall be shifted to the right wheel.
+  """
+  torqueDistributionFrictionRightMinimum(unit: RelationUnitEnum = PERCENT): UInt16 @vspec(element: ACTUATOR, fqn: "Vehicle.MotionManagement.Brake.Axle.TorqueDistributionFrictionRightMinimum")
+    @range(min: 0, max: 100)
+
+  """Limit for regenerative brake torque at given axle. Brake Torque < 0Nm."""
+  torqueElectricMinimum(unit: TorqueUnitEnum = NEWTON_METER): Int16 @vspec(element: ACTUATOR, fqn: "Vehicle.MotionManagement.Brake.Axle.TorqueElectricMinimum")
+    @range(max: 0)
+
+  """
+  Maximum absolute wheel torque difference between left and right wheel for friction brake.
+  """
+  torqueFrictionDifferenceMaximum(unit: TorqueUnitEnum = NEWTON_METER): UInt16 @vspec(element: ACTUATOR, fqn: "Vehicle.MotionManagement.Brake.Axle.TorqueFrictionDifferenceMaximum")
+  wheels: [Brake_Axle_Wheel]
+}

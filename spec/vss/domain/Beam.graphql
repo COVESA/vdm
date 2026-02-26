@@ -1,0 +1,15 @@
+# Domain-specific GraphQL types
+
+
+"""Beam lights."""
+type Beam @vspec(element: BRANCH, fqn: "Vehicle.Body.Lights.Beam") {
+  id: ID!
+
+  """
+  Indicates if light is defect. True = Light is defect. False = Light has no defect.
+  """
+  isDefect: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Body.Lights.Beam.IsDefect")
+
+  """Indicates if light is on or off. True = On. False = Off."""
+  isOn: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Lights.Beam.IsOn")
+}

@@ -1,0 +1,249 @@
+# Domain-specific GraphQL types
+
+
+"""
+Units for "length"
+"""
+enum LengthUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "length"}]) {
+  MILLIMETER @vspec(element: UNIT, metadata: [{key: "unit", value: "mm"}])
+  CENTIMETER @vspec(element: UNIT, metadata: [{key: "unit", value: "cm"}])
+  METER @vspec(element: UNIT, metadata: [{key: "unit", value: "m"}])
+  KILOMETER @vspec(element: UNIT, metadata: [{key: "unit", value: "km"}])
+  INCH @vspec(element: UNIT, metadata: [{key: "unit", value: "inch"}])
+}
+
+"""
+Units for "velocity"
+"""
+enum VelocityUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "velocity"}]) {
+  KILOMETER_PER_HOUR @vspec(element: UNIT, metadata: [{key: "unit", value: "km/h"}])
+  METERS_PER_SECOND @vspec(element: UNIT, metadata: [{key: "unit", value: "m/s"}])
+}
+
+"""
+Units for "acceleration"
+"""
+enum AccelerationUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "acceleration"}]) {
+  METERS_PER_SECOND_SQUARED @vspec(element: UNIT, metadata: [{key: "unit", value: "m/s^2"}])
+  CENTIMETERS_PER_SECOND_SQUARED @vspec(element: UNIT, metadata: [{key: "unit", value: "cm/s^2"}])
+}
+
+"""
+Units for "volume"
+"""
+enum VolumeUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "volume"}]) {
+  MILLILITER @vspec(element: UNIT, metadata: [{key: "unit", value: "ml"}])
+  LITER @vspec(element: UNIT, metadata: [{key: "unit", value: "l"}])
+  CUBIC_CENTIMETERS @vspec(element: UNIT, metadata: [{key: "unit", value: "cm^3"}])
+}
+
+"""
+Units for "temperature"
+"""
+enum TemperatureUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "temperature"}]) {
+  DEGREE_CELSIUS @vspec(element: UNIT, metadata: [{key: "unit", value: "Celsius"}])
+  DEGREE_FAHRENHEIT @vspec(element: UNIT, metadata: [{key: "unit", value: "Fahrenheit"}])
+}
+
+"""
+Units for "angle"
+"""
+enum AngleUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "angle"}]) {
+  DEGREE @vspec(element: UNIT, metadata: [{key: "unit", value: "degrees"}])
+}
+
+"""
+Units for "angular-speed"
+"""
+enum AngularSpeedUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "angular-speed"}]) {
+  DEGREE_PER_SECOND @vspec(element: UNIT, metadata: [{key: "unit", value: "degrees/s"}])
+  RADIANS_PER_SECOND @vspec(element: UNIT, metadata: [{key: "unit", value: "rad/s"}])
+}
+
+"""
+Units for "power"
+"""
+enum PowerUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "power"}]) {
+  WATT @vspec(element: UNIT, metadata: [{key: "unit", value: "W"}])
+  KILOWATT @vspec(element: UNIT, metadata: [{key: "unit", value: "kW"}])
+  HORSEPOWER @vspec(element: UNIT, metadata: [{key: "unit", value: "PS"}])
+}
+
+"""
+Units for "work"
+"""
+enum WorkUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "work"}]) {
+  KILOWATT_HOURS @vspec(element: UNIT, metadata: [{key: "unit", value: "kWh"}])
+}
+
+"""
+Units for "mass"
+"""
+enum MassUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "mass"}]) {
+  GRAM @vspec(element: UNIT, metadata: [{key: "unit", value: "g"}])
+  KILOGRAM @vspec(element: UNIT, metadata: [{key: "unit", value: "kg"}])
+  POUND @vspec(element: UNIT, metadata: [{key: "unit", value: "lbs"}])
+}
+
+"""
+Units for "voltage"
+"""
+enum VoltageUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "voltage"}]) {
+  VOLT @vspec(element: UNIT, metadata: [{key: "unit", value: "V"}])
+}
+
+"""
+Units for "electric-current"
+"""
+enum ElectricCurrentUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "electric-current"}]) {
+  AMPERE @vspec(element: UNIT, metadata: [{key: "unit", value: "A"}])
+}
+
+"""
+Units for "electric-charge"
+"""
+enum ElectricChargeUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "electric-charge"}]) {
+  AMPERE_HOURS @vspec(element: UNIT, metadata: [{key: "unit", value: "Ah"}])
+}
+
+"""
+Units for "duration"
+"""
+enum DurationUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "duration"}]) {
+  MILLISECOND @vspec(element: UNIT, metadata: [{key: "unit", value: "ms"}])
+  SECOND @vspec(element: UNIT, metadata: [{key: "unit", value: "s"}])
+  MINUTE @vspec(element: UNIT, metadata: [{key: "unit", value: "min"}])
+  HOUR @vspec(element: UNIT, metadata: [{key: "unit", value: "h"}])
+  DAYS @vspec(element: UNIT, metadata: [{key: "unit", value: "day"}])
+  WEEKS @vspec(element: UNIT, metadata: [{key: "unit", value: "weeks"}])
+  MONTHS @vspec(element: UNIT, metadata: [{key: "unit", value: "months"}])
+  YEARS @vspec(element: UNIT, metadata: [{key: "unit", value: "years"}])
+}
+
+"""
+Units for "datetime"
+"""
+enum DatetimeUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "datetime"}]) {
+  U_N_I_X_TIMESTAMP @vspec(element: UNIT, metadata: [{key: "unit", value: "unix-time"}])
+  ISO_8601 @vspec(element: UNIT, metadata: [{key: "unit", value: "iso8601"}])
+}
+
+"""
+Units for "pressure"
+"""
+enum PressureUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "pressure"}]) {
+  MILLIBAR @vspec(element: UNIT, metadata: [{key: "unit", value: "mbar"}])
+  PASCAL @vspec(element: UNIT, metadata: [{key: "unit", value: "Pa"}])
+  KILOPASCAL @vspec(element: UNIT, metadata: [{key: "unit", value: "kPa"}])
+  POUNDS_PER_SQUARE_INCH @vspec(element: UNIT, metadata: [{key: "unit", value: "psi"}])
+}
+
+"""
+Units for "rating"
+"""
+enum RatingUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "rating"}]) {
+  STARS @vspec(element: UNIT, metadata: [{key: "unit", value: "stars"}])
+}
+
+"""
+Units for "mass-per-time"
+"""
+enum MassPerTimeUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "mass-per-time"}]) {
+  GRAMS_PER_SECOND @vspec(element: UNIT, metadata: [{key: "unit", value: "g/s"}])
+}
+
+"""
+Units for "mass-per-distance"
+"""
+enum MassPerDistanceUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "mass-per-distance"}]) {
+  GRAMS_PER_KILOMETER @vspec(element: UNIT, metadata: [{key: "unit", value: "g/km"}])
+}
+
+"""
+Units for "energy-consumption-per-distance"
+"""
+enum EnergyConsumptionPerDistanceUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "energy-consumption-per-distance"}]) {
+  KILOWATT_HOURS_PER_100_KILOMETERS @vspec(element: UNIT, metadata: [{key: "unit", value: "kWh/100km"}])
+  WATT_HOUR_PER_KM @vspec(element: UNIT, metadata: [{key: "unit", value: "Wh/km"}])
+}
+
+"""
+Units for "volume-per-distance"
+"""
+enum VolumePerDistanceUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "volume-per-distance"}]) {
+  MILLILITER_PER_100_KILOMETERS @vspec(element: UNIT, metadata: [{key: "unit", value: "ml/100km"}])
+  LITER_PER_100_KILOMETERS @vspec(element: UNIT, metadata: [{key: "unit", value: "l/100km"}])
+}
+
+"""
+Units for "volume-flow-rate"
+"""
+enum VolumeFlowRateUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "volume-flow-rate"}]) {
+  LITER_PER_HOUR @vspec(element: UNIT, metadata: [{key: "unit", value: "l/h"}])
+}
+
+"""
+Units for "distance-per-volume"
+"""
+enum DistancePerVolumeUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "distance-per-volume"}]) {
+  MILES_PER_US_GALLON @vspec(element: UNIT, metadata: [{key: "unit", value: "mpg"}])
+  MILES_PER_IMPERIAL_GALLON @vspec(element: UNIT, metadata: [{key: "unit", value: "mpg-uk"}])
+  MILES_PER_US_GALLON_EQUIVALENT @vspec(element: UNIT, metadata: [{key: "unit", value: "mpge"}])
+  KILOMETERS_PER_LITER @vspec(element: UNIT, metadata: [{key: "unit", value: "km/l"}])
+}
+
+"""
+Units for "force"
+"""
+enum ForceUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "force"}]) {
+  NEWTON @vspec(element: UNIT, metadata: [{key: "unit", value: "N"}])
+  KILO_NEWTON @vspec(element: UNIT, metadata: [{key: "unit", value: "kN"}])
+}
+
+"""
+Units for "torque"
+"""
+enum TorqueUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "torque"}]) {
+  NEWTON_METER @vspec(element: UNIT, metadata: [{key: "unit", value: "Nm"}])
+}
+
+"""
+Units for "rotational-speed"
+"""
+enum RotationalSpeedUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "rotational-speed"}]) {
+  REVOLUTIONS_PER_MINUTE @vspec(element: UNIT, metadata: [{key: "unit", value: "rpm"}])
+}
+
+"""
+Units for "frequency"
+"""
+enum FrequencyUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "frequency"}]) {
+  HERTZ @vspec(element: UNIT, metadata: [{key: "unit", value: "Hz"}])
+  CYCLES_PER_MINUTE @vspec(element: UNIT, metadata: [{key: "unit", value: "cpm"}])
+  BEATS_PER_MINUTE @vspec(element: UNIT, metadata: [{key: "unit", value: "bpm"}])
+}
+
+"""
+Units for "relation"
+"""
+enum RelationUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "relation"}]) {
+  RATIO @vspec(element: UNIT, metadata: [{key: "unit", value: "ratio"}])
+  PERCENT @vspec(element: UNIT, metadata: [{key: "unit", value: "percent"}])
+  NANO_METER_PER_KILOMETER @vspec(element: UNIT, metadata: [{key: "unit", value: "nm/km"}])
+  DECIBEL_MILLIWATT @vspec(element: UNIT, metadata: [{key: "unit", value: "dBm"}])
+  DECIBEL @vspec(element: UNIT, metadata: [{key: "unit", value: "dB"}])
+}
+
+"""
+Units for "resistance"
+"""
+enum ResistanceUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "resistance"}]) {
+  OHM @vspec(element: UNIT, metadata: [{key: "unit", value: "Ohm"}])
+}
+
+"""
+Units for "illuminance"
+"""
+enum IlluminanceUnitEnum @vspec(element: QUANTITY_KIND, metadata: [{key: "quantity", value: "illuminance"}]) {
+  LUX @vspec(element: UNIT, metadata: [{key: "unit", value: "lx"}])
+}

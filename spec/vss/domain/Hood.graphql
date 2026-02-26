@@ -1,0 +1,26 @@
+# Domain-specific GraphQL types
+
+
+"""Hood status. Start position for Hood is Closed."""
+type Hood @vspec(element: BRANCH, fqn: "Vehicle.Body.Hood") {
+  """
+  Is item open or closed? True = Fully or partially open. False = Fully closed.
+  """
+  isOpen: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Hood.IsOpen")
+
+  """Item position. 0 = Start position 100 = End position."""
+  position(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Hood.Position")
+    @range(min: 0, max: 100)
+
+  """Switch controlling sliding action such as window, sunroof, or blind."""
+  switch: Vehicle_Body_Hood_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Hood.Switch")
+}
+
+"""Allowed values for Vehicle.Body.Hood.Switch."""
+enum Vehicle_Body_Hood_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Hood.Switch", metadata: [{key: "allowed", value: "['INACTIVE', 'CLOSE', 'OPEN', 'ONE_SHOT_CLOSE', 'ONE_SHOT_OPEN']"}]) {
+  INACTIVE
+  CLOSE
+  OPEN
+  ONE_SHOT_CLOSE
+  ONE_SHOT_OPEN
+}

@@ -1,0 +1,10 @@
+# Domain-specific GraphQL types
+
+
+"""Motion Management Information."""
+type MotionManagement @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement") {
+  brake: MotionManagement_Brake
+  electricAxles: [ElectricAxle]
+  steering: Steering
+  suspension: Suspension
+}

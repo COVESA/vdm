@@ -1,0 +1,28 @@
+# Domain-specific GraphQL types
+
+
+"""Headrest settings."""
+type Headrest @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Seat.Headrest") {
+  """
+  Headrest angle, relative to backrest, 0 degrees if parallel to backrest, Positive degrees = tilted forward.
+  """
+  angle(unit: AngleUnitEnum = DEGREE): Float @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Headrest.Angle")
+
+  """
+  Position of headrest relative to movable range of the head rest. 0 = Bottommost position supported.
+  """
+  height(unit: LengthUnitEnum = MILLIMETER): UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Headrest.Height")
+    @range(min: 0)
+
+  """Headrest backward switch engaged."""
+  isBackwardSwitchEngaged: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Headrest.IsBackwardSwitchEngaged")
+
+  """Headrest down switch engaged."""
+  isDownSwitchEngaged: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Headrest.IsDownSwitchEngaged")
+
+  """Headrest forward switch engaged."""
+  isForwardSwitchEngaged: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Headrest.IsForwardSwitchEngaged")
+
+  """Headrest up switch engaged."""
+  isUpSwitchEngaged: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Headrest.IsUpSwitchEngaged")
+}

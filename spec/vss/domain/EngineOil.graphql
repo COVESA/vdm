@@ -1,0 +1,30 @@
+# Domain-specific GraphQL types
+
+
+"""Signals related to the engine oil"""
+type EngineOil @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.CombustionEngine.EngineOil") {
+  """Engine oil capacity in liters."""
+  capacity(unit: VolumeUnitEnum = LITER): Float @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.EngineOil.Capacity")
+
+  """Engine oil level."""
+  level: Vehicle_Powertrain_CombustionEngine_EngineOil_Level_Enum @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.EngineOil.Level")
+
+  """
+  Remaining engine oil life in seconds. Negative values can be used to indicate that lifetime has been exceeded.
+  """
+  lifeRemaining(unit: DurationUnitEnum = SECOND): Int @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.EngineOil.LifeRemaining")
+
+  """EOT, Engine oil temperature."""
+  temperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.EngineOil.Temperature")
+}
+
+"""
+Allowed values for Vehicle.Powertrain.CombustionEngine.EngineOil.Level.
+"""
+enum Vehicle_Powertrain_CombustionEngine_EngineOil_Level_Enum @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.EngineOil.Level", metadata: [{key: "allowed", value: "['CRITICALLY_LOW', 'LOW', 'NORMAL', 'HIGH', 'CRITICALLY_HIGH']"}]) {
+  CRITICALLY_LOW
+  LOW
+  NORMAL
+  HIGH
+  CRITICALLY_HIGH
+}

@@ -1,0 +1,65 @@
+# Domain-specific GraphQL types
+
+
+"""Properties related to battery charging."""
+type Charging @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.Charging") {
+  """Average charging power of last or current charging event."""
+  averagePower(unit: PowerUnitEnum = KILOWATT): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.AveragePower")
+
+  """Target charge limit (state of charge) for battery."""
+  chargeLimit(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.ChargeLimit")
+    @range(min: 0, max: 100)
+
+  """Current charging rate, as in kilometers of range added per hour."""
+  chargeRate(unit: VelocityUnitEnum = KILOMETER_PER_HOUR): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.ChargeRate")
+
+  """
+  EVSE charging point ID (without separators) of last or current charging event according to ISO 15118-2 Annex H.
+  """
+  evseId: String @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.EvseId")
+
+  """
+  True if charging is ongoing. Charging is considered to be ongoing if energy is flowing from charger to vehicle.
+  """
+  isCharging: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.IsCharging")
+
+  """
+  True if discharging (vehicle to grid) is ongoing. Discharging is considered to be ongoing if energy is flowing from vehicle to charger/grid.
+  """
+  isDischarging: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.IsDischarging")
+
+  """Maximum charging power of last or current charging event."""
+  maxPower(unit: PowerUnitEnum = KILOWATT): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.MaxPower")
+
+  """
+  Electrical energy lost by power dissipation to heat inside the AC/DC converter.
+  """
+  powerLoss(unit: PowerUnitEnum = WATT): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.PowerLoss")
+
+  """Start or stop the charging process."""
+  startStopCharging: Vehicle_Powertrain_TractionBattery_Charging_StartStopCharging_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.StartStopCharging")
+
+  """
+  Current temperature of AC/DC converter converting grid voltage to battery voltage.
+  """
+  temperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.Temperature")
+
+  """
+  The time needed for the current charging process to reach Charging.ChargeLimit. 0 if charging is complete or no charging process is active or planned.
+  """
+  timeToComplete(unit: DurationUnitEnum = SECOND): UInt32 @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.TimeToComplete")
+  chargeCurrent: ChargeCurrent
+  chargeVoltage: ChargeVoltage
+  chargingPorts: [ChargingPort]
+  location: Location
+  maximumChargingCurrent: MaximumChargingCurrent
+  timer: Timer
+}
+
+"""
+Allowed values for Vehicle.Powertrain.TractionBattery.Charging.StartStopCharging.
+"""
+enum Vehicle_Powertrain_TractionBattery_Charging_StartStopCharging_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.StartStopCharging", metadata: [{key: "allowed", value: "['START', 'STOP']"}]) {
+  START
+  STOP
+}

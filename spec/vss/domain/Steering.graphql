@@ -1,0 +1,8 @@
+# Domain-specific GraphQL types
+
+
+"""MotionManagement related to steering."""
+type Steering @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.Steering") {
+  axle: Steering_Axle
+  steeringWheel: Steering_SteeringWheel
+}

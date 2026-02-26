@@ -1,0 +1,20 @@
+# Instance tag type and dimensional enums
+
+
+type ControlUnit_InstanceTag @instanceTag @vspec(element: BRANCH, fqn: "Vehicle.ControlUnit", metadata: [{key: "instances", value: "[['Central', 'FrontLeft', 'FrontRight', 'RearLeft1', 'RearLeft2', 'Trunk']]"}]) {
+  dimension1: ControlUnit_InstanceTag_Dimension1
+}
+
+"""Dimensional enum for VSS instance dimension 1."""
+enum ControlUnit_InstanceTag_Dimension1 {
+  CENTRAL @vspec(metadata: [{key: "originalName", value: "Central"}])
+  FRONT_LEFT @vspec(metadata: [{key: "originalName", value: "FrontLeft"}])
+  FRONT_RIGHT @vspec(metadata: [{key: "originalName", value: "FrontRight"}])
+  REAR_LEFT1 @vspec(metadata: [{key: "originalName", value: "RearLeft1"}])
+  REAR_LEFT2 @vspec(metadata: [{key: "originalName", value: "RearLeft2"}])
+  TRUNK @vspec(metadata: [{key: "originalName", value: "Trunk"}])
+}
+
+extend type ControlUnit {
+  instanceTag: ControlUnit_InstanceTag
+}

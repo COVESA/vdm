@@ -1,0 +1,35 @@
+# Domain-specific GraphQL types
+
+
+"""Signals from Cruise Control system."""
+type CruiseControl @vspec(element: BRANCH, fqn: "Vehicle.ADAS.CruiseControl") {
+  """Distance in meters to keep from lead vehicle"""
+  adaptiveDistanceSet(unit: LengthUnitEnum = METER): Float @vspec(element: ACTUATOR, fqn: "Vehicle.ADAS.CruiseControl.AdaptiveDistanceSet")
+    @range(min: 0.0)
+
+  """Follow distance setting, commonly 1-5 with 1 being closest."""
+  adaptiveIntervalSet: UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.ADAS.CruiseControl.AdaptiveIntervalSet")
+
+  """
+  Indicates if cruise control system is active (i.e. actively controls speed). True = Active. False = Inactive.
+  """
+  isActive: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.ADAS.CruiseControl.IsActive")
+
+  """
+  Indicates if cruise control system is adaptive (i.e. actively controls speed).
+  """
+  isAdaptive: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.ADAS.CruiseControl.IsAdaptive")
+
+  """
+  Indicates if cruise control system is enabled (e.g. ready to receive configurations and settings) True = Enabled. False = Disabled.
+  """
+  isEnabled: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.ADAS.CruiseControl.IsEnabled")
+
+  """
+  Indicates if cruise control system incurred an error condition. True = Error. False = No Error.
+  """
+  isError: Boolean @vspec(element: SENSOR, fqn: "Vehicle.ADAS.CruiseControl.IsError")
+
+  """Set cruise control speed in kilometers per hour."""
+  speedSet(unit: VelocityUnitEnum = KILOMETER_PER_HOUR): Float @vspec(element: ACTUATOR, fqn: "Vehicle.ADAS.CruiseControl.SpeedSet")
+}

@@ -1,0 +1,94 @@
+# Domain-specific GraphQL types
+
+
+"""Attributes that identify a vehicle."""
+type VehicleIdentification @vspec(element: BRANCH, fqn: "Vehicle.VehicleIdentification") {
+  """
+  The ACRISS Car Classification Code is a code used by many car rental companies.
+  """
+  acrissCode: String @vspec(element: ATTRIBUTE, fqn: "Vehicle.VehicleIdentification.AcrissCode")
+
+  """
+  Indicates the design and body style of the vehicle (e.g. station wagon, hatchback, etc.).
+  """
+  bodyType: String @vspec(element: ATTRIBUTE, fqn: "Vehicle.VehicleIdentification.BodyType")
+
+  """Vehicle brand or manufacturer."""
+  brand: String @vspec(element: ATTRIBUTE, fqn: "Vehicle.VehicleIdentification.Brand")
+
+  """
+  The date in ISO 8601 format of the first registration of the vehicle with the respective public authorities.
+  """
+  dateVehicleFirstRegistered(unit: DatetimeUnitEnum = ISO_8601): String @vspec(element: ATTRIBUTE, fqn: "Vehicle.VehicleIdentification.DateVehicleFirstRegistered")
+
+  """A textual description of known damages, both repaired and unrepaired."""
+  knownVehicleDamages: String @vspec(element: ATTRIBUTE, fqn: "Vehicle.VehicleIdentification.KnownVehicleDamages")
+
+  """The license plate of the vehicle."""
+  licensePlate: String @vspec(element: ATTRIBUTE, fqn: "Vehicle.VehicleIdentification.LicensePlate")
+
+  """Indicates that the vehicle meets the respective emission standard."""
+  meetsEmissionStandard: String @vspec(element: ATTRIBUTE, fqn: "Vehicle.VehicleIdentification.MeetsEmissionStandard")
+
+  """Vehicle model."""
+  model: String @vspec(element: ATTRIBUTE, fqn: "Vehicle.VehicleIdentification.Model")
+
+  """
+  Optional extras refers to all car equipment options that are not installed as standard by the manufacturer.
+  """
+  optionalExtras: [String!] @vspec(element: ATTRIBUTE, fqn: "Vehicle.VehicleIdentification.OptionalExtras")
+
+  """The date in ISO 8601 format of production of the item, e.g. vehicle."""
+  productionDate(unit: DatetimeUnitEnum = ISO_8601): String @vspec(element: ATTRIBUTE, fqn: "Vehicle.VehicleIdentification.ProductionDate")
+
+  """
+  The date in ISO 8601 format of the item e.g. vehicle was purchased by the current owner.
+  """
+  purchaseDate(unit: DatetimeUnitEnum = ISO_8601): String @vspec(element: ATTRIBUTE, fqn: "Vehicle.VehicleIdentification.PurchaseDate")
+
+  """
+  17-character Vehicle Identification Number (VIN) as defined by ISO 3779.
+  """
+  vin: String @vspec(element: ATTRIBUTE, fqn: "Vehicle.VehicleIdentification.VIN")
+
+  """
+  A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'.
+  """
+  vehicleConfiguration: String @vspec(element: ATTRIBUTE, fqn: "Vehicle.VehicleIdentification.VehicleConfiguration")
+
+  """
+  The main color of the exterior within the basic color palette (eg. red, blue, black, white, ...).
+  """
+  vehicleExteriorColor: String @vspec(element: ATTRIBUTE, fqn: "Vehicle.VehicleIdentification.VehicleExteriorColor")
+
+  """The color or color combination of the interior of the vehicle."""
+  vehicleInteriorColor: String @vspec(element: ATTRIBUTE, fqn: "Vehicle.VehicleIdentification.VehicleInteriorColor")
+
+  """
+  The type or material of the interior of the vehicle (e.g. synthetic fabric, leather, wood, etc.).
+  """
+  vehicleInteriorType: String @vspec(element: ATTRIBUTE, fqn: "Vehicle.VehicleIdentification.VehicleInteriorType")
+
+  """
+  The release date in ISO 8601 format of a vehicle model (often used to differentiate versions of the same make and model).
+  """
+  vehicleModelDate(unit: DatetimeUnitEnum = ISO_8601): String @vspec(element: ATTRIBUTE, fqn: "Vehicle.VehicleIdentification.VehicleModelDate")
+
+  """
+  The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.
+  """
+  vehicleSeatingCapacity: UInt16 @vspec(element: ATTRIBUTE, fqn: "Vehicle.VehicleIdentification.VehicleSeatingCapacity")
+
+  """
+  Indicates whether the vehicle has been used for special purposes, like commercial rental, driving school.
+  """
+  vehicleSpecialUsage: String @vspec(element: ATTRIBUTE, fqn: "Vehicle.VehicleIdentification.VehicleSpecialUsage")
+
+  """
+  3-character World Manufacturer Identification (WMI) as defined by ISO 3780.
+  """
+  wmi: String @vspec(element: ATTRIBUTE, fqn: "Vehicle.VehicleIdentification.WMI")
+
+  """Model year of the vehicle."""
+  year: UInt16 @vspec(element: ATTRIBUTE, fqn: "Vehicle.VehicleIdentification.Year")
+}

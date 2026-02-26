@@ -1,0 +1,13 @@
+# Domain-specific GraphQL types
+
+
+"""Hazard lights."""
+type Hazard @vspec(element: BRANCH, fqn: "Vehicle.Body.Lights.Hazard") {
+  """
+  Indicates if light is defect. True = Light is defect. False = Light has no defect.
+  """
+  isDefect: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Body.Lights.Hazard.IsDefect")
+
+  """Indicates if light is signaling or off. True = signaling. False = Off."""
+  isSignaling: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Lights.Hazard.IsSignaling")
+}

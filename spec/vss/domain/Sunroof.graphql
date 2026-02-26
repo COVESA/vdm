@@ -1,0 +1,26 @@
+# Domain-specific GraphQL types
+
+
+"""Sun roof status."""
+type Sunroof @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Sunroof") {
+  """
+  Sunroof position. 0 = Fully closed 100 = Fully opened. -100 = Fully tilted.
+  """
+  position(unit: RelationUnitEnum = PERCENT): Int8 @vspec(element: SENSOR, fqn: "Vehicle.Cabin.Sunroof.Position")
+    @range(min: -100, max: 100)
+
+  """Switch controlling sliding action such as window, sunroof, or shade."""
+  switch: Vehicle_Cabin_Sunroof_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Sunroof.Switch")
+  shade: Sunroof_Shade
+}
+
+"""Allowed values for Vehicle.Cabin.Sunroof.Switch."""
+enum Vehicle_Cabin_Sunroof_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Sunroof.Switch", metadata: [{key: "allowed", value: "['INACTIVE', 'CLOSE', 'OPEN', 'ONE_SHOT_CLOSE', 'ONE_SHOT_OPEN', 'TILT_UP', 'TILT_DOWN']"}]) {
+  INACTIVE
+  CLOSE
+  OPEN
+  ONE_SHOT_CLOSE
+  ONE_SHOT_OPEN
+  TILT_UP
+  TILT_DOWN
+}

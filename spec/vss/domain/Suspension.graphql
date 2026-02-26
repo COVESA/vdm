@@ -1,0 +1,35 @@
+# Domain-specific GraphQL types
+
+
+"""MotionManagement related to suspension."""
+type Suspension @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.Suspension") {
+  """
+  Prioritization target for damping control 0% = damping control by damping actuator (e.g. base functions) 100% = damping control by VMM system (e.g. vehicle dynamics)
+  """
+  dampingPrioTarget(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.MotionManagement.Suspension.DampingPrioTarget")
+    @range(min: 0, max: 100)
+
+  """
+  Prioritization target for anti-roll control 0% = anti-roll control by anti-roll actuator (e.g. base function) 100% = anti-roll control by VMM system (e.g. vehicle dynamics)
+  """
+  rollPrioTarget(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.MotionManagement.Suspension.RollPrioTarget")
+    @range(min: 0, max: 100)
+
+  """
+  Maximum distribution range request of roll torque to front axle. 0% = Complete roll torque shall be shifted to rear axle 100% = Complete roll torque may be shifted to front axle
+  """
+  rollTorqueDistributionFrontMaximum(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.MotionManagement.Suspension.RollTorqueDistributionFrontMaximum")
+    @range(min: 0, max: 100)
+
+  """
+  Minimum distribution range request of roll torque to front axle. 0% = Complete roll torque may be shifted to rear axle 100% = Complete roll torque shall be shifted to front axle
+  """
+  rollTorqueDistributionFrontMinimum(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.MotionManagement.Suspension.RollTorqueDistributionFrontMinimum")
+    @range(min: 0, max: 100)
+
+  """
+  Roll torque request on vehicle level. Signal orientation according to ISO8855.
+  """
+  rollTorqueTarget(unit: TorqueUnitEnum = NEWTON_METER): Int16 @vspec(element: ACTUATOR, fqn: "Vehicle.MotionManagement.Suspension.RollTorqueTarget")
+  axles: [Suspension_Axle]
+}

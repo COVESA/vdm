@@ -1,0 +1,20 @@
+# Domain-specific GraphQL types
+
+
+"""Service data."""
+type Service @vspec(element: BRANCH, fqn: "Vehicle.Service") {
+  """
+  Remaining distance to service (of any kind). Negative values indicate service overdue.
+  """
+  distanceToService(unit: LengthUnitEnum = KILOMETER): Float @vspec(element: SENSOR, fqn: "Vehicle.Service.DistanceToService")
+
+  """
+  Indicates if vehicle needs service (of any kind). True = Service needed now or in the near future. False = No known need for service.
+  """
+  isServiceDue: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Service.IsServiceDue")
+
+  """
+  Remaining time to service (of any kind). Negative values indicate service overdue.
+  """
+  timeToService(unit: DurationUnitEnum = SECOND): Int @vspec(element: SENSOR, fqn: "Vehicle.Service.TimeToService")
+}

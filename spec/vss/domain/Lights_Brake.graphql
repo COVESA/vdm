@@ -1,0 +1,22 @@
+# Domain-specific GraphQL types
+
+
+"""Brake lights."""
+type Lights_Brake @vspec(element: BRANCH, fqn: "Vehicle.Body.Lights.Brake") {
+  """
+  Indicates if break-light is active. INACTIVE means lights are off. ACTIVE means lights are on. ADAPTIVE means that break-light is indicating emergency-breaking.
+  """
+  isActive: Vehicle_Body_Lights_Brake_IsActive_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Lights.Brake.IsActive")
+
+  """
+  Indicates if light is defect. True = Light is defect. False = Light has no defect.
+  """
+  isDefect: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Body.Lights.Brake.IsDefect")
+}
+
+"""Allowed values for Vehicle.Body.Lights.Brake.IsActive."""
+enum Vehicle_Body_Lights_Brake_IsActive_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Lights.Brake.IsActive", metadata: [{key: "allowed", value: "['INACTIVE', 'ACTIVE', 'ADAPTIVE']"}]) {
+  INACTIVE
+  ACTIVE
+  ADAPTIVE
+}

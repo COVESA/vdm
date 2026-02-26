@@ -1,0 +1,9 @@
+# Domain-specific GraphQL types
+
+
+"""Root of the control unit branch"""
+type ControlUnit @vspec(element: BRANCH, fqn: "Vehicle.ControlUnit") {
+  """Control unit ID"""
+  id: UInt8 @vspec(element: ATTRIBUTE, fqn: "Vehicle.ControlUnit.ID")
+  health: Health
+}

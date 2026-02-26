@@ -1,0 +1,27 @@
+# Domain-specific GraphQL types
+
+
+"""Massage related information for the seat."""
+type Massage @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Seat.Massage") {
+  """True if the seat have the massage capability"""
+  isAvailable: Boolean @vspec(element: ATTRIBUTE, fqn: "Vehicle.Cabin.Seat.Massage.IsAvailable")
+
+  """Seat massage level. 0 = off. 100 = max massage."""
+  level(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Massage.Level")
+    @range(min: 0, max: 100)
+
+  """Massage status."""
+  status: Vehicle_Cabin_Seat_Massage_Status_Enum @vspec(element: SENSOR, fqn: "Vehicle.Cabin.Seat.Massage.Status")
+
+  """Type of massage."""
+  supportedTypes: [String!] @vspec(element: ATTRIBUTE, fqn: "Vehicle.Cabin.Seat.Massage.SupportedTypes")
+
+  """Type of massage active."""
+  typeActive: String @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Massage.TypeActive")
+}
+
+"""Allowed values for Vehicle.Cabin.Seat.Massage.Status."""
+enum Vehicle_Cabin_Seat_Massage_Status_Enum @vspec(element: SENSOR, fqn: "Vehicle.Cabin.Seat.Massage.Status", metadata: [{key: "allowed", value: "['ON', 'OFF']"}]) {
+  ON
+  OFF
+}

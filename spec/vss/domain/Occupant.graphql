@@ -1,0 +1,10 @@
+# Domain-specific GraphQL types
+
+
+"""Occupant (Driver or Passenger) data."""
+type Occupant @vspec(element: BRANCH, fqn: "Vehicle.Occupant") {
+  id: ID!
+  headPosition: HeadPosition
+  identifier: Identifier
+  midEyeGaze: MidEyeGaze
+}

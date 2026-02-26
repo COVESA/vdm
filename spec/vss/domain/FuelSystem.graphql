@@ -1,0 +1,143 @@
+# Domain-specific GraphQL types
+
+
+"""Fuel system data."""
+type FuelSystem @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.FuelSystem") {
+  """Current available fuel in the fuel tank expressed in liters."""
+  absoluteLevel(unit: VolumeUnitEnum = LITER): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.FuelSystem.AbsoluteLevel")
+
+  """
+  Average fuel economy calculated from the most recent refueling event to the current time.
+  """
+  afterRefuelingFuelEconomy(unit: DistancePerVolumeUnitEnum = KILOMETERS_PER_LITER): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.FuelSystem.AfterRefuelingFuelEconomy")
+
+  """Average consumption in liters per 100 km."""
+  averageConsumption(unit: VolumePerDistanceUnitEnum = LITER_PER_100_KILOMETERS): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.FuelSystem.AverageConsumption")
+    @range(min: 0)
+
+  """Fuel consumption since last refueling."""
+  consumptionSinceLastRefuel(unit: VolumeUnitEnum = LITER): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.FuelSystem.ConsumptionSinceLastRefuel")
+
+  """Fuel amount in liters consumed since start of current trip."""
+  consumptionSinceStart(unit: VolumeUnitEnum = LITER): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.FuelSystem.ConsumptionSinceStart")
+
+  """
+  Cumulative average fuel economy calculated from vehicle start or last user reset.
+  """
+  cumulativeFuelEconomy(unit: DistancePerVolumeUnitEnum = KILOMETERS_PER_LITER): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.FuelSystem.CumulativeFuelEconomy")
+
+  """
+  Average fuel economy for the current drive cycle, calculated from engine start to current time.
+  """
+  driveFuelEconomy(unit: DistancePerVolumeUnitEnum = KILOMETERS_PER_LITER): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.FuelSystem.DriveFuelEconomy")
+
+  """Defines the hybrid type of the vehicle."""
+  hybridType: Vehicle_Powertrain_FuelSystem_HybridType_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.FuelSystem.HybridType")
+
+  """Current consumption in liters per 100 km."""
+  instantConsumption(unit: VolumePerDistanceUnitEnum = LITER_PER_100_KILOMETERS): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.FuelSystem.InstantConsumption")
+    @range(min: 0)
+
+  """
+  Real-time instantaneous fuel economy calculated over a short time window.
+  """
+  instantantFuelEconomy(unit: DistancePerVolumeUnitEnum = KILOMETERS_PER_LITER): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.FuelSystem.InstantantFuelEconomy")
+
+  """Indicates whether eco start stop is currently enabled."""
+  isEngineStopStartEnabled: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.FuelSystem.IsEngineStopStartEnabled")
+
+  """
+  Indicates that the fuel gauge on the instrument cluster displays empty (0).
+  """
+  isFuelLevelEmpty: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.FuelSystem.IsFuelLevelEmpty")
+
+  """Indicates that the fuel level is low (e.g. <50km range)."""
+  isFuelLevelLow: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.FuelSystem.IsFuelLevelLow")
+
+  """Status of the fuel port flap(s). True if at least one is open."""
+  isFuelPortFlapOpen: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.FuelSystem.IsFuelPortFlapOpen")
+
+  """Remaining range in meters using only liquid fuel."""
+  range(unit: LengthUnitEnum = METER): UInt32 @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.FuelSystem.Range")
+
+  """
+  Position of refuel port(s). First part indicates side of vehicle, second part relative position on that side.
+  """
+  refuelPortPosition: Vehicle_Powertrain_FuelSystem_RefuelPortPosition_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.FuelSystem.RefuelPortPosition")
+
+  """Level in fuel tank as percent of capacity. 0 = empty. 100 = full."""
+  relativeLevel(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.FuelSystem.RelativeLevel")
+    @range(min: 0, max: 100)
+
+  """
+  Detailed information on fuels supported by the vehicle. Identifiers originating from DIN EN 16942:2021-08, appendix B, with additional suffix for octane (RON) where relevant.
+  """
+  supportedFuel: Vehicle_Powertrain_FuelSystem_SupportedFuel_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.FuelSystem.SupportedFuel")
+
+  """High level information of fuel types supported"""
+  supportedFuelTypes: Vehicle_Powertrain_FuelSystem_SupportedFuelTypes_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.FuelSystem.SupportedFuelTypes")
+
+  """Capacity of the fuel tank in liters."""
+  tankCapacity(unit: VolumeUnitEnum = LITER): Float @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.FuelSystem.TankCapacity")
+
+  """Time remaining in seconds before the fuel tank is empty."""
+  timeRemaining(unit: DurationUnitEnum = SECOND): UInt32 @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.FuelSystem.TimeRemaining")
+}
+
+"""Allowed values for Vehicle.Powertrain.FuelSystem.HybridType."""
+enum Vehicle_Powertrain_FuelSystem_HybridType_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.FuelSystem.HybridType", metadata: [{key: "allowed", value: "['UNKNOWN', 'NOT_APPLICABLE', 'STOP_START', 'BELT_ISG', 'CIMG', 'PHEV']"}]) {
+  UNKNOWN
+  NOT_APPLICABLE
+  STOP_START
+  BELT_ISG
+  CIMG
+  PHEV
+}
+
+"""Allowed values for Vehicle.Powertrain.FuelSystem.RefuelPortPosition."""
+enum Vehicle_Powertrain_FuelSystem_RefuelPortPosition_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.FuelSystem.RefuelPortPosition", metadata: [{key: "allowed", value: "['FRONT_LEFT', 'FRONT_MIDDLE', 'FRONT_RIGHT', 'REAR_LEFT', 'REAR_MIDDLE', 'REAR_RIGHT', 'LEFT_FRONT', 'LEFT_MIDDLE', 'LEFT_REAR', 'RIGHT_FRONT', 'RIGHT_MIDDLE', 'RIGHT_REAR']"}]) {
+  FRONT_LEFT
+  FRONT_MIDDLE
+  FRONT_RIGHT
+  REAR_LEFT
+  REAR_MIDDLE
+  REAR_RIGHT
+  LEFT_FRONT
+  LEFT_MIDDLE
+  LEFT_REAR
+  RIGHT_FRONT
+  RIGHT_MIDDLE
+  RIGHT_REAR
+}
+
+"""Allowed values for Vehicle.Powertrain.FuelSystem.SupportedFuel."""
+enum Vehicle_Powertrain_FuelSystem_SupportedFuel_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.FuelSystem.SupportedFuel", metadata: [{key: "allowed", value: "['E5_95', 'E5_98', 'E10_95', 'E10_98', 'E85', 'B7', 'B10', 'B20', 'B30', 'B100', 'XTL', 'LPG', 'CNG', 'LNG', 'H2', 'OTHER']"}]) {
+  E5_95
+  E5_98
+  E10_95
+  E10_98
+  E85
+  B7
+  B10
+  B20
+  B30
+  B100
+  XTL
+  LPG
+  CNG
+  LNG
+  H2
+  OTHER
+}
+
+"""Allowed values for Vehicle.Powertrain.FuelSystem.SupportedFuelTypes."""
+enum Vehicle_Powertrain_FuelSystem_SupportedFuelTypes_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.FuelSystem.SupportedFuelTypes", metadata: [{key: "allowed", value: "['GASOLINE', 'DIESEL', 'E85', 'LPG', 'CNG', 'LNG', 'H2', 'OTHER']"}]) {
+  GASOLINE
+  DIESEL
+  E85
+  LPG
+  CNG
+  LNG
+  H2
+  OTHER
+}
