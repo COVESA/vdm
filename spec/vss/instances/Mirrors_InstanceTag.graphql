@@ -1,0 +1,16 @@
+# Instance tag type and dimensional enums
+
+
+type Mirrors_InstanceTag @instanceTag @vspec(element: BRANCH, fqn: "Vehicle.Body.Mirrors", metadata: [{key: "instances", value: "['DriverSide', 'PassengerSide']"}]) {
+  dimension1: Mirrors_InstanceTag_Dimension1
+}
+
+"""Dimensional enum for VSS instance dimension 1."""
+enum Mirrors_InstanceTag_Dimension1 {
+  DRIVER_SIDE @vspec(metadata: [{key: "originalName", value: "DriverSide"}])
+  PASSENGER_SIDE @vspec(metadata: [{key: "originalName", value: "PassengerSide"}])
+}
+
+extend type Mirrors {
+  instanceTag: Mirrors_InstanceTag
+}

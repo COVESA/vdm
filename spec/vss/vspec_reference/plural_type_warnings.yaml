@@ -1,0 +1,43 @@
+# WARNING: These elements in the reference model seem to have a plural name, while GraphQL best practices suggest the use of the singular form for type names.
+# Consider replacing plural forms and whitelisting false positives.
+
+Vehicle.ADAS:
+  suggested_singular: ADA
+  current_name_in_graphql_model: ADAS
+
+Vehicle.ADAS.ABS:
+  suggested_singular: AB
+  current_name_in_graphql_model: ABS
+
+Vehicle.ADAS.DMS:
+  suggested_singular: DM
+  current_name_in_graphql_model: DMS
+
+Vehicle.ADAS.TCS:
+  suggested_singular: TC
+  current_name_in_graphql_model: TCS
+
+Vehicle.Body.Lights:
+  suggested_singular: Light
+  current_name_in_graphql_model: Lights
+
+Vehicle.Body.Mirrors:
+  suggested_singular: Mirror
+  current_name_in_graphql_model: Mirrors
+
+Vehicle.Chassis:
+  suggested_singular: Chassis
+  current_name_in_graphql_model: Chassis
+
+Vehicle.ControlUnit.Health.Resources:
+  suggested_singular: Resource
+  current_name_in_graphql_model: Resources
+
+Vehicle.Diagnostics:
+  suggested_singular: Diagnostic
+  current_name_in_graphql_model: Diagnostics
+
+Vehicle.VersionVSS:
+  suggested_singular: VersionVS
+  current_name_in_graphql_model: VersionVSS
+

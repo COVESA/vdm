@@ -1,0 +1,31 @@
+# Domain-specific GraphQL types
+
+
+"""Exterior lights."""
+type Lights @vspec(element: BRANCH, fqn: "Vehicle.Body.Lights") {
+  """
+  Status of the high beam switch. True = high beam enabled. False = high beam not enabled.
+  """
+  isHighBeamSwitchOn: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Lights.IsHighBeamSwitchOn")
+
+  """Status of the vehicle main light switch."""
+  lightSwitch: Vehicle_Body_Lights_LightSwitch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Lights.LightSwitch")
+  backup: Backup
+  beams: [Beam]
+  brake: Lights_Brake
+  directionIndicators: [DirectionIndicator]
+  fogs: [Fog]
+  hazard: Hazard
+  licensePlate: LicensePlate
+  parking: Parking
+  running: Running
+}
+
+"""Allowed values for Vehicle.Body.Lights.LightSwitch."""
+enum Vehicle_Body_Lights_LightSwitch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Lights.LightSwitch", metadata: [{key: "allowed", value: "['OFF', 'POSITION', 'DAYTIME_RUNNING_LIGHTS', 'AUTO', 'BEAM']"}]) {
+  OFF
+  POSITION
+  DAYTIME_RUNNING_LIGHTS
+  AUTO
+  BEAM
+}

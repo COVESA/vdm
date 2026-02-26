@@ -1,0 +1,16 @@
+# Instance tag type and dimensional enums
+
+
+type Brake_Axle_InstanceTag @instanceTag @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.Brake.Axle", metadata: [{key: "instances", value: "['Row[1,2]']"}]) {
+  dimension1: Brake_Axle_InstanceTag_Dimension1
+}
+
+"""Dimensional enum for VSS instance dimension 1."""
+enum Brake_Axle_InstanceTag_Dimension1 {
+  ROW1 @vspec(metadata: [{key: "originalName", value: "Row1"}])
+  ROW2 @vspec(metadata: [{key: "originalName", value: "Row2"}])
+}
+
+extend type Brake_Axle {
+  instanceTag: Brake_Axle_InstanceTag
+}

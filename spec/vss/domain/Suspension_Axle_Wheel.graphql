@@ -1,0 +1,29 @@
+# Domain-specific GraphQL types
+
+
+"""MotionManagement signals for a specific wheel."""
+type Suspension_Axle_Wheel @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.Suspension.Axle.Wheel") {
+  id: ID!
+
+  """
+  Actuated damping force at given wheel. Signal orientation according ISO8855, meaning positive force is pointing upwards.
+  """
+  dampingForce(unit: ForceUnitEnum = NEWTON): Int16 @vspec(element: SENSOR, fqn: "Vehicle.MotionManagement.Suspension.Axle.Wheel.DampingForce")
+
+  """
+  Damping force request at given wheel. Signal orientation according ISO8855, meaning positive force is pointing upwards.
+  """
+  dampingForceTarget(unit: ForceUnitEnum = NEWTON): Int16 @vspec(element: ACTUATOR, fqn: "Vehicle.MotionManagement.Suspension.Axle.Wheel.DampingForceTarget")
+
+  """
+  Actuated damping rate at given wheel. 0% = lowest possible damping rate 100% = highest possible damping rate
+  """
+  dampingRate(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: SENSOR, fqn: "Vehicle.MotionManagement.Suspension.Axle.Wheel.DampingRate")
+    @range(min: 0, max: 100)
+
+  """
+  Damping rate request at given wheel. 0% = lowest possible damping rate 100% = highest possible damping rate
+  """
+  dampingRateTarget(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.MotionManagement.Suspension.Axle.Wheel.DampingRateTarget")
+    @range(min: 0, max: 100)
+}

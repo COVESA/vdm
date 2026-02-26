@@ -1,0 +1,16 @@
+# Instance tag type and dimensional enums
+
+
+type Beam_InstanceTag @instanceTag @vspec(element: BRANCH, fqn: "Vehicle.Body.Lights.Beam", metadata: [{key: "instances", value: "['Low', 'High']"}]) {
+  dimension1: Beam_InstanceTag_Dimension1
+}
+
+"""Dimensional enum for VSS instance dimension 1."""
+enum Beam_InstanceTag_Dimension1 {
+  LOW @vspec(metadata: [{key: "originalName", value: "Low"}])
+  HIGH @vspec(metadata: [{key: "originalName", value: "High"}])
+}
+
+extend type Beam {
+  instanceTag: Beam_InstanceTag
+}

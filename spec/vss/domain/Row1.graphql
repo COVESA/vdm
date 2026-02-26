@@ -1,0 +1,45 @@
+# Domain-specific GraphQL types
+
+
+"""MotionManagement related to front axle."""
+type Row1 @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.Steering.Axle.Row1") {
+  """
+  Mode used for controlling position offset interface of axle steering actuator. 0 indicates interface disabled. Other values activate vehicle specific modes.
+  """
+  positionOffsetTargetMode: UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.MotionManagement.Steering.Axle.Row1.PositionOffsetTargetMode")
+
+  """
+  Mode used for controlling position interface of axle steering actuator. 0 indicates interface disabled. Other values activate vehicle specific modes.
+  """
+  positionTargetMode: UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.MotionManagement.Steering.Axle.Row1.PositionTargetMode")
+
+  """
+  Represents the current position of the steering rack on axle steering actuator. Positive values leads to a left turn of the vehicle (based on ISO8855).
+  """
+  rackPosition(unit: LengthUnitEnum = MILLIMETER): Int16 @vspec(element: SENSOR, fqn: "Vehicle.MotionManagement.Steering.Axle.Row1.RackPosition")
+
+  """
+  Rack position offset request to the axle steering actuator (for steer-by-wire), added to the actuator internal calculated set-point. Positive values without internal calculated set point change lead to a left movement of the vehicle (based on ISO8855).
+  """
+  rackPositionOffsetTarget(unit: LengthUnitEnum = MILLIMETER): Int16 @vspec(element: ACTUATOR, fqn: "Vehicle.MotionManagement.Steering.Axle.Row1.RackPositionOffsetTarget")
+
+  """
+  Rack position request to the axle steering actuator (external set-point). Positive values lead to a left turn of the vehicle (based on ISO8855).
+  """
+  rackPositionTarget(unit: LengthUnitEnum = MILLIMETER): Int16 @vspec(element: ACTUATOR, fqn: "Vehicle.MotionManagement.Steering.Axle.Row1.RackPositionTarget")
+
+  """
+  Represents the current actuated steering angle of the steered wheels. Signal orientation according ISO8855, single track model.
+  """
+  steerAngle(unit: AngleUnitEnum = DEGREE): Int16 @vspec(element: SENSOR, fqn: "Vehicle.MotionManagement.Steering.Axle.Row1.SteerAngle")
+
+  """
+  Steer angle offset request to the axle steering actuator (for steer-by-wire), added to the actuator internal calculated set-point. Signal orientation according ISO8855, single track model.
+  """
+  steerAngleOffsetTarget(unit: AngleUnitEnum = DEGREE): Int16 @vspec(element: ACTUATOR, fqn: "Vehicle.MotionManagement.Steering.Axle.Row1.SteerAngleOffsetTarget")
+
+  """
+  Steer angle request to the axle steering actuator (external set-point). Signal orientation according ISO8855, single track model.
+  """
+  steerAngleTarget(unit: AngleUnitEnum = DEGREE): Int16 @vspec(element: ACTUATOR, fqn: "Vehicle.MotionManagement.Steering.Axle.Row1.SteerAngleTarget")
+}

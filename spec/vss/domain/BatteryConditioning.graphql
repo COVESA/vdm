@@ -1,0 +1,44 @@
+# Domain-specific GraphQL types
+
+
+"""
+Properties related to preparing the vehicle battery for charging or driving.
+"""
+type BatteryConditioning @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.BatteryConditioning") {
+  """
+  Indicates if battery conditioning is active (i.e. actively monitors battery temperature). True = Active. False = Inactive.
+  """
+  isActive: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.BatteryConditioning.IsActive")
+
+  """
+  Indicating if battery conditioning is currently ongoing. Battery conditioning is considered ongoing when the battery conditioning system is actively heating or cooling the battery, or requesting heating or cooling.
+  """
+  isOngoing: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.BatteryConditioning.IsOngoing")
+
+  """
+  Defines requested mode for battery conditioning. INACTIVE - Battery conditioning inactive. FAST_CHARGING_PREPARATION - Battery conditioning for fast charging. DRIVING_PREPARATION - Battery conditioning for driving.
+  """
+  requestedMode: Vehicle_Powertrain_TractionBattery_BatteryConditioning_RequestedMode_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.TractionBattery.BatteryConditioning.RequestedMode")
+
+  """
+  Start time for battery conditioning, formatted according to ISO 8601 with UTC time zone.
+  """
+  startTime(unit: DatetimeUnitEnum = ISO_8601): String @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.TractionBattery.BatteryConditioning.StartTime")
+
+  """Target temperature for battery conditioning."""
+  targetTemperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.TractionBattery.BatteryConditioning.TargetTemperature")
+
+  """
+  Target time when conditioning shall be finished, formatted according to ISO 8601 with UTC time zone.
+  """
+  targetTime(unit: DatetimeUnitEnum = ISO_8601): String @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.TractionBattery.BatteryConditioning.TargetTime")
+}
+
+"""
+Allowed values for Vehicle.Powertrain.TractionBattery.BatteryConditioning.RequestedMode.
+"""
+enum Vehicle_Powertrain_TractionBattery_BatteryConditioning_RequestedMode_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.TractionBattery.BatteryConditioning.RequestedMode", metadata: [{key: "allowed", value: "['INACTIVE', 'FAST_CHARGING_PREPARATION', 'DRIVING_PREPARATION']"}]) {
+  INACTIVE
+  FAST_CHARGING_PREPARATION
+  DRIVING_PREPARATION
+}

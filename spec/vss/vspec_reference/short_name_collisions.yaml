@@ -1,0 +1,65 @@
+# Short Name Collision Resolution Report
+#
+# This file documents how VSS branch names were converted to GraphQL type names.
+# Resolution strategy: Progressive parent qualification
+#   1. Try short name (e.g., 'Window')
+#   2. If collision: add parent (e.g., 'Door_Window', 'Windshield_Window')
+#   3. If still collision: add more ancestors (e.g., 'Cabin_Door_Window')
+#   4. Last resort: use full FQN with underscores
+
+summary:
+  total_branches: 137
+  no_collisions: 120
+  parent_qualified: 15
+  multi_ancestor_qualified: 2
+  full_fqn_fallback: 0
+
+# Collisions resolved by adding immediate parent name (e.g., Parent_Name)
+parent_qualified:
+  - { fqn: Vehicle.Body.Lights.Brake, type: Lights_Brake }
+  - { fqn: Vehicle.Cabin.Door.Shade, type: Door_Shade }
+  - { fqn: Vehicle.Cabin.Sunroof.Shade, type: Sunroof_Shade }
+  - { fqn: Vehicle.Chassis.Axle, type: Chassis_Axle }
+  - { fqn: Vehicle.Chassis.Axle.Wheel, type: Axle_Wheel }
+  - { fqn: Vehicle.Chassis.Axle.Wheel.Brake, type: Wheel_Brake }
+  - { fqn: Vehicle.Chassis.Brake, type: Chassis_Brake }
+  - { fqn: Vehicle.Chassis.SteeringWheel, type: Chassis_SteeringWheel }
+  - { fqn: Vehicle.MotionManagement.Brake, type: MotionManagement_Brake }
+  - { fqn: Vehicle.MotionManagement.Brake.Axle, type: Brake_Axle }
+  - { fqn: Vehicle.MotionManagement.Steering.Axle, type: Steering_Axle }
+  - { fqn: Vehicle.MotionManagement.Steering.SteeringWheel, type: Steering_SteeringWheel }
+  - { fqn: Vehicle.MotionManagement.Suspension.Axle, type: Suspension_Axle }
+  - { fqn: Vehicle.Powertrain.CombustionEngine.EngineCoolant, type: CombustionEngine_EngineCoolant }
+  - { fqn: Vehicle.Powertrain.ElectricMotor.EngineCoolant, type: ElectricMotor_EngineCoolant }
+
+# Collisions resolved by adding multiple ancestor names (e.g., GrandParent_Parent_Name)
+multi_ancestor_qualified:
+  - { fqn: Vehicle.MotionManagement.Brake.Axle.Wheel, type: Brake_Axle_Wheel }
+  - { fqn: Vehicle.MotionManagement.Suspension.Axle.Wheel, type: Suspension_Axle_Wheel }
+
+# Detailed collision groups: branches that share the same short name
+collision_groups:
+  Axle:  # 4 branches share this name
+    - { fqn: Vehicle.Chassis.Axle, type: Chassis_Axle }
+    - { fqn: Vehicle.MotionManagement.Brake.Axle, type: Brake_Axle }
+    - { fqn: Vehicle.MotionManagement.Steering.Axle, type: Steering_Axle }
+    - { fqn: Vehicle.MotionManagement.Suspension.Axle, type: Suspension_Axle }
+  Brake:  # 4 branches share this name
+    - { fqn: Vehicle.Body.Lights.Brake, type: Lights_Brake }
+    - { fqn: Vehicle.Chassis.Axle.Wheel.Brake, type: Wheel_Brake }
+    - { fqn: Vehicle.Chassis.Brake, type: Chassis_Brake }
+    - { fqn: Vehicle.MotionManagement.Brake, type: MotionManagement_Brake }
+  EngineCoolant:  # 2 branches share this name
+    - { fqn: Vehicle.Powertrain.CombustionEngine.EngineCoolant, type: CombustionEngine_EngineCoolant }
+    - { fqn: Vehicle.Powertrain.ElectricMotor.EngineCoolant, type: ElectricMotor_EngineCoolant }
+  Shade:  # 2 branches share this name
+    - { fqn: Vehicle.Cabin.Door.Shade, type: Door_Shade }
+    - { fqn: Vehicle.Cabin.Sunroof.Shade, type: Sunroof_Shade }
+  SteeringWheel:  # 2 branches share this name
+    - { fqn: Vehicle.Chassis.SteeringWheel, type: Chassis_SteeringWheel }
+    - { fqn: Vehicle.MotionManagement.Steering.SteeringWheel, type: Steering_SteeringWheel }
+  Wheel:  # 3 branches share this name
+    - { fqn: Vehicle.Chassis.Axle.Wheel, type: Axle_Wheel }
+    - { fqn: Vehicle.MotionManagement.Brake.Axle.Wheel, type: Brake_Axle_Wheel }
+    - { fqn: Vehicle.MotionManagement.Suspension.Axle.Wheel, type: Suspension_Axle_Wheel }
+

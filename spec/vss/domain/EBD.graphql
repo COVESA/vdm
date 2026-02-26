@@ -1,0 +1,18 @@
+# Domain-specific GraphQL types
+
+
+"""Electronic Brakeforce Distribution (EBD) System signals."""
+type EBD @vspec(element: BRANCH, fqn: "Vehicle.ADAS.EBD") {
+  """Indicates if EBD is enabled. True = Enabled. False = Disabled."""
+  isEnabled: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.ADAS.EBD.IsEnabled")
+
+  """
+  Indicates if EBD is currently regulating vehicle brakeforce distribution. True = Engaged. False = Not Engaged.
+  """
+  isEngaged: Boolean @vspec(element: SENSOR, fqn: "Vehicle.ADAS.EBD.IsEngaged")
+
+  """
+  Indicates if EBD incurred an error condition. True = Error. False = No Error.
+  """
+  isError: Boolean @vspec(element: SENSOR, fqn: "Vehicle.ADAS.EBD.IsError")
+}

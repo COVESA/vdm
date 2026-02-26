@@ -1,0 +1,18 @@
+# Domain-specific GraphQL types
+
+
+"""Signals from Lane Departure Detection System."""
+type LaneDepartureDetection @vspec(element: BRANCH, fqn: "Vehicle.ADAS.LaneDepartureDetection") {
+  """
+  Indicates if lane departure detection system is enabled. True = Enabled. False = Disabled.
+  """
+  isEnabled: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.ADAS.LaneDepartureDetection.IsEnabled")
+
+  """
+  Indicates if lane departure system incurred an error condition. True = Error. False = No Error.
+  """
+  isError: Boolean @vspec(element: SENSOR, fqn: "Vehicle.ADAS.LaneDepartureDetection.IsError")
+
+  """Indicates if lane departure detection registered a lane departure."""
+  isWarning: Boolean @vspec(element: SENSOR, fqn: "Vehicle.ADAS.LaneDepartureDetection.IsWarning")
+}

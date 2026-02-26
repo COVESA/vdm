@@ -1,0 +1,33 @@
+# Domain-specific GraphQL types
+
+
+"""All navigation actions"""
+type Navigation @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Infotainment.Navigation") {
+  """Navigation guidance state that was selected."""
+  guidanceVoice: Vehicle_Cabin_Infotainment_Navigation_GuidanceVoice_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.Navigation.GuidanceVoice")
+
+  """Navigation mute state that was selected."""
+  mute: Vehicle_Cabin_Infotainment_Navigation_Mute_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.Navigation.Mute")
+
+  """Current navigation volume"""
+  volume(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.Navigation.Volume")
+    @range(min: 0, max: 100)
+  destinationSet: DestinationSet
+  map: Map
+}
+
+"""
+Allowed values for Vehicle.Cabin.Infotainment.Navigation.GuidanceVoice.
+"""
+enum Vehicle_Cabin_Infotainment_Navigation_GuidanceVoice_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.Navigation.GuidanceVoice", metadata: [{key: "allowed", value: "['STANDARD_MALE', 'STANDARD_FEMALE', 'ETC']"}]) {
+  STANDARD_MALE
+  STANDARD_FEMALE
+  ETC
+}
+
+"""Allowed values for Vehicle.Cabin.Infotainment.Navigation.Mute."""
+enum Vehicle_Cabin_Infotainment_Navigation_Mute_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.Navigation.Mute", metadata: [{key: "allowed", value: "['MUTED', 'ALERT_ONLY', 'UNMUTED']"}]) {
+  MUTED
+  ALERT_ONLY
+  UNMUTED
+}

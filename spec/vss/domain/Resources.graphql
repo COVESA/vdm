@@ -1,0 +1,12 @@
+# Domain-specific GraphQL types
+
+
+"""Resources attributes and signals"""
+type Resources @vspec(element: BRANCH, fqn: "Vehicle.ControlUnit.Health.Resources") {
+  """Power consumption"""
+  power(unit: PowerUnitEnum = WATT): Float @vspec(element: SENSOR, fqn: "Vehicle.ControlUnit.Health.Resources.Power")
+
+  """Instance temperature"""
+  temperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float @vspec(element: SENSOR, fqn: "Vehicle.ControlUnit.Health.Resources.Temperature")
+  utilization: Utilization
+}

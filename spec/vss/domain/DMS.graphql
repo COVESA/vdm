@@ -1,0 +1,16 @@
+# Domain-specific GraphQL types
+
+
+"""Driver Monitoring System signals."""
+type DMS @vspec(element: BRANCH, fqn: "Vehicle.ADAS.DMS") {
+  """Indicates if DMS is enabled. True = Enabled. False = Disabled."""
+  isEnabled: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.ADAS.DMS.IsEnabled")
+
+  """
+  Indicates if DMS incurred an error condition. True = Error. False = No Error.
+  """
+  isError: Boolean @vspec(element: SENSOR, fqn: "Vehicle.ADAS.DMS.IsError")
+
+  """Indicates if DMS has registered a driver alert condition."""
+  isWarning: Boolean @vspec(element: SENSOR, fqn: "Vehicle.ADAS.DMS.IsWarning")
+}

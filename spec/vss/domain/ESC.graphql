@@ -1,0 +1,24 @@
+# Domain-specific GraphQL types
+
+
+"""Electronic Stability Control System signals."""
+type ESC @vspec(element: BRANCH, fqn: "Vehicle.ADAS.ESC") {
+  """Indicates if ESC is enabled. True = Enabled. False = Disabled."""
+  isEnabled: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.ADAS.ESC.IsEnabled")
+
+  """
+  Indicates if ESC is currently regulating vehicle stability. True = Engaged. False = Not Engaged.
+  """
+  isEngaged: Boolean @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ESC.IsEngaged")
+
+  """
+  Indicates if ESC incurred an error condition. True = Error. False = No Error.
+  """
+  isError: Boolean @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ESC.IsError")
+
+  """
+  Indicates if the ESC system is detecting strong cross winds. True = Strong cross winds detected. False = No strong cross winds detected.
+  """
+  isStrongCrossWindDetected: Boolean @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ESC.IsStrongCrossWindDetected")
+  roadFriction: RoadFriction
+}

@@ -1,0 +1,52 @@
+# Domain-specific GraphQL types
+
+
+"""Axle signals"""
+type Chassis_Axle @vspec(element: BRANCH, fqn: "Vehicle.Chassis.Axle") {
+  id: ID!
+
+  """
+  The lateral distance between the wheel mounting faces, measured along the spindle axis.
+  """
+  axleWidth(unit: LengthUnitEnum = MILLIMETER): UInt16 @vspec(element: ATTRIBUTE, fqn: "Vehicle.Chassis.Axle.AxleWidth")
+
+  """
+  Single track two-axle model steering angle. Angle according to ISO 8855. Positive = degrees to the left. Negative = degrees to the right.
+  """
+  steeringAngle(unit: AngleUnitEnum = DEGREE): Float @vspec(element: SENSOR, fqn: "Vehicle.Chassis.Axle.SteeringAngle")
+
+  """
+  Aspect ratio between tire section height and tire section width, as per ETRTO / TRA standard.
+  """
+  tireAspectRatio(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: ATTRIBUTE, fqn: "Vehicle.Chassis.Axle.TireAspectRatio")
+
+  """Outer diameter of tires, in inches, as per ETRTO / TRA standard."""
+  tireDiameter(unit: LengthUnitEnum = INCH): Float @vspec(element: ATTRIBUTE, fqn: "Vehicle.Chassis.Axle.TireDiameter")
+
+  """Nominal section width of tires, in mm, as per ETRTO / TRA standard."""
+  tireWidth(unit: LengthUnitEnum = MILLIMETER): UInt16 @vspec(element: ATTRIBUTE, fqn: "Vehicle.Chassis.Axle.TireWidth")
+
+  """
+  The lateral distance between the centers of the wheels, measured along the spindle, or axle axis. If there are dual rear wheels, measure from the midway points between the inner and outer tires.
+  """
+  trackWidth(unit: LengthUnitEnum = MILLIMETER): UInt16 @vspec(element: ATTRIBUTE, fqn: "Vehicle.Chassis.Axle.TrackWidth")
+
+  """
+  The lateral distance between the centerlines of the base tires at ground, including camber angle. If there are dual rear wheels, measure from the midway points between the inner and outer tires.
+  """
+  treadWidth(unit: LengthUnitEnum = MILLIMETER): UInt16 @vspec(element: ATTRIBUTE, fqn: "Vehicle.Chassis.Axle.TreadWidth")
+
+  """Number of wheels on the axle"""
+  wheelCount: UInt8 @vspec(element: ATTRIBUTE, fqn: "Vehicle.Chassis.Axle.WheelCount")
+
+  """
+  Diameter of wheels (rims without tires), in inches, as per ETRTO / TRA standard.
+  """
+  wheelDiameter(unit: LengthUnitEnum = INCH): Float @vspec(element: ATTRIBUTE, fqn: "Vehicle.Chassis.Axle.WheelDiameter")
+
+  """
+  Width of wheels (rims without tires), in inches, as per ETRTO / TRA standard.
+  """
+  wheelWidth(unit: LengthUnitEnum = INCH): Float @vspec(element: ATTRIBUTE, fqn: "Vehicle.Chassis.Axle.WheelWidth")
+  wheels: [Axle_Wheel]
+}

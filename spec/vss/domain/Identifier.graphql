@@ -1,0 +1,13 @@
+# Domain-specific GraphQL types
+
+
+"""Identifier attributes based on OAuth 2.0."""
+type Identifier @vspec(element: BRANCH, fqn: "Vehicle.Occupant.Identifier") {
+  """
+  Unique Issuer for the authentication of the occupant e.g. https://accounts.funcorp.com.
+  """
+  issuer: String @vspec(element: SENSOR, fqn: "Vehicle.Occupant.Identifier.Issuer")
+
+  """Subject for the authentication of the occupant e.g. UserID 7331677."""
+  subject: String @vspec(element: SENSOR, fqn: "Vehicle.Occupant.Identifier.Subject")
+}

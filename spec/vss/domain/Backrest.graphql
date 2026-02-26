@@ -1,0 +1,94 @@
+# Domain-specific GraphQL types
+
+
+"""Describes signals related to the backrest of the seat."""
+type Backrest @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Seat.Backrest") {
+  """
+  Bottom lumbar support (in/out position). 0 = Innermost position. 100 = Outermost position.
+  """
+  bottomLumbarSupport(unit: RelationUnitEnum = PERCENT): Float @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Backrest.BottomLumbarSupport")
+    @range(min: 0, max: 100)
+
+  """
+  Heating or Cooling requsted for the Item. -100 = Maximum cooling, 0 = Heating/cooling deactivated, 100 = Maximum heating.
+  """
+  heatingCooling(unit: RelationUnitEnum = PERCENT): Int8 @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Backrest.HeatingCooling")
+    @range(min: -100, max: 100)
+
+  """Is switch for less lumbar support engaged."""
+  isLessLumbarSupportSwitchEngaged: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Backrest.IsLessLumbarSupportSwitchEngaged")
+
+  """Is switch for less side bolster support engaged."""
+  isLessSideBolsterSupportSwitchEngaged: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Backrest.IsLessSideBolsterSupportSwitchEngaged")
+
+  """Lumbar down switch engaged."""
+  isLumbarDownSwitchEngaged: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Backrest.IsLumbarDownSwitchEngaged")
+
+  """Lumbar up switch engaged."""
+  isLumbarUpSwitchEngaged: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Backrest.IsLumbarUpSwitchEngaged")
+
+  """Is switch for more lumbar support engaged."""
+  isMoreLumbarSupportSwitchEngaged: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Backrest.IsMoreLumbarSupportSwitchEngaged")
+
+  """Is switch for more side bolster support engaged."""
+  isMoreSideBolsterSupportSwitchEngaged: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Backrest.IsMoreSideBolsterSupportSwitchEngaged")
+
+  """Backrest recline backward switch engaged."""
+  isReclineBackwardSwitchEngaged: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Backrest.IsReclineBackwardSwitchEngaged")
+
+  """Backrest recline forward switch engaged."""
+  isReclineForwardSwitchEngaged: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Backrest.IsReclineForwardSwitchEngaged")
+
+  """
+  Height of lumbar support. Position is relative within available movable range of the lumbar support. 0 = Lowermost position supported.
+  """
+  lumbarHeight(unit: LengthUnitEnum = MILLIMETER): UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Backrest.LumbarHeight")
+    @range(min: 0)
+
+  """
+  Lumbar support (in/out position). 0 = Innermost position. 100 = Outermost position.
+  """
+  lumbarSupport(unit: RelationUnitEnum = PERCENT): Float @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Backrest.LumbarSupport")
+    @range(min: 0, max: 100)
+
+  """
+  Mid lumbar support (in/out position). 0 = Innermost position. 100 = Outermost position.
+  """
+  midLumbarSupport(unit: RelationUnitEnum = PERCENT): Float @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Backrest.MidLumbarSupport")
+    @range(min: 0, max: 100)
+
+  """
+  Backrest recline compared to seat z-axis (seat vertical axis). 0 degrees = Upright/Vertical backrest. Negative degrees for forward recline. Positive degrees for backward recline.
+  """
+  recline(unit: AngleUnitEnum = DEGREE): Float @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Backrest.Recline")
+
+  """
+  Side bolster support. 0 = Minimum support (widest side bolster setting). 100 = Maximum support.
+  """
+  sideBolsterSupport(unit: RelationUnitEnum = PERCENT): Float @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Backrest.SideBolsterSupport")
+    @range(min: 0, max: 100)
+
+  """
+  Side bolster support left. 0 = Minimum support (widest side bolster setting). 100 = Maximum support.
+  """
+  sideBolsterSupportLeft(unit: RelationUnitEnum = PERCENT): Float @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Backrest.SideBolsterSupportLeft")
+    @range(min: 0, max: 100)
+
+  """
+  Side bolster support right. 0 = Minimum support (widest side bolster setting). 100 = Maximum support.
+  """
+  sideBolsterSupportRight(unit: RelationUnitEnum = PERCENT): Float @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Backrest.SideBolsterSupportRight")
+    @range(min: 0, max: 100)
+
+  """
+  Top lumbar support (in/out position). 0 = Innermost position. 100 = Outermost position.
+  """
+  topLumbarSupport(unit: RelationUnitEnum = PERCENT): Float @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Backrest.TopLumbarSupport")
+    @range(min: 0, max: 100)
+
+  """
+  Upper shoulder support. 0 = Minimum support (widest side bolster setting). 100 = Maximum support.
+  """
+  upperShoulderSupport(unit: RelationUnitEnum = PERCENT): Float @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Backrest.UpperShoulderSupport")
+    @range(min: 0, max: 100)
+}

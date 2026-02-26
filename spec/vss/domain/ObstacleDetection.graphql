@@ -1,0 +1,39 @@
+# Domain-specific GraphQL types
+
+
+"""Signals form Obstacle Sensor System."""
+type ObstacleDetection @vspec(element: BRANCH, fqn: "Vehicle.ADAS.ObstacleDetection") {
+  id: ID!
+
+  """Distance in meters to detected object"""
+  distance(unit: LengthUnitEnum = METER): Float @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ObstacleDetection.Distance")
+    @range(min: 0.0)
+
+  """
+  Indicates if obstacle sensor system is enabled (i.e. monitoring for obstacles). True = Enabled. False = Disabled.
+  """
+  isEnabled: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.ADAS.ObstacleDetection.IsEnabled")
+
+  """
+  Indicates if obstacle sensor system incurred an error condition. True = Error. False = No Error.
+  """
+  isError: Boolean @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ObstacleDetection.IsError")
+
+  """Indicates if obstacle sensor system registered an obstacle."""
+  isWarning: Boolean @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ObstacleDetection.IsWarning")
+
+  """Time in milliseconds before potential impact object"""
+  timeGap(unit: DurationUnitEnum = MILLISECOND): UInt32 @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ObstacleDetection.TimeGap")
+
+  """
+  Indicates the type of obstacle warning detected as some track not only the presence of an obstacle but potential intercepting trajectory or other characteristics.
+  """
+  warningType: Vehicle_Adas_ObstacleDetection_WarningType_Enum @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ObstacleDetection.WarningType")
+}
+
+"""Allowed values for Vehicle.ADAS.ObstacleDetection.WarningType."""
+enum Vehicle_Adas_ObstacleDetection_WarningType_Enum @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ObstacleDetection.WarningType", metadata: [{key: "allowed", value: "['UNDEFINED', 'CROSS_TRAFFIC', 'BLIND_SPOT']"}]) {
+  UNDEFINED
+  CROSS_TRAFFIC
+  BLIND_SPOT
+}

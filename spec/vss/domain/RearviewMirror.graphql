@@ -1,0 +1,9 @@
+# Domain-specific GraphQL types
+
+
+"""Rear-view mirror."""
+type RearviewMirror @vspec(element: BRANCH, fqn: "Vehicle.Cabin.RearviewMirror") {
+  """Dimming level of rear-view mirror. 0 = Undimmed. 100 = Fully dimmed."""
+  dimmingLevel(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.RearviewMirror.DimmingLevel")
+    @range(max: 100)
+}

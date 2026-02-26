@@ -1,0 +1,17 @@
+# Domain-specific GraphQL types
+
+
+"""Current charging voltage, as measured at the charging inlet."""
+type ChargeVoltage @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.Charging.ChargeVoltage") {
+  """Current DC charging voltage at charging inlet."""
+  dc(unit: VoltageUnitEnum = VOLT): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.ChargeVoltage.DC")
+
+  """Current AC charging voltage (rms) at inlet for Phase 1."""
+  phase1(unit: VoltageUnitEnum = VOLT): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.ChargeVoltage.Phase1")
+
+  """Current AC charging voltage (rms) at inlet for Phase 2."""
+  phase2(unit: VoltageUnitEnum = VOLT): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.ChargeVoltage.Phase2")
+
+  """Current AC charging voltage (rms) at inlet for Phase 3."""
+  phase3(unit: VoltageUnitEnum = VOLT): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.ChargeVoltage.Phase3")
+}

@@ -1,0 +1,43 @@
+# Domain-specific GraphQL types
+
+
+"""
+Properties related to a particular charging port available in the vehicle.
+"""
+type ChargingPort @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.Charging.ChargingPort") {
+  id: ID!
+
+  """
+  Indicates whether a charging cable is physically connected to a particular charging port or not.
+  """
+  isChargingCableConnected: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.IsCharging")
+
+  """Is charging cable locked to prevent removal."""
+  isChargingCableLocked: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.ChargingPort.IsChargingCableLocked")
+
+  """Status of the charging port flap(s)."""
+  isFlapOpen: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.ChargingPort.IsFlapOpen")
+
+  """
+  A list of the supported (i.e., available) charging inlets in a particular charging port. IEC types refer to IEC 62196,  GBT refers to  GB/T 20234.
+  """
+  supportedInletTypes: Vehicle_Powertrain_TractionBattery_Charging_ChargingPort_SupportedInletTypes_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.TractionBattery.Charging.ChargingPort.SupportedInletTypes")
+}
+
+"""
+Allowed values for Vehicle.Powertrain.TractionBattery.Charging.ChargingPort.SupportedInletTypes.
+"""
+enum Vehicle_Powertrain_TractionBattery_Charging_ChargingPort_SupportedInletTypes_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.TractionBattery.Charging.ChargingPort.SupportedInletTypes", metadata: [{key: "allowed", value: "['IEC_TYPE_1_AC', 'IEC_TYPE_2_AC', 'IEC_TYPE_3_AC', 'IEC_TYPE_4_DC', 'IEC_TYPE_1_CCS_DC', 'IEC_TYPE_2_CCS_DC', 'TESLA_ROADSTER', 'TESLA_HPWC', 'TESLA_SUPERCHARGER', 'GBT_AC', 'GBT_DC', 'OTHER']"}]) {
+  IEC_TYPE_1_AC
+  IEC_TYPE_2_AC
+  IEC_TYPE_3_AC
+  IEC_TYPE_4_DC
+  IEC_TYPE_1_CCS_DC
+  IEC_TYPE_2_CCS_DC
+  TESLA_ROADSTER
+  TESLA_HPWC
+  TESLA_SUPERCHARGER
+  GBT_AC
+  GBT_DC
+  OTHER
+}
