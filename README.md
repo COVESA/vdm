@@ -12,6 +12,47 @@ Private projects can also adopt this modeling approach to manage sub-domains spe
 
 VDM is modeled according to the [Simplified Semantic Data Modeling (S2DM)](https://github.com/COVESA/s2dm) approach.
 
+## Tooling
+This repository uses `uv` for Python dependency management and `poethepoet` for task shortcuts.
+The `s2dm` CLI is installed from PyPI through `uv`, not from a local sibling checkout.
+
+Install the environment with:
+
+```bash
+uv sync
+```
+
+## Artifact generation
+The current task set reads the checked-in source schema from `spec/vss` and writes generated outputs to `_output/`.
+
+Generate all supported artifacts with:
+
+```bash
+uv run poe generate-artifacts
+```
+
+Run individual steps with:
+
+```bash
+uv run poe compose-graphql
+uv run poe export-jsonschema
+uv run poe export-shacl
+uv run poe generate-skos
+uv run poe export-vspec
+```
+
+Generated files are written to:
+
+```text
+_output/graphql/schema.graphql
+_output/jsonschema/schema.json
+_output/shacl/schema.ttl
+_output/skos/schema.ttl
+_output/vspec/schema.vspec
+```
+
+When the source layout or release output version changes, update the paths in `pyproject.toml` accordingly.
+
 > [!NOTE] In S2DM, domain experts author the specification using the [GraphQL Schema Definition Language (SDL)](https://spec.graphql.org). SDL is used for its simplicity and friendly syntax and does not require implementation of a GraphQL API.
 
 ## Getting started

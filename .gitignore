@@ -38,6 +38,9 @@ lerna-debug.log*
 
 # Dependencies
 node_modules/
+
+# Python virtual environment
+.venv/
 .pnp
 .pnp.js
 
@@ -45,6 +48,7 @@ node_modules/
 dist/
 build/
 out/
+_output/
 *.min.js
 *.min.css
 

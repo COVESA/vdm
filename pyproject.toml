@@ -1,0 +1,45 @@
+[project]
+name = "vdm"
+version = "0.1.0"
+description = "Tooling configuration to support VDM"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "s2dm",
+]
+
+[dependency-groups]
+dev = [
+    "poethepoet>=0.37.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.poe.tasks.generate-artifacts]
+sequence = [
+    "prepare-artifact-dirs",
+    "compose-graphql",
+    "export-jsonschema",
+    "export-shacl",
+    "generate-skos",
+    "export-vspec",
+]
+
+[tool.poe.tasks.prepare-artifact-dirs]
+shell = "mkdir -p _output/graphql _output/jsonschema _output/shacl _output/skos _output/vspec"
+
+[tool.poe.tasks.compose-graphql]
+cmd = "s2dm compose -s spec/vss -o _output/graphql/schema.graphql"
+
+[tool.poe.tasks.export-jsonschema]
+cmd = "s2dm export jsonschema -s spec/vss -o _output/jsonschema/schema.json"
+
+[tool.poe.tasks.export-shacl]
+cmd = "s2dm export shacl -s spec/vss -o _output/shacl/schema.ttl"
+
+[tool.poe.tasks.generate-skos]
+cmd = "s2dm generate skos-skeleton -s spec/vss -o _output/skos/schema.ttl"
+
+[tool.poe.tasks.export-vspec]
+cmd = "s2dm export vspec -s spec/vss -o _output/vspec/schema.vspec"
