@@ -1,0 +1,25 @@
+type ChargingStation {
+    location: Address
+    chargingPoints: [ChargingPoint]
+}
+
+type ChargingPoint {
+    instanceTag: ChargingPointInstanceTag
+    location: Address!
+}
+
+type ChargingPointInstanceTag @instanceTag {
+    area: AreaInStation
+    label: ChargingPointLabel
+}
+
+enum AreaInStation {
+    UNDERGROUND
+    OUTDOOR
+}
+
+enum ChargingPointLabel {
+    POINT_A
+    POINT_B
+    POINT_C
+}

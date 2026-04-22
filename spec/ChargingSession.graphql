@@ -1,0 +1,11 @@
+type ChargingSession {
+    vehicle: Vehicle!
+    customer: Person!
+    chargingPoint: ChargingPoint!
+    startTime: String!
+    endTime: String!
+}
+
+extend type Query {
+    chargingSession: ChargingSession
+}
