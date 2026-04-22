@@ -3,8 +3,6 @@
 
 """High-level vehicle data."""
 type Vehicle @vspec(element: BRANCH, fqn: "Vehicle") {
-  id: ID!
-
   """Average speed for the current trip."""
   averageSpeed(unit: VelocityUnitEnum = KILOMETER_PER_HOUR): Float @vspec(element: SENSOR, fqn: "Vehicle.AverageSpeed")
 
@@ -112,30 +110,30 @@ type Vehicle @vspec(element: BRANCH, fqn: "Vehicle") {
   Overall vehicle width including mirrors, as defined by SAE J1100-2009 W144.
   """
   widthIncludingMirrors(unit: LengthUnitEnum = MILLIMETER): UInt16 @vspec(element: ATTRIBUTE, fqn: "Vehicle.WidthIncludingMirrors")
-  adas: ADAS
-  acceleration: Acceleration
-  angularVelocity: AngularVelocity
-  body: Body
-  cabin: Cabin
-  chassis: Chassis
-  connectivity: Connectivity
-  controlUnits: [ControlUnit]
-  currentLocation: CurrentLocation
-  diagnostics: Diagnostics
-  driver: Driver
-  exterior: Exterior
-  lowVoltageBattery: LowVoltageBattery
-  motionManagement: MotionManagement
-  occupants: [Occupant]
-  powertrain: Powertrain
-  service: Service
-  trailer: Trailer
-  vehicleIdentification: VehicleIdentification
-  versionVss: VersionVSS
+  adas: ADAS @vspec(element: BRANCH, fqn: "Vehicle.ADAS")
+  acceleration: Acceleration @vspec(element: BRANCH, fqn: "Vehicle.Acceleration")
+  angularVelocity: AngularVelocity @vspec(element: BRANCH, fqn: "Vehicle.AngularVelocity")
+  body: Body @vspec(element: BRANCH, fqn: "Vehicle.Body")
+  cabin: Cabin @vspec(element: BRANCH, fqn: "Vehicle.Cabin")
+  chassis: Chassis @vspec(element: BRANCH, fqn: "Vehicle.Chassis")
+  connectivity: Connectivity @vspec(element: BRANCH, fqn: "Vehicle.Connectivity")
+  controlUnits: [ControlUnit] @vspec(element: BRANCH, fqn: "Vehicle.ControlUnit")
+  currentLocation: CurrentLocation @vspec(element: BRANCH, fqn: "Vehicle.CurrentLocation")
+  diagnostics: Diagnostics @vspec(element: BRANCH, fqn: "Vehicle.Diagnostics")
+  driver: Driver @vspec(element: BRANCH, fqn: "Vehicle.Driver")
+  exterior: Exterior @vspec(element: BRANCH, fqn: "Vehicle.Exterior")
+  lowVoltageBattery: LowVoltageBattery @vspec(element: BRANCH, fqn: "Vehicle.LowVoltageBattery")
+  motionManagement: MotionManagement @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement")
+  occupants: [Occupant] @vspec(element: BRANCH, fqn: "Vehicle.Occupant")
+  powertrain: Powertrain @vspec(element: BRANCH, fqn: "Vehicle.Powertrain")
+  service: Service @vspec(element: BRANCH, fqn: "Vehicle.Service")
+  trailer: Trailer @vspec(element: BRANCH, fqn: "Vehicle.Trailer")
+  vehicleIdentification: VehicleIdentification @vspec(element: BRANCH, fqn: "Vehicle.VehicleIdentification")
+  versionVss: VersionVSS @vspec(element: BRANCH, fqn: "Vehicle.VersionVSS")
 }
 
 """Allowed values for Vehicle.LowVoltageSystemState."""
-enum Vehicle_LowVoltageSystemState_Enum @vspec(element: SENSOR, fqn: "Vehicle.LowVoltageSystemState", metadata: [{key: "allowed", value: "['UNDEFINED', 'LOCK', 'OFF', 'ACC', 'ON', 'START']"}]) {
+enum Vehicle_LowVoltageSystemState_Enum @vspec(element: SENSOR, fqn: "Vehicle.LowVoltageSystemState") {
   UNDEFINED
   LOCK
   OFF

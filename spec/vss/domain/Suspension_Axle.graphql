@@ -3,11 +3,10 @@
 
 """MotionManagement for suspension for a specific axle."""
 type Suspension_Axle @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.Suspension.Axle") {
-  id: ID!
 
   """
   Actuated roll torque on this axle by anti-roll actuator. Signal orientation according to ISO8855.
   """
   rollTorque(unit: TorqueUnitEnum = NEWTON_METER): Int16 @vspec(element: SENSOR, fqn: "Vehicle.MotionManagement.Suspension.Axle.RollTorque")
-  wheels: [Suspension_Axle_Wheel]
+  wheels: [Suspension_Axle_Wheel] @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.Suspension.Axle.Wheel")
 }

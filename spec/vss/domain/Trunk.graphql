@@ -3,7 +3,6 @@
 
 """Trunk status. Start position for Trunk is Closed."""
 type Trunk @vspec(element: BRANCH, fqn: "Vehicle.Body.Trunk") {
-  id: ID!
 
   """Is trunk light on"""
   isLightOn: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Trunk.IsLightOn")
@@ -25,7 +24,7 @@ type Trunk @vspec(element: BRANCH, fqn: "Vehicle.Body.Trunk") {
 }
 
 """Allowed values for Vehicle.Body.Trunk.Switch."""
-enum Vehicle_Body_Trunk_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Trunk.Switch", metadata: [{key: "allowed", value: "['INACTIVE', 'CLOSE', 'OPEN', 'ONE_SHOT_CLOSE', 'ONE_SHOT_OPEN']"}]) {
+enum Vehicle_Body_Trunk_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Trunk.Switch") {
   INACTIVE
   CLOSE
   OPEN

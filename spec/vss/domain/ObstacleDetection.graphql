@@ -3,7 +3,6 @@
 
 """Signals form Obstacle Sensor System."""
 type ObstacleDetection @vspec(element: BRANCH, fqn: "Vehicle.ADAS.ObstacleDetection") {
-  id: ID!
 
   """Distance in meters to detected object"""
   distance(unit: LengthUnitEnum = METER): Float @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ObstacleDetection.Distance")
@@ -32,7 +31,7 @@ type ObstacleDetection @vspec(element: BRANCH, fqn: "Vehicle.ADAS.ObstacleDetect
 }
 
 """Allowed values for Vehicle.ADAS.ObstacleDetection.WarningType."""
-enum Vehicle_Adas_ObstacleDetection_WarningType_Enum @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ObstacleDetection.WarningType", metadata: [{key: "allowed", value: "['UNDEFINED', 'CROSS_TRAFFIC', 'BLIND_SPOT']"}]) {
+enum Vehicle_Adas_ObstacleDetection_WarningType_Enum @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ObstacleDetection.WarningType") {
   UNDEFINED
   CROSS_TRAFFIC
   BLIND_SPOT

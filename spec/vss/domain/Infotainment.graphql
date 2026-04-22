@@ -13,9 +13,9 @@ type Infotainment @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Infotainment") {
   """
   powerOptimizeLevel: UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.PowerOptimizeLevel")
     @range(min: 0, max: 10)
-  hmi: HMI
-  media: Media
-  navigation: Navigation
-  smartphoneProjection: SmartphoneProjection
-  smartphoneScreenMirroring: SmartphoneScreenMirroring
+  hmi: HMI @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Infotainment.HMI")
+  media: Media @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Infotainment.Media")
+  navigation: Navigation @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Infotainment.Navigation")
+  smartphoneProjection: SmartphoneProjection @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Infotainment.SmartphoneProjection")
+  smartphoneScreenMirroring: SmartphoneScreenMirroring @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Infotainment.SmartphoneScreenMirroring")
 }

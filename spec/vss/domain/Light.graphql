@@ -14,7 +14,7 @@ type Light @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Light") {
   """
   perceivedAmbientLight(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: SENSOR, fqn: "Vehicle.Cabin.Light.PerceivedAmbientLight")
     @range(min: 0, max: 100)
-  ambientLights: [AmbientLight]
-  interactiveLightBar: InteractiveLightBar
-  spotlights: [Spotlight]
+  ambientLights: [AmbientLight] @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Light.AmbientLight")
+  interactiveLightBar: InteractiveLightBar @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Light.InteractiveLightBar")
+  spotlights: [Spotlight] @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Light.Spotlight")
 }

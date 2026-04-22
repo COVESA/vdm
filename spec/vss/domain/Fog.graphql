@@ -3,7 +3,6 @@
 
 """Fog lights."""
 type Fog @vspec(element: BRANCH, fqn: "Vehicle.Body.Lights.Fog") {
-  id: ID!
 
   """
   Indicates if light is defect. True = Light is defect. False = Light has no defect.

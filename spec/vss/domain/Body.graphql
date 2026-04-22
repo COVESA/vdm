@@ -22,11 +22,11 @@ type Body @vspec(element: BRANCH, fqn: "Vehicle.Body") {
   """
   rearMainSpoilerPosition(unit: RelationUnitEnum = PERCENT): Float @vspec(element: ACTUATOR, fqn: "Vehicle.Body.RearMainSpoilerPosition")
     @range(min: 0, max: 100)
-  hood: Hood
-  horn: Horn
-  lights: Lights
-  mirror: [Mirrors]
-  raindetection: Raindetection
-  trunks: [Trunk]
-  windshields: [Windshield]
+  hood: Hood @vspec(element: BRANCH, fqn: "Vehicle.Body.Hood")
+  horn: Horn @vspec(element: BRANCH, fqn: "Vehicle.Body.Horn")
+  lights: Lights @vspec(element: BRANCH, fqn: "Vehicle.Body.Lights")
+  mirror: [Mirrors] @vspec(element: BRANCH, fqn: "Vehicle.Body.Mirrors")
+  raindetection: Raindetection @vspec(element: BRANCH, fqn: "Vehicle.Body.Raindetection")
+  trunks: [Trunk] @vspec(element: BRANCH, fqn: "Vehicle.Body.Trunk")
+  windshields: [Windshield] @vspec(element: BRANCH, fqn: "Vehicle.Body.Windshield")
 }

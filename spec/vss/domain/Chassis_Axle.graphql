@@ -3,7 +3,6 @@
 
 """Axle signals"""
 type Chassis_Axle @vspec(element: BRANCH, fqn: "Vehicle.Chassis.Axle") {
-  id: ID!
 
   """
   The lateral distance between the wheel mounting faces, measured along the spindle axis.
@@ -27,6 +26,11 @@ type Chassis_Axle @vspec(element: BRANCH, fqn: "Vehicle.Chassis.Axle") {
   tireWidth(unit: LengthUnitEnum = MILLIMETER): UInt16 @vspec(element: ATTRIBUTE, fqn: "Vehicle.Chassis.Axle.TireWidth")
 
   """
+  Incoming axle torque to differential. Negative values indicate regen mode.
+  """
+  torque(unit: TorqueUnitEnum = NEWTON_METER): Int16 @vspec(element: SENSOR, fqn: "Vehicle.Chassis.Axle.Torque")
+
+  """
   The lateral distance between the centers of the wheels, measured along the spindle, or axle axis. If there are dual rear wheels, measure from the midway points between the inner and outer tires.
   """
   trackWidth(unit: LengthUnitEnum = MILLIMETER): UInt16 @vspec(element: ATTRIBUTE, fqn: "Vehicle.Chassis.Axle.TrackWidth")
@@ -48,5 +52,5 @@ type Chassis_Axle @vspec(element: BRANCH, fqn: "Vehicle.Chassis.Axle") {
   Width of wheels (rims without tires), in inches, as per ETRTO / TRA standard.
   """
   wheelWidth(unit: LengthUnitEnum = INCH): Float @vspec(element: ATTRIBUTE, fqn: "Vehicle.Chassis.Axle.WheelWidth")
-  wheels: [Axle_Wheel]
+  wheels: [Axle_Wheel] @vspec(element: BRANCH, fqn: "Vehicle.Chassis.Axle.Wheel")
 }

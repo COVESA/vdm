@@ -3,7 +3,6 @@
 
 """All mirrors."""
 type Mirrors @vspec(element: BRANCH, fqn: "Vehicle.Body.Mirrors") {
-  id: ID!
 
   """
   Is mirror folded? True = Fully or partially folded. False = Fully unfolded.

@@ -79,7 +79,7 @@ type Transmission @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.Transmission"
 }
 
 """Allowed values for Vehicle.Powertrain.Transmission.DriveType."""
-enum Vehicle_Powertrain_Transmission_DriveType_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.Transmission.DriveType", metadata: [{key: "allowed", value: "['UNKNOWN', 'FORWARD_WHEEL_DRIVE', 'REAR_WHEEL_DRIVE', 'ALL_WHEEL_DRIVE']"}]) {
+enum Vehicle_Powertrain_Transmission_DriveType_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.Transmission.DriveType") {
   UNKNOWN
   FORWARD_WHEEL_DRIVE
   REAR_WHEEL_DRIVE
@@ -87,13 +87,13 @@ enum Vehicle_Powertrain_Transmission_DriveType_Enum @vspec(element: ATTRIBUTE, f
 }
 
 """Allowed values for Vehicle.Powertrain.Transmission.GearChangeMode."""
-enum Vehicle_Powertrain_Transmission_GearChangeMode_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.GearChangeMode", metadata: [{key: "allowed", value: "['MANUAL', 'AUTOMATIC']"}]) {
+enum Vehicle_Powertrain_Transmission_GearChangeMode_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.GearChangeMode") {
   MANUAL
   AUTOMATIC
 }
 
 """Allowed values for Vehicle.Powertrain.Transmission.PerformanceMode."""
-enum Vehicle_Powertrain_Transmission_PerformanceMode_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.PerformanceMode", metadata: [{key: "allowed", value: "['NORMAL', 'SPORT', 'ECONOMY', 'SNOW', 'RAIN']"}]) {
+enum Vehicle_Powertrain_Transmission_PerformanceMode_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.PerformanceMode") {
   NORMAL
   SPORT
   ECONOMY
@@ -102,7 +102,7 @@ enum Vehicle_Powertrain_Transmission_PerformanceMode_Enum @vspec(element: ACTUAT
 }
 
 """Allowed values for Vehicle.Powertrain.Transmission.Type."""
-enum Vehicle_Powertrain_Transmission_Type_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.Transmission.Type", metadata: [{key: "allowed", value: "['UNKNOWN', 'SEQUENTIAL', 'H', 'AUTOMATIC', 'DSG', 'CVT']"}]) {
+enum Vehicle_Powertrain_Transmission_Type_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.Transmission.Type") {
   UNKNOWN
   SEQUENTIAL
   H

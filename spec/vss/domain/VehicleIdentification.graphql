@@ -11,7 +11,7 @@ type VehicleIdentification @vspec(element: BRANCH, fqn: "Vehicle.VehicleIdentifi
   """
   Indicates the design and body style of the vehicle (e.g. station wagon, hatchback, etc.).
   """
-  bodyType: String @vspec(element: ATTRIBUTE, fqn: "Vehicle.VehicleIdentification.BodyType")
+  bodyType: String @vspec(element: BRANCH, fqn: "Vehicle.Body")
 
   """Vehicle brand or manufacturer."""
   brand: String @vspec(element: ATTRIBUTE, fqn: "Vehicle.VehicleIdentification.Brand")

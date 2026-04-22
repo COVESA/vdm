@@ -23,19 +23,19 @@ type ADAS @vspec(element: BRANCH, fqn: "Vehicle.ADAS") {
   Indicates the highest level of driving automation according to the SAE J3016 taxonomy the vehicle is capable of.
   """
   supportedAutonomyLevel: Vehicle_Adas_SupportedAutonomyLevel_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.ADAS.SupportedAutonomyLevel")
-  abs: ABS
-  cruiseControl: CruiseControl
-  dms: DMS
-  eba: EBA
-  ebd: EBD
-  esc: ESC
-  laneDepartureDetection: LaneDepartureDetection
-  obstacleDetections: [ObstacleDetection]
-  tcs: TCS
+  abs: ABS @vspec(element: BRANCH, fqn: "Vehicle.ADAS.ABS")
+  cruiseControl: CruiseControl @vspec(element: BRANCH, fqn: "Vehicle.ADAS.CruiseControl")
+  dms: DMS @vspec(element: BRANCH, fqn: "Vehicle.ADAS.DMS")
+  eba: EBA @vspec(element: BRANCH, fqn: "Vehicle.ADAS.EBA")
+  ebd: EBD @vspec(element: BRANCH, fqn: "Vehicle.ADAS.EBD")
+  esc: ESC @vspec(element: BRANCH, fqn: "Vehicle.ADAS.ESC")
+  laneDepartureDetection: LaneDepartureDetection @vspec(element: BRANCH, fqn: "Vehicle.ADAS.LaneDepartureDetection")
+  obstacleDetections: [ObstacleDetection] @vspec(element: BRANCH, fqn: "Vehicle.ADAS.ObstacleDetection")
+  tcs: TCS @vspec(element: BRANCH, fqn: "Vehicle.ADAS.TCS")
 }
 
 """Allowed values for Vehicle.ADAS.ActiveAutonomyLevel."""
-enum Vehicle_Adas_ActiveAutonomyLevel_Enum @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ActiveAutonomyLevel", metadata: [{key: "allowed", value: "['SAE_0', 'SAE_1', 'SAE_2_DISENGAGING', 'SAE_2', 'SAE_3_DISENGAGING', 'SAE_3', 'SAE_4_DISENGAGING', 'SAE_4', 'SAE_5_DISENGAGING', 'SAE_5']"}]) {
+enum Vehicle_Adas_ActiveAutonomyLevel_Enum @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ActiveAutonomyLevel") {
   SAE_0
   SAE_1
   SAE_2_DISENGAGING
@@ -49,7 +49,7 @@ enum Vehicle_Adas_ActiveAutonomyLevel_Enum @vspec(element: SENSOR, fqn: "Vehicle
 }
 
 """Allowed values for Vehicle.ADAS.SupportedAutonomyLevel."""
-enum Vehicle_Adas_SupportedAutonomyLevel_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.ADAS.SupportedAutonomyLevel", metadata: [{key: "allowed", value: "['SAE_0', 'SAE_1', 'SAE_2', 'SAE_3', 'SAE_4', 'SAE_5']"}]) {
+enum Vehicle_Adas_SupportedAutonomyLevel_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.ADAS.SupportedAutonomyLevel") {
   SAE_0
   SAE_1
   SAE_2

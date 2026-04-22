@@ -23,11 +23,11 @@ type Wiping @vspec(element: BRANCH, fqn: "Vehicle.Body.Windshield.Wiping") {
   """
   wiperWear(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: SENSOR, fqn: "Vehicle.Body.Windshield.Wiping.WiperWear")
     @range(max: 100)
-  system: System
+  system: System @vspec(element: BRANCH, fqn: "Vehicle.Body.Windshield.Wiping.System")
 }
 
 """Allowed values for Vehicle.Body.Windshield.Wiping.Mode."""
-enum Vehicle_Body_Windshield_Wiping_Mode_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Windshield.Wiping.Mode", metadata: [{key: "allowed", value: "['OFF', 'SLOW', 'MEDIUM', 'FAST', 'INTERVAL', 'RAIN_SENSOR']"}]) {
+enum Vehicle_Body_Windshield_Wiping_Mode_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Windshield.Wiping.Mode") {
   OFF
   SLOW
   MEDIUM

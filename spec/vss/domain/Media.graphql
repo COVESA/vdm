@@ -15,11 +15,11 @@ type Media @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Infotainment.Media") {
   """Current Media Volume"""
   volume(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.Media.Volume")
     @range(min: 0, max: 100)
-  played: Played
+  played: Played @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Infotainment.Media.Played")
 }
 
 """Allowed values for Vehicle.Cabin.Infotainment.Media.Action."""
-enum Vehicle_Cabin_Infotainment_Media_Action_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.Media.Action", metadata: [{key: "allowed", value: "['UNKNOWN', 'STOP', 'PLAY', 'FAST_FORWARD', 'FAST_BACKWARD', 'SKIP_FORWARD', 'SKIP_BACKWARD']"}]) {
+enum Vehicle_Cabin_Infotainment_Media_Action_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.Media.Action") {
   UNKNOWN
   STOP
   PLAY

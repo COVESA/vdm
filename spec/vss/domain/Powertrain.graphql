@@ -29,16 +29,16 @@ type Powertrain @vspec(element: BRANCH, fqn: "Vehicle.Powertrain") {
 
   """Defines the powertrain type of the vehicle."""
   type: Vehicle_Powertrain_Type_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.Type")
-  combustionEngine: CombustionEngine
-  electricMotor: ElectricMotor
-  fuelSystem: FuelSystem
-  rangeExtender: RangeExtender
-  tractionBattery: TractionBattery
-  transmission: Transmission
+  combustionEngine: CombustionEngine @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.CombustionEngine")
+  electricMotors: [ElectricMotor] @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.ElectricMotor")
+  fuelSystem: FuelSystem @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.FuelSystem")
+  rangeExtender: RangeExtender @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.RangeExtender")
+  tractionBattery: TractionBattery @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery")
+  transmission: Transmission @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.Transmission")
 }
 
 """Allowed values for Vehicle.Powertrain.Type."""
-enum Vehicle_Powertrain_Type_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.Type", metadata: [{key: "allowed", value: "['COMBUSTION', 'HYBRID', 'ELECTRIC']"}]) {
+enum Vehicle_Powertrain_Type_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.Type") {
   COMBUSTION
   HYBRID
   ELECTRIC

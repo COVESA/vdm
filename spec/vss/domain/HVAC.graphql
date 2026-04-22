@@ -28,5 +28,5 @@ type HVAC @vspec(element: BRANCH, fqn: "Vehicle.Cabin.HVAC") {
   """
   powerOptimizeLevel: UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.HVAC.PowerOptimizeLevel")
     @range(min: 0, max: 10)
-  stations: [Station]
+  stations: [Station] @vspec(element: BRANCH, fqn: "Vehicle.Cabin.HVAC.Station")
 }

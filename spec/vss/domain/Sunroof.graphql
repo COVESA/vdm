@@ -11,11 +11,11 @@ type Sunroof @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Sunroof") {
 
   """Switch controlling sliding action such as window, sunroof, or shade."""
   switch: Vehicle_Cabin_Sunroof_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Sunroof.Switch")
-  shade: Sunroof_Shade
+  shade: Sunroof_Shade @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Sunroof.Shade")
 }
 
 """Allowed values for Vehicle.Cabin.Sunroof.Switch."""
-enum Vehicle_Cabin_Sunroof_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Sunroof.Switch", metadata: [{key: "allowed", value: "['INACTIVE', 'CLOSE', 'OPEN', 'ONE_SHOT_CLOSE', 'ONE_SHOT_OPEN', 'TILT_UP', 'TILT_DOWN']"}]) {
+enum Vehicle_Cabin_Sunroof_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Sunroof.Switch") {
   INACTIVE
   CLOSE
   OPEN

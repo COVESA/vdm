@@ -3,7 +3,6 @@
 
 """MotionManagement signals for a specific wheel."""
 type Suspension_Axle_Wheel @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.Suspension.Axle.Wheel") {
-  id: ID!
 
   """
   Actuated damping force at given wheel. Signal orientation according ISO8855, meaning positive force is pointing upwards.

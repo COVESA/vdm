@@ -3,6 +3,7 @@
 
 """Electric Motor specific data."""
 type ElectricMotor @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.ElectricMotor") {
+
   """Engine code designation, as specified by vehicle manufacturer."""
   engineCode: String @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.ElectricMotor.EngineCode")
 
@@ -38,5 +39,5 @@ type ElectricMotor @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.ElectricMoto
 
   """Current motor torque. Negative values indicate regen mode."""
   torque(unit: TorqueUnitEnum = NEWTON_METER): Int16 @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.ElectricMotor.Torque")
-  engineCoolant: ElectricMotor_EngineCoolant
+  engineCoolant: ElectricMotor_EngineCoolant @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.ElectricMotor.EngineCoolant")
 }

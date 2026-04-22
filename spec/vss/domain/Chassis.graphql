@@ -8,9 +8,9 @@ type Chassis @vspec(element: BRANCH, fqn: "Vehicle.Chassis") {
 
   """Overall wheelbase, in mm."""
   wheelbase(unit: LengthUnitEnum = MILLIMETER): UInt16 @vspec(element: ATTRIBUTE, fqn: "Vehicle.Chassis.Wheelbase")
-  accelerator: Accelerator
-  axles: [Chassis_Axle]
-  brake: Chassis_Brake
-  parkingBrake: ParkingBrake
-  steeringWheel: Chassis_SteeringWheel
+  accelerator: Accelerator @vspec(element: BRANCH, fqn: "Vehicle.Chassis.Accelerator")
+  axles: [Chassis_Axle] @vspec(element: BRANCH, fqn: "Vehicle.Chassis.Axle")
+  brake: Chassis_Brake @vspec(element: BRANCH, fqn: "Vehicle.Chassis.Brake")
+  parkingBrake: ParkingBrake @vspec(element: BRANCH, fqn: "Vehicle.Chassis.ParkingBrake")
+  steeringWheel: Chassis_SteeringWheel @vspec(element: BRANCH, fqn: "Vehicle.Chassis.SteeringWheel")
 }

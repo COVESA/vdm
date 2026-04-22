@@ -17,7 +17,7 @@ type Timer @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.Char
 """
 Allowed values for Vehicle.Powertrain.TractionBattery.Charging.Timer.Mode.
 """
-enum Vehicle_Powertrain_TractionBattery_Charging_Timer_Mode_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.Timer.Mode", metadata: [{key: "allowed", value: "['INACTIVE', 'START_TIME', 'END_TIME']"}]) {
+enum Vehicle_Powertrain_TractionBattery_Charging_Timer_Mode_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.Timer.Mode") {
   INACTIVE
   START_TIME
   END_TIME

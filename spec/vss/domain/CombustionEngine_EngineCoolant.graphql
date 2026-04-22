@@ -21,7 +21,7 @@ type CombustionEngine_EngineCoolant @vspec(element: BRANCH, fqn: "Vehicle.Powert
 """
 Allowed values for Vehicle.Powertrain.CombustionEngine.EngineCoolant.Level.
 """
-enum Vehicle_Powertrain_CombustionEngine_EngineCoolant_Level_Enum @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.EngineCoolant.Level", metadata: [{key: "allowed", value: "['CRITICALLY_LOW', 'LOW', 'NORMAL']"}]) {
+enum Vehicle_Powertrain_CombustionEngine_EngineCoolant_Level_Enum @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.EngineCoolant.Level") {
   CRITICALLY_LOW
   LOW
   NORMAL

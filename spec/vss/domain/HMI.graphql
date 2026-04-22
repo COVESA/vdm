@@ -63,7 +63,7 @@ type HMI @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Infotainment.HMI") {
 }
 
 """Allowed values for Vehicle.Cabin.Infotainment.HMI.DateFormat."""
-enum Vehicle_Cabin_Infotainment_Hmi_DateFormat_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.HMI.DateFormat", metadata: [{key: "allowed", value: "['YYYY_MM_DD', 'DD_MM_YYYY', 'MM_DD_YYYY', 'YY_MM_DD', 'DD_MM_YY', 'MM_DD_YY']"}]) {
+enum Vehicle_Cabin_Infotainment_Hmi_DateFormat_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.HMI.DateFormat") {
   YYYY_MM_DD
   DD_MM_YYYY
   MM_DD_YYYY
@@ -73,19 +73,19 @@ enum Vehicle_Cabin_Infotainment_Hmi_DateFormat_Enum @vspec(element: ACTUATOR, fq
 }
 
 """Allowed values for Vehicle.Cabin.Infotainment.HMI.DayNightMode."""
-enum Vehicle_Cabin_Infotainment_Hmi_DayNightMode_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.HMI.DayNightMode", metadata: [{key: "allowed", value: "['DAY', 'NIGHT']"}]) {
+enum Vehicle_Cabin_Infotainment_Hmi_DayNightMode_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.HMI.DayNightMode") {
   DAY
   NIGHT
 }
 
 """Allowed values for Vehicle.Cabin.Infotainment.HMI.DistanceUnit."""
-enum Vehicle_Cabin_Infotainment_Hmi_DistanceUnit_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.HMI.DistanceUnit", metadata: [{key: "allowed", value: "['MILES', 'KILOMETERS']"}]) {
+enum Vehicle_Cabin_Infotainment_Hmi_DistanceUnit_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.HMI.DistanceUnit") {
   MILES
   KILOMETERS
 }
 
 """Allowed values for Vehicle.Cabin.Infotainment.HMI.EVEconomyUnits."""
-enum Vehicle_Cabin_Infotainment_Hmi_EvEconomyUnits_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.HMI.EVEconomyUnits", metadata: [{key: "allowed", value: "['MILES_PER_KILOWATT_HOUR', 'KILOMETERS_PER_KILOWATT_HOUR', 'KILOWATT_HOURS_PER_100_MILES', 'KILOWATT_HOURS_PER_100_KILOMETERS', 'WATT_HOURS_PER_MILE', 'WATT_HOURS_PER_KILOMETER']"}]) {
+enum Vehicle_Cabin_Infotainment_Hmi_EvEconomyUnits_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.HMI.EVEconomyUnits") {
   MILES_PER_KILOWATT_HOUR
   KILOMETERS_PER_KILOWATT_HOUR
   KILOWATT_HOURS_PER_100_MILES
@@ -95,21 +95,21 @@ enum Vehicle_Cabin_Infotainment_Hmi_EvEconomyUnits_Enum @vspec(element: ACTUATOR
 }
 
 """Allowed values for Vehicle.Cabin.Infotainment.HMI.EVEnergyUnits."""
-enum Vehicle_Cabin_Infotainment_Hmi_EvEnergyUnits_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.HMI.EVEnergyUnits", metadata: [{key: "allowed", value: "['WATT_HOURS', 'AMPERE_HOURS', 'KILOWATT_HOURS']"}]) {
+enum Vehicle_Cabin_Infotainment_Hmi_EvEnergyUnits_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.HMI.EVEnergyUnits") {
   WATT_HOURS
   AMPERE_HOURS
   KILOWATT_HOURS
 }
 
 """Allowed values for Vehicle.Cabin.Infotainment.HMI.FontSize."""
-enum Vehicle_Cabin_Infotainment_Hmi_FontSize_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.HMI.FontSize", metadata: [{key: "allowed", value: "['STANDARD', 'LARGE', 'EXTRA_LARGE']"}]) {
+enum Vehicle_Cabin_Infotainment_Hmi_FontSize_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.HMI.FontSize") {
   STANDARD
   LARGE
   EXTRA_LARGE
 }
 
 """Allowed values for Vehicle.Cabin.Infotainment.HMI.FuelEconomyUnits."""
-enum Vehicle_Cabin_Infotainment_Hmi_FuelEconomyUnits_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.HMI.FuelEconomyUnits", metadata: [{key: "allowed", value: "['MPG_UK', 'MPG_US', 'MILES_PER_LITER', 'KILOMETERS_PER_LITER', 'LITERS_PER_100_KILOMETERS']"}]) {
+enum Vehicle_Cabin_Infotainment_Hmi_FuelEconomyUnits_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.HMI.FuelEconomyUnits") {
   MPG_UK
   MPG_US
   MILES_PER_LITER
@@ -118,33 +118,33 @@ enum Vehicle_Cabin_Infotainment_Hmi_FuelEconomyUnits_Enum @vspec(element: ACTUAT
 }
 
 """Allowed values for Vehicle.Cabin.Infotainment.HMI.FuelVolumeUnit."""
-enum Vehicle_Cabin_Infotainment_Hmi_FuelVolumeUnit_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.HMI.FuelVolumeUnit", metadata: [{key: "allowed", value: "['LITER', 'GALLON_US', 'GALLON_UK']"}]) {
+enum Vehicle_Cabin_Infotainment_Hmi_FuelVolumeUnit_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.HMI.FuelVolumeUnit") {
   LITER
   GALLON_US
   GALLON_UK
 }
 
 """Allowed values for Vehicle.Cabin.Infotainment.HMI.SpeedUnit."""
-enum Vehicle_Cabin_Infotainment_Hmi_SpeedUnit_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.HMI.SpeedUnit", metadata: [{key: "allowed", value: "['METERS_PER_SECOND', 'MILES_PER_HOUR', 'KILOMETERS_PER_HOUR']"}]) {
+enum Vehicle_Cabin_Infotainment_Hmi_SpeedUnit_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.HMI.SpeedUnit") {
   METERS_PER_SECOND
   MILES_PER_HOUR
   KILOMETERS_PER_HOUR
 }
 
 """Allowed values for Vehicle.Cabin.Infotainment.HMI.TemperatureUnit."""
-enum Vehicle_Cabin_Infotainment_Hmi_TemperatureUnit_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.HMI.TemperatureUnit", metadata: [{key: "allowed", value: "['C', 'F']"}]) {
+enum Vehicle_Cabin_Infotainment_Hmi_TemperatureUnit_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.HMI.TemperatureUnit") {
   C
   F
 }
 
 """Allowed values for Vehicle.Cabin.Infotainment.HMI.TimeFormat."""
-enum Vehicle_Cabin_Infotainment_Hmi_TimeFormat_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.HMI.TimeFormat", metadata: [{key: "allowed", value: "['HR_12', 'HR_24']"}]) {
+enum Vehicle_Cabin_Infotainment_Hmi_TimeFormat_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.HMI.TimeFormat") {
   HR_12
   HR_24
 }
 
 """Allowed values for Vehicle.Cabin.Infotainment.HMI.TirePressureUnit."""
-enum Vehicle_Cabin_Infotainment_Hmi_TirePressureUnit_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.HMI.TirePressureUnit", metadata: [{key: "allowed", value: "['PSI', 'KPA', 'BAR']"}]) {
+enum Vehicle_Cabin_Infotainment_Hmi_TirePressureUnit_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.HMI.TirePressureUnit") {
   PSI
   KPA
   BAR

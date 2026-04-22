@@ -10,12 +10,12 @@ type RangeExtender @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.RangeExtende
 
   """Current operating mode of the Extended Range Electric Vehicle."""
   operatingMode: Vehicle_Powertrain_RangeExtender_OperatingMode_Enum @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.RangeExtender.OperatingMode")
-  chargeDepleting: ChargeDepleting
-  chargeSustaining: ChargeSustaining
+  chargeDepleting: ChargeDepleting @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.RangeExtender.ChargeDepleting")
+  chargeSustaining: ChargeSustaining @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.RangeExtender.ChargeSustaining")
 }
 
 """Allowed values for Vehicle.Powertrain.RangeExtender.OperatingMode."""
-enum Vehicle_Powertrain_RangeExtender_OperatingMode_Enum @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.RangeExtender.OperatingMode", metadata: [{key: "allowed", value: "['CHARGE_DEPLETING', 'CHARGE_SUSTAINING', 'BLENDED']"}]) {
+enum Vehicle_Powertrain_RangeExtender_OperatingMode_Enum @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.RangeExtender.OperatingMode") {
   CHARGE_DEPLETING
   CHARGE_SUSTAINING
   BLENDED

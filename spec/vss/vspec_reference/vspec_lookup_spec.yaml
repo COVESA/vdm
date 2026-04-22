@@ -2122,6 +2122,13 @@ Vehicle.Chassis.Axle.TireWidth:
   type: attribute
   unit: mm
 
+Vehicle.Chassis.Axle.Torque:
+  comment: For combustion engine this typically corresponds to the output torque of the multi-speed gearbox. For electrical motor this typically corresponds to the output torque of the single-speed reduction-gear. This signal is typically not used if there is separate electrical motors for left and right wheels.
+  datatype: int16
+  description: Incoming axle torque to differential. Negative values indicate regen mode.
+  type: sensor
+  unit: Nm
+
 Vehicle.Chassis.Axle.TrackWidth:
   comment: Corresponds to SAE J1100-2009 W102.
   datatype: uint16
@@ -2217,6 +2224,13 @@ Vehicle.Chassis.Axle.Wheel.Tire.Temperature:
   description: Tire temperature in Celsius.
   type: sensor
   unit: Celsius
+
+Vehicle.Chassis.Axle.Wheel.Torque:
+  comment: This is typically the torque provided by the differential, or by a motor dedicated for this wheel, after reduction gear if present.
+  datatype: int16
+  description: Torque provided by drivetrain, excluding torque provided by friction brakes. Negative values indicate regen mode.
+  type: sensor
+  unit: Nm
 
 Vehicle.Chassis.Axle.WheelCount:
   datatype: uint8
@@ -3512,7 +3526,15 @@ Vehicle.Powertrain.CombustionEngine.Torque:
   unit: Nm
 
 Vehicle.Powertrain.ElectricMotor:
+  comment: Instance Front to be used if the vehicle has a motor located at the front of the vehicle, serving front and possibly also rear axle. Instance Rear to be used if the vehicle has a motor located at the rear of the vehicle, serving rear and possiblsy also front axle. Instances with Left/Right intended to be used if vehicle has separate motors for left and right side.
   description: Electric Motor specific data.
+  instances:
+  - Front
+  - Rear
+  - FrontLeft
+  - FrontRight
+  - RearLeft
+  - RearRight
   type: branch
 
 Vehicle.Powertrain.ElectricMotor.EngineCode:

@@ -36,5 +36,5 @@ type CurrentLocation @vspec(element: BRANCH, fqn: "Vehicle.CurrentLocation") {
 
   """Accuracy of altitude."""
   verticalAccuracy(unit: LengthUnitEnum = METER): Float @vspec(element: SENSOR, fqn: "Vehicle.CurrentLocation.VerticalAccuracy")
-  gnssreceiver: GNSSReceiver
+  gnssreceiver: GNSSReceiver @vspec(element: BRANCH, fqn: "Vehicle.CurrentLocation.GNSSReceiver")
 }

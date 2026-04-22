@@ -21,7 +21,7 @@ type EngineOil @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.CombustionEngine
 """
 Allowed values for Vehicle.Powertrain.CombustionEngine.EngineOil.Level.
 """
-enum Vehicle_Powertrain_CombustionEngine_EngineOil_Level_Enum @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.EngineOil.Level", metadata: [{key: "allowed", value: "['CRITICALLY_LOW', 'LOW', 'NORMAL', 'HIGH', 'CRITICALLY_HIGH']"}]) {
+enum Vehicle_Powertrain_CombustionEngine_EngineOil_Level_Enum @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.EngineOil.Level") {
   CRITICALLY_LOW
   LOW
   NORMAL

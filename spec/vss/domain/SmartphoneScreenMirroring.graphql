@@ -13,7 +13,7 @@ type SmartphoneScreenMirroring @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Infot
 """
 Allowed values for Vehicle.Cabin.Infotainment.SmartphoneScreenMirroring.Active.
 """
-enum Vehicle_Cabin_Infotainment_SmartphoneScreenMirroring_Active_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.SmartphoneScreenMirroring.Active", metadata: [{key: "allowed", value: "['NONE', 'ACTIVE', 'INACTIVE']"}]) {
+enum Vehicle_Cabin_Infotainment_SmartphoneScreenMirroring_Active_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.SmartphoneScreenMirroring.Active") {
   NONE
   ACTIVE
   INACTIVE
@@ -22,7 +22,7 @@ enum Vehicle_Cabin_Infotainment_SmartphoneScreenMirroring_Active_Enum @vspec(ele
 """
 Allowed values for Vehicle.Cabin.Infotainment.SmartphoneScreenMirroring.Source.
 """
-enum Vehicle_Cabin_Infotainment_SmartphoneScreenMirroring_Source_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.SmartphoneScreenMirroring.Source", metadata: [{key: "allowed", value: "['USB', 'BLUETOOTH', 'WIFI']"}]) {
+enum Vehicle_Cabin_Infotainment_SmartphoneScreenMirroring_Source_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.SmartphoneScreenMirroring.Source") {
   USB
   BLUETOOTH
   WIFI

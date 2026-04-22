@@ -17,7 +17,7 @@ type Hood @vspec(element: BRANCH, fqn: "Vehicle.Body.Hood") {
 }
 
 """Allowed values for Vehicle.Body.Hood.Switch."""
-enum Vehicle_Body_Hood_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Hood.Switch", metadata: [{key: "allowed", value: "['INACTIVE', 'CLOSE', 'OPEN', 'ONE_SHOT_CLOSE', 'ONE_SHOT_OPEN']"}]) {
+enum Vehicle_Body_Hood_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Hood.Switch") {
   INACTIVE
   CLOSE
   OPEN

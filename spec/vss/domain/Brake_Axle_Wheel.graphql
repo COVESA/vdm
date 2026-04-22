@@ -3,7 +3,6 @@
 
 """MotionManagement signals for a specific wheel."""
 type Brake_Axle_Wheel @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.Brake.Axle.Wheel") {
-  id: ID!
 
   """
   Lower wheel speed limit request controlled by friction brake. ISO 8855 wheel-spin velocity.

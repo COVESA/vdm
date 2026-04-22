@@ -8,5 +8,5 @@ type Resources @vspec(element: BRANCH, fqn: "Vehicle.ControlUnit.Health.Resource
 
   """Instance temperature"""
   temperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float @vspec(element: SENSOR, fqn: "Vehicle.ControlUnit.Health.Resources.Temperature")
-  utilization: Utilization
+  utilization: Utilization @vspec(element: BRANCH, fqn: "Vehicle.ControlUnit.Health.Resources.Utilization")
 }

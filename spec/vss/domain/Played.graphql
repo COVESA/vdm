@@ -26,7 +26,7 @@ type Played @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Infotainment.Media.Playe
 }
 
 """Allowed values for Vehicle.Cabin.Infotainment.Media.Played.Source."""
-enum Vehicle_Cabin_Infotainment_Media_Played_Source_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.Media.Played.Source", metadata: [{key: "allowed", value: "['UNKNOWN', 'SIRIUS_XM', 'AM', 'FM', 'DAB', 'TV', 'CD', 'DVD', 'AUX', 'USB', 'DISK', 'BLUETOOTH', 'INTERNET', 'VOICE', 'BEEP']"}]) {
+enum Vehicle_Cabin_Infotainment_Media_Played_Source_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.Media.Played.Source") {
   UNKNOWN
   SIRIUS_XM
   AM
