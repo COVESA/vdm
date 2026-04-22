@@ -84,6 +84,10 @@ Vehicle.MotionManagement.Suspension.Axle.Wheel:
   plural_field_name: wheels
   path_in_graphql_model: Suspension_Axle.wheels
 
+Vehicle.Powertrain.ElectricMotor:
+  plural_field_name: electricMotors
+  path_in_graphql_model: Powertrain.electricMotors
+
 Vehicle.Powertrain.TractionBattery.Charging.ChargingPort:
   plural_field_name: chargingPorts
   path_in_graphql_model: Charging.chargingPorts

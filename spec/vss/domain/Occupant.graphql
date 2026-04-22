@@ -3,8 +3,7 @@
 
 """Occupant (Driver or Passenger) data."""
 type Occupant @vspec(element: BRANCH, fqn: "Vehicle.Occupant") {
-  id: ID!
-  headPosition: HeadPosition
-  identifier: Identifier
-  midEyeGaze: MidEyeGaze
+  headPosition: HeadPosition @vspec(element: BRANCH, fqn: "Vehicle.Occupant.HeadPosition")
+  identifier: Identifier @vspec(element: BRANCH, fqn: "Vehicle.Occupant.Identifier")
+  midEyeGaze: MidEyeGaze @vspec(element: BRANCH, fqn: "Vehicle.Occupant.MidEyeGaze")
 }

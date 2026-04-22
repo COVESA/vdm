@@ -34,5 +34,5 @@ type MotionManagement_Brake @vspec(element: BRANCH, fqn: "Vehicle.MotionManageme
   """
   vehicleForceMaximum(unit: ForceUnitEnum = NEWTON): Int16 @vspec(element: ACTUATOR, fqn: "Vehicle.MotionManagement.Brake.VehicleForceMaximum")
     @range(max: 0)
-  axles: [Brake_Axle]
+  axles: [Brake_Axle] @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.Brake.Axle")
 }

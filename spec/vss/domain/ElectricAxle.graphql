@@ -3,7 +3,6 @@
 
 """MotionManagement for a specific electric axle."""
 type ElectricAxle @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.ElectricAxle") {
-  id: ID!
 
   """
   Rotational speed for the specified axle, positive sign for rotation in forward direction, negative sign for rotation in backward direction.

@@ -19,7 +19,7 @@ type RearShade @vspec(element: BRANCH, fqn: "Vehicle.Cabin.RearShade") {
 }
 
 """Allowed values for Vehicle.Cabin.RearShade.Switch."""
-enum Vehicle_Cabin_RearShade_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.RearShade.Switch", metadata: [{key: "allowed", value: "['INACTIVE', 'CLOSE', 'OPEN', 'ONE_SHOT_CLOSE', 'ONE_SHOT_OPEN']"}]) {
+enum Vehicle_Cabin_RearShade_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.RearShade.Switch") {
   INACTIVE
   CLOSE
   OPEN

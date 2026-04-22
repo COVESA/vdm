@@ -15,7 +15,7 @@ type Lights_Brake @vspec(element: BRANCH, fqn: "Vehicle.Body.Lights.Brake") {
 }
 
 """Allowed values for Vehicle.Body.Lights.Brake.IsActive."""
-enum Vehicle_Body_Lights_Brake_IsActive_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Lights.Brake.IsActive", metadata: [{key: "allowed", value: "['INACTIVE', 'ACTIVE', 'ADAPTIVE']"}]) {
+enum Vehicle_Body_Lights_Brake_IsActive_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Lights.Brake.IsActive") {
   INACTIVE
   ACTIVE
   ADAPTIVE

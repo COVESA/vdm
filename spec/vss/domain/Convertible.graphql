@@ -8,7 +8,7 @@ type Convertible @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Convertible") {
 }
 
 """Allowed values for Vehicle.Cabin.Convertible.Status."""
-enum Vehicle_Cabin_Convertible_Status_Enum @vspec(element: SENSOR, fqn: "Vehicle.Cabin.Convertible.Status", metadata: [{key: "allowed", value: "['UNDEFINED', 'CLOSED', 'OPEN', 'CLOSING', 'OPENING', 'STALLED']"}]) {
+enum Vehicle_Cabin_Convertible_Status_Enum @vspec(element: SENSOR, fqn: "Vehicle.Cabin.Convertible.Status") {
   UNDEFINED
   CLOSED
   OPEN

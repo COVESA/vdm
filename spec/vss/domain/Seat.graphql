@@ -3,7 +3,6 @@
 
 """All seats."""
 type Seat @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Seat") {
-  id: ID!
 
   """
   Heating or Cooling requsted for the Item. -100 = Maximum cooling, 0 = Heating/cooling deactivated, 100 = Maximum heating.
@@ -68,16 +67,16 @@ type Seat @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Seat") {
   Tilting of seat (seating and backrest) relative to vehicle x-axis. 0 = seat bottom is flat, seat bottom and vehicle x-axis are parallel. Positive degrees = seat tilted backwards, seat x-axis tilted upward, seat z-axis is tilted backward.
   """
   tilt(unit: AngleUnitEnum = DEGREE): Float @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.Tilt")
-  airbag: Airbag
-  backrest: Backrest
-  headrest: Headrest
-  massage: Massage
-  neckScarf: NeckScarf
-  seating: Seating
+  airbag: Airbag @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Seat.Airbag")
+  backrest: Backrest @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Seat.Backrest")
+  headrest: Headrest @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Seat.Headrest")
+  massage: Massage @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Seat.Massage")
+  neckScarf: NeckScarf @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Seat.NeckScarf")
+  seating: Seating @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Seat.Seating")
 }
 
 """Allowed values for Vehicle.Cabin.Seat.OccupancyStatus."""
-enum Vehicle_Cabin_Seat_OccupancyStatus_Enum @vspec(element: SENSOR, fqn: "Vehicle.Cabin.Seat.OccupancyStatus", metadata: [{key: "allowed", value: "['UNKNOWN', 'OCCUPIED', 'EMPTY']"}]) {
+enum Vehicle_Cabin_Seat_OccupancyStatus_Enum @vspec(element: SENSOR, fqn: "Vehicle.Cabin.Seat.OccupancyStatus") {
   UNKNOWN
   OCCUPIED
   EMPTY

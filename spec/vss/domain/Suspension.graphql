@@ -31,5 +31,5 @@ type Suspension @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.Suspensio
   Roll torque request on vehicle level. Signal orientation according to ISO8855.
   """
   rollTorqueTarget(unit: TorqueUnitEnum = NEWTON_METER): Int16 @vspec(element: ACTUATOR, fqn: "Vehicle.MotionManagement.Suspension.RollTorqueTarget")
-  axles: [Suspension_Axle]
+  axles: [Suspension_Axle] @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.Suspension.Axle")
 }

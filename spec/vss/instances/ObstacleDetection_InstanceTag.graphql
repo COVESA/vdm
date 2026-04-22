@@ -1,22 +1,22 @@
 # Instance tag type and dimensional enums
 
 
-type ObstacleDetection_InstanceTag @instanceTag @vspec(element: BRANCH, fqn: "Vehicle.ADAS.ObstacleDetection", metadata: [{key: "instances", value: "[['Front', 'Rear'], ['Left', 'Center', 'Right']]"}]) {
+type ObstacleDetection_InstanceTag @instanceTag @vspec(element: BRANCH, fqn: "Vehicle.ADAS.ObstacleDetection") {
   dimension1: ObstacleDetection_InstanceTag_Dimension1
   dimension2: ObstacleDetection_InstanceTag_Dimension2
 }
 
 """Dimensional enum for VSS instance dimension 1."""
 enum ObstacleDetection_InstanceTag_Dimension1 {
-  FRONT @vspec(metadata: [{key: "originalName", value: "Front"}])
-  REAR @vspec(metadata: [{key: "originalName", value: "Rear"}])
+  FRONT @vspec(originalName: "Front")
+  REAR @vspec(originalName: "Rear")
 }
 
 """Dimensional enum for VSS instance dimension 2."""
 enum ObstacleDetection_InstanceTag_Dimension2 {
-  LEFT @vspec(metadata: [{key: "originalName", value: "Left"}])
-  CENTER @vspec(metadata: [{key: "originalName", value: "Center"}])
-  RIGHT @vspec(metadata: [{key: "originalName", value: "Right"}])
+  LEFT @vspec(originalName: "Left")
+  CENTER @vspec(originalName: "Center")
+  RIGHT @vspec(originalName: "Right")
 }
 
 extend type ObstacleDetection {

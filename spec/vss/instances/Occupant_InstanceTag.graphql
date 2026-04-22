@@ -1,22 +1,22 @@
 # Instance tag type and dimensional enums
 
 
-type Occupant_InstanceTag @instanceTag @vspec(element: BRANCH, fqn: "Vehicle.Occupant", metadata: [{key: "instances", value: "['Row[1,2]', ['DriverSide', 'Middle', 'PassengerSide']]"}]) {
+type Occupant_InstanceTag @instanceTag @vspec(element: BRANCH, fqn: "Vehicle.Occupant") {
   dimension1: Occupant_InstanceTag_Dimension1
   dimension2: Occupant_InstanceTag_Dimension2
 }
 
 """Dimensional enum for VSS instance dimension 1."""
 enum Occupant_InstanceTag_Dimension1 {
-  ROW1 @vspec(metadata: [{key: "originalName", value: "Row1"}])
-  ROW2 @vspec(metadata: [{key: "originalName", value: "Row2"}])
+  ROW1 @vspec(originalName: "Row1")
+  ROW2 @vspec(originalName: "Row2")
 }
 
 """Dimensional enum for VSS instance dimension 2."""
 enum Occupant_InstanceTag_Dimension2 {
-  DRIVER_SIDE @vspec(metadata: [{key: "originalName", value: "DriverSide"}])
-  MIDDLE @vspec(metadata: [{key: "originalName", value: "Middle"}])
-  PASSENGER_SIDE @vspec(metadata: [{key: "originalName", value: "PassengerSide"}])
+  DRIVER_SIDE @vspec(originalName: "DriverSide")
+  MIDDLE @vspec(originalName: "Middle")
+  PASSENGER_SIDE @vspec(originalName: "PassengerSide")
 }
 
 extend type Occupant {

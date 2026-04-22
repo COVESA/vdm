@@ -37,7 +37,7 @@ type BatteryConditioning @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.Tracti
 """
 Allowed values for Vehicle.Powertrain.TractionBattery.BatteryConditioning.RequestedMode.
 """
-enum Vehicle_Powertrain_TractionBattery_BatteryConditioning_RequestedMode_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.TractionBattery.BatteryConditioning.RequestedMode", metadata: [{key: "allowed", value: "['INACTIVE', 'FAST_CHARGING_PREPARATION', 'DRIVING_PREPARATION']"}]) {
+enum Vehicle_Powertrain_TractionBattery_BatteryConditioning_RequestedMode_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.TractionBattery.BatteryConditioning.RequestedMode") {
   INACTIVE
   FAST_CHARGING_PREPARATION
   DRIVING_PREPARATION

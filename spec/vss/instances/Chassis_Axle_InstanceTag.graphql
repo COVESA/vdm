@@ -1,14 +1,14 @@
 # Instance tag type and dimensional enums
 
 
-type Chassis_Axle_InstanceTag @instanceTag @vspec(element: BRANCH, fqn: "Vehicle.Chassis.Axle", metadata: [{key: "instances", value: "['Row[1,2]']"}]) {
+type Chassis_Axle_InstanceTag @instanceTag @vspec(element: BRANCH, fqn: "Vehicle.Chassis.Axle") {
   dimension1: Chassis_Axle_InstanceTag_Dimension1
 }
 
 """Dimensional enum for VSS instance dimension 1."""
 enum Chassis_Axle_InstanceTag_Dimension1 {
-  ROW1 @vspec(metadata: [{key: "originalName", value: "Row1"}])
-  ROW2 @vspec(metadata: [{key: "originalName", value: "Row2"}])
+  ROW1 @vspec(originalName: "Row1")
+  ROW2 @vspec(originalName: "Row2")
 }
 
 extend type Chassis_Axle {

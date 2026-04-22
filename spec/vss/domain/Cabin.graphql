@@ -28,19 +28,19 @@ type Cabin @vspec(element: BRANCH, fqn: "Vehicle.Cabin") {
 
   """Number of seat rows in vehicle."""
   seatRowCount: UInt8 @vspec(element: ATTRIBUTE, fqn: "Vehicle.Cabin.SeatRowCount")
-  convertible: Convertible
-  doors: [Door]
-  hvac: HVAC
-  infotainment: Infotainment
-  light: Light
-  rearShade: RearShade
-  rearviewMirror: RearviewMirror
-  seats: [Seat]
-  sunroof: Sunroof
+  convertible: Convertible @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Convertible")
+  doors: [Door] @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Door")
+  hvac: HVAC @vspec(element: BRANCH, fqn: "Vehicle.Cabin.HVAC")
+  infotainment: Infotainment @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Infotainment")
+  light: Light @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Light")
+  rearShade: RearShade @vspec(element: BRANCH, fqn: "Vehicle.Cabin.RearShade")
+  rearviewMirror: RearviewMirror @vspec(element: BRANCH, fqn: "Vehicle.Cabin.RearviewMirror")
+  seats: [Seat] @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Seat")
+  sunroof: Sunroof @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Sunroof")
 }
 
 """Allowed values for Vehicle.Cabin.DriverPosition."""
-enum Vehicle_Cabin_DriverPosition_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Cabin.DriverPosition", metadata: [{key: "allowed", value: "['LEFT', 'MIDDLE', 'RIGHT']"}]) {
+enum Vehicle_Cabin_DriverPosition_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Cabin.DriverPosition") {
   LEFT
   MIDDLE
   RIGHT

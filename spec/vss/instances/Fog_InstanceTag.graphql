@@ -1,14 +1,14 @@
 # Instance tag type and dimensional enums
 
 
-type Fog_InstanceTag @instanceTag @vspec(element: BRANCH, fqn: "Vehicle.Body.Lights.Fog", metadata: [{key: "instances", value: "['Rear', 'Front']"}]) {
+type Fog_InstanceTag @instanceTag @vspec(element: BRANCH, fqn: "Vehicle.Body.Lights.Fog") {
   dimension1: Fog_InstanceTag_Dimension1
 }
 
 """Dimensional enum for VSS instance dimension 1."""
 enum Fog_InstanceTag_Dimension1 {
-  REAR @vspec(metadata: [{key: "originalName", value: "Rear"}])
-  FRONT @vspec(metadata: [{key: "originalName", value: "Front"}])
+  REAR @vspec(originalName: "Rear")
+  FRONT @vspec(originalName: "Front")
 }
 
 extend type Fog {

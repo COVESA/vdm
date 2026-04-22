@@ -3,7 +3,6 @@
 
 """Spotlight for a specific area in the vehicle."""
 type Spotlight @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Light.Spotlight") {
-  id: ID!
 
   """
   Hexadecimal color code represented as a 3-byte RGB (i.e. Red, Green, and Blue) value preceded by a hash symbol "#". Allowed range "#000000" to "#FFFFFF".

@@ -81,10 +81,10 @@ type TractionBattery @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBa
 
   """Time remaining in seconds before the battery is empty."""
   timeRemaining(unit: DurationUnitEnum = SECOND): UInt32 @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.TimeRemaining")
-  batteryConditioning: BatteryConditioning
-  cellVoltage: CellVoltage
-  charging: Charging
-  dcdc: DCDC
-  stateOfCharge: StateOfCharge
-  temperature: Temperature
+  batteryConditioning: BatteryConditioning @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.BatteryConditioning")
+  cellVoltage: CellVoltage @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.CellVoltage")
+  charging: Charging @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.Charging")
+  dcdc: DCDC @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.DCDC")
+  stateOfCharge: StateOfCharge @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.StateOfCharge")
+  temperature: Temperature @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.Temperature")
 }

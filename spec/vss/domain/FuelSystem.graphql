@@ -85,7 +85,7 @@ type FuelSystem @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.FuelSystem") {
 }
 
 """Allowed values for Vehicle.Powertrain.FuelSystem.HybridType."""
-enum Vehicle_Powertrain_FuelSystem_HybridType_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.FuelSystem.HybridType", metadata: [{key: "allowed", value: "['UNKNOWN', 'NOT_APPLICABLE', 'STOP_START', 'BELT_ISG', 'CIMG', 'PHEV']"}]) {
+enum Vehicle_Powertrain_FuelSystem_HybridType_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.FuelSystem.HybridType") {
   UNKNOWN
   NOT_APPLICABLE
   STOP_START
@@ -95,7 +95,7 @@ enum Vehicle_Powertrain_FuelSystem_HybridType_Enum @vspec(element: ATTRIBUTE, fq
 }
 
 """Allowed values for Vehicle.Powertrain.FuelSystem.RefuelPortPosition."""
-enum Vehicle_Powertrain_FuelSystem_RefuelPortPosition_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.FuelSystem.RefuelPortPosition", metadata: [{key: "allowed", value: "['FRONT_LEFT', 'FRONT_MIDDLE', 'FRONT_RIGHT', 'REAR_LEFT', 'REAR_MIDDLE', 'REAR_RIGHT', 'LEFT_FRONT', 'LEFT_MIDDLE', 'LEFT_REAR', 'RIGHT_FRONT', 'RIGHT_MIDDLE', 'RIGHT_REAR']"}]) {
+enum Vehicle_Powertrain_FuelSystem_RefuelPortPosition_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.FuelSystem.RefuelPortPosition") {
   FRONT_LEFT
   FRONT_MIDDLE
   FRONT_RIGHT
@@ -111,7 +111,7 @@ enum Vehicle_Powertrain_FuelSystem_RefuelPortPosition_Enum @vspec(element: ATTRI
 }
 
 """Allowed values for Vehicle.Powertrain.FuelSystem.SupportedFuel."""
-enum Vehicle_Powertrain_FuelSystem_SupportedFuel_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.FuelSystem.SupportedFuel", metadata: [{key: "allowed", value: "['E5_95', 'E5_98', 'E10_95', 'E10_98', 'E85', 'B7', 'B10', 'B20', 'B30', 'B100', 'XTL', 'LPG', 'CNG', 'LNG', 'H2', 'OTHER']"}]) {
+enum Vehicle_Powertrain_FuelSystem_SupportedFuel_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.FuelSystem.SupportedFuel") {
   E5_95
   E5_98
   E10_95
@@ -131,7 +131,7 @@ enum Vehicle_Powertrain_FuelSystem_SupportedFuel_Enum @vspec(element: ATTRIBUTE,
 }
 
 """Allowed values for Vehicle.Powertrain.FuelSystem.SupportedFuelTypes."""
-enum Vehicle_Powertrain_FuelSystem_SupportedFuelTypes_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.FuelSystem.SupportedFuelTypes", metadata: [{key: "allowed", value: "['GASOLINE', 'DIESEL', 'E85', 'LPG', 'CNG', 'LNG', 'H2', 'OTHER']"}]) {
+enum Vehicle_Powertrain_FuelSystem_SupportedFuelTypes_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.FuelSystem.SupportedFuelTypes") {
   GASOLINE
   DIESEL
   E85

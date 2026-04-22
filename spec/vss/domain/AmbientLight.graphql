@@ -5,7 +5,6 @@
 Decorative coloured light inside the cabin, usually mounted on the door, ceiling, etc.
 """
 type AmbientLight @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Light.AmbientLight") {
-  id: ID!
 
   """
   Hexadecimal color code represented as a 3-byte RGB (i.e. Red, Green, and Blue) value preceded by a hash symbol "#". Allowed range "#000000" to "#FFFFFF".

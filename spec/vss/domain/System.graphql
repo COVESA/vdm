@@ -60,7 +60,7 @@ type System @vspec(element: BRANCH, fqn: "Vehicle.Body.Windshield.Wiping.System"
 }
 
 """Allowed values for Vehicle.Body.Windshield.Wiping.System.Mode."""
-enum Vehicle_Body_Windshield_Wiping_System_Mode_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Windshield.Wiping.System.Mode", metadata: [{key: "allowed", value: "['STOP_HOLD', 'WIPE', 'PLANT_MODE', 'EMERGENCY_STOP']"}]) {
+enum Vehicle_Body_Windshield_Wiping_System_Mode_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Windshield.Wiping.System.Mode") {
   STOP_HOLD
   WIPE
   PLANT_MODE

@@ -17,7 +17,7 @@ type Window @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Door.Window") {
 }
 
 """Allowed values for Vehicle.Cabin.Door.Window.Switch."""
-enum Vehicle_Cabin_Door_Window_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Window.Switch", metadata: [{key: "allowed", value: "['INACTIVE', 'CLOSE', 'OPEN', 'ONE_SHOT_CLOSE', 'ONE_SHOT_OPEN']"}]) {
+enum Vehicle_Cabin_Door_Window_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Window.Switch") {
   INACTIVE
   CLOSE
   OPEN

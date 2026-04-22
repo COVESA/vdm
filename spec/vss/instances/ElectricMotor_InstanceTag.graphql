@@ -1,0 +1,20 @@
+# Instance tag type and dimensional enums
+
+
+type ElectricMotor_InstanceTag @instanceTag @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.ElectricMotor") {
+  dimension1: ElectricMotor_InstanceTag_Dimension1
+}
+
+"""Dimensional enum for VSS instance dimension 1."""
+enum ElectricMotor_InstanceTag_Dimension1 {
+  FRONT @vspec(originalName: "Front")
+  REAR @vspec(originalName: "Rear")
+  FRONT_LEFT @vspec(originalName: "FrontLeft")
+  FRONT_RIGHT @vspec(originalName: "FrontRight")
+  REAR_LEFT @vspec(originalName: "RearLeft")
+  REAR_RIGHT @vspec(originalName: "RearRight")
+}
+
+extend type ElectricMotor {
+  instanceTag: ElectricMotor_InstanceTag
+}

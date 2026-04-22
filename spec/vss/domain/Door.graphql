@@ -3,7 +3,6 @@
 
 """All doors, including windows and switches."""
 type Door @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Door") {
-  id: ID!
 
   """
   Is door child lock active. True = Door cannot be opened from inside. False = Door can be opened from inside.
@@ -24,12 +23,12 @@ type Door @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Door") {
 
   """Switch controlling sliding action such as window, sunroof, or blind."""
   switch: Vehicle_Cabin_Door_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Switch")
-  shade: Door_Shade
-  window: Window
+  shade: Door_Shade @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Door.Shade")
+  window: Window @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Door.Window")
 }
 
 """Allowed values for Vehicle.Cabin.Door.Switch."""
-enum Vehicle_Cabin_Door_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Switch", metadata: [{key: "allowed", value: "['INACTIVE', 'CLOSE', 'OPEN', 'ONE_SHOT_CLOSE', 'ONE_SHOT_OPEN']"}]) {
+enum Vehicle_Cabin_Door_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Switch") {
   INACTIVE
   CLOSE
   OPEN

@@ -19,7 +19,7 @@ type Sunroof_Shade @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Sunroof.Shade") {
 }
 
 """Allowed values for Vehicle.Cabin.Sunroof.Shade.Switch."""
-enum Vehicle_Cabin_Sunroof_Shade_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Sunroof.Shade.Switch", metadata: [{key: "allowed", value: "['INACTIVE', 'CLOSE', 'OPEN', 'ONE_SHOT_CLOSE', 'ONE_SHOT_OPEN']"}]) {
+enum Vehicle_Cabin_Sunroof_Shade_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Sunroof.Shade.Switch") {
   INACTIVE
   CLOSE
   OPEN

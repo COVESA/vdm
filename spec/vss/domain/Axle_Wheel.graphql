@@ -3,13 +3,17 @@
 
 """Wheel signals for axle"""
 type Axle_Wheel @vspec(element: BRANCH, fqn: "Vehicle.Chassis.Axle.Wheel") {
-  id: ID!
 
   """Angular (Rotational) speed of a vehicle's wheel."""
   angularSpeed(unit: AngularSpeedUnitEnum = DEGREE_PER_SECOND): Float @vspec(element: SENSOR, fqn: "Vehicle.Chassis.Axle.Wheel.AngularSpeed")
 
   """Linear speed of a vehicle's wheel."""
   speed(unit: VelocityUnitEnum = KILOMETER_PER_HOUR): Float @vspec(element: SENSOR, fqn: "Vehicle.Chassis.Axle.Wheel.Speed")
-  brake: Wheel_Brake
-  tire: Tire
+
+  """
+  Torque provided by drivetrain, excluding torque provided by friction brakes. Negative values indicate regen mode.
+  """
+  torque(unit: TorqueUnitEnum = NEWTON_METER): Int16 @vspec(element: SENSOR, fqn: "Vehicle.Chassis.Axle.Wheel.Torque")
+  brake: Wheel_Brake @vspec(element: BRANCH, fqn: "Vehicle.Chassis.Axle.Wheel.Brake")
+  tire: Tire @vspec(element: BRANCH, fqn: "Vehicle.Chassis.Axle.Wheel.Tire")
 }

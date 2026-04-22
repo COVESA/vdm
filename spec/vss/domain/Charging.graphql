@@ -48,18 +48,18 @@ type Charging @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.C
   The time needed for the current charging process to reach Charging.ChargeLimit. 0 if charging is complete or no charging process is active or planned.
   """
   timeToComplete(unit: DurationUnitEnum = SECOND): UInt32 @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.TimeToComplete")
-  chargeCurrent: ChargeCurrent
-  chargeVoltage: ChargeVoltage
-  chargingPorts: [ChargingPort]
-  location: Location
-  maximumChargingCurrent: MaximumChargingCurrent
-  timer: Timer
+  chargeCurrent: ChargeCurrent @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.Charging.ChargeCurrent")
+  chargeVoltage: ChargeVoltage @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.Charging.ChargeVoltage")
+  chargingPorts: [ChargingPort] @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.Charging.ChargingPort")
+  location: Location @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.Charging.Location")
+  maximumChargingCurrent: MaximumChargingCurrent @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.Charging.MaximumChargingCurrent")
+  timer: Timer @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.Charging.Timer")
 }
 
 """
 Allowed values for Vehicle.Powertrain.TractionBattery.Charging.StartStopCharging.
 """
-enum Vehicle_Powertrain_TractionBattery_Charging_StartStopCharging_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.StartStopCharging", metadata: [{key: "allowed", value: "['START', 'STOP']"}]) {
+enum Vehicle_Powertrain_TractionBattery_Charging_StartStopCharging_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.StartStopCharging") {
   START
   STOP
 }

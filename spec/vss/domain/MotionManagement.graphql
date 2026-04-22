@@ -3,8 +3,8 @@
 
 """Motion Management Information."""
 type MotionManagement @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement") {
-  brake: MotionManagement_Brake
-  electricAxles: [ElectricAxle]
-  steering: Steering
-  suspension: Suspension
+  brake: MotionManagement_Brake @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.Brake")
+  electricAxles: [ElectricAxle] @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.ElectricAxle")
+  steering: Steering @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.Steering")
+  suspension: Suspension @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.Suspension")
 }

@@ -72,14 +72,14 @@ type CombustionEngine @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.Combustio
   Current engine torque. Shall be reported as a negative number during engine breaking.
   """
   torque(unit: TorqueUnitEnum = NEWTON_METER): Int16 @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.Torque")
-  dieselExhaustFluid: DieselExhaustFluid
-  dieselParticulateFilter: DieselParticulateFilter
-  engineCoolant: CombustionEngine_EngineCoolant
-  engineOil: EngineOil
+  dieselExhaustFluid: DieselExhaustFluid @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.CombustionEngine.DieselExhaustFluid")
+  dieselParticulateFilter: DieselParticulateFilter @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.CombustionEngine.DieselParticulateFilter")
+  engineCoolant: CombustionEngine_EngineCoolant @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.CombustionEngine.EngineCoolant")
+  engineOil: EngineOil @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.CombustionEngine.EngineOil")
 }
 
 """Allowed values for Vehicle.Powertrain.CombustionEngine.AspirationType."""
-enum Vehicle_Powertrain_CombustionEngine_AspirationType_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.AspirationType", metadata: [{key: "allowed", value: "['UNKNOWN', 'NATURAL', 'SUPERCHARGER', 'TURBOCHARGER']"}]) {
+enum Vehicle_Powertrain_CombustionEngine_AspirationType_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.AspirationType") {
   UNKNOWN
   NATURAL
   SUPERCHARGER
@@ -87,7 +87,7 @@ enum Vehicle_Powertrain_CombustionEngine_AspirationType_Enum @vspec(element: ATT
 }
 
 """Allowed values for Vehicle.Powertrain.CombustionEngine.Configuration."""
-enum Vehicle_Powertrain_CombustionEngine_Configuration_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.Configuration", metadata: [{key: "allowed", value: "['UNKNOWN', 'STRAIGHT', 'V', 'BOXER', 'W', 'ROTARY', 'RADIAL', 'SQUARE', 'H', 'U', 'OPPOSED', 'X']"}]) {
+enum Vehicle_Powertrain_CombustionEngine_Configuration_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.Configuration") {
   UNKNOWN
   STRAIGHT
   V

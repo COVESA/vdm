@@ -3,7 +3,6 @@
 
 """HVAC for single station in the vehicle"""
 type Station @vspec(element: BRANCH, fqn: "Vehicle.Cabin.HVAC.Station") {
-  id: ID!
 
   """Direction of airstream"""
   airDistribution: Vehicle_Cabin_Hvac_Station_AirDistribution_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.HVAC.Station.AirDistribution")
@@ -17,7 +16,7 @@ type Station @vspec(element: BRANCH, fqn: "Vehicle.Cabin.HVAC.Station") {
 }
 
 """Allowed values for Vehicle.Cabin.HVAC.Station.AirDistribution."""
-enum Vehicle_Cabin_Hvac_Station_AirDistribution_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.HVAC.Station.AirDistribution", metadata: [{key: "allowed", value: "['UP', 'MIDDLE', 'DOWN']"}]) {
+enum Vehicle_Cabin_Hvac_Station_AirDistribution_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.HVAC.Station.AirDistribution") {
   UP
   MIDDLE
   DOWN

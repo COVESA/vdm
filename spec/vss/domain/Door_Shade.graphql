@@ -19,7 +19,7 @@ type Door_Shade @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Door.Shade") {
 }
 
 """Allowed values for Vehicle.Cabin.Door.Shade.Switch."""
-enum Vehicle_Cabin_Door_Shade_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Shade.Switch", metadata: [{key: "allowed", value: "['INACTIVE', 'CLOSE', 'OPEN', 'ONE_SHOT_CLOSE', 'ONE_SHOT_OPEN']"}]) {
+enum Vehicle_Cabin_Door_Shade_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Shade.Switch") {
   INACTIVE
   CLOSE
   OPEN

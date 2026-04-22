@@ -1,14 +1,14 @@
 # Instance tag type and dimensional enums
 
 
-type Windshield_InstanceTag @instanceTag @vspec(element: BRANCH, fqn: "Vehicle.Body.Windshield", metadata: [{key: "instances", value: "['Front', 'Rear']"}]) {
+type Windshield_InstanceTag @instanceTag @vspec(element: BRANCH, fqn: "Vehicle.Body.Windshield") {
   dimension1: Windshield_InstanceTag_Dimension1
 }
 
 """Dimensional enum for VSS instance dimension 1."""
 enum Windshield_InstanceTag_Dimension1 {
-  FRONT @vspec(metadata: [{key: "originalName", value: "Front"}])
-  REAR @vspec(metadata: [{key: "originalName", value: "Rear"}])
+  FRONT @vspec(originalName: "Front")
+  REAR @vspec(originalName: "Rear")
 }
 
 extend type Windshield {

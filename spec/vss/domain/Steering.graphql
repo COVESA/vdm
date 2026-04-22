@@ -3,6 +3,6 @@
 
 """MotionManagement related to steering."""
 type Steering @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.Steering") {
-  axle: Steering_Axle
-  steeringWheel: Steering_SteeringWheel
+  axle: Steering_Axle @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.Steering.Axle")
+  steeringWheel: Steering_SteeringWheel @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.Steering.SteeringWheel")
 }
