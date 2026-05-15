@@ -1,0 +1,73 @@
+name: Deploy Schema Voyager to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "spec/**"
+      - "docs/voyager/**"
+      - ".github/workflows/docs.yml"
+  workflow_dispatch:
+
+# Allow only one concurrent deployment; cancel any in-progress run
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+permissions:
+  contents: write # required by peaceiris/actions-gh-pages to push gh-pages branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ── Python / uv ──────────────────────────────────────────────────────────
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Install Python dependencies
+        run: uv sync
+
+      # ── Node.js / graphql-inspector ──────────────────────────────────────────
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      # ── Generate artefacts ───────────────────────────────────────────────────
+      - name: Generate introspection JSON
+        run: |
+          mkdir -p _output/graphql
+          uv run poe validate
+
+      # ── Assemble static site ─────────────────────────────────────────────────
+      - name: Build Voyager site
+        run: uv run poe build-voyager
+
+      # ── Deploy ───────────────────────────────────────────────────────────────
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
+          commit_message: "deploy: update schema voyager [${{ github.sha }}]"
+          full_commit_message: |
+            deploy: update schema voyager
+
+            Triggered by: ${{ github.event_name }}
+            Commit: ${{ github.sha }}

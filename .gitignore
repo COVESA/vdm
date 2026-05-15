@@ -67,6 +67,7 @@ __pycache__/
 .Python
 venv/
 env/
+.venv/
 
 # Coverage
 coverage/
@@ -76,3 +77,7 @@ coverage/
 # Misc
 .cache
 .parcel-cache
+
+# Generated outputs (produced by poe tasks / CI)
+_output/
+site/

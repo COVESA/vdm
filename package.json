@@ -1,0 +1,8 @@
+{
+  "name": "vdm",
+  "description": "Node.js tooling dependencies for VDM (graphql-inspector)",
+  "private": true,
+  "devDependencies": {
+    "@graphql-inspector/cli": "^6.0.8"
+  }
+}
