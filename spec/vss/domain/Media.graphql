@@ -1,25 +1,39 @@
 # Domain-specific GraphQL types
 
-
-"""All Media actions"""
+"""
+All Media actions
+"""
 type Media @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Infotainment.Media") {
-  """Tells if the media was"""
-  action: Vehicle_Cabin_Infotainment_Media_Action_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.Media.Action")
+  """
+  Tells if the media was
+  """
+  action: Vehicle_Cabin_Infotainment_Media_Action_Enum
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.Media.Action")
 
-  """URI of suggested media that was declined"""
+  """
+  URI of suggested media that was declined
+  """
   declinedUri: String @vspec(element: SENSOR, fqn: "Vehicle.Cabin.Infotainment.Media.DeclinedURI")
 
-  """URI of suggested media that was selected"""
+  """
+  URI of suggested media that was selected
+  """
   selectedUri: String @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.Media.SelectedURI")
 
-  """Current Media Volume"""
-  volume(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.Media.Volume")
+  """
+  Current Media Volume
+  """
+  volume(unit: RelationUnitEnum = PERCENT): UInt8
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.Media.Volume")
     @range(min: 0, max: 100)
   played: Played @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Infotainment.Media.Played")
 }
 
-"""Allowed values for Vehicle.Cabin.Infotainment.Media.Action."""
-enum Vehicle_Cabin_Infotainment_Media_Action_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.Media.Action") {
+"""
+Allowed values for Vehicle.Cabin.Infotainment.Media.Action.
+"""
+enum Vehicle_Cabin_Infotainment_Media_Action_Enum
+  @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.Media.Action") {
   UNKNOWN
   STOP
   PLAY

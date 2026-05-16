@@ -1,8 +1,11 @@
 # Domain-specific GraphQL types
 
-
-"""Horn signals."""
+"""
+Horn signals.
+"""
 type Horn @vspec(element: BRANCH, fqn: "Vehicle.Body.Horn") {
-  """Horn active or inactive. True = Active. False = Inactive."""
+  """
+  Horn active or inactive. True = Active. False = Inactive.
+  """
   isActive: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Horn.IsActive")
 }

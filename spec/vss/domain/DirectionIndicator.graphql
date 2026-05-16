@@ -1,14 +1,17 @@
 # Domain-specific GraphQL types
 
-
-"""Indicator lights."""
+"""
+Indicator lights.
+"""
 type DirectionIndicator @vspec(element: BRANCH, fqn: "Vehicle.Body.Lights.DirectionIndicator") {
-
   """
   Indicates if light is defect. True = Light is defect. False = Light has no defect.
   """
   isDefect: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Body.Lights.DirectionIndicator.IsDefect")
 
-  """Indicates if light is signaling or off. True = signaling. False = Off."""
-  isSignaling: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Lights.DirectionIndicator.IsSignaling")
+  """
+  Indicates if light is signaling or off. True = signaling. False = Off.
+  """
+  isSignaling: Boolean
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Lights.DirectionIndicator.IsSignaling")
 }

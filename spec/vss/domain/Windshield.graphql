@@ -1,10 +1,12 @@
 # Domain-specific GraphQL types
 
-
-"""Windshield signals."""
+"""
+Windshield signals.
+"""
 type Windshield @vspec(element: BRANCH, fqn: "Vehicle.Body.Windshield") {
-
-  """Windshield heater status. False - off, True - on."""
+  """
+  Windshield heater status. False - off, True - on.
+  """
   isHeatingOn: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Windshield.IsHeatingOn")
   washerFluid: WasherFluid @vspec(element: BRANCH, fqn: "Vehicle.Body.Windshield.WasherFluid")
   wiping: Wiping @vspec(element: BRANCH, fqn: "Vehicle.Body.Windshield.Wiping")

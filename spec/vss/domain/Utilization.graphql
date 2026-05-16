@@ -1,13 +1,20 @@
 # Domain-specific GraphQL types
 
-
-"""Resources utilization branch"""
+"""
+Resources utilization branch
+"""
 type Utilization @vspec(element: BRANCH, fqn: "Vehicle.ControlUnit.Health.Resources.Utilization") {
-  """CPU utilization"""
-  cpu(unit: RelationUnitEnum = PERCENT): Float @vspec(element: SENSOR, fqn: "Vehicle.ControlUnit.Health.Resources.Utilization.CPU")
+  """
+  CPU utilization
+  """
+  cpu(unit: RelationUnitEnum = PERCENT): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.ControlUnit.Health.Resources.Utilization.CPU")
     @range(min: 0, max: 100)
 
-  """Memory utilization"""
-  memory(unit: RelationUnitEnum = PERCENT): Float @vspec(element: SENSOR, fqn: "Vehicle.ControlUnit.Health.Resources.Utilization.Memory")
+  """
+  Memory utilization
+  """
+  memory(unit: RelationUnitEnum = PERCENT): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.ControlUnit.Health.Resources.Utilization.Memory")
     @range(min: 0, max: 100)
 }

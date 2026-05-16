@@ -1,9 +1,12 @@
 # Domain-specific GraphQL types
 
-
-"""Diagnostics data."""
+"""
+Diagnostics data.
+"""
 type Diagnostics @vspec(element: BRANCH, fqn: "Vehicle.Diagnostics") {
-  """Number of Diagnostic Trouble Codes (DTC)"""
+  """
+  Number of Diagnostic Trouble Codes (DTC)
+  """
   dtccount: UInt8 @vspec(element: SENSOR, fqn: "Vehicle.Diagnostics.DTCCount")
 
   """

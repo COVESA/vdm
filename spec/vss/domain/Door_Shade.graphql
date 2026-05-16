@@ -1,6 +1,5 @@
 # Domain-specific GraphQL types
 
-
 """
 Side window shade. Open = Retracted, Closed = Deployed. Start position for Shade is Open/Retracted.
 """
@@ -10,16 +9,25 @@ type Door_Shade @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Door.Shade") {
   """
   isOpen: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.IsOpen")
 
-  """Item position. 0 = Start position 100 = End position."""
-  position(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Position")
+  """
+  Item position. 0 = Start position 100 = End position.
+  """
+  position(unit: RelationUnitEnum = PERCENT): UInt8
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Position")
     @range(min: 0, max: 100)
 
-  """Switch controlling sliding action such as window, sunroof, or blind."""
-  switch: Vehicle_Cabin_Door_Shade_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Switch")
+  """
+  Switch controlling sliding action such as window, sunroof, or blind.
+  """
+  switch: Vehicle_Cabin_Door_Shade_Switch_Enum
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Switch")
 }
 
-"""Allowed values for Vehicle.Cabin.Door.Shade.Switch."""
-enum Vehicle_Cabin_Door_Shade_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Shade.Switch") {
+"""
+Allowed values for Vehicle.Cabin.Door.Shade.Switch.
+"""
+enum Vehicle_Cabin_Door_Shade_Switch_Enum
+  @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Shade.Switch") {
   INACTIVE
   CLOSE
   OPEN

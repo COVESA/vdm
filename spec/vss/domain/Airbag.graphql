@@ -1,7 +1,8 @@
 # Domain-specific GraphQL types
 
-
-"""Airbag signals."""
+"""
+Airbag signals.
+"""
 type Airbag @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Seat.Airbag") {
   """
   Airbag deployment status. True = Airbag deployed. False = Airbag not deployed.

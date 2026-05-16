@@ -1,43 +1,67 @@
 # Domain-specific GraphQL types
 
-
-"""Electric Motor specific data."""
+"""
+Electric Motor specific data.
+"""
 type ElectricMotor @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.ElectricMotor") {
-
-  """Engine code designation, as specified by vehicle manufacturer."""
+  """
+  Engine code designation, as specified by vehicle manufacturer.
+  """
   engineCode: String @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.ElectricMotor.EngineCode")
 
-  """Peak power, in kilowatts, that motor(s) can generate."""
-  maxPower(unit: PowerUnitEnum = KILOWATT): UInt16 @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.ElectricMotor.MaxPower")
+  """
+  Peak power, in kilowatts, that motor(s) can generate.
+  """
+  maxPower(unit: PowerUnitEnum = KILOWATT): UInt16
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.ElectricMotor.MaxPower")
 
-  """Peak regen/brake power, in kilowatts, that motor(s) can generate."""
-  maxRegenPower(unit: PowerUnitEnum = KILOWATT): UInt16 @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.ElectricMotor.MaxRegenPower")
+  """
+  Peak regen/brake power, in kilowatts, that motor(s) can generate.
+  """
+  maxRegenPower(unit: PowerUnitEnum = KILOWATT): UInt16
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.ElectricMotor.MaxRegenPower")
 
   """
   Peak regen/brake torque, in newton meter, that the motor(s) can generate.
   """
-  maxRegenTorque(unit: TorqueUnitEnum = NEWTON_METER): UInt16 @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.ElectricMotor.MaxRegenTorque")
+  maxRegenTorque(unit: TorqueUnitEnum = NEWTON_METER): UInt16
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.ElectricMotor.MaxRegenTorque")
 
-  """Peak power, in newton meter, that the motor(s) can generate."""
-  maxTorque(unit: TorqueUnitEnum = NEWTON_METER): UInt16 @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.ElectricMotor.MaxTorque")
+  """
+  Peak power, in newton meter, that the motor(s) can generate.
+  """
+  maxTorque(unit: TorqueUnitEnum = NEWTON_METER): UInt16
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.ElectricMotor.MaxTorque")
 
-  """Current motor power output. Negative values indicate regen mode."""
-  power(unit: PowerUnitEnum = KILOWATT): Int16 @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.ElectricMotor.Power")
+  """
+  Current motor power output. Negative values indicate regen mode.
+  """
+  power(unit: PowerUnitEnum = KILOWATT): Int16
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.ElectricMotor.Power")
 
   """
   Motor rotational speed measured as rotations per minute. Negative values indicate reverse driving mode.
   """
-  speed(unit: RotationalSpeedUnitEnum = REVOLUTIONS_PER_MINUTE): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.ElectricMotor.Speed")
+  speed(unit: RotationalSpeedUnitEnum = REVOLUTIONS_PER_MINUTE): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.ElectricMotor.Speed")
 
-  """Motor temperature."""
-  temperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.ElectricMotor.Temperature")
+  """
+  Motor temperature.
+  """
+  temperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.ElectricMotor.Temperature")
 
   """
   Accumulated time during engine lifetime when the vehicule state's is 'READY'.
   """
-  timeInUse(unit: DurationUnitEnum = HOUR): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.ElectricMotor.TimeInUse")
+  timeInUse(unit: DurationUnitEnum = HOUR): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.ElectricMotor.TimeInUse")
 
-  """Current motor torque. Negative values indicate regen mode."""
-  torque(unit: TorqueUnitEnum = NEWTON_METER): Int16 @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.ElectricMotor.Torque")
-  engineCoolant: ElectricMotor_EngineCoolant @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.ElectricMotor.EngineCoolant")
+  """
+  Current motor torque. Negative values indicate regen mode.
+  """
+  torque(unit: TorqueUnitEnum = NEWTON_METER): Int16
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.ElectricMotor.Torque")
+  engineCoolant: ElectricMotor_EngineCoolant
+    @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.ElectricMotor.EngineCoolant")
 }

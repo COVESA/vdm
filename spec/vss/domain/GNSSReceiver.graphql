@@ -1,17 +1,23 @@
 # Domain-specific GraphQL types
 
-
 """
 Information on the GNSS receiver used for determining current location.
 """
 type GNSSReceiver @vspec(element: BRANCH, fqn: "Vehicle.CurrentLocation.GNSSReceiver") {
-  """Fix status of GNSS receiver."""
-  fixType: Vehicle_CurrentLocation_GnSSReceiver_FixType_Enum @vspec(element: SENSOR, fqn: "Vehicle.CurrentLocation.GNSSReceiver.FixType")
-  mountingPosition: MountingPosition @vspec(element: BRANCH, fqn: "Vehicle.CurrentLocation.GNSSReceiver.MountingPosition")
+  """
+  Fix status of GNSS receiver.
+  """
+  fixType: Vehicle_CurrentLocation_GnSSReceiver_FixType_Enum
+    @vspec(element: SENSOR, fqn: "Vehicle.CurrentLocation.GNSSReceiver.FixType")
+  mountingPosition: MountingPosition
+    @vspec(element: BRANCH, fqn: "Vehicle.CurrentLocation.GNSSReceiver.MountingPosition")
 }
 
-"""Allowed values for Vehicle.CurrentLocation.GNSSReceiver.FixType."""
-enum Vehicle_CurrentLocation_GnSSReceiver_FixType_Enum @vspec(element: SENSOR, fqn: "Vehicle.CurrentLocation.GNSSReceiver.FixType") {
+"""
+Allowed values for Vehicle.CurrentLocation.GNSSReceiver.FixType.
+"""
+enum Vehicle_CurrentLocation_GnSSReceiver_FixType_Enum
+  @vspec(element: SENSOR, fqn: "Vehicle.CurrentLocation.GNSSReceiver.FixType") {
   NONE
   TWO_D
   TWO_D_SATELLITE_BASED_AUGMENTATION

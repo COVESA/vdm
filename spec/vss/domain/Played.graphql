@@ -1,32 +1,52 @@
 # Domain-specific GraphQL types
 
-
-"""Collection of signals updated in concert when a new media is played"""
+"""
+Collection of signals updated in concert when a new media is played
+"""
 type Played @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Infotainment.Media.Played") {
-  """Name of album being played"""
+  """
+  Name of album being played
+  """
   album: String @vspec(element: SENSOR, fqn: "Vehicle.Cabin.Infotainment.Media.Played.Album")
 
-  """Name of artist being played"""
+  """
+  Name of artist being played
+  """
   artist: String @vspec(element: SENSOR, fqn: "Vehicle.Cabin.Infotainment.Media.Played.Artist")
 
-  """Name of genre being played"""
+  """
+  Name of genre being played
+  """
   genre: String @vspec(element: SENSOR, fqn: "Vehicle.Cabin.Infotainment.Media.Played.Genre")
 
-  """Current playback rate of media being played."""
-  playbackRate: Float @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.Media.Played.PlaybackRate")
+  """
+  Current playback rate of media being played.
+  """
+  playbackRate: Float
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.Media.Played.PlaybackRate")
 
-  """Media selected for playback"""
-  source: Vehicle_Cabin_Infotainment_Media_Played_Source_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.Media.Played.Source")
+  """
+  Media selected for playback
+  """
+  source: Vehicle_Cabin_Infotainment_Media_Played_Source_Enum
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.Media.Played.Source")
 
-  """Name of track being played"""
+  """
+  Name of track being played
+  """
   track: String @vspec(element: SENSOR, fqn: "Vehicle.Cabin.Infotainment.Media.Played.Track")
 
-  """User Resource associated with the media"""
+  """
+  User Resource associated with the media
+  """
   uri: String @vspec(element: SENSOR, fqn: "Vehicle.Cabin.Infotainment.Media.Played.URI")
 }
 
-"""Allowed values for Vehicle.Cabin.Infotainment.Media.Played.Source."""
-enum Vehicle_Cabin_Infotainment_Media_Played_Source_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.Media.Played.Source") {
+"""
+Allowed values for Vehicle.Cabin.Infotainment.Media.Played.Source.
+"""
+enum Vehicle_Cabin_Infotainment_Media_Played_Source_Enum
+  @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Infotainment.Media.Played.Source") {
   UNKNOWN
   SIRIUS_XM
   AM

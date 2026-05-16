@@ -1,11 +1,14 @@
 # Instance tag type and dimensional enums
 
-
-type Suspension_Axle_InstanceTag @instanceTag @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.Suspension.Axle") {
+type Suspension_Axle_InstanceTag
+  @instanceTag
+  @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.Suspension.Axle") {
   dimension1: Suspension_Axle_InstanceTag_Dimension1
 }
 
-"""Dimensional enum for VSS instance dimension 1."""
+"""
+Dimensional enum for VSS instance dimension 1.
+"""
 enum Suspension_Axle_InstanceTag_Dimension1 {
   ROW1 @vspec(originalName: "Row1")
   ROW2 @vspec(originalName: "Row2")

@@ -1,22 +1,26 @@
 # Domain-specific GraphQL types
 
-
-"""Location of last or current charging event."""
+"""
+Location of last or current charging event.
+"""
 type Location @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.Charging.Location") {
   """
   Altitude relative to WGS 84 reference ellipsoid of last or current charging event.
   """
-  altitude(unit: LengthUnitEnum = METER): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.Location.Altitude")
+  altitude(unit: LengthUnitEnum = METER): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.Location.Altitude")
 
   """
   Latitude of last or current charging event in WGS 84 geodetic coordinates.
   """
-  latitude(unit: AngleUnitEnum = DEGREE): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.Location.Latitude")
+  latitude(unit: AngleUnitEnum = DEGREE): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.Location.Latitude")
     @range(min: -90, max: 90)
 
   """
   Longitude of last or current charging event in WGS 84 geodetic coordinates.
   """
-  longitude(unit: AngleUnitEnum = DEGREE): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.Location.Longitude")
+  longitude(unit: AngleUnitEnum = DEGREE): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Charging.Location.Longitude")
     @range(min: -180, max: 180)
 }

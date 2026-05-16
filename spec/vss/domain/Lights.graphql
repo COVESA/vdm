@@ -1,19 +1,25 @@
 # Domain-specific GraphQL types
 
-
-"""Exterior lights."""
+"""
+Exterior lights.
+"""
 type Lights @vspec(element: BRANCH, fqn: "Vehicle.Body.Lights") {
   """
   Status of the high beam switch. True = high beam enabled. False = high beam not enabled.
   """
-  isHighBeamSwitchOn: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Lights.IsHighBeamSwitchOn")
+  isHighBeamSwitchOn: Boolean
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Lights.IsHighBeamSwitchOn")
 
-  """Status of the vehicle main light switch."""
-  lightSwitch: Vehicle_Body_Lights_LightSwitch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Lights.LightSwitch")
+  """
+  Status of the vehicle main light switch.
+  """
+  lightSwitch: Vehicle_Body_Lights_LightSwitch_Enum
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Lights.LightSwitch")
   backup: Backup @vspec(element: BRANCH, fqn: "Vehicle.Body.Lights.Backup")
   beams: [Beam] @vspec(element: BRANCH, fqn: "Vehicle.Body.Lights.Beam")
   brake: Lights_Brake @vspec(element: BRANCH, fqn: "Vehicle.Body.Lights.Brake")
-  directionIndicators: [DirectionIndicator] @vspec(element: BRANCH, fqn: "Vehicle.Body.Lights.DirectionIndicator")
+  directionIndicators: [DirectionIndicator]
+    @vspec(element: BRANCH, fqn: "Vehicle.Body.Lights.DirectionIndicator")
   fogs: [Fog] @vspec(element: BRANCH, fqn: "Vehicle.Body.Lights.Fog")
   hazard: Hazard @vspec(element: BRANCH, fqn: "Vehicle.Body.Lights.Hazard")
   licensePlate: LicensePlate @vspec(element: BRANCH, fqn: "Vehicle.Body.Lights.LicensePlate")
@@ -21,8 +27,11 @@ type Lights @vspec(element: BRANCH, fqn: "Vehicle.Body.Lights") {
   running: Running @vspec(element: BRANCH, fqn: "Vehicle.Body.Lights.Running")
 }
 
-"""Allowed values for Vehicle.Body.Lights.LightSwitch."""
-enum Vehicle_Body_Lights_LightSwitch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Lights.LightSwitch") {
+"""
+Allowed values for Vehicle.Body.Lights.LightSwitch.
+"""
+enum Vehicle_Body_Lights_LightSwitch_Enum
+  @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Lights.LightSwitch") {
   OFF
   POSITION
   DAYTIME_RUNNING_LIGHTS

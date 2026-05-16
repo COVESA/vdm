@@ -1,13 +1,19 @@
 # Domain-specific GraphQL types
 
-
-"""All data concerning steering, suspension, wheels, and brakes."""
+"""
+All data concerning steering, suspension, wheels, and brakes.
+"""
 type Chassis @vspec(element: BRANCH, fqn: "Vehicle.Chassis") {
-  """Number of axles on the vehicle"""
+  """
+  Number of axles on the vehicle
+  """
   axleCount: UInt8 @vspec(element: ATTRIBUTE, fqn: "Vehicle.Chassis.AxleCount")
 
-  """Overall wheelbase, in mm."""
-  wheelbase(unit: LengthUnitEnum = MILLIMETER): UInt16 @vspec(element: ATTRIBUTE, fqn: "Vehicle.Chassis.Wheelbase")
+  """
+  Overall wheelbase, in mm.
+  """
+  wheelbase(unit: LengthUnitEnum = MILLIMETER): UInt16
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.Chassis.Wheelbase")
   accelerator: Accelerator @vspec(element: BRANCH, fqn: "Vehicle.Chassis.Accelerator")
   axles: [Chassis_Axle] @vspec(element: BRANCH, fqn: "Vehicle.Chassis.Axle")
   brake: Chassis_Brake @vspec(element: BRANCH, fqn: "Vehicle.Chassis.Brake")

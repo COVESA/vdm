@@ -1,22 +1,34 @@
 # Domain-specific GraphQL types
 
-
-"""HVAC for single station in the vehicle"""
+"""
+HVAC for single station in the vehicle
+"""
 type Station @vspec(element: BRANCH, fqn: "Vehicle.Cabin.HVAC.Station") {
+  """
+  Direction of airstream
+  """
+  airDistribution: Vehicle_Cabin_Hvac_Station_AirDistribution_Enum
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.HVAC.Station.AirDistribution")
 
-  """Direction of airstream"""
-  airDistribution: Vehicle_Cabin_Hvac_Station_AirDistribution_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.HVAC.Station.AirDistribution")
-
-  """Fan Speed, 0 = off. 100 = max"""
-  fanSpeed(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.HVAC.Station.FanSpeed")
+  """
+  Fan Speed, 0 = off. 100 = max
+  """
+  fanSpeed(unit: RelationUnitEnum = PERCENT): UInt8
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.HVAC.Station.FanSpeed")
     @range(min: 0, max: 100)
 
-  """Temperature"""
-  temperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.HVAC.Station.Temperature")
+  """
+  Temperature
+  """
+  temperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.HVAC.Station.Temperature")
 }
 
-"""Allowed values for Vehicle.Cabin.HVAC.Station.AirDistribution."""
-enum Vehicle_Cabin_Hvac_Station_AirDistribution_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.HVAC.Station.AirDistribution") {
+"""
+Allowed values for Vehicle.Cabin.HVAC.Station.AirDistribution.
+"""
+enum Vehicle_Cabin_Hvac_Station_AirDistribution_Enum
+  @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.HVAC.Station.AirDistribution") {
   UP
   MIDDLE
   DOWN

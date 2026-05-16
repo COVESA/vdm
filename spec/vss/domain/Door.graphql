@@ -1,15 +1,17 @@
 # Domain-specific GraphQL types
 
-
-"""All doors, including windows and switches."""
+"""
+All doors, including windows and switches.
+"""
 type Door @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Door") {
-
   """
   Is door child lock active. True = Door cannot be opened from inside. False = Door can be opened from inside.
   """
   isChildLockActive: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Cabin.Door.IsChildLockActive")
 
-  """Is item locked or unlocked. True = Locked. False = Unlocked."""
+  """
+  Is item locked or unlocked. True = Locked. False = Unlocked.
+  """
   isLocked: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.IsLocked")
 
   """
@@ -17,17 +19,24 @@ type Door @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Door") {
   """
   isOpen: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.IsOpen")
 
-  """Item position. 0 = Start position 100 = End position."""
-  position(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Position")
+  """
+  Item position. 0 = Start position 100 = End position.
+  """
+  position(unit: RelationUnitEnum = PERCENT): UInt8
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Position")
     @range(min: 0, max: 100)
 
-  """Switch controlling sliding action such as window, sunroof, or blind."""
+  """
+  Switch controlling sliding action such as window, sunroof, or blind.
+  """
   switch: Vehicle_Cabin_Door_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Switch")
   shade: Door_Shade @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Door.Shade")
   window: Window @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Door.Window")
 }
 
-"""Allowed values for Vehicle.Cabin.Door.Switch."""
+"""
+Allowed values for Vehicle.Cabin.Door.Switch.
+"""
 enum Vehicle_Cabin_Door_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Switch") {
   INACTIVE
   CLOSE

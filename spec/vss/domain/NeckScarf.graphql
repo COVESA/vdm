@@ -1,15 +1,20 @@
 # Domain-specific GraphQL types
 
-
-"""NeckScarf settings."""
+"""
+NeckScarf settings.
+"""
 type NeckScarf @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Seat.NeckScarf") {
-  """Speed of the fan."""
-  fanSpeed(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.NeckScarf.FanSpeed")
+  """
+  Speed of the fan.
+  """
+  fanSpeed(unit: RelationUnitEnum = PERCENT): UInt8
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.NeckScarf.FanSpeed")
     @range(min: 0, max: 100)
 
   """
   Heating or Cooling requsted for the Item. -100 = Maximum cooling, 0 = Heating/cooling deactivated, 100 = Maximum heating.
   """
-  heatingCooling(unit: RelationUnitEnum = PERCENT): Int8 @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.NeckScarf.HeatingCooling")
+  heatingCooling(unit: RelationUnitEnum = PERCENT): Int8
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Seat.NeckScarf.HeatingCooling")
     @range(min: -100, max: 100)
 }

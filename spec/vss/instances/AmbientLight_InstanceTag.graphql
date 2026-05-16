@@ -1,18 +1,23 @@
 # Instance tag type and dimensional enums
 
-
-type AmbientLight_InstanceTag @instanceTag @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Light.AmbientLight") {
+type AmbientLight_InstanceTag
+  @instanceTag
+  @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Light.AmbientLight") {
   dimension1: AmbientLight_InstanceTag_Dimension1
   dimension2: AmbientLight_InstanceTag_Dimension2
 }
 
-"""Dimensional enum for VSS instance dimension 1."""
+"""
+Dimensional enum for VSS instance dimension 1.
+"""
 enum AmbientLight_InstanceTag_Dimension1 {
   ROW1 @vspec(originalName: "Row1")
   ROW2 @vspec(originalName: "Row2")
 }
 
-"""Dimensional enum for VSS instance dimension 2."""
+"""
+Dimensional enum for VSS instance dimension 2.
+"""
 enum AmbientLight_InstanceTag_Dimension2 {
   DRIVER_SIDE @vspec(originalName: "DriverSide")
   PASSENGER_SIDE @vspec(originalName: "PassengerSide")

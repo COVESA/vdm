@@ -1,9 +1,12 @@
 # Domain-specific GraphQL types
 
-
-"""Emergency Brake Assist (EBA) System signals."""
+"""
+Emergency Brake Assist (EBA) System signals.
+"""
 type EBA @vspec(element: BRANCH, fqn: "Vehicle.ADAS.EBA") {
-  """Indicates if EBA is enabled. True = Enabled. False = Disabled."""
+  """
+  Indicates if EBA is enabled. True = Enabled. False = Disabled.
+  """
   isEnabled: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.ADAS.EBA.IsEnabled")
 
   """

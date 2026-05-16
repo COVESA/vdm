@@ -1,14 +1,21 @@
 # Domain-specific GraphQL types
 
-
-"""Signals from Cruise Control system."""
+"""
+Signals from Cruise Control system.
+"""
 type CruiseControl @vspec(element: BRANCH, fqn: "Vehicle.ADAS.CruiseControl") {
-  """Distance in meters to keep from lead vehicle"""
-  adaptiveDistanceSet(unit: LengthUnitEnum = METER): Float @vspec(element: ACTUATOR, fqn: "Vehicle.ADAS.CruiseControl.AdaptiveDistanceSet")
+  """
+  Distance in meters to keep from lead vehicle
+  """
+  adaptiveDistanceSet(unit: LengthUnitEnum = METER): Float
+    @vspec(element: ACTUATOR, fqn: "Vehicle.ADAS.CruiseControl.AdaptiveDistanceSet")
     @range(min: 0.0)
 
-  """Follow distance setting, commonly 1-5 with 1 being closest."""
-  adaptiveIntervalSet: UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.ADAS.CruiseControl.AdaptiveIntervalSet")
+  """
+  Follow distance setting, commonly 1-5 with 1 being closest.
+  """
+  adaptiveIntervalSet: UInt8
+    @vspec(element: ACTUATOR, fqn: "Vehicle.ADAS.CruiseControl.AdaptiveIntervalSet")
 
   """
   Indicates if cruise control system is active (i.e. actively controls speed). True = Active. False = Inactive.
@@ -30,6 +37,9 @@ type CruiseControl @vspec(element: BRANCH, fqn: "Vehicle.ADAS.CruiseControl") {
   """
   isError: Boolean @vspec(element: SENSOR, fqn: "Vehicle.ADAS.CruiseControl.IsError")
 
-  """Set cruise control speed in kilometers per hour."""
-  speedSet(unit: VelocityUnitEnum = KILOMETER_PER_HOUR): Float @vspec(element: ACTUATOR, fqn: "Vehicle.ADAS.CruiseControl.SpeedSet")
+  """
+  Set cruise control speed in kilometers per hour.
+  """
+  speedSet(unit: VelocityUnitEnum = KILOMETER_PER_HOUR): Float
+    @vspec(element: ACTUATOR, fqn: "Vehicle.ADAS.CruiseControl.SpeedSet")
 }

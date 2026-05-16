@@ -1,11 +1,9 @@
 # Domain-specific GraphQL types
 
-
 """
 Decorative coloured light inside the cabin, usually mounted on the door, ceiling, etc.
 """
 type AmbientLight @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Light.AmbientLight") {
-
   """
   Hexadecimal color code represented as a 3-byte RGB (i.e. Red, Green, and Blue) value preceded by a hash symbol "#". Allowed range "#000000" to "#FFFFFF".
   """
@@ -14,9 +12,12 @@ type AmbientLight @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Light.AmbientLight
   """
   How much of the maximum possible brightness of the light is used. 1 = Maximum attenuation, 100 = No attenuation (i.e. full brightness).
   """
-  intensity(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Light.AmbientLight.Intensity")
+  intensity(unit: RelationUnitEnum = PERCENT): UInt8
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Light.AmbientLight.Intensity")
     @range(min: 1, max: 100)
 
-  """Indicates whether the light is turned on. True = On, False = Off."""
+  """
+  Indicates whether the light is turned on. True = On, False = Off.
+  """
   isLightOn: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Light.AmbientLight.IsLightOn")
 }

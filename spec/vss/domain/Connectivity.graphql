@@ -1,10 +1,12 @@
 # Domain-specific GraphQL types
 
-
-"""Connectivity data."""
+"""
+Connectivity data.
+"""
 type Connectivity @vspec(element: BRANCH, fqn: "Vehicle.Connectivity") {
   """
   Indicates if connectivity between vehicle and cloud is available. True = Connectivity is available. False = Connectivity is not available.
   """
-  isConnectivityAvailable: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Connectivity.IsConnectivityAvailable")
+  isConnectivityAvailable: Boolean
+    @vspec(element: SENSOR, fqn: "Vehicle.Connectivity.IsConnectivityAvailable")
 }

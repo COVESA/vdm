@@ -1,99 +1,139 @@
 # Domain-specific GraphQL types
 
-
-"""Transmission-specific data, stopping at the drive shafts."""
+"""
+Transmission-specific data, stopping at the drive shafts.
+"""
 type Transmission @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.Transmission") {
   """
   Clutch engagement. 0% = Clutch fully disengaged. 100% = Clutch fully engaged.
   """
-  clutchEngagement(unit: RelationUnitEnum = PERCENT): Float @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.ClutchEngagement")
+  clutchEngagement(unit: RelationUnitEnum = PERCENT): Float
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.ClutchEngagement")
     @range(min: 0, max: 100)
 
-  """Clutch wear as a percent. 0 = no wear. 100 = worn."""
-  clutchWear(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.Transmission.ClutchWear")
+  """
+  Clutch wear as a percent. 0 = no wear. 100 = worn.
+  """
+  clutchWear(unit: RelationUnitEnum = PERCENT): UInt8
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.Transmission.ClutchWear")
     @range(max: 100)
 
-  """The current gear. 0=Neutral, 1/2/..=Forward, -1/-2/..=Reverse."""
+  """
+  The current gear. 0=Neutral, 1/2/..=Forward, -1/-2/..=Reverse.
+  """
   currentGear: Int8 @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.Transmission.CurrentGear")
 
   """
   Front Diff Lock engagement. 0% = Diff lock fully disengaged. 100% = Diff lock fully engaged.
   """
-  diffLockFrontEngagement(unit: RelationUnitEnum = PERCENT): Float @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.DiffLockFrontEngagement")
+  diffLockFrontEngagement(unit: RelationUnitEnum = PERCENT): Float
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.DiffLockFrontEngagement")
     @range(min: 0, max: 100)
 
   """
   Rear Diff Lock engagement. 0% = Diff lock fully disengaged. 100% = Diff lock fully engaged.
   """
-  diffLockRearEngagement(unit: RelationUnitEnum = PERCENT): Float @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.DiffLockRearEngagement")
+  diffLockRearEngagement(unit: RelationUnitEnum = PERCENT): Float
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.DiffLockRearEngagement")
     @range(min: 0, max: 100)
 
-  """Drive type."""
-  driveType: Vehicle_Powertrain_Transmission_DriveType_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.Transmission.DriveType")
+  """
+  Drive type.
+  """
+  driveType: Vehicle_Powertrain_Transmission_DriveType_Enum
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.Transmission.DriveType")
 
-  """Is the gearbox in automatic or manual (paddle) mode."""
-  gearChangeMode: Vehicle_Powertrain_Transmission_GearChangeMode_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.GearChangeMode")
+  """
+  Is the gearbox in automatic or manual (paddle) mode.
+  """
+  gearChangeMode: Vehicle_Powertrain_Transmission_GearChangeMode_Enum
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.GearChangeMode")
 
-  """Number of forward gears in the transmission. -1 = CVT."""
+  """
+  Number of forward gears in the transmission. -1 = CVT.
+  """
   gearCount: Int8 @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.Transmission.GearCount")
 
   """
   Is electrical powertrain mechanically connected/engaged to the drivetrain or not. False = Disconnected/Disengaged. True = Connected/Engaged.
   """
-  isElectricalPowertrainEngaged: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.IsElectricalPowertrainEngaged")
+  isElectricalPowertrainEngaged: Boolean
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.IsElectricalPowertrainEngaged")
 
   """
   Is gearbox in low range mode or not. False = Normal/High range engaged. True = Low range engaged.
   """
-  isLowRangeEngaged: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.IsLowRangeEngaged")
+  isLowRangeEngaged: Boolean
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.IsLowRangeEngaged")
 
   """
   Is the transmission park lock engaged or not. False = Disengaged. True = Engaged.
   """
-  isParkLockEngaged: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.IsParkLockEngaged")
+  isParkLockEngaged: Boolean
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.IsParkLockEngaged")
 
-  """Current gearbox performance mode."""
-  performanceMode: Vehicle_Powertrain_Transmission_PerformanceMode_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.PerformanceMode")
+  """
+  Current gearbox performance mode.
+  """
+  performanceMode: Vehicle_Powertrain_Transmission_PerformanceMode_Enum
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.PerformanceMode")
 
   """
   The selected gear. 0=Neutral, 1/2/..=Forward, -1/-2/..=Reverse, 126=Park, 127=Drive.
   """
   selectedGear: Int8 @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.SelectedGear")
 
-  """The current gearbox temperature."""
-  temperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.Transmission.Temperature")
+  """
+  The current gearbox temperature.
+  """
+  temperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.Transmission.Temperature")
 
   """
   Torque distribution between front and rear axle in percent. -100% = Full torque to front axle, 0% = 50:50 Front/Rear, 100% = Full torque to rear axle.
   """
-  torqueDistribution(unit: RelationUnitEnum = PERCENT): Float @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.TorqueDistribution")
+  torqueDistribution(unit: RelationUnitEnum = PERCENT): Float
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.TorqueDistribution")
     @range(min: -100, max: 100)
 
   """
   Odometer reading, total distance travelled during the lifetime of the transmission.
   """
-  travelledDistance(unit: LengthUnitEnum = KILOMETER): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.Transmission.TravelledDistance")
+  travelledDistance(unit: LengthUnitEnum = KILOMETER): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.Transmission.TravelledDistance")
 
-  """Transmission type."""
-  type: Vehicle_Powertrain_Transmission_Type_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.Transmission.Type")
+  """
+  Transmission type.
+  """
+  type: Vehicle_Powertrain_Transmission_Type_Enum
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.Transmission.Type")
 }
 
-"""Allowed values for Vehicle.Powertrain.Transmission.DriveType."""
-enum Vehicle_Powertrain_Transmission_DriveType_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.Transmission.DriveType") {
+"""
+Allowed values for Vehicle.Powertrain.Transmission.DriveType.
+"""
+enum Vehicle_Powertrain_Transmission_DriveType_Enum
+  @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.Transmission.DriveType") {
   UNKNOWN
   FORWARD_WHEEL_DRIVE
   REAR_WHEEL_DRIVE
   ALL_WHEEL_DRIVE
 }
 
-"""Allowed values for Vehicle.Powertrain.Transmission.GearChangeMode."""
-enum Vehicle_Powertrain_Transmission_GearChangeMode_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.GearChangeMode") {
+"""
+Allowed values for Vehicle.Powertrain.Transmission.GearChangeMode.
+"""
+enum Vehicle_Powertrain_Transmission_GearChangeMode_Enum
+  @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.GearChangeMode") {
   MANUAL
   AUTOMATIC
 }
 
-"""Allowed values for Vehicle.Powertrain.Transmission.PerformanceMode."""
-enum Vehicle_Powertrain_Transmission_PerformanceMode_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.PerformanceMode") {
+"""
+Allowed values for Vehicle.Powertrain.Transmission.PerformanceMode.
+"""
+enum Vehicle_Powertrain_Transmission_PerformanceMode_Enum
+  @vspec(element: ACTUATOR, fqn: "Vehicle.Powertrain.Transmission.PerformanceMode") {
   NORMAL
   SPORT
   ECONOMY
@@ -101,8 +141,11 @@ enum Vehicle_Powertrain_Transmission_PerformanceMode_Enum @vspec(element: ACTUAT
   RAIN
 }
 
-"""Allowed values for Vehicle.Powertrain.Transmission.Type."""
-enum Vehicle_Powertrain_Transmission_Type_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.Transmission.Type") {
+"""
+Allowed values for Vehicle.Powertrain.Transmission.Type.
+"""
+enum Vehicle_Powertrain_Transmission_Type_Enum
+  @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.Transmission.Type") {
   UNKNOWN
   SEQUENTIAL
   H

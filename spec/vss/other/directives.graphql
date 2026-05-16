@@ -1,33 +1,58 @@
-"""Annotation directive for Vspec mapping information."""
+"""
+Annotation directive for Vspec mapping information.
+"""
 directive @vspec(
-  """The element of the Vspec language to which the item in the GraphQL schema maps."""
-  element: VspecElement,
-  """The Fully Qualified Name (FQN) of the related element in Vspec (aka., path). Example: Vehicle.Cabin.Door.Window.position"""
+  """
+  The element of the Vspec language to which the item in the GraphQL schema maps.
+  """
+  element: VspecElement
+  """
+  The Fully Qualified Name (FQN) of the related element in Vspec (aka., path). Example: Vehicle.Cabin.Door.Window.position
+  """
   fqn: String
-  """Original name before sanitization for GraphQL compliance (e.g. for enum values with spaces or special characters)."""
+  """
+  Original name before sanitization for GraphQL compliance (e.g. for enum values with spaces or special characters).
+  """
   originalName: String
 ) on OBJECT | FIELD_DEFINITION | ENUM | ENUM_VALUE
 
-"""Kinds of Vspec elements that can be annotated."""
+"""
+Kinds of Vspec elements that can be annotated.
+"""
 enum VspecElement {
-  """A groupping entity that contains multiple properties whose values are meant to be read and written independently."""
+  """
+  A groupping entity that contains multiple properties whose values are meant to be read and written independently.
+  """
   BRANCH
-  """A property of a Vspec branch whose value is considered static."""
+  """
+  A property of a Vspec branch whose value is considered static.
+  """
   ATTRIBUTE
-  """A property of a Vspec branch whose value is dynamic and can be read."""
+  """
+  A property of a Vspec branch whose value is dynamic and can be read.
+  """
   SENSOR
-  """A property of a Vspec branch whose value is dynamic and can be read and written."""
+  """
+  A property of a Vspec branch whose value is dynamic and can be read and written.
+  """
   ACTUATOR
-  """A grouping entity that contains multiple properties whose values are meant to be read and written in a single operation."""
+  """
+  A grouping entity that contains multiple properties whose values are meant to be read and written in a single operation.
+  """
   STRUCT
-  """A property specified inside a Vspec struct."""
+  """
+  A property specified inside a Vspec struct.
+  """
   STRUCT_PROPERTY
-  """A quantity kind that groups units of the same physical quantity (e.g., length, temperature)."""
+  """
+  A quantity kind that groups units of the same physical quantity (e.g., length, temperature).
+  """
   QUANTITY_KIND
-  """A unit of measurement."""
+  """
+  A unit of measurement.
+  """
   UNIT
 }
-
 
 directive @range(min: Float, max: Float) on FIELD_DEFINITION
 

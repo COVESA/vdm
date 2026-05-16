@@ -1,9 +1,12 @@
 # Domain-specific GraphQL types
 
-
-"""Antilock Braking System signals."""
+"""
+Antilock Braking System signals.
+"""
 type ABS @vspec(element: BRANCH, fqn: "Vehicle.ADAS.ABS") {
-  """Indicates if ABS is enabled. True = Enabled. False = Disabled."""
+  """
+  Indicates if ABS is enabled. True = Enabled. False = Disabled.
+  """
   isEnabled: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.ADAS.ABS.IsEnabled")
 
   """

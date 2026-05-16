@@ -1,23 +1,33 @@
 # Domain-specific GraphQL types
 
-
-"""Door window status. Start position for Window is Closed."""
+"""
+Door window status. Start position for Window is Closed.
+"""
 type Window @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Door.Window") {
   """
   Is item open or closed? True = Fully or partially open. False = Fully closed.
   """
   isOpen: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Window.IsOpen")
 
-  """Item position. 0 = Start position 100 = End position."""
-  position(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Window.Position")
+  """
+  Item position. 0 = Start position 100 = End position.
+  """
+  position(unit: RelationUnitEnum = PERCENT): UInt8
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Window.Position")
     @range(min: 0, max: 100)
 
-  """Switch controlling sliding action such as window, sunroof, or blind."""
-  switch: Vehicle_Cabin_Door_Window_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Window.Switch")
+  """
+  Switch controlling sliding action such as window, sunroof, or blind.
+  """
+  switch: Vehicle_Cabin_Door_Window_Switch_Enum
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Window.Switch")
 }
 
-"""Allowed values for Vehicle.Cabin.Door.Window.Switch."""
-enum Vehicle_Cabin_Door_Window_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Window.Switch") {
+"""
+Allowed values for Vehicle.Cabin.Door.Window.Switch.
+"""
+enum Vehicle_Cabin_Door_Window_Switch_Enum
+  @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Door.Window.Switch") {
   INACTIVE
   CLOSE
   OPEN

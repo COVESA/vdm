@@ -1,13 +1,19 @@
 # Domain-specific GraphQL types
 
-
-"""Signals related to Charge Sustaining (CS) mode operation."""
-type ChargeSustaining @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.RangeExtender.ChargeSustaining") {
-  """Current fuel economy during Charge Sustaining mode operation."""
-  fuelEconomy(unit: DistancePerVolumeUnitEnum = KILOMETERS_PER_LITER): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.RangeExtender.ChargeSustaining.FuelEconomy")
+"""
+Signals related to Charge Sustaining (CS) mode operation.
+"""
+type ChargeSustaining
+  @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.RangeExtender.ChargeSustaining") {
+  """
+  Current fuel economy during Charge Sustaining mode operation.
+  """
+  fuelEconomy(unit: DistancePerVolumeUnitEnum = KILOMETERS_PER_LITER): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.RangeExtender.ChargeSustaining.FuelEconomy")
 
   """
   Estimated remaining distance that can be traveled in Charge Sustaining mode using available fuel.
   """
-  range(unit: LengthUnitEnum = METER): UInt32 @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.RangeExtender.ChargeSustaining.Range")
+  range(unit: LengthUnitEnum = METER): UInt32
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.RangeExtender.ChargeSustaining.Range")
 }

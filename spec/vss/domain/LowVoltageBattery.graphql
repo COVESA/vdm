@@ -1,19 +1,30 @@
 # Domain-specific GraphQL types
 
-
-"""Signals related to low voltage battery."""
+"""
+Signals related to low voltage battery.
+"""
 type LowVoltageBattery @vspec(element: BRANCH, fqn: "Vehicle.LowVoltageBattery") {
   """
   Current current flowing in/out of the low voltage battery. Positive = Current flowing in to battery, e.g. during charging or driving. Negative = Current flowing out of battery, e.g. when using the battery to start a combustion engine.
   """
-  currentCurrent(unit: ElectricCurrentUnitEnum = AMPERE): Float @vspec(element: SENSOR, fqn: "Vehicle.LowVoltageBattery.CurrentCurrent")
+  currentCurrent(unit: ElectricCurrentUnitEnum = AMPERE): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.LowVoltageBattery.CurrentCurrent")
 
-  """Current Voltage of the low voltage battery."""
-  currentVoltage(unit: VoltageUnitEnum = VOLT): Float @vspec(element: SENSOR, fqn: "Vehicle.LowVoltageBattery.CurrentVoltage")
+  """
+  Current Voltage of the low voltage battery.
+  """
+  currentVoltage(unit: VoltageUnitEnum = VOLT): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.LowVoltageBattery.CurrentVoltage")
 
-  """Nominal capacity of the low voltage battery."""
-  nominalCapacity(unit: ElectricChargeUnitEnum = AMPERE_HOURS): UInt16 @vspec(element: ATTRIBUTE, fqn: "Vehicle.LowVoltageBattery.NominalCapacity")
+  """
+  Nominal capacity of the low voltage battery.
+  """
+  nominalCapacity(unit: ElectricChargeUnitEnum = AMPERE_HOURS): UInt16
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.LowVoltageBattery.NominalCapacity")
 
-  """Nominal Voltage of the battery."""
-  nominalVoltage(unit: VoltageUnitEnum = VOLT): UInt16 @vspec(element: ATTRIBUTE, fqn: "Vehicle.LowVoltageBattery.NominalVoltage")
+  """
+  Nominal Voltage of the battery.
+  """
+  nominalVoltage(unit: VoltageUnitEnum = VOLT): UInt16
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.LowVoltageBattery.NominalVoltage")
 }

@@ -1,27 +1,39 @@
 # Domain-specific GraphQL types
 
-
-"""Signals related to the engine oil"""
+"""
+Signals related to the engine oil
+"""
 type EngineOil @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.CombustionEngine.EngineOil") {
-  """Engine oil capacity in liters."""
-  capacity(unit: VolumeUnitEnum = LITER): Float @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.EngineOil.Capacity")
+  """
+  Engine oil capacity in liters.
+  """
+  capacity(unit: VolumeUnitEnum = LITER): Float
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.EngineOil.Capacity")
 
-  """Engine oil level."""
-  level: Vehicle_Powertrain_CombustionEngine_EngineOil_Level_Enum @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.EngineOil.Level")
+  """
+  Engine oil level.
+  """
+  level: Vehicle_Powertrain_CombustionEngine_EngineOil_Level_Enum
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.EngineOil.Level")
 
   """
   Remaining engine oil life in seconds. Negative values can be used to indicate that lifetime has been exceeded.
   """
-  lifeRemaining(unit: DurationUnitEnum = SECOND): Int @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.EngineOil.LifeRemaining")
+  lifeRemaining(unit: DurationUnitEnum = SECOND): Int
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.EngineOil.LifeRemaining")
 
-  """EOT, Engine oil temperature."""
-  temperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.EngineOil.Temperature")
+  """
+  EOT, Engine oil temperature.
+  """
+  temperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.EngineOil.Temperature")
 }
 
 """
 Allowed values for Vehicle.Powertrain.CombustionEngine.EngineOil.Level.
 """
-enum Vehicle_Powertrain_CombustionEngine_EngineOil_Level_Enum @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.EngineOil.Level") {
+enum Vehicle_Powertrain_CombustionEngine_EngineOil_Level_Enum
+  @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.EngineOil.Level") {
   CRITICALLY_LOW
   LOW
   NORMAL

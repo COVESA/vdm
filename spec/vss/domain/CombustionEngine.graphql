@@ -1,93 +1,159 @@
 # Domain-specific GraphQL types
 
-
-"""Engine-specific data, stopping at the bell housing."""
+"""
+Engine-specific data, stopping at the bell housing.
+"""
 type CombustionEngine @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.CombustionEngine") {
-  """Type of aspiration (natural, turbocharger, supercharger etc)."""
-  aspirationType: Vehicle_Powertrain_CombustionEngine_AspirationType_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.AspirationType")
+  """
+  Type of aspiration (natural, turbocharger, supercharger etc).
+  """
+  aspirationType: Vehicle_Powertrain_CombustionEngine_AspirationType_Enum
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.AspirationType")
 
-  """Bore in millimetres."""
-  bore(unit: LengthUnitEnum = MILLIMETER): Float @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.Bore")
+  """
+  Bore in millimetres.
+  """
+  bore(unit: LengthUnitEnum = MILLIMETER): Float
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.Bore")
 
-  """Engine compression ratio, specified in the format 'X:1', e.g. '9.2:1'."""
-  compressionRatio: String @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.CompressionRatio")
+  """
+  Engine compression ratio, specified in the format 'X:1', e.g. '9.2:1'.
+  """
+  compressionRatio: String
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.CompressionRatio")
 
-  """Engine configuration."""
-  configuration: Vehicle_Powertrain_CombustionEngine_Configuration_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.Configuration")
+  """
+  Engine configuration.
+  """
+  configuration: Vehicle_Powertrain_CombustionEngine_Configuration_Enum
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.Configuration")
 
-  """Displacement in cubic centimetres."""
-  displacement(unit: VolumeUnitEnum = CUBIC_CENTIMETERS): UInt16 @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.Displacement")
+  """
+  Displacement in cubic centimetres.
+  """
+  displacement(unit: VolumeUnitEnum = CUBIC_CENTIMETERS): UInt16
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.Displacement")
 
-  """Engine oil pressure."""
-  eop(unit: PressureUnitEnum = KILOPASCAL): UInt16 @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.EOP")
+  """
+  Engine oil pressure.
+  """
+  eop(unit: PressureUnitEnum = KILOPASCAL): UInt16
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.EOP")
 
-  """Engine code designation, as specified by vehicle manufacturer."""
-  engineCode: String @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.EngineCode")
+  """
+  Engine code designation, as specified by vehicle manufacturer.
+  """
+  engineCode: String
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.EngineCode")
 
-  """Accumulated time during engine lifetime with 'engine speed (rpm) > 0'."""
-  engineHours(unit: DurationUnitEnum = HOUR): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.EngineHours")
+  """
+  Accumulated time during engine lifetime with 'engine speed (rpm) > 0'.
+  """
+  engineHours(unit: DurationUnitEnum = HOUR): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.EngineHours")
 
   """
   Accumulated idling time during engine lifetime. Definition of idling is not standardized.
   """
-  idleHours(unit: DurationUnitEnum = HOUR): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.IdleHours")
+  idleHours(unit: DurationUnitEnum = HOUR): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.IdleHours")
 
-  """Engine Running. True if engine is rotating (Speed > 0)."""
+  """
+  Engine Running. True if engine is rotating (Speed > 0).
+  """
   isRunning: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.IsRunning")
 
-  """Grams of air drawn into engine per second."""
-  maf(unit: MassPerTimeUnitEnum = GRAMS_PER_SECOND): UInt16 @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.MAF")
+  """
+  Grams of air drawn into engine per second.
+  """
+  maf(unit: MassPerTimeUnitEnum = GRAMS_PER_SECOND): UInt16
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.MAF")
 
-  """Manifold absolute pressure possibly boosted using forced induction."""
-  map(unit: PressureUnitEnum = KILOPASCAL): UInt16 @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.MAP")
+  """
+  Manifold absolute pressure possibly boosted using forced induction.
+  """
+  map(unit: PressureUnitEnum = KILOPASCAL): UInt16
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.MAP")
 
-  """Peak power, in kilowatts, that engine can generate."""
-  maxPower(unit: PowerUnitEnum = KILOWATT): UInt16 @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.MaxPower")
+  """
+  Peak power, in kilowatts, that engine can generate.
+  """
+  maxPower(unit: PowerUnitEnum = KILOWATT): UInt16
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.MaxPower")
 
-  """Peak torque, in newton meter, that the engine can generate."""
-  maxTorque(unit: TorqueUnitEnum = NEWTON_METER): UInt16 @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.MaxTorque")
+  """
+  Peak torque, in newton meter, that the engine can generate.
+  """
+  maxTorque(unit: TorqueUnitEnum = NEWTON_METER): UInt16
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.MaxTorque")
 
-  """Number of cylinders."""
-  numberOfCylinders: UInt16 @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.NumberOfCylinders")
+  """
+  Number of cylinders.
+  """
+  numberOfCylinders: UInt16
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.NumberOfCylinders")
 
-  """Number of valves per cylinder."""
-  numberOfValvesPerCylinder: UInt16 @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.NumberOfValvesPerCylinder")
+  """
+  Number of valves per cylinder.
+  """
+  numberOfValvesPerCylinder: UInt16
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.NumberOfValvesPerCylinder")
 
   """
   Current engine power output. Shall be reported as 0 during engine breaking.
   """
-  power(unit: PowerUnitEnum = KILOWATT): UInt16 @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.Power")
+  power(unit: PowerUnitEnum = KILOWATT): UInt16
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.Power")
 
-  """Engine speed measured as rotations per minute."""
-  speed(unit: RotationalSpeedUnitEnum = REVOLUTIONS_PER_MINUTE): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.Speed")
+  """
+  Engine speed measured as rotations per minute.
+  """
+  speed(unit: RotationalSpeedUnitEnum = REVOLUTIONS_PER_MINUTE): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.Speed")
 
-  """Stroke length in millimetres."""
-  strokeLength(unit: LengthUnitEnum = MILLIMETER): Float @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.StrokeLength")
+  """
+  Stroke length in millimetres.
+  """
+  strokeLength(unit: LengthUnitEnum = MILLIMETER): Float
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.StrokeLength")
 
-  """Current throttle position."""
-  tps(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.TPS")
+  """
+  Current throttle position.
+  """
+  tps(unit: RelationUnitEnum = PERCENT): UInt8
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.TPS")
     @range(max: 100)
 
   """
   Current engine torque. Shall be reported as a negative number during engine breaking.
   """
-  torque(unit: TorqueUnitEnum = NEWTON_METER): Int16 @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.Torque")
-  dieselExhaustFluid: DieselExhaustFluid @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.CombustionEngine.DieselExhaustFluid")
-  dieselParticulateFilter: DieselParticulateFilter @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.CombustionEngine.DieselParticulateFilter")
-  engineCoolant: CombustionEngine_EngineCoolant @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.CombustionEngine.EngineCoolant")
+  torque(unit: TorqueUnitEnum = NEWTON_METER): Int16
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.Torque")
+  dieselExhaustFluid: DieselExhaustFluid
+    @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.CombustionEngine.DieselExhaustFluid")
+  dieselParticulateFilter: DieselParticulateFilter
+    @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.CombustionEngine.DieselParticulateFilter")
+  engineCoolant: CombustionEngine_EngineCoolant
+    @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.CombustionEngine.EngineCoolant")
   engineOil: EngineOil @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.CombustionEngine.EngineOil")
 }
 
-"""Allowed values for Vehicle.Powertrain.CombustionEngine.AspirationType."""
-enum Vehicle_Powertrain_CombustionEngine_AspirationType_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.AspirationType") {
+"""
+Allowed values for Vehicle.Powertrain.CombustionEngine.AspirationType.
+"""
+enum Vehicle_Powertrain_CombustionEngine_AspirationType_Enum
+  @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.AspirationType") {
   UNKNOWN
   NATURAL
   SUPERCHARGER
   TURBOCHARGER
 }
 
-"""Allowed values for Vehicle.Powertrain.CombustionEngine.Configuration."""
-enum Vehicle_Powertrain_CombustionEngine_Configuration_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.Configuration") {
+"""
+Allowed values for Vehicle.Powertrain.CombustionEngine.Configuration.
+"""
+enum Vehicle_Powertrain_CombustionEngine_Configuration_Enum
+  @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.CombustionEngine.Configuration") {
   UNKNOWN
   STRAIGHT
   V

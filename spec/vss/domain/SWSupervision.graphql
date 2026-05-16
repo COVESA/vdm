@@ -1,17 +1,30 @@
 # Domain-specific GraphQL types
 
-
-"""SW supervision attributes and signals"""
+"""
+SW supervision attributes and signals
+"""
 type SWSupervision @vspec(element: BRANCH, fqn: "Vehicle.ControlUnit.Health.SWSupervision") {
-  """Whether the alive supervision was triggered"""
-  isAliveTriggered: Boolean @vspec(element: SENSOR, fqn: "Vehicle.ControlUnit.Health.SWSupervision.IsAliveTriggered")
+  """
+  Whether the alive supervision was triggered
+  """
+  isAliveTriggered: Boolean
+    @vspec(element: SENSOR, fqn: "Vehicle.ControlUnit.Health.SWSupervision.IsAliveTriggered")
 
-  """Whether the deadline supervision was triggered"""
-  isDeadlineTriggered: Boolean @vspec(element: SENSOR, fqn: "Vehicle.ControlUnit.Health.SWSupervision.IsDeadlineTriggered")
+  """
+  Whether the deadline supervision was triggered
+  """
+  isDeadlineTriggered: Boolean
+    @vspec(element: SENSOR, fqn: "Vehicle.ControlUnit.Health.SWSupervision.IsDeadlineTriggered")
 
-  """Whether the logical supervision was triggered"""
-  isLogicalTriggered: Boolean @vspec(element: SENSOR, fqn: "Vehicle.ControlUnit.Health.SWSupervision.IsLogicalTriggered")
+  """
+  Whether the logical supervision was triggered
+  """
+  isLogicalTriggered: Boolean
+    @vspec(element: SENSOR, fqn: "Vehicle.ControlUnit.Health.SWSupervision.IsLogicalTriggered")
 
-  """Whether the watchdog deadline was triggered"""
-  isWatchdogTriggered: Boolean @vspec(element: SENSOR, fqn: "Vehicle.ControlUnit.Health.SWSupervision.IsWatchdogTriggered")
+  """
+  Whether the watchdog deadline was triggered
+  """
+  isWatchdogTriggered: Boolean
+    @vspec(element: SENSOR, fqn: "Vehicle.ControlUnit.Health.SWSupervision.IsWatchdogTriggered")
 }

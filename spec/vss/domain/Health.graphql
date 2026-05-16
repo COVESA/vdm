@@ -1,9 +1,11 @@
 # Domain-specific GraphQL types
 
-
-"""Health attributes and signals"""
+"""
+Health attributes and signals
+"""
 type Health @vspec(element: BRANCH, fqn: "Vehicle.ControlUnit.Health") {
   network: Network @vspec(element: BRANCH, fqn: "Vehicle.ControlUnit.Health.Network")
   resources: Resources @vspec(element: BRANCH, fqn: "Vehicle.ControlUnit.Health.Resources")
-  swsupervision: SWSupervision @vspec(element: BRANCH, fqn: "Vehicle.ControlUnit.Health.SWSupervision")
+  swsupervision: SWSupervision
+    @vspec(element: BRANCH, fqn: "Vehicle.ControlUnit.Health.SWSupervision")
 }

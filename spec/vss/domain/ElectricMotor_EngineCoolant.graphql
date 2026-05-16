@@ -1,27 +1,40 @@
 # Domain-specific GraphQL types
 
+"""
+Signals related to the engine coolant (if applicable).
+"""
+type ElectricMotor_EngineCoolant
+  @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.ElectricMotor.EngineCoolant") {
+  """
+  Engine coolant capacity in liters.
+  """
+  capacity(unit: VolumeUnitEnum = LITER): Float
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.ElectricMotor.EngineCoolant.Capacity")
 
-"""Signals related to the engine coolant (if applicable)."""
-type ElectricMotor_EngineCoolant @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.ElectricMotor.EngineCoolant") {
-  """Engine coolant capacity in liters."""
-  capacity(unit: VolumeUnitEnum = LITER): Float @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.ElectricMotor.EngineCoolant.Capacity")
-
-  """Engine coolant level."""
-  level: Vehicle_Powertrain_ElectricMotor_EngineCoolant_Level_Enum @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.ElectricMotor.EngineCoolant.Level")
+  """
+  Engine coolant level.
+  """
+  level: Vehicle_Powertrain_ElectricMotor_EngineCoolant_Level_Enum
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.ElectricMotor.EngineCoolant.Level")
 
   """
   Remaining engine coolant life in seconds. Negative values can be used to indicate that lifetime has been exceeded.
   """
-  lifeRemaining(unit: DurationUnitEnum = SECOND): Int @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.ElectricMotor.EngineCoolant.LifeRemaining")
+  lifeRemaining(unit: DurationUnitEnum = SECOND): Int
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.ElectricMotor.EngineCoolant.LifeRemaining")
 
-  """Engine coolant temperature."""
-  temperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.ElectricMotor.Temperature")
+  """
+  Engine coolant temperature.
+  """
+  temperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.ElectricMotor.Temperature")
 }
 
 """
 Allowed values for Vehicle.Powertrain.ElectricMotor.EngineCoolant.Level.
 """
-enum Vehicle_Powertrain_ElectricMotor_EngineCoolant_Level_Enum @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.ElectricMotor.EngineCoolant.Level") {
+enum Vehicle_Powertrain_ElectricMotor_EngineCoolant_Level_Enum
+  @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.ElectricMotor.EngineCoolant.Level") {
   CRITICALLY_LOW
   LOW
   NORMAL

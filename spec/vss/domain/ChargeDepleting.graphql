@@ -1,15 +1,24 @@
 # Domain-specific GraphQL types
 
-
-"""Signals related to Charge Depleting (CD) mode operation."""
-type ChargeDepleting @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.RangeExtender.ChargeDepleting") {
+"""
+Signals related to Charge Depleting (CD) mode operation.
+"""
+type ChargeDepleting
+  @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.RangeExtender.ChargeDepleting") {
   """
   Current electric energy consumption rate during Charge Depleting mode operation.
   """
-  energyConsumption(unit: EnergyConsumptionPerDistanceUnitEnum = KILOWATT_HOURS_PER_100_KILOMETERS): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.RangeExtender.ChargeDepleting.EnergyConsumption")
+  energyConsumption(
+    unit: EnergyConsumptionPerDistanceUnitEnum = KILOWATT_HOURS_PER_100_KILOMETERS
+  ): Float
+    @vspec(
+      element: SENSOR
+      fqn: "Vehicle.Powertrain.RangeExtender.ChargeDepleting.EnergyConsumption"
+    )
 
   """
   Estimated remaining distance that can be traveled in Charge Depleting mode using available battery energy.
   """
-  range(unit: LengthUnitEnum = METER): UInt32 @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.RangeExtender.ChargeDepleting.Range")
+  range(unit: LengthUnitEnum = METER): UInt32
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.RangeExtender.ChargeDepleting.Range")
 }

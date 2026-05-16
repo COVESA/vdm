@@ -1,20 +1,27 @@
 # Domain-specific GraphQL types
 
-
-"""MotionManagement related to rear axle."""
+"""
+MotionManagement related to rear axle.
+"""
 type Row2 @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.Steering.Axle.Row2") {
   """
   Represents the current actuated steering angle of the steered wheels on rear axle. Signal orientation according ISO8855, single track model.
   """
-  steerAngle(unit: AngleUnitEnum = DEGREE): Int16 @vspec(element: SENSOR, fqn: "Vehicle.MotionManagement.Steering.Axle.Row2.SteerAngle")
+  steerAngle(unit: AngleUnitEnum = DEGREE): Int16
+    @vspec(element: SENSOR, fqn: "Vehicle.MotionManagement.Steering.Axle.Row2.SteerAngle")
 
   """
   Steer angle request to the rear axle steering actuator (external set-point). Signal orientation according ISO8855, single track model.
   """
-  steerAngleTarget(unit: AngleUnitEnum = DEGREE): Int16 @vspec(element: ACTUATOR, fqn: "Vehicle.MotionManagement.Steering.Axle.Row2.SteerAngleTarget")
+  steerAngleTarget(unit: AngleUnitEnum = DEGREE): Int16
+    @vspec(element: ACTUATOR, fqn: "Vehicle.MotionManagement.Steering.Axle.Row2.SteerAngleTarget")
 
   """
   Requested velocity for steer angle change. Signal orientation according ISO8855. Optional signal to adapt rear wheel steering closed loop control gain.
   """
-  steerAngleVelocityTarget(unit: AngularSpeedUnitEnum = DEGREE_PER_SECOND): Int16 @vspec(element: ACTUATOR, fqn: "Vehicle.MotionManagement.Steering.Axle.Row2.SteerAngleVelocityTarget")
+  steerAngleVelocityTarget(unit: AngularSpeedUnitEnum = DEGREE_PER_SECOND): Int16
+    @vspec(
+      element: ACTUATOR
+      fqn: "Vehicle.MotionManagement.Steering.Axle.Row2.SteerAngleVelocityTarget"
+    )
 }

@@ -1,26 +1,26 @@
 type Person {
-    id: ID!
-    name: PersonName
-    ageRange: AgeRange
-    homeAddress: Address
+  id: ID!
+  name: PersonName
+  ageRange: AgeRange
+  homeAddress: Address
 }
 
 type PersonName {
-    first: String!
-    middle: String
-    last: String!
+  first: String!
+  middle: String
+  last: String!
 }
 
 type Address {
-    street: String!
-    city: String!
-    state: String!
-    zip: String!
+  street: String!
+  city: String!
+  state: String!
+  zip: String!
 }
 
 enum AgeRange {
-    CHILD
-    TEEN
-    ADULT
-    SENIOR
+  CHILD
+  TEEN
+  ADULT
+  SENIOR
 }

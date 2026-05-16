@@ -1,11 +1,12 @@
 # Instance tag type and dimensional enums
 
-
 type Trunk_InstanceTag @instanceTag @vspec(element: BRANCH, fqn: "Vehicle.Body.Trunk") {
   dimension1: Trunk_InstanceTag_Dimension1
 }
 
-"""Dimensional enum for VSS instance dimension 1."""
+"""
+Dimensional enum for VSS instance dimension 1.
+"""
 enum Trunk_InstanceTag_Dimension1 {
   FRONT @vspec(originalName: "Front")
   REAR @vspec(originalName: "Rear")

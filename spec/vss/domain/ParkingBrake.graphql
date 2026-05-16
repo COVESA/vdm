@@ -1,12 +1,14 @@
 # Domain-specific GraphQL types
 
-
-"""Parking brake signals"""
+"""
+Parking brake signals
+"""
 type ParkingBrake @vspec(element: BRANCH, fqn: "Vehicle.Chassis.ParkingBrake") {
   """
   Indicates if parking brake will be automatically engaged when the vehicle engine is turned off.
   """
-  isAutoApplyEnabled: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Chassis.ParkingBrake.IsAutoApplyEnabled")
+  isAutoApplyEnabled: Boolean
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Chassis.ParkingBrake.IsAutoApplyEnabled")
 
   """
   Parking brake status. True = Parking Brake is Engaged. False = Parking Brake is not Engaged.

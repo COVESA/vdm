@@ -1,14 +1,34 @@
 # Domain-specific GraphQL types
 
+"""
+Diesel Particulate Filter signals.
+"""
+type DieselParticulateFilter
+  @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.CombustionEngine.DieselParticulateFilter") {
+  """
+  Delta Pressure of Diesel Particulate Filter.
+  """
+  deltaPressure(unit: PressureUnitEnum = PASCAL): Float
+    @vspec(
+      element: SENSOR
+      fqn: "Vehicle.Powertrain.CombustionEngine.DieselParticulateFilter.DeltaPressure"
+    )
 
-"""Diesel Particulate Filter signals."""
-type DieselParticulateFilter @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.CombustionEngine.DieselParticulateFilter") {
-  """Delta Pressure of Diesel Particulate Filter."""
-  deltaPressure(unit: PressureUnitEnum = PASCAL): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.DieselParticulateFilter.DeltaPressure")
+  """
+  Inlet temperature of Diesel Particulate Filter.
+  """
+  inletTemperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+    @vspec(
+      element: SENSOR
+      fqn: "Vehicle.Powertrain.CombustionEngine.DieselParticulateFilter.InletTemperature"
+    )
 
-  """Inlet temperature of Diesel Particulate Filter."""
-  inletTemperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.DieselParticulateFilter.InletTemperature")
-
-  """Outlet temperature of Diesel Particulate Filter."""
-  outletTemperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.CombustionEngine.DieselParticulateFilter.OutletTemperature")
+  """
+  Outlet temperature of Diesel Particulate Filter.
+  """
+  outletTemperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+    @vspec(
+      element: SENSOR
+      fqn: "Vehicle.Powertrain.CombustionEngine.DieselParticulateFilter.OutletTemperature"
+    )
 }

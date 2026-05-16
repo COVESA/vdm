@@ -1,11 +1,12 @@
 # Instance tag type and dimensional enums
 
-
 type ControlUnit_InstanceTag @instanceTag @vspec(element: BRANCH, fqn: "Vehicle.ControlUnit") {
   dimension1: ControlUnit_InstanceTag_Dimension1
 }
 
-"""Dimensional enum for VSS instance dimension 1."""
+"""
+Dimensional enum for VSS instance dimension 1.
+"""
 enum ControlUnit_InstanceTag_Dimension1 {
   CENTRAL @vspec(originalName: "Central")
   FRONT_LEFT @vspec(originalName: "FrontLeft")

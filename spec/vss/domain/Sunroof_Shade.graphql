@@ -1,6 +1,5 @@
 # Domain-specific GraphQL types
 
-
 """
 Sun roof shade status. Open = Retracted, Closed = Deployed. Start position for Sunroof.Shade is Open/Retracted.
 """
@@ -10,16 +9,25 @@ type Sunroof_Shade @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Sunroof.Shade") {
   """
   isOpen: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Sunroof.Shade.IsOpen")
 
-  """Item position. 0 = Start position 100 = End position."""
-  position(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: SENSOR, fqn: "Vehicle.Cabin.Sunroof.Position")
+  """
+  Item position. 0 = Start position 100 = End position.
+  """
+  position(unit: RelationUnitEnum = PERCENT): UInt8
+    @vspec(element: SENSOR, fqn: "Vehicle.Cabin.Sunroof.Position")
     @range(min: -100, max: 100)
 
-  """Switch controlling sliding action such as window, sunroof, or blind."""
-  switch: Vehicle_Cabin_Sunroof_Shade_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Sunroof.Switch")
+  """
+  Switch controlling sliding action such as window, sunroof, or blind.
+  """
+  switch: Vehicle_Cabin_Sunroof_Shade_Switch_Enum
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Sunroof.Switch")
 }
 
-"""Allowed values for Vehicle.Cabin.Sunroof.Shade.Switch."""
-enum Vehicle_Cabin_Sunroof_Shade_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Sunroof.Shade.Switch") {
+"""
+Allowed values for Vehicle.Cabin.Sunroof.Shade.Switch.
+"""
+enum Vehicle_Cabin_Sunroof_Shade_Switch_Enum
+  @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Sunroof.Shade.Switch") {
   INACTIVE
   CLOSE
   OPEN

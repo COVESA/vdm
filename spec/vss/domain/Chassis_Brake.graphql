@@ -1,16 +1,19 @@
 # Domain-specific GraphQL types
 
-
-"""Brake system signals"""
+"""
+Brake system signals
+"""
 type Chassis_Brake @vspec(element: BRANCH, fqn: "Vehicle.Chassis.Brake") {
   """
   Indicates if emergency braking initiated by driver is detected. True = Emergency braking detected. False = Emergency braking not detected.
   """
-  isDriverEmergencyBrakingDetected: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Chassis.Brake.IsDriverEmergencyBrakingDetected")
+  isDriverEmergencyBrakingDetected: Boolean
+    @vspec(element: SENSOR, fqn: "Vehicle.Chassis.Brake.IsDriverEmergencyBrakingDetected")
 
   """
   Brake pedal position as percent. 0 = Not depressed. 100 = Fully depressed.
   """
-  pedalPosition(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: SENSOR, fqn: "Vehicle.Chassis.Brake.PedalPosition")
+  pedalPosition(unit: RelationUnitEnum = PERCENT): UInt8
+    @vspec(element: SENSOR, fqn: "Vehicle.Chassis.Brake.PedalPosition")
     @range(min: 0, max: 100)
 }

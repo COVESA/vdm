@@ -1,7 +1,8 @@
 # Domain-specific GraphQL types
 
-
-"""Windshield wiper signals."""
+"""
+Windshield wiper signals.
+"""
 type Wiping @vspec(element: BRANCH, fqn: "Vehicle.Body.Windshield.Wiping") {
   """
   Relative intensity/sensitivity for interval and rain sensor mode as requested by user/driver. Has no significance if Windshield.Wiping.Mode is OFF/SLOW/MEDIUM/FAST 0 - wipers inactive. 1 - minimum intensity (lowest frequency/sensitivity, longest interval). 2/3/4/... - higher intensity (higher frequency/sensitivity, shorter interval). Maximum value supported is vehicle specific.
@@ -16,18 +17,23 @@ type Wiping @vspec(element: BRANCH, fqn: "Vehicle.Body.Windshield.Wiping") {
   """
   Wiper mode requested by user/driver. INTERVAL indicates intermittent wiping, with fixed time interval between each wipe. RAIN_SENSOR indicates intermittent wiping based on rain intensity.
   """
-  mode: Vehicle_Body_Windshield_Wiping_Mode_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Windshield.Wiping.Mode")
+  mode: Vehicle_Body_Windshield_Wiping_Mode_Enum
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Windshield.Wiping.Mode")
 
   """
   Wiper wear as percent. 0 = No Wear. 100 = Worn. Replacement required. Method for calculating or estimating wiper wear is vehicle specific. For windshields with multiple wipers the wear reported shall correspond to the most worn wiper.
   """
-  wiperWear(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: SENSOR, fqn: "Vehicle.Body.Windshield.Wiping.WiperWear")
+  wiperWear(unit: RelationUnitEnum = PERCENT): UInt8
+    @vspec(element: SENSOR, fqn: "Vehicle.Body.Windshield.Wiping.WiperWear")
     @range(max: 100)
   system: System @vspec(element: BRANCH, fqn: "Vehicle.Body.Windshield.Wiping.System")
 }
 
-"""Allowed values for Vehicle.Body.Windshield.Wiping.Mode."""
-enum Vehicle_Body_Windshield_Wiping_Mode_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Windshield.Wiping.Mode") {
+"""
+Allowed values for Vehicle.Body.Windshield.Wiping.Mode.
+"""
+enum Vehicle_Body_Windshield_Wiping_Mode_Enum
+  @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Windshield.Wiping.Mode") {
   OFF
   SLOW
   MEDIUM

@@ -1,10 +1,12 @@
 # Domain-specific GraphQL types
 
-
-"""CAN network attributes and signals"""
+"""
+CAN network attributes and signals
+"""
 type CAN @vspec(element: BRANCH, fqn: "Vehicle.ControlUnit.Health.Network.CAN") {
   """
   Network status. True = No network problems detected. False = Network problems detected.
   """
-  isNetworkOk: Boolean @vspec(element: SENSOR, fqn: "Vehicle.ControlUnit.Health.Network.CAN.IsNetworkOK")
+  isNetworkOk: Boolean
+    @vspec(element: SENSOR, fqn: "Vehicle.ControlUnit.Health.Network.CAN.IsNetworkOK")
 }

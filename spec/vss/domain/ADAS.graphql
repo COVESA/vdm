@@ -1,12 +1,14 @@
 # Domain-specific GraphQL types
 
-
-"""All Advanced Driver Assist Systems data."""
+"""
+All Advanced Driver Assist Systems data.
+"""
 type ADAS @vspec(element: BRANCH, fqn: "Vehicle.ADAS") {
   """
   Indicates the currently active level of driving automation according to the SAE J3016 (Taxonomy and Definitions for Terms Related to Driving Automation Systems for On-Road Motor Vehicles).
   """
-  activeAutonomyLevel: Vehicle_Adas_ActiveAutonomyLevel_Enum @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ActiveAutonomyLevel")
+  activeAutonomyLevel: Vehicle_Adas_ActiveAutonomyLevel_Enum
+    @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ActiveAutonomyLevel")
 
   """
   Auto Power Optimization Flag When set to 'true', the system enables automatic power optimization, dynamically adjusting the power optimization level based on runtime conditions or features managed by the OEM. When set to 'false', manual control of the power optimization level is allowed.
@@ -16,26 +18,33 @@ type ADAS @vspec(element: BRANCH, fqn: "Vehicle.ADAS") {
   """
   Power optimization level for this branch/subsystem. A higher number indicates more aggressive power optimization. Level 0 indicates that all functionality is enabled, no power optimization enabled. Level 10 indicates most aggressive power optimization mode, only essential functionality enabled.
   """
-  powerOptimizeLevel: UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.ADAS.PowerOptimizeLevel")
+  powerOptimizeLevel: UInt8
+    @vspec(element: ACTUATOR, fqn: "Vehicle.ADAS.PowerOptimizeLevel")
     @range(min: 0, max: 10)
 
   """
   Indicates the highest level of driving automation according to the SAE J3016 taxonomy the vehicle is capable of.
   """
-  supportedAutonomyLevel: Vehicle_Adas_SupportedAutonomyLevel_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.ADAS.SupportedAutonomyLevel")
+  supportedAutonomyLevel: Vehicle_Adas_SupportedAutonomyLevel_Enum
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.ADAS.SupportedAutonomyLevel")
   abs: ABS @vspec(element: BRANCH, fqn: "Vehicle.ADAS.ABS")
   cruiseControl: CruiseControl @vspec(element: BRANCH, fqn: "Vehicle.ADAS.CruiseControl")
   dms: DMS @vspec(element: BRANCH, fqn: "Vehicle.ADAS.DMS")
   eba: EBA @vspec(element: BRANCH, fqn: "Vehicle.ADAS.EBA")
   ebd: EBD @vspec(element: BRANCH, fqn: "Vehicle.ADAS.EBD")
   esc: ESC @vspec(element: BRANCH, fqn: "Vehicle.ADAS.ESC")
-  laneDepartureDetection: LaneDepartureDetection @vspec(element: BRANCH, fqn: "Vehicle.ADAS.LaneDepartureDetection")
-  obstacleDetections: [ObstacleDetection] @vspec(element: BRANCH, fqn: "Vehicle.ADAS.ObstacleDetection")
+  laneDepartureDetection: LaneDepartureDetection
+    @vspec(element: BRANCH, fqn: "Vehicle.ADAS.LaneDepartureDetection")
+  obstacleDetections: [ObstacleDetection]
+    @vspec(element: BRANCH, fqn: "Vehicle.ADAS.ObstacleDetection")
   tcs: TCS @vspec(element: BRANCH, fqn: "Vehicle.ADAS.TCS")
 }
 
-"""Allowed values for Vehicle.ADAS.ActiveAutonomyLevel."""
-enum Vehicle_Adas_ActiveAutonomyLevel_Enum @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ActiveAutonomyLevel") {
+"""
+Allowed values for Vehicle.ADAS.ActiveAutonomyLevel.
+"""
+enum Vehicle_Adas_ActiveAutonomyLevel_Enum
+  @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ActiveAutonomyLevel") {
   SAE_0
   SAE_1
   SAE_2_DISENGAGING
@@ -48,8 +57,11 @@ enum Vehicle_Adas_ActiveAutonomyLevel_Enum @vspec(element: SENSOR, fqn: "Vehicle
   SAE_5
 }
 
-"""Allowed values for Vehicle.ADAS.SupportedAutonomyLevel."""
-enum Vehicle_Adas_SupportedAutonomyLevel_Enum @vspec(element: ATTRIBUTE, fqn: "Vehicle.ADAS.SupportedAutonomyLevel") {
+"""
+Allowed values for Vehicle.ADAS.SupportedAutonomyLevel.
+"""
+enum Vehicle_Adas_SupportedAutonomyLevel_Enum
+  @vspec(element: ATTRIBUTE, fqn: "Vehicle.ADAS.SupportedAutonomyLevel") {
   SAE_0
   SAE_1
   SAE_2

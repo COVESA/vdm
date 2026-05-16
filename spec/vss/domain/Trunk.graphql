@@ -1,13 +1,17 @@
 # Domain-specific GraphQL types
 
-
-"""Trunk status. Start position for Trunk is Closed."""
+"""
+Trunk status. Start position for Trunk is Closed.
+"""
 type Trunk @vspec(element: BRANCH, fqn: "Vehicle.Body.Trunk") {
-
-  """Is trunk light on"""
+  """
+  Is trunk light on
+  """
   isLightOn: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Trunk.IsLightOn")
 
-  """Is item locked or unlocked. True = Locked. False = Unlocked."""
+  """
+  Is item locked or unlocked. True = Locked. False = Unlocked.
+  """
   isLocked: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Trunk.IsLocked")
 
   """
@@ -15,15 +19,22 @@ type Trunk @vspec(element: BRANCH, fqn: "Vehicle.Body.Trunk") {
   """
   isOpen: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Trunk.IsOpen")
 
-  """Item position. 0 = Start position 100 = End position."""
-  position(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Trunk.Position")
+  """
+  Item position. 0 = Start position 100 = End position.
+  """
+  position(unit: RelationUnitEnum = PERCENT): UInt8
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Trunk.Position")
     @range(min: 0, max: 100)
 
-  """Switch controlling sliding action such as window, sunroof, or blind."""
+  """
+  Switch controlling sliding action such as window, sunroof, or blind.
+  """
   switch: Vehicle_Body_Trunk_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Trunk.Switch")
 }
 
-"""Allowed values for Vehicle.Body.Trunk.Switch."""
+"""
+Allowed values for Vehicle.Body.Trunk.Switch.
+"""
 enum Vehicle_Body_Trunk_Switch_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Trunk.Switch") {
   INACTIVE
   CLOSE

@@ -1,23 +1,27 @@
 # Domain-specific GraphQL types
 
-
-"""Road friction values reported by the ESC system."""
+"""
+Road friction values reported by the ESC system.
+"""
 type RoadFriction @vspec(element: BRANCH, fqn: "Vehicle.ADAS.ESC.RoadFriction") {
   """
   Lower bound road friction, as calculated by the ESC system. 5% possibility that road friction is below this value. 0 = no friction, 100 = maximum friction.
   """
-  lowerBound(unit: RelationUnitEnum = PERCENT): Float @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ESC.RoadFriction.LowerBound")
+  lowerBound(unit: RelationUnitEnum = PERCENT): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ESC.RoadFriction.LowerBound")
     @range(min: 0, max: 100)
 
   """
   Most probable road friction, as calculated by the ESC system. Exact meaning of most probable is implementation specific. 0 = no friction, 100 = maximum friction.
   """
-  mostProbable(unit: RelationUnitEnum = PERCENT): Float @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ESC.RoadFriction.MostProbable")
+  mostProbable(unit: RelationUnitEnum = PERCENT): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ESC.RoadFriction.MostProbable")
     @range(min: 0, max: 100)
 
   """
   Upper bound road friction, as calculated by the ESC system. 95% possibility that road friction is below this value. 0 = no friction, 100 = maximum friction.
   """
-  upperBound(unit: RelationUnitEnum = PERCENT): Float @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ESC.RoadFriction.UpperBound")
+  upperBound(unit: RelationUnitEnum = PERCENT): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ESC.RoadFriction.UpperBound")
     @range(min: 0, max: 100)
 }

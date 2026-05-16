@@ -1,11 +1,14 @@
 # Instance tag type and dimensional enums
 
-
-type ChargingPort_InstanceTag @instanceTag @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.Charging.ChargingPort") {
+type ChargingPort_InstanceTag
+  @instanceTag
+  @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.Charging.ChargingPort") {
   dimension1: ChargingPort_InstanceTag_Dimension1
 }
 
-"""Dimensional enum for VSS instance dimension 1."""
+"""
+Dimensional enum for VSS instance dimension 1.
+"""
 enum ChargingPort_InstanceTag_Dimension1 {
   FRONT_LEFT @vspec(originalName: "FrontLeft")
   FRONT_MIDDLE @vspec(originalName: "FrontMiddle")

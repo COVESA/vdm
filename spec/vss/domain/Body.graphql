@@ -1,9 +1,12 @@
 # Domain-specific GraphQL types
 
-
-"""All body components."""
+"""
+All body components.
+"""
 type Body @vspec(element: BRANCH, fqn: "Vehicle.Body") {
-  """Body type code as defined by ISO 3779."""
+  """
+  Body type code as defined by ISO 3779.
+  """
   bodyType: String @vspec(element: ATTRIBUTE, fqn: "Vehicle.Body.BodyType")
 
   """
@@ -14,13 +17,15 @@ type Body @vspec(element: BRANCH, fqn: "Vehicle.Body") {
   """
   Power optimization level for this branch/subsystem. A higher number indicates more aggressive power optimization. Level 0 indicates that all functionality is enabled, no power optimization enabled. Level 10 indicates most aggressive power optimization mode, only essential functionality enabled.
   """
-  powerOptimizeLevel: UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.Body.PowerOptimizeLevel")
+  powerOptimizeLevel: UInt8
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Body.PowerOptimizeLevel")
     @range(min: 0, max: 10)
 
   """
   Rear spoiler position, 0% = Spoiler fully stowed. 100% = Spoiler fully exposed.
   """
-  rearMainSpoilerPosition(unit: RelationUnitEnum = PERCENT): Float @vspec(element: ACTUATOR, fqn: "Vehicle.Body.RearMainSpoilerPosition")
+  rearMainSpoilerPosition(unit: RelationUnitEnum = PERCENT): Float
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Body.RearMainSpoilerPosition")
     @range(min: 0, max: 100)
   hood: Hood @vspec(element: BRANCH, fqn: "Vehicle.Body.Hood")
   horn: Horn @vspec(element: BRANCH, fqn: "Vehicle.Body.Horn")

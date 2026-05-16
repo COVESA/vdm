@@ -1,9 +1,12 @@
 # Domain-specific GraphQL types
 
-
-"""Traction Control System signals."""
+"""
+Traction Control System signals.
+"""
 type TCS @vspec(element: BRANCH, fqn: "Vehicle.ADAS.TCS") {
-  """Indicates if TCS is enabled. True = Enabled. False = Disabled."""
+  """
+  Indicates if TCS is enabled. True = Enabled. False = Disabled.
+  """
   isEnabled: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.ADAS.TCS.IsEnabled")
 
   """

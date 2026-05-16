@@ -1,11 +1,14 @@
 # Instance tag type and dimensional enums
 
-
-type DirectionIndicator_InstanceTag @instanceTag @vspec(element: BRANCH, fqn: "Vehicle.Body.Lights.DirectionIndicator") {
+type DirectionIndicator_InstanceTag
+  @instanceTag
+  @vspec(element: BRANCH, fqn: "Vehicle.Body.Lights.DirectionIndicator") {
   dimension1: DirectionIndicator_InstanceTag_Dimension1
 }
 
-"""Dimensional enum for VSS instance dimension 1."""
+"""
+Dimensional enum for VSS instance dimension 1.
+"""
 enum DirectionIndicator_InstanceTag_Dimension1 {
   LEFT @vspec(originalName: "Left")
   RIGHT @vspec(originalName: "Right")

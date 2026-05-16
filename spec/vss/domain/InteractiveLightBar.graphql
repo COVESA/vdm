@@ -1,6 +1,5 @@
 # Domain-specific GraphQL types
 
-
 """
 Decorative coloured light bar that supports effects, usually mounted on the dashboard (e.g. BMW i7 Interactive bar).
 """
@@ -10,15 +9,21 @@ type InteractiveLightBar @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Light.Inter
   """
   color: String @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Light.InteractiveLightBar.Color")
 
-  """Light effect selection from a predefined set of allowed values."""
+  """
+  Light effect selection from a predefined set of allowed values.
+  """
   effect: String @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Light.InteractiveLightBar.Effect")
 
   """
   How much of the maximum possible brightness of the light is used. 1 = Maximum attenuation, 100 = No attenuation (i.e. full brightness).
   """
-  intensity(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Light.InteractiveLightBar.Intensity")
+  intensity(unit: RelationUnitEnum = PERCENT): UInt8
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Light.InteractiveLightBar.Intensity")
     @range(min: 1, max: 100)
 
-  """Indicates whether the light is turned on. True = On, False = Off."""
-  isLightOn: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Light.InteractiveLightBar.IsLightOn")
+  """
+  Indicates whether the light is turned on. True = On, False = Off.
+  """
+  isLightOn: Boolean
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Light.InteractiveLightBar.IsLightOn")
 }

@@ -1,20 +1,27 @@
 # Domain-specific GraphQL types
 
-
 """
 Information on the state of charge of the vehicle's high voltage battery.
 """
-type StateOfCharge @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.StateOfCharge") {
+type StateOfCharge
+  @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.StateOfCharge") {
   """
   Physical state of charge of the high voltage battery, relative to net capacity. This is not necessarily the state of charge being displayed to the customer.
   """
-  current(unit: RelationUnitEnum = PERCENT): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.StateOfCharge.Current")
+  current(unit: RelationUnitEnum = PERCENT): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.StateOfCharge.Current")
     @range(min: 0, max: 100.0)
 
-  """Physical state of charge of high voltage battery expressed in kWh."""
-  currentEnergy(unit: WorkUnitEnum = KILOWATT_HOURS): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.StateOfCharge.CurrentEnergy")
+  """
+  Physical state of charge of high voltage battery expressed in kWh.
+  """
+  currentEnergy(unit: WorkUnitEnum = KILOWATT_HOURS): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.StateOfCharge.CurrentEnergy")
 
-  """State of charge displayed to the customer."""
-  displayed(unit: RelationUnitEnum = PERCENT): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.StateOfCharge.Displayed")
+  """
+  State of charge displayed to the customer.
+  """
+  displayed(unit: RelationUnitEnum = PERCENT): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.StateOfCharge.Displayed")
     @range(min: 0, max: 100.0)
 }

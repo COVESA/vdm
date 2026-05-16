@@ -1,90 +1,136 @@
 # Domain-specific GraphQL types
 
-
-"""Battery Management data."""
+"""
+Battery Management data.
+"""
 type TractionBattery @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery") {
   """
   The accumulated energy delivered to the battery during charging over lifetime of the battery.
   """
-  accumulatedChargedEnergy(unit: WorkUnitEnum = KILOWATT_HOURS): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.AccumulatedChargedEnergy")
+  accumulatedChargedEnergy(unit: WorkUnitEnum = KILOWATT_HOURS): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.AccumulatedChargedEnergy")
 
   """
   The accumulated charge throughput delivered to the battery during charging over lifetime of the battery.
   """
-  accumulatedChargedThroughput(unit: ElectricChargeUnitEnum = AMPERE_HOURS): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.AccumulatedChargedThroughput")
+  accumulatedChargedThroughput(unit: ElectricChargeUnitEnum = AMPERE_HOURS): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.AccumulatedChargedThroughput")
 
   """
   The accumulated energy leaving HV battery for propulsion and auxiliary loads over lifetime of the battery.
   """
-  accumulatedConsumedEnergy(unit: WorkUnitEnum = KILOWATT_HOURS): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.AccumulatedConsumedEnergy")
+  accumulatedConsumedEnergy(unit: WorkUnitEnum = KILOWATT_HOURS): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.AccumulatedConsumedEnergy")
 
   """
   The accumulated charge throughput leaving HV battery for propulsion and auxiliary loads over lifetime of the battery.
   """
-  accumulatedConsumedThroughput(unit: ElectricChargeUnitEnum = AMPERE_HOURS): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.AccumulatedConsumedThroughput")
+  accumulatedConsumedThroughput(unit: ElectricChargeUnitEnum = AMPERE_HOURS): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.AccumulatedConsumedThroughput")
 
   """
   Current current flowing in/out of battery. Positive = Current flowing in to battery, e.g. during charging. Negative = Current flowing out of battery, e.g. during driving.
   """
-  currentCurrent(unit: ElectricCurrentUnitEnum = AMPERE): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.CurrentCurrent")
+  currentCurrent(unit: ElectricCurrentUnitEnum = AMPERE): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.CurrentCurrent")
 
   """
   Current electrical energy flowing in/out of battery. Positive = Energy flowing in to battery, e.g. during charging. Negative = Energy flowing out of battery, e.g. during driving.
   """
-  currentPower(unit: PowerUnitEnum = WATT): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.CurrentPower")
+  currentPower(unit: PowerUnitEnum = WATT): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.CurrentPower")
 
-  """Current Voltage of the battery."""
-  currentVoltage(unit: VoltageUnitEnum = VOLT): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.CurrentVoltage")
+  """
+  Current Voltage of the battery.
+  """
+  currentVoltage(unit: VoltageUnitEnum = VOLT): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.CurrentVoltage")
 
-  """Current error codes related to the battery, if any."""
-  errorCodes: [String!] @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.ErrorCodes")
+  """
+  Current error codes related to the battery, if any.
+  """
+  errorCodes: [String!]
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.ErrorCodes")
 
-  """Gross capacity of the battery."""
-  grossCapacity(unit: WorkUnitEnum = KILOWATT_HOURS): UInt16 @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.TractionBattery.GrossCapacity")
+  """
+  Gross capacity of the battery.
+  """
+  grossCapacity(unit: WorkUnitEnum = KILOWATT_HOURS): UInt16
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.TractionBattery.GrossCapacity")
 
-  """Battery Identification Number as assigned by OEM."""
+  """
+  Battery Identification Number as assigned by OEM.
+  """
   id: String @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.TractionBattery.Id")
 
   """
   Indicating if the ground (negative terminator) of the traction battery is connected to the powertrain.
   """
-  isGroundConnected: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.IsGroundConnected")
+  isGroundConnected: Boolean
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.IsGroundConnected")
 
   """
   Indicating if the power (positive terminator) of the traction battery is connected to the powertrain.
   """
-  isPowerConnected: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.IsPowerConnected")
+  isPowerConnected: Boolean
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.IsPowerConnected")
 
-  """Max allowed voltage of the battery, e.g. during charging."""
-  maxVoltage(unit: VoltageUnitEnum = VOLT): UInt16 @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.TractionBattery.MaxVoltage")
+  """
+  Max allowed voltage of the battery, e.g. during charging.
+  """
+  maxVoltage(unit: VoltageUnitEnum = VOLT): UInt16
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.TractionBattery.MaxVoltage")
 
-  """Total net capacity of the battery considering aging."""
-  netCapacity(unit: WorkUnitEnum = KILOWATT_HOURS): UInt16 @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.NetCapacity")
+  """
+  Total net capacity of the battery considering aging.
+  """
+  netCapacity(unit: WorkUnitEnum = KILOWATT_HOURS): UInt16
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.NetCapacity")
 
-  """Nominal Voltage of the battery."""
-  nominalVoltage(unit: VoltageUnitEnum = VOLT): UInt16 @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.TractionBattery.NominalVoltage")
+  """
+  Nominal Voltage of the battery.
+  """
+  nominalVoltage(unit: VoltageUnitEnum = VOLT): UInt16
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.TractionBattery.NominalVoltage")
 
   """
   Electrical energy lost by power dissipation to heat inside the battery.
   """
-  powerLoss(unit: PowerUnitEnum = WATT): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.PowerLoss")
+  powerLoss(unit: PowerUnitEnum = WATT): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.PowerLoss")
 
-  """Production date of battery in ISO8601 format, e.g. YYYY-MM-DD."""
-  productionDate(unit: DatetimeUnitEnum = ISO_8601): String @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.TractionBattery.ProductionDate")
+  """
+  Production date of battery in ISO8601 format, e.g. YYYY-MM-DD.
+  """
+  productionDate(unit: DatetimeUnitEnum = ISO_8601): String
+    @vspec(element: ATTRIBUTE, fqn: "Vehicle.Powertrain.TractionBattery.ProductionDate")
 
-  """Remaining range in meters using only battery."""
-  range(unit: LengthUnitEnum = METER): UInt32 @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Range")
+  """
+  Remaining range in meters using only battery.
+  """
+  range(unit: LengthUnitEnum = METER): UInt32
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Range")
 
-  """Calculated battery state of health at standard conditions."""
-  stateOfHealth(unit: RelationUnitEnum = PERCENT): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.StateOfHealth")
+  """
+  Calculated battery state of health at standard conditions.
+  """
+  stateOfHealth(unit: RelationUnitEnum = PERCENT): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.StateOfHealth")
     @range(min: 0, max: 100)
 
-  """Time remaining in seconds before the battery is empty."""
-  timeRemaining(unit: DurationUnitEnum = SECOND): UInt32 @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.TimeRemaining")
-  batteryConditioning: BatteryConditioning @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.BatteryConditioning")
-  cellVoltage: CellVoltage @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.CellVoltage")
+  """
+  Time remaining in seconds before the battery is empty.
+  """
+  timeRemaining(unit: DurationUnitEnum = SECOND): UInt32
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.TimeRemaining")
+  batteryConditioning: BatteryConditioning
+    @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.BatteryConditioning")
+  cellVoltage: CellVoltage
+    @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.CellVoltage")
   charging: Charging @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.Charging")
   dcdc: DCDC @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.DCDC")
-  stateOfCharge: StateOfCharge @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.StateOfCharge")
-  temperature: Temperature @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.Temperature")
+  stateOfCharge: StateOfCharge
+    @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.StateOfCharge")
+  temperature: Temperature
+    @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.Temperature")
 }

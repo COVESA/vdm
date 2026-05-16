@@ -1,6 +1,5 @@
 # Domain-specific GraphQL types
 
-
 """
 Signals to control behavior of wipers in detail. By default VSS expects only one instance.
 """
@@ -8,15 +7,20 @@ type System @vspec(element: BRANCH, fqn: "Vehicle.Body.Windshield.Wiping.System"
   """
   Actual position of main wiper blade for the wiper system relative to reference position. Location of reference position (0 degrees) and direction of positive/negative degrees is vehicle specific.
   """
-  actualPosition(unit: AngleUnitEnum = DEGREE): Float @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Windshield.Wiping.System.ActualPosition")
+  actualPosition(unit: AngleUnitEnum = DEGREE): Float
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Windshield.Wiping.System.ActualPosition")
 
-  """Actual current used by wiper drive."""
-  driveCurrent(unit: ElectricCurrentUnitEnum = AMPERE): Float @vspec(element: SENSOR, fqn: "Vehicle.Body.Windshield.Wiping.System.DriveCurrent")
+  """
+  Actual current used by wiper drive.
+  """
+  driveCurrent(unit: ElectricCurrentUnitEnum = AMPERE): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Body.Windshield.Wiping.System.DriveCurrent")
 
   """
   Wiping frequency/speed, measured in cycles per minute. The signal concerns the actual speed of the wiper blades when moving. Intervals/pauses are excluded, i.e. the value corresponds to the number of cycles that would be completed in 1 minute if wiping permanently over default range.
   """
-  frequency(unit: FrequencyUnitEnum = CYCLES_PER_MINUTE): UInt8 @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Windshield.Wiping.System.Frequency")
+  frequency(unit: FrequencyUnitEnum = CYCLES_PER_MINUTE): UInt8
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Windshield.Wiping.System.Frequency")
 
   """
   Indicates if wiper movement is blocked. True = Movement blocked. False = Movement not blocked.
@@ -26,22 +30,26 @@ type System @vspec(element: BRANCH, fqn: "Vehicle.Body.Windshield.Wiping.System"
   """
   Indicates if current wipe movement is completed or near completion. True = Movement is completed or near completion. Changes to RequestedPosition will be executed first after reaching previous RequestedPosition, if it has not already been reached. False = Movement is not near completion. Any change to RequestedPosition will be executed immediately. Change of direction may not be allowed.
   """
-  isEndingWipeCycle: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Body.Windshield.Wiping.System.IsEndingWipeCycle")
+  isEndingWipeCycle: Boolean
+    @vspec(element: SENSOR, fqn: "Vehicle.Body.Windshield.Wiping.System.IsEndingWipeCycle")
 
   """
   Indicates if wiper system is overheated. True = Wiper system overheated. False = Wiper system not overheated.
   """
-  isOverheated: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Body.Windshield.Wiping.System.IsOverheated")
+  isOverheated: Boolean
+    @vspec(element: SENSOR, fqn: "Vehicle.Body.Windshield.Wiping.System.IsOverheated")
 
   """
   Indicates if a requested position has been reached. IsPositionReached refers to the previous position in case the TargetPosition is updated while IsEndingWipeCycle=True. True = Current or Previous TargetPosition reached. False = Position not (yet) reached, or wipers have moved away from the reached position.
   """
-  isPositionReached: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Body.Windshield.Wiping.System.IsPositionReached")
+  isPositionReached: Boolean
+    @vspec(element: SENSOR, fqn: "Vehicle.Body.Windshield.Wiping.System.IsPositionReached")
 
   """
   Indicates system failure. True if wiping is disabled due to system failure.
   """
-  isWiperError: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Body.Windshield.Wiping.System.IsWiperError")
+  isWiperError: Boolean
+    @vspec(element: SENSOR, fqn: "Vehicle.Body.Windshield.Wiping.System.IsWiperError")
 
   """
   Indicates wiper movement. True if wiper blades are moving. Change of direction shall be considered as IsWiping if wipers will continue to move directly after the change of direction.
@@ -51,16 +59,21 @@ type System @vspec(element: BRANCH, fqn: "Vehicle.Body.Windshield.Wiping.System"
   """
   Requested mode of wiper system. STOP_HOLD means that the wipers shall move to position given by TargetPosition and then hold the position. WIPE means that wipers shall move to the position given by TargetPosition and then hold the position if no new TargetPosition is requested. PLANT_MODE means that wiping is disabled. Exact behavior is vehicle specific. EMERGENCY_STOP means that wiping shall be immediately stopped without holding the position.
   """
-  mode: Vehicle_Body_Windshield_Wiping_System_Mode_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Windshield.Wiping.System.Mode")
+  mode: Vehicle_Body_Windshield_Wiping_System_Mode_Enum
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Windshield.Wiping.System.Mode")
 
   """
   Requested position of main wiper blade for the wiper system relative to reference position. Location of reference position (0 degrees) and direction of positive/negative degrees is vehicle specific. System behavior when receiving TargetPosition depends on Mode and IsEndingWipeCycle. Supported values are vehicle specific and might be dynamically corrected. If IsEndingWipeCycle=True then wipers will complete current movement before actuating new TargetPosition. If IsEndingWipeCycle=False then wipers will directly change destination if the TargetPosition is changed.
   """
-  targetPosition(unit: AngleUnitEnum = DEGREE): Float @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Windshield.Wiping.System.TargetPosition")
+  targetPosition(unit: AngleUnitEnum = DEGREE): Float
+    @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Windshield.Wiping.System.TargetPosition")
 }
 
-"""Allowed values for Vehicle.Body.Windshield.Wiping.System.Mode."""
-enum Vehicle_Body_Windshield_Wiping_System_Mode_Enum @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Windshield.Wiping.System.Mode") {
+"""
+Allowed values for Vehicle.Body.Windshield.Wiping.System.Mode.
+"""
+enum Vehicle_Body_Windshield_Wiping_System_Mode_Enum
+  @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Windshield.Wiping.System.Mode") {
   STOP_HOLD
   WIPE
   PLANT_MODE

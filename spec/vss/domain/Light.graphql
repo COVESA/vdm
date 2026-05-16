@@ -1,20 +1,27 @@
 # Domain-specific GraphQL types
 
-
-"""Light that is part of the Cabin."""
+"""
+Light that is part of the Cabin.
+"""
 type Light @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Light") {
-  """Is central dome light on"""
+  """
+  Is central dome light on
+  """
   isDomeOn: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Light.IsDomeOn")
 
-  """Is glove box light on"""
+  """
+  Is glove box light on
+  """
   isGloveBoxOn: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Cabin.Light.IsGloveBoxOn")
 
   """
   The percentage of ambient light that is measured (e.g., by a sensor) inside the cabin. 0 = No ambient light. 100 = Full brightness.
   """
-  perceivedAmbientLight(unit: RelationUnitEnum = PERCENT): UInt8 @vspec(element: SENSOR, fqn: "Vehicle.Cabin.Light.PerceivedAmbientLight")
+  perceivedAmbientLight(unit: RelationUnitEnum = PERCENT): UInt8
+    @vspec(element: SENSOR, fqn: "Vehicle.Cabin.Light.PerceivedAmbientLight")
     @range(min: 0, max: 100)
   ambientLights: [AmbientLight] @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Light.AmbientLight")
-  interactiveLightBar: InteractiveLightBar @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Light.InteractiveLightBar")
+  interactiveLightBar: InteractiveLightBar
+    @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Light.InteractiveLightBar")
   spotlights: [Spotlight] @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Light.Spotlight")
 }

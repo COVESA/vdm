@@ -1,13 +1,16 @@
 # Domain-specific GraphQL types
 
-
-"""Backup lights."""
+"""
+Backup lights.
+"""
 type Backup @vspec(element: BRANCH, fqn: "Vehicle.Body.Lights.Backup") {
   """
   Indicates if light is defect. True = Light is defect. False = Light has no defect.
   """
   isDefect: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Body.Lights.Backup.IsDefect")
 
-  """Indicates if light is on or off. True = On. False = Off."""
+  """
+  Indicates if light is on or off. True = On. False = Off.
+  """
   isOn: Boolean @vspec(element: ACTUATOR, fqn: "Vehicle.Body.Lights.Backup.IsOn")
 }

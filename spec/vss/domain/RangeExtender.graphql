@@ -1,21 +1,31 @@
 # Domain-specific GraphQL types
 
-
-"""Extended Range Electric Vehicle (EREV) specific data."""
+"""
+Extended Range Electric Vehicle (EREV) specific data.
+"""
 type RangeExtender @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.RangeExtender") {
   """
   Combined fuel economy equivalent that accounts for both electric energy and fuel consumption.
   """
-  combinedFuelEconomy(unit: DistancePerVolumeUnitEnum = KILOMETERS_PER_LITER): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.RangeExtender.CombinedFuelEconomy")
+  combinedFuelEconomy(unit: DistancePerVolumeUnitEnum = KILOMETERS_PER_LITER): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.RangeExtender.CombinedFuelEconomy")
 
-  """Current operating mode of the Extended Range Electric Vehicle."""
-  operatingMode: Vehicle_Powertrain_RangeExtender_OperatingMode_Enum @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.RangeExtender.OperatingMode")
-  chargeDepleting: ChargeDepleting @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.RangeExtender.ChargeDepleting")
-  chargeSustaining: ChargeSustaining @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.RangeExtender.ChargeSustaining")
+  """
+  Current operating mode of the Extended Range Electric Vehicle.
+  """
+  operatingMode: Vehicle_Powertrain_RangeExtender_OperatingMode_Enum
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.RangeExtender.OperatingMode")
+  chargeDepleting: ChargeDepleting
+    @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.RangeExtender.ChargeDepleting")
+  chargeSustaining: ChargeSustaining
+    @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.RangeExtender.ChargeSustaining")
 }
 
-"""Allowed values for Vehicle.Powertrain.RangeExtender.OperatingMode."""
-enum Vehicle_Powertrain_RangeExtender_OperatingMode_Enum @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.RangeExtender.OperatingMode") {
+"""
+Allowed values for Vehicle.Powertrain.RangeExtender.OperatingMode.
+"""
+enum Vehicle_Powertrain_RangeExtender_OperatingMode_Enum
+  @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.RangeExtender.OperatingMode") {
   CHARGE_DEPLETING
   CHARGE_SUSTAINING
   BLENDED

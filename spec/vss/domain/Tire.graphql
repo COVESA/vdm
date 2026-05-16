@@ -1,23 +1,37 @@
 # Domain-specific GraphQL types
 
-
-"""Tire signals for wheel."""
+"""
+Tire signals for wheel.
+"""
 type Tire @vspec(element: BRANCH, fqn: "Vehicle.Chassis.Axle.Wheel.Tire") {
-  """Air temperature inside the tire in Celsius."""
-  airTemperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float @vspec(element: SENSOR, fqn: "Vehicle.Chassis.Axle.Wheel.Tire.AirTemperature")
+  """
+  Air temperature inside the tire in Celsius.
+  """
+  airTemperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Chassis.Axle.Wheel.Tire.AirTemperature")
 
   """
   Tire Pressure Status. True = Low tire pressure. False = Good tire pressure.
   """
-  isPressureLow: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Chassis.Axle.Wheel.Tire.IsPressureLow")
+  isPressureLow: Boolean
+    @vspec(element: SENSOR, fqn: "Vehicle.Chassis.Axle.Wheel.Tire.IsPressureLow")
 
-  """Tire pressure in kilo-Pascal."""
-  pressure(unit: PressureUnitEnum = KILOPASCAL): UInt16 @vspec(element: SENSOR, fqn: "Vehicle.Chassis.Axle.Wheel.Tire.Pressure")
+  """
+  Tire pressure in kilo-Pascal.
+  """
+  pressure(unit: PressureUnitEnum = KILOPASCAL): UInt16
+    @vspec(element: SENSOR, fqn: "Vehicle.Chassis.Axle.Wheel.Tire.Pressure")
 
-  """Rubber temperature of the tire in Celsius."""
-  rubberTemperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float @vspec(element: SENSOR, fqn: "Vehicle.Chassis.Axle.Wheel.Tire.RubberTemperature")
+  """
+  Rubber temperature of the tire in Celsius.
+  """
+  rubberTemperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Chassis.Axle.Wheel.Tire.RubberTemperature")
 
-  """Tire temperature in Celsius."""
-  temperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float @vspec(element: SENSOR, fqn: "Vehicle.Chassis.Axle.Wheel.Tire.Temperature")
+  """
+  Tire temperature in Celsius.
+  """
+  temperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Chassis.Axle.Wheel.Tire.Temperature")
     @deprecated(reason: "v6.0 - use RubberTemperature or AirTemperature instead.")
 }

@@ -1,20 +1,26 @@
 # Domain-specific GraphQL types
 
-
-"""Information about exterior measured by vehicle."""
+"""
+Information about exterior measured by vehicle.
+"""
 type Exterior @vspec(element: BRANCH, fqn: "Vehicle.Exterior") {
-  """Air temperature outside the vehicle."""
-  airTemperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float @vspec(element: SENSOR, fqn: "Vehicle.Exterior.AirTemperature")
+  """
+  Air temperature outside the vehicle.
+  """
+  airTemperature(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Exterior.AirTemperature")
 
   """
   Relative humidity outside the vehicle. 0 = Dry, 100 = Air fully saturated.
   """
-  humidity(unit: RelationUnitEnum = PERCENT): Float @vspec(element: SENSOR, fqn: "Vehicle.Exterior.Humidity")
+  humidity(unit: RelationUnitEnum = PERCENT): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Exterior.Humidity")
     @range(min: 0, max: 100)
 
   """
   Light intensity outside the vehicle. 0 = No light detected, 100 = Fully lit.
   """
-  lightIntensity(unit: RelationUnitEnum = PERCENT): Float @vspec(element: SENSOR, fqn: "Vehicle.Exterior.LightIntensity")
+  lightIntensity(unit: RelationUnitEnum = PERCENT): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Exterior.LightIntensity")
     @range(min: 0, max: 100)
 }

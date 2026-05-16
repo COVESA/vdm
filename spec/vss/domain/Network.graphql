@@ -1,7 +1,8 @@
 # Domain-specific GraphQL types
 
-
-"""Network attributes and signals"""
+"""
+Network attributes and signals
+"""
 type Network @vspec(element: BRANCH, fqn: "Vehicle.ControlUnit.Health.Network") {
   can: CAN @vspec(element: BRANCH, fqn: "Vehicle.ControlUnit.Health.Network.CAN")
   eth: ETH @vspec(element: BRANCH, fqn: "Vehicle.ControlUnit.Health.Network.ETH")

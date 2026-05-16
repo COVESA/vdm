@@ -1,30 +1,43 @@
 # Domain-specific GraphQL types
 
-
-"""Driver data."""
+"""
+Driver data.
+"""
 type Driver @vspec(element: BRANCH, fqn: "Vehicle.Driver") {
-  """Probability of attentiveness of the driver."""
-  attentiveProbability(unit: RelationUnitEnum = PERCENT): Float @vspec(element: SENSOR, fqn: "Vehicle.Driver.AttentiveProbability")
+  """
+  Probability of attentiveness of the driver.
+  """
+  attentiveProbability(unit: RelationUnitEnum = PERCENT): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Driver.AttentiveProbability")
     @range(min: 0, max: 100)
 
   """
   Distraction level of the driver, which can be evaluated by multiple factors e.g. driving situation, acoustical or optical signals inside the cockpit, ongoing phone calls.
   """
-  distractionLevel(unit: RelationUnitEnum = PERCENT): Float @vspec(element: SENSOR, fqn: "Vehicle.Driver.DistractionLevel")
+  distractionLevel(unit: RelationUnitEnum = PERCENT): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Driver.DistractionLevel")
     @range(min: 0, max: 100)
 
   """
   Fatigue level of the driver, which can be evaluated by multiple factors e.g. trip time, behaviour of steering, eye status.
   """
-  fatigueLevel(unit: RelationUnitEnum = PERCENT): Float @vspec(element: SENSOR, fqn: "Vehicle.Driver.FatigueLevel")
+  fatigueLevel(unit: RelationUnitEnum = PERCENT): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Driver.FatigueLevel")
     @range(min: 0, max: 100)
 
-  """Heart rate of the driver."""
-  heartRate(unit: FrequencyUnitEnum = BEATS_PER_MINUTE): UInt16 @vspec(element: SENSOR, fqn: "Vehicle.Driver.HeartRate")
+  """
+  Heart rate of the driver.
+  """
+  heartRate(unit: FrequencyUnitEnum = BEATS_PER_MINUTE): UInt16
+    @vspec(element: SENSOR, fqn: "Vehicle.Driver.HeartRate")
 
-  """Has driver the eyes on road or not?"""
+  """
+  Has driver the eyes on road or not?
+  """
   isEyesOnRoad: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Driver.IsEyesOnRoad")
 
-  """Are the driver's hands on the steering wheel or not?"""
+  """
+  Are the driver's hands on the steering wheel or not?
+  """
   isHandsOnWheel: Boolean @vspec(element: SENSOR, fqn: "Vehicle.Driver.IsHandsOnWheel")
 }

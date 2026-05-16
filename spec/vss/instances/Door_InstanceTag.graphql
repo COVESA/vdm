@@ -1,18 +1,21 @@
 # Instance tag type and dimensional enums
 
-
 type Door_InstanceTag @instanceTag @vspec(element: BRANCH, fqn: "Vehicle.Cabin.Door") {
   dimension1: Door_InstanceTag_Dimension1
   dimension2: Door_InstanceTag_Dimension2
 }
 
-"""Dimensional enum for VSS instance dimension 1."""
+"""
+Dimensional enum for VSS instance dimension 1.
+"""
 enum Door_InstanceTag_Dimension1 {
   ROW1 @vspec(originalName: "Row1")
   ROW2 @vspec(originalName: "Row2")
 }
 
-"""Dimensional enum for VSS instance dimension 2."""
+"""
+Dimensional enum for VSS instance dimension 2.
+"""
 enum Door_InstanceTag_Dimension2 {
   DRIVER_SIDE @vspec(originalName: "DriverSide")
   PASSENGER_SIDE @vspec(originalName: "PassengerSide")

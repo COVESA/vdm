@@ -1,7 +1,8 @@
 # Domain-specific GraphQL types
 
-
-"""MotionManagement related to a specific axle."""
+"""
+MotionManagement related to a specific axle.
+"""
 type Steering_Axle @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.Steering.Axle") {
   row1: Row1 @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.Steering.Axle.Row1")
   row2: Row2 @vspec(element: BRANCH, fqn: "Vehicle.MotionManagement.Steering.Axle.Row2")

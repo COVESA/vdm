@@ -1,23 +1,30 @@
 # Domain-specific GraphQL types
 
-
-"""Temperature Information for the battery pack."""
+"""
+Temperature Information for the battery pack.
+"""
 type Temperature @vspec(element: BRANCH, fqn: "Vehicle.Powertrain.TractionBattery.Temperature") {
-  """Current average temperature of the battery cells."""
-  average(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Temperature.Average")
+  """
+  Current average temperature of the battery cells.
+  """
+  average(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Temperature.Average")
 
   """
   Array of cell temperatures. Length or array shall correspond to number of cells in vehicle.
   """
-  cellTemperature: [Float!] @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Temperature.CellTemperature")
+  cellTemperature: [Float!]
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Temperature.CellTemperature")
 
   """
   Current maximum temperature of the battery cells, i.e. temperature of the hottest cell.
   """
-  max(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Temperature.Max")
+  max(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Temperature.Max")
 
   """
   Current minimum temperature of the battery cells, i.e. temperature of the coldest cell.
   """
-  min(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Temperature.Min")
+  min(unit: TemperatureUnitEnum = DEGREE_CELSIUS): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.Powertrain.TractionBattery.Temperature.Min")
 }

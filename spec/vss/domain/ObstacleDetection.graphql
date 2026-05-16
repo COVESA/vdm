@@ -1,11 +1,14 @@
 # Domain-specific GraphQL types
 
-
-"""Signals form Obstacle Sensor System."""
+"""
+Signals form Obstacle Sensor System.
+"""
 type ObstacleDetection @vspec(element: BRANCH, fqn: "Vehicle.ADAS.ObstacleDetection") {
-
-  """Distance in meters to detected object"""
-  distance(unit: LengthUnitEnum = METER): Float @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ObstacleDetection.Distance")
+  """
+  Distance in meters to detected object
+  """
+  distance(unit: LengthUnitEnum = METER): Float
+    @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ObstacleDetection.Distance")
     @range(min: 0.0)
 
   """
@@ -18,20 +21,29 @@ type ObstacleDetection @vspec(element: BRANCH, fqn: "Vehicle.ADAS.ObstacleDetect
   """
   isError: Boolean @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ObstacleDetection.IsError")
 
-  """Indicates if obstacle sensor system registered an obstacle."""
+  """
+  Indicates if obstacle sensor system registered an obstacle.
+  """
   isWarning: Boolean @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ObstacleDetection.IsWarning")
 
-  """Time in milliseconds before potential impact object"""
-  timeGap(unit: DurationUnitEnum = MILLISECOND): UInt32 @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ObstacleDetection.TimeGap")
+  """
+  Time in milliseconds before potential impact object
+  """
+  timeGap(unit: DurationUnitEnum = MILLISECOND): UInt32
+    @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ObstacleDetection.TimeGap")
 
   """
   Indicates the type of obstacle warning detected as some track not only the presence of an obstacle but potential intercepting trajectory or other characteristics.
   """
-  warningType: Vehicle_Adas_ObstacleDetection_WarningType_Enum @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ObstacleDetection.WarningType")
+  warningType: Vehicle_Adas_ObstacleDetection_WarningType_Enum
+    @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ObstacleDetection.WarningType")
 }
 
-"""Allowed values for Vehicle.ADAS.ObstacleDetection.WarningType."""
-enum Vehicle_Adas_ObstacleDetection_WarningType_Enum @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ObstacleDetection.WarningType") {
+"""
+Allowed values for Vehicle.ADAS.ObstacleDetection.WarningType.
+"""
+enum Vehicle_Adas_ObstacleDetection_WarningType_Enum
+  @vspec(element: SENSOR, fqn: "Vehicle.ADAS.ObstacleDetection.WarningType") {
   UNDEFINED
   CROSS_TRAFFIC
   BLIND_SPOT
