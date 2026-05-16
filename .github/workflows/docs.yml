@@ -1,5 +1,5 @@
 name: Deploy Schema Voyager to GitHub Pages
-
+# Live site: https://covesa.github.io/vdm/
 on:
   push:
     branches: [main]
