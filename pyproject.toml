@@ -16,50 +16,16 @@ package = false
 # ---------------------------------------------------------------------------
 [tool.poe.tasks]
 
-# --- Checks (used in PR CI) ---
-validate.cmd      = "s2dm validate graphql -s spec/vss/ -o _output/graphql/introspection.json"
-validate.help     = "Validate GraphQL schema and emit introspection JSON"
+# --- Schema checks (also used as PR CI gates) ---
+validate.cmd  = "s2dm validate graphql -s spec/vss/ -o _output/graphql/introspection.json"
+validate.help = "Validate GraphQL schema and emit introspection JSON"
 
-check.cmd         = "s2dm check constraints -s spec/vss/"
-check.help        = "Enforce S2DM constraints (directives, naming, cardinality)"
-
-# --- Compose ---
-compose.cmd       = "s2dm compose -s spec/vss/ -o _output/graphql/schema.graphql"
-compose.help      = "Compose all spec files into a single schema.graphql"
-
-# --- Exports ---
-export-jsonschema.cmd  = "s2dm export jsonschema -s spec/vss/ -o _output/jsonschema/schema.json"
-export-jsonschema.help = "Generate JSON Schema"
-
-export-shacl.cmd  = "s2dm export shacl -s spec/vss/ -o _output/shacl/schema.ttl -sn https://covesa.org/vdm/shapes# -snpref vdm-shapes -mn https://covesa.org/vdm# -mnpref vdm"
-export-shacl.help = "Generate SHACL shapes (Turtle)"
-
-export-rdf.cmd    = "s2dm export rdf -s spec/vss/ -o _output/rdf/ --namespace https://covesa.org/vdm# --prefix vdm"
-export-rdf.help   = "Generate RDF artifacts (SKOS + data graph, .nt and .ttl)"
-
-export-vspec.cmd  = "s2dm export vspec -s spec/vss/ -o _output/vspec/schema.vspec"
-export-vspec.help = "Generate VSS vspec file"
-
-export-linkml.cmd  = "s2dm export linkml -s spec/vss/ -o _output/linkml/schema.yaml -i https://covesa.org/vdm -n vdm --default-prefix vdm --default-prefix-url https://covesa.org/vdm#"
-export-linkml.help = "Generate LinkML schema"
-
-export-protobuf.cmd  = "s2dm export protobuf -s spec/vss/ -q spec/vss/other/queries.graphql -o _output/protobuf/schema.proto --package-name covesa.vdm"
-export-protobuf.help = "Generate Protocol Buffers .proto file"
-
-concept-uri.cmd   = "s2dm registry concept-uri -s spec/vss/ -o _output/registry/concept-uris.jsonld --namespace https://covesa.org/vdm# --prefix vdm"
-concept-uri.help  = "Generate concept URIs as JSON-LD"
-
-stats.cmd         = "s2dm stats graphql -s spec/vss/"
-stats.help        = "Print schema type/field statistics"
-
-# --- Combined: generate all artifacts ---
-[tool.poe.tasks.generate]
-sequence  = ["compose", "export-jsonschema", "export-shacl", "export-rdf", "export-vspec", "export-linkml", "export-protobuf", "concept-uri"]
-help      = "Generate all _output/ artifacts"
+check.cmd     = "s2dm check constraints -s spec/vss/"
+check.help    = "Enforce S2DM constraints (directives, naming, cardinality)"
 
 [tool.poe.tasks.ci-checks]
-sequence  = ["validate", "check"]
-help      = "Run all PR CI checks (validate + constraints)"
+sequence = ["validate", "check"]
+help     = "Run all PR CI checks (validate + constraints)"
 
 # --- GH Pages: build static Voyager site ---
 [tool.poe.tasks.build-voyager]
@@ -72,8 +38,8 @@ echo '✓ Voyager site ready in ./site/ — open site/index.html in a browser'
 help = "Build static Voyager site into ./site/ (run poe validate first)"
 
 [tool.poe.tasks.voyager]
-sequence  = ["validate", "build-voyager"]
-help      = "Generate introspection JSON then build Voyager site"
+sequence = ["validate", "build-voyager"]
+help     = "Generate introspection JSON then build Voyager site"
 
 [dependency-groups]
 dev = [
