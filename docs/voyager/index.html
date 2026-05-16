@@ -45,8 +45,9 @@
         })
         .then(function (schema) {
           // graphql-inspector produces { __schema: ... }
-          // Voyager expects { data: { __schema: ... } }
-          GraphQLVoyager.init(document.getElementById('voyager'), {
+          // Voyager v2 renderVoyager expects { data: { __schema: ... } }
+          document.getElementById('loading').remove();
+          GraphQLVoyager.renderVoyager(document.getElementById('voyager'), {
             introspection: { data: schema },
           });
         })
