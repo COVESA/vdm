@@ -15,17 +15,21 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: write # required by peaceiris/actions-gh-pages to push gh-pages branch
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # ── Python / uv ──────────────────────────────────────────────────────────
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -37,7 +41,6 @@ jobs:
       - name: Install Python dependencies
         run: uv sync
 
-      # ── Node.js / graphql-inspector ──────────────────────────────────────────
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -47,27 +50,19 @@ jobs:
       - name: Install Node dependencies
         run: npm ci
 
-      # ── Generate artefacts ───────────────────────────────────────────────────
       - name: Generate introspection JSON
         run: |
           mkdir -p _output/graphql
           uv run poe validate
 
-      # ── Assemble static site ─────────────────────────────────────────────────
       - name: Build Voyager site
         run: uv run poe build-voyager
 
-      # ── Deploy ───────────────────────────────────────────────────────────────
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
-          user_name: "github-actions[bot]"
-          user_email: "github-actions[bot]@users.noreply.github.com"
-          commit_message: "deploy: update schema voyager [${{ github.sha }}]"
-          full_commit_message: |
-            deploy: update schema voyager
+          path: ./site
 
-            Triggered by: ${{ github.event_name }}
-            Commit: ${{ github.sha }}
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
