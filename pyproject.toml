@@ -27,19 +27,6 @@ check.help    = "Enforce S2DM constraints (directives, naming, cardinality)"
 sequence = ["validate", "check"]
 help     = "Run all PR CI checks (validate + constraints)"
 
-# --- GH Pages: build static Voyager site ---
-[tool.poe.tasks.build-voyager]
-shell = """
-mkdir -p site
-cp docs/voyager/index.html site/index.html
-cp _output/graphql/introspection.json site/introspection.json
-echo '✓ Voyager site ready in ./site/ — open site/index.html in a browser'
-"""
-help = "Build static Voyager site into ./site/ (run poe validate first)"
-
-[tool.poe.tasks.voyager]
-sequence = ["validate", "build-voyager"]
-help     = "Generate introspection JSON then build Voyager site"
 
 [dependency-groups]
 dev = [
