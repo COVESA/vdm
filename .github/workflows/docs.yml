@@ -7,6 +7,7 @@ on:
     paths:
       - "spec/**"
       - ".github/workflows/docs.yml"
+      - "pyproject.toml"
   workflow_dispatch:
 
 # Required for GitHub Pages deployment via the reusable workflow
