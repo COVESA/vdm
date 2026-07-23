@@ -1,68 +1,26 @@
-name: Deploy Schema Voyager to GitHub Pages
+name: Deploy S2DM Docs to GitHub Pages
 # Live site: https://covesa.github.io/vdm/
+
 on:
   push:
     branches: [main]
     paths:
       - "spec/**"
-      - "docs/voyager/**"
       - ".github/workflows/docs.yml"
   workflow_dispatch:
 
-# Allow only one concurrent deployment; cancel any in-progress run
-concurrency:
-  group: pages
-  cancel-in-progress: true
-
+# Required for GitHub Pages deployment via the reusable workflow
 permissions:
-  contents: read
   pages: write
   id-token: write
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Install uv
-        uses: astral-sh/setup-uv@v5
-
-      - name: Install Python dependencies
-        run: uv sync
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: "npm"
-
-      - name: Install Node dependencies
-        run: npm ci
-
-      - name: Generate introspection JSON
-        run: |
-          mkdir -p _output/graphql
-          uv run poe validate
-
-      - name: Build Voyager site
-        run: uv run poe build-voyager
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./site
-
-      - name: Deploy to GitHub Pages
-        id: deploy
-        uses: actions/deploy-pages@v4
+  docs:
+    uses: COVESA/s2dm/.github/workflows/docs-build.yml@main
+    with:
+      project_title: "Vehicle Data Model"
+      project_name: vdm
+      org_name: COVESA
+      pages_url: https://covesa.github.io/vdm
+      github_repo_url: https://github.com/COVESA/vdm
+      schema_sources: "spec"
