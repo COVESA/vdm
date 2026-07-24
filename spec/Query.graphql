@@ -1,0 +1,4 @@
+# Entry points for travessing the model.
+extend type Query {
+    chargingSession: ChargingSession
+}
