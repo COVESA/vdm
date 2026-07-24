@@ -5,7 +5,3 @@ type ChargingSession {
     startTime: String!
     endTime: String!
 }
-
-extend type Query {
-    chargingSession: ChargingSession
-}
