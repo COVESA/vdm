@@ -10,18 +10,32 @@ on:
       - "pyproject.toml"
   workflow_dispatch:
 
-# Required for GitHub Pages deployment via the reusable workflow
 permissions:
+  contents: read
   pages: write
   id-token: write
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   docs:
-    uses: COVESA/s2dm/.github/workflows/docs-build.yml@main
-    with:
-      project_title: "Vehicle Data Model"
-      project_name: vdm
-      org_name: COVESA
-      pages_url: https://covesa.github.io/vdm
-      github_repo_url: https://github.com/COVESA/vdm
-      schema_sources: "spec"
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.docs.outputs.page-url }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - id: docs
+        uses: COVESA/s2dm/actions/s2dm-docs-build@main
+        with:
+          project-title: "Vehicle Data Model"
+          project-name: vdm
+          org-name: COVESA
+          pages-url: https://covesa.github.io/vdm
+          github-repo-url: https://github.com/COVESA/vdm
+          schema-sources: "spec"
