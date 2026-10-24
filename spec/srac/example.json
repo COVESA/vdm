@@ -1,0 +1,23 @@
+{
+  "product": {
+    "id": "prd-1",
+    "name": "Brake Control ECU",
+    "version": "1.0"
+  },
+  "component": {
+    "id": "comp-1",
+    "name": "example-library",
+    "version": "1.0.0",
+    "purl": "pkg:maven/example/library@1.0.0"
+  },
+  "assertion": {
+    "id": "sra-1",
+    "outcome": "SAFETY_RELEVANT",
+    "rationale": "Used in safety-related braking functionality",
+    "classification": {
+      "scheme": "ISO26262",
+      "level": "ASIL-B",
+      "reference": "Product safety assessment"
+    }
+  }
+}

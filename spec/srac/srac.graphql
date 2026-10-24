@@ -1,0 +1,33 @@
+type ProductContext {
+  id: ID!
+  name: String
+  version: String
+}
+
+type SoftwareComponent {
+  id: ID!
+  name: String!
+  version: String
+  purl: String
+}
+
+enum SafetyRelevanceOutcome {
+  SAFETY_RELEVANT
+  NOT_SAFETY_RELEVANT
+  UNDETERMINED
+}
+
+type SafetyClassification {
+  scheme: String!
+  level: String!
+  reference: String
+}
+
+type SafetyRelevanceAssertion {
+  id: ID!
+  product: ProductContext!
+  component: SoftwareComponent!
+  outcome: SafetyRelevanceOutcome!
+  rationale: String
+  classification: SafetyClassification
+}
