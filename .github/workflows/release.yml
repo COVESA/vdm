@@ -1,0 +1,117 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  ZERO_BASED_VERSIONING: true
+
+jobs:
+  release:
+    if: github.repository_owner == 'covesa'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Determine version bump
+        id: version
+        run: |
+          echo "Zero-based versioning: ${ZERO_BASED_VERSIONING} (set it to false to release v1.0.0)"
+
+          # Get commits since last tag
+          LAST_TAG=$(git describe --tags --abbrev=0 --match 'v[0-9]*.[0-9]*.[0-9]*' 2>/dev/null || echo "")
+          if [ -z "$LAST_TAG" ]; then
+            COMMITS=$(git log --pretty=format:"%s" HEAD)
+          else
+            COMMITS=$(git log --pretty=format:"%s" ${LAST_TAG}..HEAD)
+          fi
+          echo "last_tag=${LAST_TAG}" >> $GITHUB_OUTPUT
+
+          echo "Commits since last tag:"
+          echo "$COMMITS"
+
+          # Determine version bump based on conventional commits
+          MAJOR=false
+          MINOR=false
+          PATCH=false
+
+          while IFS= read -r commit; do
+            echo "Analyzing: $commit"
+            if echo "$commit" | grep -qE "^[a-zA-Z]+(\(.+\))?!:"; then
+              echo "Breaking change detected"
+              MAJOR=true
+            elif echo "$commit" | grep -qE "^feat(\(.+\))?:"; then
+              echo "Feature detected"
+              MINOR=true
+            elif echo "$commit" | grep -qE "^(fix|perf)(\(.+\))?:"; then
+              echo "Fix/perf detected"
+              PATCH=true
+            fi
+          done <<< "$COMMITS"
+
+          if git log --format=%B "${LAST_TAG}..HEAD" | grep -qE "^BREAKING CHANGE:"; then
+            echo "Breaking change in body detected"
+            MAJOR=true
+          fi
+
+          # Determine bump type (major > minor > patch)
+          # Use minor bump for breaking changes when zero-based versioning is enabled
+          if [ "$MAJOR" = true ]; then
+            if [ "$ZERO_BASED_VERSIONING" = "true" ]; then
+              echo "bump=minor" >> $GITHUB_OUTPUT
+              echo "Version bump: MINOR (zero-based versioning - breaking change)"
+            else
+              echo "bump=major" >> $GITHUB_OUTPUT
+              echo "Version bump: MAJOR"
+            fi
+          elif [ "$MINOR" = true ]; then
+            echo "bump=minor" >> $GITHUB_OUTPUT
+            echo "Version bump: MINOR"
+          elif [ "$PATCH" = true ]; then
+            echo "bump=patch" >> $GITHUB_OUTPUT
+            echo "Version bump: PATCH"
+          else
+            echo "bump=none" >> $GITHUB_OUTPUT
+            echo "No version bump needed"
+          fi
+
+      - name: Determine new version
+        id: new_version
+        if: steps.version.outputs.bump != 'none'
+        run: |
+          LAST_TAG="${{ steps.version.outputs.last_tag }}"
+          if [ -z "$LAST_TAG" ]; then
+            NEW_VERSION="v0.1.0"
+          else
+            echo "[tool.bumpversion]" > "$RUNNER_TEMP/bumpversion.toml"
+            echo "current_version = \"${LAST_TAG#v}\"" >> "$RUNNER_TEMP/bumpversion.toml"
+            NEW_VERSION="v$(pipx run --spec bump-my-version==1.8.1 bump-my-version show --config-file "$RUNNER_TEMP/bumpversion.toml" --increment "${{ steps.version.outputs.bump }}" new_version)"
+          fi
+          echo "New version: ${NEW_VERSION}"
+          echo "version=${NEW_VERSION}" >> "$GITHUB_OUTPUT"
+
+      - name: Install uv
+        if: steps.version.outputs.bump != 'none'
+        uses: astral-sh/setup-uv@v7
+
+      - name: Compose schema
+        if: steps.version.outputs.bump != 'none'
+        run: uv run poe compose
+
+      - name: Create release
+        if: steps.version.outputs.bump != 'none'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ steps.new_version.outputs.version }}" \
+            --target "${{ github.sha }}" \
+            --title "${{ steps.new_version.outputs.version }}" \
+            --generate-notes \
+            _output/graphql/composed.graphql
