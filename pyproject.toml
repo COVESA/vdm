@@ -23,6 +23,10 @@ validate.help = "Validate GraphQL schema and emit introspection JSON"
 check.cmd     = "s2dm check constraints -s spec/vss/"
 check.help    = "Enforce S2DM constraints (directives, naming, cardinality)"
 
+# --- Release artifacts ---
+compose.shell = "mkdir -p _output/graphql && s2dm compose -s spec/ -o _output/graphql/composed.graphql"
+compose.help  = "Compose the full schema into one GraphQL file"
+
 [tool.poe.tasks.ci-checks]
 sequence = ["validate", "check"]
 help     = "Run all PR CI checks (validate + constraints)"

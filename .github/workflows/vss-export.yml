@@ -1,0 +1,81 @@
+name: VSS export
+
+on:
+  schedule:
+    - cron: "0 13 * * 5"
+  workflow_dispatch:
+    inputs:
+      vss_repository:
+        description: "Owner/repo of the vehicle_signal_specification repository to check out"
+        required: true
+        default: "COVESA/vehicle_signal_specification"
+      vss_ref:
+        description: "Branch/tag/SHA to check out in vehicle_signal_specification"
+        required: false
+        default: "master"
+
+env:
+  VSS_REPOSITORY: ${{ inputs.vss_repository || 'COVESA/vehicle_signal_specification' }}
+  # vss-tools reads every VSS_TOOLS_* variable as a CLI option.
+  # VSS_TOOLS_VERSION would set --version and break the export.
+  VSSTOOLS_VERSION: "6.1.0"
+
+jobs:
+  vss:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout vdm
+        uses: actions/checkout@v6
+
+      - name: Checkout VSS
+        uses: actions/checkout@v6
+        with:
+          repository: ${{ env.VSS_REPOSITORY }}
+          ref: ${{ inputs.vss_ref || 'master' }}
+          path: vss
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+
+      - name: Run S2DM export
+        id: export
+        run: |
+          rm -rf spec/vss
+          uvx --from "vss-tools==${VSSTOOLS_VERSION}" vspec export s2dm --modular \
+            -s vss/spec/VehicleSignalSpecification.vspec \
+            -I vss/spec \
+            -o spec/vss
+          echo "vss_commit=$(git -C vss rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Create and push new branch
+        id: push_branch
+        run: |
+          git add spec/vss
+          if git diff --cached --quiet; then
+            echo "VSS export produced no changes"
+            exit 0
+          fi
+          TIMESTAMP=$(date -u +"%Y-%m-%d_%Hh_%Mm_%Ss_utc")
+          BRANCH="vss_${TIMESTAMP}"
+          git checkout -b "${BRANCH}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "feat: VSS export ${TIMESTAMP}"
+          git push origin "${BRANCH}"
+          echo "branch=${BRANCH}" >> "$GITHUB_OUTPUT"
+          echo "timestamp=${TIMESTAMP}" >> "$GITHUB_OUTPUT"
+
+      - name: Open pull request
+        if: steps.push_branch.outputs.branch != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr create \
+            --title "feat: VSS export ${{ steps.push_branch.outputs.timestamp }}" \
+            --body "Automated VSS export of ${VSS_REPOSITORY}@${{ steps.export.outputs.vss_commit }} with vss-tools ${VSSTOOLS_VERSION}." \
+            --base main \
+            --head "${{ steps.push_branch.outputs.branch }}"
